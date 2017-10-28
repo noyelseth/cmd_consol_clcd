@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"98 cmd_consol.h
+"102 cmd_consol.h
 [c E7255 0 1 2 .. ]
 [n E7255 . CMD_CONSOL_INIT CMD_CONSOL_READ_CMD CMD_CONSOL_REPLY_HOST  ]
 "150 clcd.h
@@ -70,9 +70,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _clcd_display_string_config `(v ~T0 @X0 0 ef ]
 "195 C:\Program Files (x86)\Microchip\xc8\v1.40\include\stdio.h
 [v _printf `(i ~T0 @X0 0 ev`*Cuc ]
-"83 cmd_consol.h
-[s S851 `uc 1 `uc -> 40 `i `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
-[n S851 . uid data data_set start_row start_col end_row end_col row_col_set scroll scroll_set ]
+"87 cmd_consol.h
+[s S851 `uc 1 `uc -> 40 `i `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S851 . uid data data_set start_row start_col end_row end_col row_col_set scroll scroll_set dis_frq_set ]
 "35 C:\Program Files (x86)\Microchip\xc8\v1.40\include\string.h
 [v _strcpy `(*uc ~T0 @X0 0 ef2`*uc`*Cuc ]
 "54
@@ -6812,86 +6812,87 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;delay.h: 17: void _delay_10uS(int delay);
 [; ;delay.h: 19: void _delay_MS(int delay);
 [; ;delay.h: 21: void delay(int delay);
-"69 cmd_consol.h
+"73 cmd_consol.h
 [v _uart_str `uc ~T0 @X0 -> 150 `i e ]
 [i _uart_str
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;cmd_consol.h: 69: char uart_str[150] = {0};
-"70
+[; ;cmd_consol.h: 73: char uart_str[150] = {0};
+"74
 [v _str_data `uc ~T0 @X0 -> 40 `i e ]
 [i _str_data
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;cmd_consol.h: 70: char str_data[40] = {0};
-"71
+[; ;cmd_consol.h: 74: char str_data[40] = {0};
+"75
 [v _CMD `uc ~T0 @X0 -> 15 `i e ]
 [i _CMD
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;cmd_consol.h: 71: char CMD[15] = {0};
-"72
+[; ;cmd_consol.h: 75: char CMD[15] = {0};
+"76
 [v _valid_cmd `uc ~T0 @X0 1 e ]
 [i _valid_cmd
 -> -> 0 `i `uc
 ]
-[; ;cmd_consol.h: 72: bool valid_cmd = 0;
-"73
+[; ;cmd_consol.h: 76: bool valid_cmd = 0;
+"77
 [v _clcd_init_row `uc ~T0 @X0 1 e ]
 [i _clcd_init_row
 -> -> 0 `i `uc
 ]
-[; ;cmd_consol.h: 73: char clcd_init_row = 0;
-"74
+[; ;cmd_consol.h: 77: char clcd_init_row = 0;
+"78
 [v _clcd_init_col `uc ~T0 @X0 1 e ]
 [i _clcd_init_col
 -> -> 0 `i `uc
 ]
-[; ;cmd_consol.h: 74: char clcd_init_col = 0;
-"75
+[; ;cmd_consol.h: 78: char clcd_init_col = 0;
+"79
 [v _check `uc ~T0 @X0 1 e ]
 [i _check
 -> -> 0 `i `uc
 ]
-[; ;cmd_consol.h: 75: bool check = 0;
-[; ;cmd_consol.h: 77: typedef enum {
-[; ;cmd_consol.h: 78: CMD_CONSOL_INIT,
-[; ;cmd_consol.h: 79: CMD_CONSOL_READ_CMD,
-[; ;cmd_consol.h: 80: CMD_CONSOL_REPLY_HOST,
-[; ;cmd_consol.h: 81: } CMD_CONSOL_STATE;
-[; ;cmd_consol.h: 83: typedef struct {
-[; ;cmd_consol.h: 84: char uid;
-[; ;cmd_consol.h: 85: char data[40];
-[; ;cmd_consol.h: 86: bool data_set;
-[; ;cmd_consol.h: 87: char start_row;
-[; ;cmd_consol.h: 88: char start_col;
-[; ;cmd_consol.h: 89: char end_row;
-[; ;cmd_consol.h: 90: char end_col;
-[; ;cmd_consol.h: 91: bool row_col_set;
-[; ;cmd_consol.h: 92: char scroll;
-[; ;cmd_consol.h: 93: bool scroll_set;
-[; ;cmd_consol.h: 96: } CMD_CONSOL_DATA;
-"98
+[; ;cmd_consol.h: 79: bool check = 0;
+[; ;cmd_consol.h: 81: typedef enum {
+[; ;cmd_consol.h: 82: CMD_CONSOL_INIT,
+[; ;cmd_consol.h: 83: CMD_CONSOL_READ_CMD,
+[; ;cmd_consol.h: 84: CMD_CONSOL_REPLY_HOST,
+[; ;cmd_consol.h: 85: } CMD_CONSOL_STATE;
+[; ;cmd_consol.h: 87: typedef struct {
+[; ;cmd_consol.h: 88: char uid;
+[; ;cmd_consol.h: 89: char data[40];
+[; ;cmd_consol.h: 90: bool data_set;
+[; ;cmd_consol.h: 91: char start_row;
+[; ;cmd_consol.h: 92: char start_col;
+[; ;cmd_consol.h: 93: char end_row;
+[; ;cmd_consol.h: 94: char end_col;
+[; ;cmd_consol.h: 95: bool row_col_set;
+[; ;cmd_consol.h: 96: char scroll;
+[; ;cmd_consol.h: 97: bool scroll_set;
+[; ;cmd_consol.h: 99: bool dis_frq_set;
+[; ;cmd_consol.h: 100: } CMD_CONSOL_DATA;
+"102
 [v _cmd_consol_state `E7255 ~T0 @X0 1 e ]
-[; ;cmd_consol.h: 98: CMD_CONSOL_STATE cmd_consol_state;
-[; ;cmd_consol.h: 99: extern CMD_CONSOL_DATA cmd_data;
-[; ;cmd_consol.h: 100: void console_init();
-[; ;cmd_consol.h: 101: void cmd_consol_task();
+[; ;cmd_consol.h: 102: CMD_CONSOL_STATE cmd_consol_state;
+[; ;cmd_consol.h: 103: extern CMD_CONSOL_DATA cmd_data;
+[; ;cmd_consol.h: 104: void console_init();
+[; ;cmd_consol.h: 105: void cmd_consol_task();
 "28 clcd.h
 [v _LCD_16x2_DISPLAY `uc ~T0 @X0 1 e ]
 [; ;clcd.h: 28: char LCD_16x2_DISPLAY;
 "29
 [v _LCD_20x4_DISPLAY `uc ~T0 @X0 1 e ]
 [; ;clcd.h: 29: char LCD_20x4_DISPLAY;
-[v F7279 `uc ~T0 @X0 -> 20 `i t ]
+[v F7280 `uc ~T0 @X0 -> 20 `i t ]
 "93
-[v _lcd_display_array `F7279 ~T0 @X0 -> 4 `i e ]
+[v _lcd_display_array `F7280 ~T0 @X0 -> 4 `i e ]
 [; ;clcd.h: 93: unsigned char lcd_display_array[4][20];
 [; ;clcd.h: 95: typedef struct {
 [; ;clcd.h: 96: bool init_done;

@@ -8711,7 +8711,7 @@ void _delay_MS(int delay);
 
 void delay(int delay);
 
-# 69 "cmd_consol.h"
+# 73 "cmd_consol.h"
 char uart_str[150] = {0};
 char str_data[40] = {0};
 char CMD[15] = {0};
@@ -8738,7 +8738,7 @@ bool row_col_set;
 char scroll;
 bool scroll_set;
 
-
+bool dis_frq_set;
 } CMD_CONSOL_DATA;
 
 CMD_CONSOL_STATE cmd_consol_state;

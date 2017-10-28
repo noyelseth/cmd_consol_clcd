@@ -13,28 +13,32 @@ extern "C" {
 #endif
 
 #include <stdlib.h>
-#include <stdbool.h>    
+#include <stdbool.h>
+    
+#define     SUCCESS     1
+#define     FAILURE     0
     // CMDs    
 #define KLM_CMD     "KLM"       //KLM
+    #define KLM_CMD_HEADER     "KLM+"
 
-#define KLM_CLCD_SUPPORT    "KLM+LCDS?"
+#define KLM_CLCD_SUPPORT    "LCDS?"
     
-#define MAX_COLUMN_CMD  "KLM+MC?"
-#define MAX_ROW_CMD     "KLM+MR?"
+#define MAX_COLUMN_CMD  "MC?"
+#define MAX_ROW_CMD     "MR?"
 
-#define KLM_INIT        "KLM+LCDS"      //KLM+LCDS=4,16
+#define KLM_INIT        "LCDS"      //KLM+LCDS=4,16
 
-#define KLM_MAX_DISPLAY_STRING_RANGE    "KLM+GMDS?"  //
+#define KLM_MAX_DISPLAY_STRING_RANGE    "GMDS?"  //
 
-#define KLM_SET_DISPLAY_STRING      "KLM+SDSTR"       // KLM+SDSTR=A,HELLO_WORLD        //KLM+SDSTR=B,HELLO_WORLD
-#define KLM_SET_SCROLL              "KLM+SDSCROL"        // KLM+SDSCROL=A,0, KLM+SDSCROL=A,1, KLM+SDSCROL=A,2
+#define KLM_SET_DISPLAY_STRING      "SDSTR"       // KLM+SDSTR=A,HELLO_WORLD        //KLM+SDSTR=B,HELLO_WORLD
+#define KLM_SET_SCROLL              "SDSCROL"        // KLM+SDSCROL=A,0, KLM+SDSCROL=A,1, KLM+SDSCROL=A,2
                                                             //KLM+SDSCROL=B,1
-#define KLM_SET_ROW_COL             "KLM+SDSERC"  // KLM+SDSERC=A,3,3,3,9       //KLM+SDSERC=B,3,0,3,6 
-#define KLM_SET_FREQUENCY           "KLM+SDFRQ"     //KLM+SDFRQ=A,1(sec)
+#define KLM_SET_ROW_COL             "SDSERC"  // KLM+SDSERC=A,3,3,3,9       //KLM+SDSERC=B,3,0,3,6 
+#define KLM_SET_FREQUENCY           "SDFRQ"     //KLM+SDFRQ=A,1(sec)
     
-#define KLM_UPDATE                  "KLM+UPDATE"    //KLM+UPDATE
+#define KLM_UPDATE                  "UPDATE"    //KLM+UPDATE
     
-#define KLM_SET_STR                    "KLM+SSTR"   //KLM+SSTR
+#define KLM_SET_STRING                    "SSTR"   //KLM+SSTR=hello_world...___,0,1,2,3,2,1
 
     // Error Message
 #define CMD_LENGTH_OVER         "ERR_CMD_LEN"
@@ -92,7 +96,7 @@ extern "C" {
         char scroll;
         bool scroll_set;
         //char dis_frq;
-        //bool dis_frq_set;
+        bool dis_frq_set;
     } CMD_CONSOL_DATA;
 
     CMD_CONSOL_STATE cmd_consol_state;
