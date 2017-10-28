@@ -33,11 +33,14 @@ extern "C" {
 #define KLM_SET_FREQUENCY           "KLM+SDFRQ"     //KLM+SDFRQ=A,1(sec)
     
 #define KLM_UPDATE                  "KLM+UPDATE"    //KLM+UPDATE
+    
+#define KLM_SET_STR                    "KLM+SSTR"   //KLM+SSTR
 
     // Error Message
 #define CMD_LENGTH_OVER         "ERR_CMD_LEN"
 #define CMD_SUCCESS_MESSAGE     "OK"
 #define CMD_ERROR               "ERROR"
+#define CMD_INIT_NOT_DONE       "ERR_INIT"
 #define DATA_STR_NOT_SET        "ERR_STR_SET"
 #define ROW_COL_NOT_SET         "ERR_ROW_COL"
 #define SCROLL_NOT_SET          "ERR_SCROLL_SET"
@@ -51,6 +54,7 @@ extern "C" {
 #define ERROR_FREQUENCY         5
 #define ERROR_CONFLICT          6
 #define ERROR_UID               7
+#define ERROR_INIT_NOT_DONE     8
 
 
 
@@ -59,6 +63,7 @@ extern "C" {
 #define CMD_LEN 15
 
 #define TOKENER         "-', /="  
+#define TOKENER_STR         ","  
 #define END_OF_LINE     '\n'
 
     char uart_str[MAX_LEN] = {0};

@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 18F46K22 ]
 [d frameptr 4065 ]
-"93 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\cmd_consol.h
+"98 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.h
 [e E7255 . `uc
 CMD_CONSOL_INIT 0
 CMD_CONSOL_READ_CMD 1
@@ -81,7 +81,7 @@ CMD_CONSOL_REPLY_HOST 2
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"10 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\clcd.c
+"10 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\clcd.c
 [v _reset_clcd reset_clcd `(v  1 e 1 0 ]
 "15
 [v _init_CLCD_config init_CLCD_config `(v  1 e 1 0 ]
@@ -95,75 +95,75 @@ CMD_CONSOL_REPLY_HOST 2
 [v _max_uid_range max_uid_range `(uc  1 e 1 0 ]
 "102
 [v _max_display_support max_display_support `(*.32uc  1 e 2 0 ]
-"107
+"106
 [v _clcd_max_row clcd_max_row `(uc  1 e 1 0 ]
-"114
+"113
 [v _clcd_max_col clcd_max_col `(uc  1 e 1 0 ]
-"121
+"120
 [v _copy_data copy_data `(v  1 e 1 0 ]
-"137
+"136
 [v _conflict_check conflict_check `(uc  1 e 1 0 ]
-"176
+"175
 [v _update_string_data update_string_data `(uc  1 e 1 0 ]
-"209
-[v _clcd_display_string_config clcd_display_string_config `(v  1 e 1 0 ]
 "216
+[v _clcd_display_string_config clcd_display_string_config `(v  1 e 1 0 ]
+"223
 [v _set_cursor set_cursor `(v  1 e 1 0 ]
-"257
+"264
 [v _char_enter_mode_left_to_right char_enter_mode_left_to_right `(v  1 e 1 0 ]
-"272
+"279
 [v _is_busy is_busy `(v  1 e 1 0 ]
-"291
-[v _write_lcd_cmd write_lcd_cmd `(v  1 e 1 0 ]
 "298
-[v _write_lcd_data write_lcd_data `(v  1 e 1 0 ]
+[v _write_lcd_cmd write_lcd_cmd `(v  1 e 1 0 ]
 "305
+[v _write_lcd_data write_lcd_data `(v  1 e 1 0 ]
+"312
 [v _write_str write_str `(v  1 e 1 0 ]
-"318
+"325
 [v _put_string put_string `(v  1 e 1 0 ]
-"383
+"390
 [v _clear_display_structure clear_display_structure `(v  1 e 1 0 ]
-"387
+"394
 [v _reset_display_structure_count reset_display_structure_count `(v  1 e 1 0 ]
-"392
+"399
 [v _clear_display_array clear_display_array `(v  1 e 1 0 ]
-"398
+"404
 [v _scroll_left_to_right scroll_left_to_right `(v  1 s 1 scroll_left_to_right ]
-"438
+"444
 [v _scroll_right_to_left scroll_right_to_left `(v  1 s 1 scroll_right_to_left ]
-"482
+"488
 [v _scroll_off scroll_off `(v  1 s 1 scroll_off ]
-"582
+"559
 [v _make_display make_display `(v  1 e 1 0 ]
-"598
+"574
 [v _display_text display_text `(v  1 e 1 0 ]
-"8 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\cmd_consol.c
+"8 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.c
 [v _clear_cmd_data clear_cmd_data `(v  1 e 1 0 ]
 "16
 [v _collect_row collect_row `(v  1 e 1 0 ]
-"33
+"52
 [v _collect_column collect_column `(v  1 e 1 0 ]
-"58
+"76
 [v _parse_cmd_str parse_cmd_str `(uc  1 e 1 0 ]
-"283
+"316
 [v _reply_to_host reply_to_host `(v  1 e 1 0 ]
-"330
+"363
 [v _console_init console_init `(v  1 e 1 0 ]
-"342
+"375
 [v _cmd_consol_task cmd_consol_task `(v  1 e 1 0 ]
-"5 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\delay.c
+"5 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\delay.c
 [v _delay delay `(v  1 e 1 0 ]
 "17
 [v __delay_10uS _delay_10uS `(v  1 e 1 0 ]
 "29
 [v __delay_MS _delay_MS `(v  1 e 1 0 ]
-"54 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\main.c
+"54 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\main.c
 [v _heart_beat heart_beat `(v  1 e 1 0 ]
 "59
 [v _make_array make_array `(v  1 e 1 0 ]
 "77
 [v _main main `(v  1 e 1 0 ]
-"75 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/eusart1.c
+"75 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/eusart1.c
 [v _EUSART1_Initialize EUSART1_Initialize `(v  1 e 1 0 ]
 "112
 [v _EUSART1_Read EUSART1_Read `(uc  1 e 1 0 ]
@@ -177,17 +177,17 @@ CMD_CONSOL_REPLY_HOST 2
 [v _EUSART1_Transmit_ISR EUSART1_Transmit_ISR `(v  1 e 1 0 ]
 "184
 [v _EUSART1_Receive_ISR EUSART1_Receive_ISR `(v  1 e 1 0 ]
-"51 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/interrupt_manager.c
+"51 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
 "57
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
-"111 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/mcc.c
+"111 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 "123
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
-"51 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/pin_manager.c
+"51 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
-"66 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/tmr0.c
+"66 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/tmr0.c
 [v _TMR0_Initialize TMR0_Initialize `(v  1 e 1 0 ]
 "95
 [v _TMR0_StartTimer TMR0_StartTimer `(v  1 e 1 0 ]
@@ -201,7 +201,7 @@ CMD_CONSOL_REPLY_HOST 2
 [v _TMR0_SetInterruptHandler TMR0_SetInterruptHandler `(v  1 e 1 0 ]
 "166
 [v _TMR0_DefaultInterruptHandler TMR0_DefaultInterruptHandler `(v  1 e 1 0 ]
-"62 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/tmr1.c
+"62 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/tmr1.c
 [v _TMR1_Initialize TMR1_Initialize `(v  1 e 1 0 ]
 "88
 [v _TMR1_StartTimer TMR1_StartTimer `(v  1 e 1 0 ]
@@ -211,7 +211,7 @@ CMD_CONSOL_REPLY_HOST 2
 [v _TMR1_Reload TMR1_Reload `(v  1 e 1 0 ]
 "153
 [v _TMR1_HasOverflowOccured TMR1_HasOverflowOccured `(uc  1 e 1 0 ]
-"62 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/tmr5.c
+"62 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/tmr5.c
 [v _TMR5_Initialize TMR5_Initialize `(v  1 e 1 0 ]
 "88
 [v _TMR5_StartTimer TMR5_StartTimer `(v  1 e 1 0 ]
@@ -430,17 +430,17 @@ CMD_CONSOL_REPLY_HOST 2
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
 "7911
 [v _LATE LATE `VEuc  1 e 1 @3981 ]
-[s S1838 . 1 `uc 1 LATE0 1 0 :1:0 
+[s S1851 . 1 `uc 1 LATE0 1 0 :1:0 
 `uc 1 LATE1 1 0 :1:1 
 `uc 1 LATE2 1 0 :1:2 
 ]
 "7928
-[s S1842 . 1 `uc 1 LE0 1 0 :1:0 
+[s S1855 . 1 `uc 1 LE0 1 0 :1:0 
 `uc 1 LE1 1 0 :1:1 
 `uc 1 LE2 1 0 :1:2 
 ]
-[u S1846 . 1 `S1838 1 . 1 0 `S1842 1 . 1 0 ]
-[v _LATEbits LATEbits `VES1846  1 e 1 @3981 ]
+[u S1859 . 1 `S1851 1 . 1 0 `S1855 1 . 1 0 ]
+[v _LATEbits LATEbits `VES1859  1 e 1 @3981 ]
 "7962
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
 "8183
@@ -691,16 +691,16 @@ CMD_CONSOL_REPLY_HOST 2
 [v _INTCONbits INTCONbits `VES171  1 e 1 @4082 ]
 "354 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\doprnt.c
 [v _dpowers dpowers `C[5]ui  1 s 10 dpowers ]
-"6 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\clcd.c
+"6 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\clcd.c
 [v _data_count data_count `uc  1 s 1 data_count ]
 "7
 [v _conflict_data_count conflict_data_count `uc  1 s 1 conflict_data_count ]
 [s S900 . 5 `uc 1 init_done 1 0 `uc 1 clcd_max_row 1 1 `uc 1 clcd_max_col 1 2 `uc 1 uid_range 1 3 `uc 1 clcd_max_display_string 1 4 ]
 "8
 [v _clcd_config_data clcd_config_data `S900  1 e 5 0 ]
-"207
+"214
 [v _str str `[13]uc  1 e 13 0 ]
-"93 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\clcd.h
+"93 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\clcd.h
 [v _lcd_display_array lcd_display_array `[4][20]uc  1 e 80 0 ]
 [s S884 . 54 `uc 1 uid 1 0 :7:0 
 `[40]uc 1 string 40 1 `uc 1 strlen 1 41 :7:0 
@@ -725,27 +725,27 @@ CMD_CONSOL_REPLY_HOST 2
 "177
 [v _display_struct_count display_struct_count `i  1 e 2 0 ]
 [s S1087 . 49 `uc 1 uid 1 0 `[40]uc 1 data 40 1 `uc 1 data_set 1 41 `uc 1 start_row 1 42 `uc 1 start_col 1 43 `uc 1 end_row 1 44 `uc 1 end_col 1 45 `uc 1 row_col_set 1 46 `uc 1 scroll 1 47 `uc 1 scroll_set 1 48 ]
-"6 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\cmd_consol.c
+"6 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.c
 [v _cmd_data cmd_data `S1087  1 e 49 0 ]
-"64 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\cmd_consol.h
+"69 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.h
 [v _uart_str uart_str `[150]uc  1 e 150 0 ]
-"65
-[v _str_data str_data `[40]uc  1 e 40 0 ]
-"66
-[v _CMD CMD `[15]uc  1 e 15 0 ]
-"67
-[v _valid_cmd valid_cmd `uc  1 e 1 0 ]
-"68
-[v _clcd_init_row clcd_init_row `uc  1 e 1 0 ]
-"69
-[v _clcd_init_col clcd_init_col `uc  1 e 1 0 ]
 "70
+[v _str_data str_data `[40]uc  1 e 40 0 ]
+"71
+[v _CMD CMD `[15]uc  1 e 15 0 ]
+"72
+[v _valid_cmd valid_cmd `uc  1 e 1 0 ]
+"73
+[v _clcd_init_row clcd_init_row `uc  1 e 1 0 ]
+"74
+[v _clcd_init_col clcd_init_col `uc  1 e 1 0 ]
+"75
 [v _check check `uc  1 e 1 0 ]
-"93
+"98
 [v _cmd_consol_state cmd_consol_state `E7255  1 e 1 0 ]
-"58 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\main.c
+"58 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\main.c
 [v _display display `uc  1 e 1 0 ]
-"61 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/eusart1.c
+"61 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/eusart1.c
 [v _eusart1TxHead eusart1TxHead `VEuc  1 e 1 0 ]
 "62
 [v _eusart1TxTail eusart1TxTail `VEuc  1 e 1 0 ]
@@ -761,72 +761,72 @@ CMD_CONSOL_REPLY_HOST 2
 [v _eusart1RxBuffer eusart1RxBuffer `VE[8]uc  1 e 8 0 ]
 "69
 [v _eusart1RxCount eusart1RxCount `VEuc  1 e 1 0 ]
-"57 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/tmr0.c
+"57 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/tmr0.c
 [v _TMR0_InterruptHandler TMR0_InterruptHandler `*.37(v  1 e 2 0 ]
 "59
 [v _timer0ReloadVal timer0ReloadVal `VEui  1 e 2 0 ]
-"56 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/tmr1.c
+"56 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/tmr1.c
 [v _timer1ReloadVal timer1ReloadVal `VEui  1 e 2 0 ]
-"56 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/tmr5.c
+"56 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/tmr5.c
 [v _timer5ReloadVal timer5ReloadVal `VEui  1 e 2 0 ]
-"77 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\main.c
+"77 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
 "142
 } 0
-"330 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\cmd_consol.c
+"363 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.c
 [v _console_init console_init `(v  1 e 1 0 ]
 {
-"340
+"373
 } 0
 "8
 [v _clear_cmd_data clear_cmd_data `(v  1 e 1 0 ]
 {
 "14
 } 0
-"342
+"375
 [v _cmd_consol_task cmd_consol_task `(v  1 e 1 0 ]
 {
-"345
-[v cmd_consol_task@ch ch `uc  1 a 1 10 ]
-"344
+"378
+[v cmd_consol_task@ch ch `uc  1 a 1 14 ]
+"377
 [v cmd_consol_task@i i `i  1 s 2 i ]
-"401
+"440
 } 0
-"283
+"316
 [v _reply_to_host reply_to_host `(v  1 e 1 0 ]
 {
-"313
-[v reply_to_host@ch ch `uc  1 a 1 8 ]
-"328
+"346
+[v reply_to_host@ch ch `uc  1 a 1 13 ]
+"361
 } 0
-"176 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\clcd.c
+"175 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\clcd.c
 [v _update_string_data update_string_data `(uc  1 e 1 0 ]
 {
-"177
-[v update_string_data@i i `i  1 a 2 3 ]
-"178
-[v update_string_data@exist_uid_idx exist_uid_idx `uc  1 a 1 2 ]
-"179
-[v update_string_data@end_point end_point `uc  1 a 1 1 ]
-[v update_string_data@start_point start_point `uc  1 a 1 0 ]
-[s S1087 . 49 `uc 1 uid 1 0 `[40]uc 1 data 40 1 `uc 1 data_set 1 41 `uc 1 start_row 1 42 `uc 1 start_col 1 43 `uc 1 end_row 1 44 `uc 1 end_col 1 45 `uc 1 row_col_set 1 46 `uc 1 scroll 1 47 `uc 1 scroll_set 1 48 ]
 "176
-[v update_string_data@data data `*.39S1087  1 p 2 13 ]
-"205
+[v update_string_data@i i `i  1 a 2 8 ]
+"178
+[v update_string_data@end_point end_point `uc  1 a 1 7 ]
+[v update_string_data@start_point start_point `uc  1 a 1 6 ]
+"177
+[v update_string_data@exist_uid_idx exist_uid_idx `uc  1 a 1 5 ]
+[s S1087 . 49 `uc 1 uid 1 0 `[40]uc 1 data 40 1 `uc 1 data_set 1 41 `uc 1 start_row 1 42 `uc 1 start_col 1 43 `uc 1 end_row 1 44 `uc 1 end_col 1 45 `uc 1 row_col_set 1 46 `uc 1 scroll 1 47 `uc 1 scroll_set 1 48 ]
+"175
+[v update_string_data@data data `*.39S1087  1 p 2 0 ]
+"212
 } 0
-"582
+"559
 [v _make_display make_display `(v  1 e 1 0 ]
 {
-"583
+"560
 [v make_display@count count `i  1 a 2 62 ]
-"596
+"572
 } 0
-"438
+"444
 [v _scroll_right_to_left scroll_right_to_left `(v  1 s 1 scroll_right_to_left ]
 {
-"440
-[v scroll_right_to_left@line line `uc  1 a 1 55 ]
+"446
+[v scroll_right_to_left@line line `uc  1 a 1 58 ]
 [s S884 . 54 `uc 1 uid 1 0 :7:0 
 `[40]uc 1 string 40 1 `uc 1 strlen 1 41 :7:0 
 `uc 1 start_row 1 42 :7:0 
@@ -841,9 +841,9 @@ CMD_CONSOL_REPLY_HOST 2
 `uc 1 length_count_for_left_scroll 1 52 :7:0 
 `uc 1 length_decount_for_left_scroll 1 53 :7:0 
 ]
-"438
-[v scroll_right_to_left@clcd_display_string_details clcd_display_string_details `*.39S884  1 p 2 53 ]
-"480
+"444
+[v scroll_right_to_left@clcd_display_string_details clcd_display_string_details `*.39S884  1 p 2 43 ]
+"486
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\strncpy.c
 [v _strncpy strncpy `(*.39uc  1 e 2 0 ]
@@ -856,20 +856,20 @@ CMD_CONSOL_REPLY_HOST 2
 [v strncpy@size size `ui  1 p 2 19 ]
 "27
 } 0
-"482 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\clcd.c
+"488 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\clcd.c
 [v _scroll_off scroll_off `(v  1 s 1 scroll_off ]
 {
-"485
-[v scroll_off@i i `i  1 a 2 7 ]
-"486
-[v scroll_off@j j `i  1 a 2 5 ]
-[v scroll_off@k k `i  1 a 2 0 ]
-"488
-[v scroll_off@str_len str_len `uc  1 a 1 4 ]
-"487
-[v scroll_off@display_char_count display_char_count `uc  1 a 1 3 ]
-"483
-[v scroll_off@line line `uc  1 a 1 2 ]
+"491
+[v scroll_off@i i `i  1 a 2 48 ]
+"492
+[v scroll_off@j j `i  1 a 2 46 ]
+[v scroll_off@k k `i  1 a 2 41 ]
+"494
+[v scroll_off@str_len str_len `uc  1 a 1 45 ]
+"493
+[v scroll_off@display_char_count display_char_count `uc  1 a 1 44 ]
+"489
+[v scroll_off@line line `uc  1 a 1 43 ]
 [s S884 . 54 `uc 1 uid 1 0 :7:0 
 `[40]uc 1 string 40 1 `uc 1 strlen 1 41 :7:0 
 `uc 1 start_row 1 42 :7:0 
@@ -884,14 +884,14 @@ CMD_CONSOL_REPLY_HOST 2
 `uc 1 length_count_for_left_scroll 1 52 :7:0 
 `uc 1 length_decount_for_left_scroll 1 53 :7:0 
 ]
-"482
-[v scroll_off@clcd_display_string_details clcd_display_string_details `*.39S884  1 p 2 53 ]
-"502
+"488
+[v scroll_off@clcd_display_string_details clcd_display_string_details `*.39S884  1 p 2 35 ]
+"508
 } 0
-"398
+"404
 [v _scroll_left_to_right scroll_left_to_right `(v  1 s 1 scroll_left_to_right ]
 {
-"399
+"405
 [v scroll_left_to_right@line line `uc  1 a 1 53 ]
 [s S884 . 54 `uc 1 uid 1 0 :7:0 
 `[40]uc 1 string 40 1 `uc 1 strlen 1 41 :7:0 
@@ -907,30 +907,30 @@ CMD_CONSOL_REPLY_HOST 2
 `uc 1 length_count_for_left_scroll 1 52 :7:0 
 `uc 1 length_decount_for_left_scroll 1 53 :7:0 
 ]
-"398
+"404
 [v scroll_left_to_right@clcd_display_string_details clcd_display_string_details `*.39S884  1 p 2 43 ]
-"436
+"442
 } 0
-"598
+"574
 [v _display_text display_text `(v  1 e 1 0 ]
 {
-"614
+"590
 } 0
-"216
+"223
 [v _set_cursor set_cursor `(v  1 e 1 0 ]
 {
 [v set_cursor@row_number row_number `uc  1 a 1 wreg ]
 [v set_cursor@row_number row_number `uc  1 a 1 wreg ]
 [v set_cursor@col_number col_number `uc  1 p 1 23 ]
 [v set_cursor@row_number row_number `uc  1 a 1 24 ]
-"221
+"228
 } 0
-"257
+"264
 [v _char_enter_mode_left_to_right char_enter_mode_left_to_right `(v  1 e 1 0 ]
 {
-"262
+"269
 } 0
-"121
+"120
 [v _copy_data copy_data `(v  1 e 1 0 ]
 {
 [s S884 . 54 `uc 1 uid 1 0 :7:0 
@@ -950,21 +950,20 @@ CMD_CONSOL_REPLY_HOST 2
 [v copy_data@clcd_str_data clcd_str_data `*.39S884  1 p 2 53 ]
 [s S1087 . 49 `uc 1 uid 1 0 `[40]uc 1 data 40 1 `uc 1 data_set 1 41 `uc 1 start_row 1 42 `uc 1 start_col 1 43 `uc 1 end_row 1 44 `uc 1 end_col 1 45 `uc 1 row_col_set 1 46 `uc 1 scroll 1 47 `uc 1 scroll_set 1 48 ]
 [v copy_data@data data `*.39S1087  1 p 2 55 ]
-"135
+"134
 } 0
-"137
+"136
 [v _conflict_check conflict_check `(uc  1 e 1 0 ]
 {
 [v conflict_check@exist_uid_idx exist_uid_idx `uc  1 a 1 wreg ]
-"139
-[v conflict_check@i i `i  1 a 2 60 ]
-"140
-[v conflict_check@conflict conflict `uc  1 a 1 59 ]
 "137
+[v conflict_check@i i `i  1 a 2 60 ]
+"138
+[v conflict_check@conflict conflict `uc  1 a 1 59 ]
+"136
 [v conflict_check@exist_uid_idx exist_uid_idx `uc  1 a 1 wreg ]
 [v conflict_check@new_start_point new_start_point `uc  1 p 1 53 ]
 [v conflict_check@new_end_point new_end_point `uc  1 p 1 54 ]
-"139
 [v conflict_check@exist_uid_idx exist_uid_idx `uc  1 a 1 58 ]
 "173
 } 0
@@ -990,7 +989,7 @@ CMD_CONSOL_REPLY_HOST 2
 [v cputs@s s `*.32Cuc  1 p 2 17 ]
 "8
 } 0
-"88 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\clcd.c
+"88 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\clcd.c
 [v _min_uid_range min_uid_range `(uc  1 e 1 0 ]
 {
 "93
@@ -1003,7 +1002,7 @@ CMD_CONSOL_REPLY_HOST 2
 "102
 [v _max_display_support max_display_support `(*.32uc  1 e 2 0 ]
 {
-"105
+"104
 } 0
 "81
 [v _max_display_str max_display_str `(uc  1 e 1 0 ]
@@ -1024,57 +1023,57 @@ CMD_CONSOL_REPLY_HOST 2
 {
 "47
 } 0
-"291
+"298
 [v _write_lcd_cmd write_lcd_cmd `(v  1 e 1 0 ]
 {
 [v write_lcd_cmd@cmd cmd `uc  1 a 1 wreg ]
 [v write_lcd_cmd@cmd cmd `uc  1 a 1 wreg ]
 [v write_lcd_cmd@cmd cmd `uc  1 a 1 22 ]
-"296
+"303
 } 0
 "10
 [v _reset_clcd reset_clcd `(v  1 e 1 0 ]
 {
 "13
 } 0
-"392
+"399
 [v _clear_display_array clear_display_array `(v  1 e 1 0 ]
 {
-"395
+"402
 } 0
-"387
+"394
 [v _reset_display_structure_count reset_display_structure_count `(v  1 e 1 0 ]
 {
-"390
+"397
 } 0
-"383
+"390
 [v _clear_display_structure clear_display_structure `(v  1 e 1 0 ]
 {
-"385
+"392
 } 0
-"209
+"216
 [v _clcd_display_string_config clcd_display_string_config `(v  1 e 1 0 ]
 {
-"214
+"221
 } 0
-"305
+"312
 [v _write_str write_str `(v  1 e 1 0 ]
 {
-"307
+"314
 [v write_str@i i `uc  1 a 1 25 ]
-"305
+"312
 [v write_str@str str `*.39Cuc  1 p 2 23 ]
-"316
+"323
 } 0
-"298
+"305
 [v _write_lcd_data write_lcd_data `(v  1 e 1 0 ]
 {
 [v write_lcd_data@data data `uc  1 a 1 wreg ]
 [v write_lcd_data@data data `uc  1 a 1 wreg ]
 [v write_lcd_data@data data `uc  1 a 1 22 ]
-"303
+"310
 } 0
-"5 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\delay.c
+"5 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\delay.c
 [v _delay delay `(v  1 e 1 0 ]
 {
 "7
@@ -1097,7 +1096,7 @@ CMD_CONSOL_REPLY_HOST 2
 [v memcpy@n n `ui  1 p 2 19 ]
 "32
 } 0
-"29 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\delay.c
+"29 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\delay.c
 [v __delay_MS _delay_MS `(v  1 e 1 0 ]
 {
 "30
@@ -1106,7 +1105,7 @@ CMD_CONSOL_REPLY_HOST 2
 [v __delay_MS@delay delay `i  1 p 2 15 ]
 "38
 } 0
-"94 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/tmr1.c
+"94 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/tmr1.c
 [v _TMR1_StopTimer TMR1_StopTimer `(v  1 e 1 0 ]
 {
 "98
@@ -1134,43 +1133,45 @@ CMD_CONSOL_REPLY_HOST 2
 [v ___awdiv@divisor divisor `i  1 p 2 17 ]
 "42
 } 0
-"107 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\clcd.c
+"106 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\clcd.c
 [v _clcd_max_row clcd_max_row `(uc  1 e 1 0 ]
 {
-"112
+"111
 } 0
-"114
+"113
 [v _clcd_max_col clcd_max_col `(uc  1 e 1 0 ]
 {
-"119
+"118
 } 0
-"58 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\cmd_consol.c
+"76 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.c
 [v _parse_cmd_str parse_cmd_str `(uc  1 e 1 0 ]
 {
-"215
-[v parse_cmd_str@i_1689 i `uc  1 a 1 6 ]
-"170
-[v parse_cmd_str@i_1680 i `uc  1 a 1 9 ]
-"134
-[v parse_cmd_str@i i `uc  1 a 1 5 ]
-"213
-[v parse_cmd_str@uid_1688 uid `uc  1 a 1 13 ]
-"166
-[v parse_cmd_str@uid_1677 uid `uc  1 a 1 12 ]
-"165
-[v parse_cmd_str@scroll scroll `uc  1 a 1 11 ]
-"129
-[v parse_cmd_str@uid uid `uc  1 a 1 10 ]
-"93
-[v parse_cmd_str@column column `uc  1 a 1 8 ]
-[v parse_cmd_str@row row `uc  1 a 1 7 ]
-"60
-[v parse_cmd_str@temp temp `*.34uc  1 a 2 16 ]
-"61
-[v parse_cmd_str@ptr ptr `*.39uc  1 a 2 14 ]
-"58
+"233
+[v parse_cmd_str@i_1697 i `uc  1 a 1 1 ]
+"188
+[v parse_cmd_str@i_1688 i `uc  1 a 1 5 ]
+"152
+[v parse_cmd_str@i i `uc  1 a 1 0 ]
+"296
+[v parse_cmd_str@uid_1713 uid `uc  1 a 1 4 ]
+"231
+[v parse_cmd_str@uid_1696 uid `uc  1 a 1 9 ]
+"184
+[v parse_cmd_str@uid_1685 uid `uc  1 a 1 8 ]
+"183
+[v parse_cmd_str@scroll scroll `uc  1 a 1 7 ]
+"147
+[v parse_cmd_str@uid uid `uc  1 a 1 6 ]
+"111
+[v parse_cmd_str@column column `uc  1 a 1 3 ]
+[v parse_cmd_str@row row `uc  1 a 1 2 ]
+"78
+[v parse_cmd_str@temp temp `*.34uc  1 a 2 12 ]
+"79
+[v parse_cmd_str@ptr ptr `*.39uc  1 a 2 10 ]
+"76
 [v parse_cmd_str@str str `*.39uc  1 p 2 0 ]
-"281
+"314
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\strtok.c
 [v _strtok strtok `(*.39uc  1 e 2 0 ]
@@ -1244,7 +1245,7 @@ CMD_CONSOL_REPLY_HOST 2
 [v memset@n n `ui  1 p 2 39 ]
 "22
 } 0
-"16 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\cmd_consol.c
+"16 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.c
 [v _collect_row collect_row `(v  1 e 1 0 ]
 {
 "18
@@ -1256,17 +1257,17 @@ CMD_CONSOL_REPLY_HOST 2
 [v collect_row@data_row data_row `*.39uc  1 p 2 55 ]
 "31
 } 0
-"33
+"52
 [v _collect_column collect_column `(v  1 e 1 0 ]
 {
-"35
+"54
 [v collect_column@i i `i  1 a 2 61 ]
-"36
+"55
 [v collect_column@column column `uc  1 a 1 60 ]
-"33
+"52
 [v collect_column@str str `*.34uc  1 p 2 53 ]
 [v collect_column@data_column data_column `*.39uc  1 p 2 55 ]
-"56
+"74
 } 0
 "4 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\strlen.c
 [v _strlen strlen `(ui  1 e 2 0 ]
@@ -1296,7 +1297,7 @@ CMD_CONSOL_REPLY_HOST 2
 [v printf@f f `*.32Cuc  1 p 2 35 ]
 "1541
 } 0
-"160 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/eusart1.c
+"160 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/eusart1.c
 [v _putch putch `(v  1 e 1 0 ]
 {
 [v putch@txData txData `uc  1 a 1 wreg ]
@@ -1365,7 +1366,7 @@ CMD_CONSOL_REPLY_HOST 2
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 25 ]
 "53
 } 0
-"155 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/eusart1.c
+"155 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/eusart1.c
 [v _getch getch `(uc  1 e 1 0 ]
 {
 "158
@@ -1377,22 +1378,22 @@ CMD_CONSOL_REPLY_HOST 2
 [v EUSART1_Read@readValue readValue `uc  1 a 1 15 ]
 "130
 } 0
-"94 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/tmr5.c
+"94 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/tmr5.c
 [v _TMR5_StopTimer TMR5_StopTimer `(v  1 e 1 0 ]
 {
 "98
 } 0
-"101 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/tmr0.c
+"101 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/tmr0.c
 [v _TMR0_StopTimer TMR0_StopTimer `(v  1 e 1 0 ]
 {
 "105
 } 0
-"111 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/mcc.c
+"111 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 {
 "121
 } 0
-"62 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/tmr5.c
+"62 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/tmr5.c
 [v _TMR5_Initialize TMR5_Initialize `(v  1 e 1 0 ]
 {
 "86
@@ -1402,7 +1403,7 @@ CMD_CONSOL_REPLY_HOST 2
 {
 "92
 } 0
-"62 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/tmr1.c
+"62 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/tmr1.c
 [v _TMR1_Initialize TMR1_Initialize `(v  1 e 1 0 ]
 {
 "86
@@ -1412,7 +1413,7 @@ CMD_CONSOL_REPLY_HOST 2
 {
 "92
 } 0
-"66 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/tmr0.c
+"66 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/tmr0.c
 [v _TMR0_Initialize TMR0_Initialize `(v  1 e 1 0 ]
 {
 "93
@@ -1428,32 +1429,32 @@ CMD_CONSOL_REPLY_HOST 2
 [v TMR0_SetInterruptHandler@InterruptHandler InterruptHandler `*.2v  1 p 2 15 ]
 "164
 } 0
-"51 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/pin_manager.c
+"51 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
 {
 "91
 } 0
-"123 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/mcc.c
+"123 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/mcc.c
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
 {
 "131
 } 0
-"51 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/interrupt_manager.c
+"51 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
 {
 "55
 } 0
-"75 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/eusart1.c
+"75 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/eusart1.c
 [v _EUSART1_Initialize EUSART1_Initialize `(v  1 e 1 0 ]
 {
 "110
 } 0
-"57 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/interrupt_manager.c
+"57 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
 {
 "76
 } 0
-"134 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/tmr0.c
+"134 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/tmr0.c
 [v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
 {
 "150
@@ -1468,7 +1469,7 @@ CMD_CONSOL_REPLY_HOST 2
 {
 "169
 } 0
-"59 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\main.c
+"59 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\main.c
 [v _make_array make_array `(v  1 e 1 0 ]
 {
 "68
@@ -1478,7 +1479,7 @@ CMD_CONSOL_REPLY_HOST 2
 {
 "57
 } 0
-"165 E:\Project_IQ\MPLAB_X_project\clcd_usart_cmd_consol.X\mcc_generated_files/eusart1.c
+"165 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/eusart1.c
 [v _EUSART1_Transmit_ISR EUSART1_Transmit_ISR `(v  1 e 1 0 ]
 {
 "182

@@ -6,9 +6,9 @@
             <name>clcd_usart_cmd_consol</name>
             <creation-uuid>a7ea6097-d53a-49f5-98b7-d20e27d75082</creation-uuid>
             <make-project-type>0</make-project-type>
-            <c-extensions/>
+            <c-extensions>c</c-extensions>
             <cpp-extensions/>
-            <header-extensions>c,h</header-extensions>
+            <header-extensions>h</header-extensions>
             <asminc-extensions/>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>

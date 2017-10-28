@@ -30,22 +30,40 @@ void collect_row(char *str, char *data_row) {
     }
 }
 
+char get_uid(char *str) {
+    return str[0];
+}
+
+char* get_str(char* str) {
+    if (strlen(str) < MAX_DATA_LEN) {
+        strcpy(cmd_data.data, str);
+        valid_cmd = true;
+        cmd_data.data_set = true;
+        memset(str, 0, strlen(str));
+        return str;
+    } 
+    return NULL;
+}
+char get_duration(char* str)
+{
+    
+}
+
 void collect_column(char *str, char *data_column) {
     printf("col..1 = %s\r\n", str);
     int i = 0;
     char column = 0;
     for (i = 0; i < strlen(str); i++) {
-        if (isdigit(str[i]) == 1){
+        if (isdigit(str[i]) == 1) {
             column = column * 10 + (str[i] - '0');
-            printf("strlen = %d, i=%d, col.. = %d\r\n",strlen(str),i, column);
+            printf("strlen = %d, i=%d, col.. = %d\r\n", strlen(str), i, column);
             printf("str[%d] = %d\r\n", i, str[i]);
-        }
-        else{
-            printf("i = %d, col..2 = %s\r\n",i, str);
+        } else {
+            printf("i = %d, col..2 = %s\r\n", i, str);
             printf("str[%d] = %d\r\n", i, str[i]);
             return;
         }
-        
+
     }
     printf("Col = %d\r\n", column);
     if (column >= clcd_config_data.clcd_max_col) {
@@ -136,7 +154,7 @@ char parse_cmd_str(char *str) {
                     if (uid >= START_UID && uid < clcd_config_data.uid_range) {
                         printf("uid = %d, ", uid);
                         cmd_data.uid = uid;
-                        temp = strtok(NULL, TOKENER);
+                        temp = strtok(NULL, TOKENER_STR);
                         if (temp != NULL) {
                             printf("str = %s\r\n", temp);
                             if (strlen(temp) < MAX_DATA_LEN) {
@@ -270,6 +288,21 @@ char parse_cmd_str(char *str) {
         memset(str, 0, strlen(str));
         valid_cmd = true;
         return OK_CMD;
+    } else if ((temp = strstr(ptr, KLM_SET_STR)) != NULL) {
+        if (clcd_config_data.init_done == true) {
+            temp = strtok(ptr, TOKENER);
+            if (temp != NULL) {
+                strcpy(CMD, temp);
+                char uid = 0;
+                temp = strtok(ptr, TOKENER);
+                if (temp != NULL) {
+                    uid = temp[0];
+                    if (uid >= START_UID && uid < clcd_config_data.uid_range) {
+                        cmd_data.uid = uid;
+                    }
+                }
+            }
+        }
     } else if ((temp = strstr(ptr, KLM_CMD)) != NULL) {
         strcpy(CMD, temp);
         memset(str, 0, strlen(str));
@@ -311,8 +344,8 @@ void reply_to_host() {
     } else if (strcmp(CMD, KLM_UPDATE) == 0) { //  KLM+UPDATE
         if (cmd_data.data_set == true && cmd_data.row_col_set == true && cmd_data.scroll_set == true) {
             char ch = update_string_data(&cmd_data);
-            if(ch == CONFLICT_STRING)
-                printf("%s\r\n",CMD_ERROR);
+            if (ch == CONFLICT_STRING)
+                printf("%s\r\n", CMD_ERROR);
             else
                 printf("\r\n%s.., OK\r\n", KLM_UPDATE);
         } else {
@@ -350,7 +383,12 @@ void cmd_consol_task() {
                 check = true;
                 printf("\r\n");
                 break;
-            } else {
+            }else if(ch == 8){
+                uart_str[--i]=0;
+                printf("%c", ch);
+                continue;
+            }
+            else {
                 uart_str[i] = ch;
                 printf("%c", uart_str[i]);
             }

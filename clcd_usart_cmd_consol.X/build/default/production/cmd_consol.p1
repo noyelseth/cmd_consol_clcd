@@ -1,11 +1,11 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"93 cmd_consol.h
+"98 cmd_consol.h
 [c E7328 0 1 2 .. ]
 [n E7328 . CMD_CONSOL_INIT CMD_CONSOL_READ_CMD CMD_CONSOL_REPLY_HOST  ]
 "150 clcd.h
 [s S853 :7 `uc 1 `uc -> 40 `i :7 `uc 1 :7 `uc 1 :7 `uc 1 :7 `uc 1 :7 `uc 1 :7 `uc 1 :7 `uc 1 :3 `uc 1 `uc 1 :7 `uc 1 :7 `uc 1 :7 `uc 1 :7 `uc 1 ]
 [n S853 . uid string strlen start_row start_col start_point end_row end_col end_point direction display_char_count length_count_for_right_scroll length_decount_for_right_scroll length_count_for_left_scroll length_decount_for_left_scroll ]
-"78 cmd_consol.h
+"83 cmd_consol.h
 [s S851 `uc 1 `uc -> 40 `i `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S851 . uid data data_set start_row start_col end_row end_col row_col_set scroll scroll_set ]
 "16 C:\Program Files (x86)\Microchip\xc8\v1.40\include\string.h
@@ -21,12 +21,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S852 . init_done clcd_max_row clcd_max_col uid_range clcd_max_display_string ]
 "102
 [v _clcd_config_data `S852 ~T0 @X0 0 e ]
-"51 C:\Program Files (x86)\Microchip\xc8\v1.40\include\string.h
+"35 C:\Program Files (x86)\Microchip\xc8\v1.40\include\string.h
+[v _strcpy `(*uc ~T0 @X0 0 ef2`*uc`*Cuc ]
+"51
 [v _strstr `(*uc ~T0 @X0 0 ef2`*Cuc`*Cuc ]
 "39
 [v _strtok `(*uc ~T0 @X0 0 ef2`*uc`*Cuc ]
-"35
-[v _strcpy `(*uc ~T0 @X0 0 ef2`*uc`*Cuc ]
 "55 C:\Program Files (x86)\Microchip\xc8\v1.40\include\stdlib.h
 [v _atoi `(i ~T0 @X0 0 ef1`*Cuc ]
 "43 C:\Program Files (x86)\Microchip\xc8\v1.40\include\string.h
@@ -6665,17 +6665,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;interrupt_manager.h: 110: void interrupt INTERRUPT_InterruptManager(void);
 [; ;interrupt_manager.h: 122: void INTERRUPT_Initialize (void);
-[; ;tmr0.h: 105: void TMR0_Initialize(void);
-[; ;tmr0.h: 134: void TMR0_StartTimer(void);
-[; ;tmr0.h: 166: void TMR0_StopTimer(void);
-[; ;tmr0.h: 202: uint16_t TMR0_ReadTimer(void);
-[; ;tmr0.h: 241: void TMR0_WriteTimer(uint16_t timerVal);
-[; ;tmr0.h: 277: void TMR0_Reload(void);
-[; ;tmr0.h: 295: void TMR0_ISR(void);
-[; ;tmr0.h: 313: void TMR0_CallBack(void);
-[; ;tmr0.h: 331: void TMR0_SetInterruptHandler(void *InterruptHandler);
-[; ;tmr0.h: 349: extern void (*TMR0_InterruptHandler)(void);
-[; ;tmr0.h: 367: void TMR0_DefaultInterruptHandler(void);
 [; ;tmr1.h: 93: void TMR1_Initialize(void);
 [; ;tmr1.h: 124: void TMR1_StartTimer(void);
 [; ;tmr1.h: 154: void TMR1_StopTimer(void);
@@ -6685,15 +6674,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr1.h: 287: void TMR1_StartSinglePulseAcquisition(void);
 [; ;tmr1.h: 328: uint8_t TMR1_CheckGateValueStatus(void);
 [; ;tmr1.h: 366: bool TMR1_HasOverflowOccured(void);
-[; ;tmr5.h: 93: void TMR5_Initialize(void);
-[; ;tmr5.h: 124: void TMR5_StartTimer(void);
-[; ;tmr5.h: 154: void TMR5_StopTimer(void);
-[; ;tmr5.h: 188: uint16_t TMR5_ReadTimer(void);
-[; ;tmr5.h: 214: void TMR5_WriteTimer(uint16_t timerVal);
-[; ;tmr5.h: 246: void TMR5_Reload(void);
-[; ;tmr5.h: 287: void TMR5_StartSinglePulseAcquisition(void);
-[; ;tmr5.h: 328: uint8_t TMR5_CheckGateValueStatus(void);
-[; ;tmr5.h: 366: bool TMR5_HasOverflowOccured(void);
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
 [; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
@@ -6730,6 +6710,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart1.h: 180: void EUSART1_Write(uint8_t txData);
 [; ;eusart1.h: 201: void EUSART1_Transmit_ISR(void);
 [; ;eusart1.h: 222: void EUSART1_Receive_ISR(void);
+[; ;tmr0.h: 105: void TMR0_Initialize(void);
+[; ;tmr0.h: 134: void TMR0_StartTimer(void);
+[; ;tmr0.h: 166: void TMR0_StopTimer(void);
+[; ;tmr0.h: 202: uint16_t TMR0_ReadTimer(void);
+[; ;tmr0.h: 241: void TMR0_WriteTimer(uint16_t timerVal);
+[; ;tmr0.h: 277: void TMR0_Reload(void);
+[; ;tmr0.h: 295: void TMR0_ISR(void);
+[; ;tmr0.h: 313: void TMR0_CallBack(void);
+[; ;tmr0.h: 331: void TMR0_SetInterruptHandler(void *InterruptHandler);
+[; ;tmr0.h: 349: extern void (*TMR0_InterruptHandler)(void);
+[; ;tmr0.h: 367: void TMR0_DefaultInterruptHandler(void);
+[; ;tmr5.h: 93: void TMR5_Initialize(void);
+[; ;tmr5.h: 124: void TMR5_StartTimer(void);
+[; ;tmr5.h: 154: void TMR5_StopTimer(void);
+[; ;tmr5.h: 188: uint16_t TMR5_ReadTimer(void);
+[; ;tmr5.h: 214: void TMR5_WriteTimer(uint16_t timerVal);
+[; ;tmr5.h: 246: void TMR5_Reload(void);
+[; ;tmr5.h: 287: void TMR5_StartSinglePulseAcquisition(void);
+[; ;tmr5.h: 328: uint8_t TMR5_CheckGateValueStatus(void);
+[; ;tmr5.h: 366: bool TMR5_HasOverflowOccured(void);
 [; ;mcc.h: 72: void SYSTEM_Initialize(void);
 [; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
 [; ;stdlib.h: 7: typedef unsigned short wchar_t;
@@ -6782,77 +6782,77 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdlib.h: 101: extern char * ltoa(char * buf, long val, int base);
 [; ;stdlib.h: 102: extern char * ultoa(char * buf, unsigned long val, int base);
 [; ;stdlib.h: 104: extern char * ftoa(float f, int * status);
-"64 cmd_consol.h
+"69 cmd_consol.h
 [v _uart_str `uc ~T0 @X0 -> 150 `i e ]
 [i _uart_str
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;cmd_consol.h: 64: char uart_str[150] = {0};
-"65
+[; ;cmd_consol.h: 69: char uart_str[150] = {0};
+"70
 [v _str_data `uc ~T0 @X0 -> 40 `i e ]
 [i _str_data
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;cmd_consol.h: 65: char str_data[40] = {0};
-"66
+[; ;cmd_consol.h: 70: char str_data[40] = {0};
+"71
 [v _CMD `uc ~T0 @X0 -> 15 `i e ]
 [i _CMD
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;cmd_consol.h: 66: char CMD[15] = {0};
-"67
+[; ;cmd_consol.h: 71: char CMD[15] = {0};
+"72
 [v _valid_cmd `uc ~T0 @X0 1 e ]
 [i _valid_cmd
 -> -> 0 `i `uc
 ]
-[; ;cmd_consol.h: 67: bool valid_cmd = 0;
-"68
+[; ;cmd_consol.h: 72: bool valid_cmd = 0;
+"73
 [v _clcd_init_row `uc ~T0 @X0 1 e ]
 [i _clcd_init_row
 -> -> 0 `i `uc
 ]
-[; ;cmd_consol.h: 68: char clcd_init_row = 0;
-"69
+[; ;cmd_consol.h: 73: char clcd_init_row = 0;
+"74
 [v _clcd_init_col `uc ~T0 @X0 1 e ]
 [i _clcd_init_col
 -> -> 0 `i `uc
 ]
-[; ;cmd_consol.h: 69: char clcd_init_col = 0;
-"70
+[; ;cmd_consol.h: 74: char clcd_init_col = 0;
+"75
 [v _check `uc ~T0 @X0 1 e ]
 [i _check
 -> -> 0 `i `uc
 ]
-[; ;cmd_consol.h: 70: bool check = 0;
-[; ;cmd_consol.h: 72: typedef enum {
-[; ;cmd_consol.h: 73: CMD_CONSOL_INIT,
-[; ;cmd_consol.h: 74: CMD_CONSOL_READ_CMD,
-[; ;cmd_consol.h: 75: CMD_CONSOL_REPLY_HOST,
-[; ;cmd_consol.h: 76: } CMD_CONSOL_STATE;
-[; ;cmd_consol.h: 78: typedef struct {
-[; ;cmd_consol.h: 79: char uid;
-[; ;cmd_consol.h: 80: char data[40];
-[; ;cmd_consol.h: 81: bool data_set;
-[; ;cmd_consol.h: 82: char start_row;
-[; ;cmd_consol.h: 83: char start_col;
-[; ;cmd_consol.h: 84: char end_row;
-[; ;cmd_consol.h: 85: char end_col;
-[; ;cmd_consol.h: 86: bool row_col_set;
-[; ;cmd_consol.h: 87: char scroll;
-[; ;cmd_consol.h: 88: bool scroll_set;
-[; ;cmd_consol.h: 91: } CMD_CONSOL_DATA;
-"93
+[; ;cmd_consol.h: 75: bool check = 0;
+[; ;cmd_consol.h: 77: typedef enum {
+[; ;cmd_consol.h: 78: CMD_CONSOL_INIT,
+[; ;cmd_consol.h: 79: CMD_CONSOL_READ_CMD,
+[; ;cmd_consol.h: 80: CMD_CONSOL_REPLY_HOST,
+[; ;cmd_consol.h: 81: } CMD_CONSOL_STATE;
+[; ;cmd_consol.h: 83: typedef struct {
+[; ;cmd_consol.h: 84: char uid;
+[; ;cmd_consol.h: 85: char data[40];
+[; ;cmd_consol.h: 86: bool data_set;
+[; ;cmd_consol.h: 87: char start_row;
+[; ;cmd_consol.h: 88: char start_col;
+[; ;cmd_consol.h: 89: char end_row;
+[; ;cmd_consol.h: 90: char end_col;
+[; ;cmd_consol.h: 91: bool row_col_set;
+[; ;cmd_consol.h: 92: char scroll;
+[; ;cmd_consol.h: 93: bool scroll_set;
+[; ;cmd_consol.h: 96: } CMD_CONSOL_DATA;
+"98
 [v _cmd_consol_state `E7328 ~T0 @X0 1 e ]
-[; ;cmd_consol.h: 93: CMD_CONSOL_STATE cmd_consol_state;
-[; ;cmd_consol.h: 94: extern CMD_CONSOL_DATA cmd_data;
-[; ;cmd_consol.h: 95: void console_init();
-[; ;cmd_consol.h: 96: void cmd_consol_task();
+[; ;cmd_consol.h: 98: CMD_CONSOL_STATE cmd_consol_state;
+[; ;cmd_consol.h: 99: extern CMD_CONSOL_DATA cmd_data;
+[; ;cmd_consol.h: 100: void console_init();
+[; ;cmd_consol.h: 101: void cmd_consol_task();
 [; ;stddef.h: 6: typedef int ptrdiff_t;
 [; ;delay.h: 17: void _delay_10uS(int delay);
 [; ;delay.h: 19: void _delay_MS(int delay);
@@ -7052,1460 +7052,1610 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 855 ]
 }
 "33
+[v _get_uid `(uc ~T0 @X0 1 ef1`*uc ]
+{
+[; ;cmd_consol.c: 33: char get_uid(char *str) {
+[e :U _get_uid ]
+[v _str `*uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;cmd_consol.c: 34: return str[0];
+"34
+[e ) *U + _str * -> -> 0 `i `x -> -> # *U _str `i `x ]
+[e $UE 864  ]
+[; ;cmd_consol.c: 35: }
+"35
+[e :UE 864 ]
+}
+"37
+[v _get_str `(*uc ~T0 @X0 1 ef1`*uc ]
+{
+[; ;cmd_consol.c: 37: char* get_str(char* str) {
+[e :U _get_str ]
+[v _str `*uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;cmd_consol.c: 38: if (strlen(str) < 40) {
+"38
+[e $ ! < ( _strlen (1 -> _str `*Cuc -> -> 40 `i `ui 866  ]
+{
+[; ;cmd_consol.c: 39: strcpy(cmd_data.data, str);
+"39
+[e ( _strcpy (2 , &U . _cmd_data 1 -> _str `*Cuc ]
+[; ;cmd_consol.c: 40: valid_cmd = 1;
+"40
+[e = _valid_cmd -> -> 1 `i `uc ]
+[; ;cmd_consol.c: 41: cmd_data.data_set = 1;
+"41
+[e = . _cmd_data 2 -> -> 1 `i `uc ]
+[; ;cmd_consol.c: 42: memset(str, 0, strlen(str));
+"42
+[e ( _memset (3 , , -> _str `*v -> 0 `i ( _strlen (1 -> _str `*Cuc ]
+[; ;cmd_consol.c: 43: return str;
+"43
+[e ) _str ]
+[e $UE 865  ]
+"44
+}
+[e :U 866 ]
+[; ;cmd_consol.c: 44: }
+[; ;cmd_consol.c: 45: return (0);
+"45
+[e ) -> -> 0 `i `*uc ]
+[e $UE 865  ]
+[; ;cmd_consol.c: 46: }
+"46
+[e :UE 865 ]
+}
+"47
+[v _get_duration `(uc ~T0 @X0 1 ef1`*uc ]
+"48
+{
+[; ;cmd_consol.c: 47: char get_duration(char* str)
+[; ;cmd_consol.c: 48: {
+[e :U _get_duration ]
+"47
+[v _str `*uc ~T0 @X0 1 r1 ]
+"48
+[f ]
+[; ;cmd_consol.c: 50: }
+"50
+[e :UE 867 ]
+}
+"52
 [v _collect_column `(v ~T0 @X0 1 ef2`*uc`*uc ]
 {
-[; ;cmd_consol.c: 33: void collect_column(char *str, char *data_column) {
+[; ;cmd_consol.c: 52: void collect_column(char *str, char *data_column) {
 [e :U _collect_column ]
 [v _str `*uc ~T0 @X0 1 r1 ]
 [v _data_column `*uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;cmd_consol.c: 34: printf("col..1 = %s\r\n", str);
-"34
-[e ( _printf , (. :s 2C -> _str `*Cuc ]
-"35
-[v _i `i ~T0 @X0 1 a ]
-[; ;cmd_consol.c: 35: int i = 0;
-[e = _i -> 0 `i ]
-"36
-[v _column `uc ~T0 @X0 1 a ]
-[; ;cmd_consol.c: 36: char column = 0;
-[e = _column -> -> 0 `i `uc ]
-[; ;cmd_consol.c: 37: for (i = 0; i < strlen(str); i++) {
-"37
-{
-[e = _i -> 0 `i ]
-[e $U 868  ]
-[e :U 865 ]
-{
-[; ;cmd_consol.c: 38: if (isdigit(str[i]) == 1){
-"38
-[e $ ! == -> ( _isdigit (1 *U + _str * -> _i `x -> -> # *U _str `i `x `i -> 1 `i 869  ]
-{
-[; ;cmd_consol.c: 39: column = column * 10 + (str[i] - '0');
-"39
-[e = _column -> + -> * -> _column `i -> 10 `i `ui - -> *U + _str * -> _i `x -> -> # *U _str `i `x `ui -> 48 `ui `uc ]
-[; ;cmd_consol.c: 40: printf("strlen = %d, i=%d, col.. = %d\r\n",strlen(str),i, column);
-"40
-[e ( _printf , , , (. :s 3C ( _strlen (1 -> _str `*Cuc _i -> _column `i ]
-[; ;cmd_consol.c: 41: printf("str[%d] = %d\r\n", i, str[i]);
-"41
-[e ( _printf , , (. :s 4C _i -> *U + _str * -> _i `x -> -> # *U _str `i `x `i ]
-"42
-}
-[; ;cmd_consol.c: 42: }
-[e $U 870  ]
-"43
-[e :U 869 ]
-[; ;cmd_consol.c: 43: else{
-{
-[; ;cmd_consol.c: 44: printf("i = %d, col..2 = %s\r\n",i, str);
-"44
-[e ( _printf , , (. :s 5C _i -> _str `*Cuc ]
-[; ;cmd_consol.c: 45: printf("str[%d] = %d\r\n", i, str[i]);
-"45
-[e ( _printf , , (. :s 6C _i -> *U + _str * -> _i `x -> -> # *U _str `i `x `i ]
-[; ;cmd_consol.c: 46: return;
-"46
-[e $UE 864  ]
-"47
-}
-[e :U 870 ]
-"49
-}
-"37
-[e ++ _i -> 1 `i ]
-[e :U 868 ]
-[e $ < -> _i `ui ( _strlen (1 -> _str `*Cuc 865  ]
-[e :U 866 ]
-"49
-}
-[; ;cmd_consol.c: 47: }
-[; ;cmd_consol.c: 49: }
-[; ;cmd_consol.c: 50: printf("Col = %d\r\n", column);
-"50
-[e ( _printf , (. :s 7C -> _column `i ]
-[; ;cmd_consol.c: 51: if (column >= clcd_config_data.clcd_max_col) {
-"51
-[e $ ! >= -> _column `i -> . _clcd_config_data 2 `i 871  ]
-{
-[; ;cmd_consol.c: 52: *data_column = -1;
-"52
-[e = *U _data_column -> -U -> 1 `i `uc ]
+[; ;cmd_consol.c: 53: printf("col..1 = %s\r\n", str);
 "53
-}
-[; ;cmd_consol.c: 53: } else {
-[e $U 872  ]
-[e :U 871 ]
-{
-[; ;cmd_consol.c: 54: *data_column = column;
+[e ( _printf , (. :s 2C -> _str `*Cuc ]
 "54
-[e = *U _data_column _column ]
+[v _i `i ~T0 @X0 1 a ]
+[; ;cmd_consol.c: 54: int i = 0;
+[e = _i -> 0 `i ]
 "55
-}
-[e :U 872 ]
-[; ;cmd_consol.c: 55: }
-[; ;cmd_consol.c: 56: }
+[v _column `uc ~T0 @X0 1 a ]
+[; ;cmd_consol.c: 55: char column = 0;
+[e = _column -> -> 0 `i `uc ]
+[; ;cmd_consol.c: 56: for (i = 0; i < strlen(str); i++) {
 "56
-[e :UE 864 ]
-}
+{
+[e = _i -> 0 `i ]
+[e $U 872  ]
+[e :U 869 ]
+{
+[; ;cmd_consol.c: 57: if (isdigit(str[i]) == 1) {
+"57
+[e $ ! == -> ( _isdigit (1 *U + _str * -> _i `x -> -> # *U _str `i `x `i -> 1 `i 873  ]
+{
+[; ;cmd_consol.c: 58: column = column * 10 + (str[i] - '0');
 "58
+[e = _column -> + -> * -> _column `i -> 10 `i `ui - -> *U + _str * -> _i `x -> -> # *U _str `i `x `ui -> 48 `ui `uc ]
+[; ;cmd_consol.c: 59: printf("strlen = %d, i=%d, col.. = %d\r\n", strlen(str), i, column);
+"59
+[e ( _printf , , , (. :s 3C ( _strlen (1 -> _str `*Cuc _i -> _column `i ]
+[; ;cmd_consol.c: 60: printf("str[%d] = %d\r\n", i, str[i]);
+"60
+[e ( _printf , , (. :s 4C _i -> *U + _str * -> _i `x -> -> # *U _str `i `x `i ]
+"61
+}
+[; ;cmd_consol.c: 61: } else {
+[e $U 874  ]
+[e :U 873 ]
+{
+[; ;cmd_consol.c: 62: printf("i = %d, col..2 = %s\r\n", i, str);
+"62
+[e ( _printf , , (. :s 5C _i -> _str `*Cuc ]
+[; ;cmd_consol.c: 63: printf("str[%d] = %d\r\n", i, str[i]);
+"63
+[e ( _printf , , (. :s 6C _i -> *U + _str * -> _i `x -> -> # *U _str `i `x `i ]
+[; ;cmd_consol.c: 64: return;
+"64
+[e $UE 868  ]
+"65
+}
+[e :U 874 ]
+"67
+}
+"56
+[e ++ _i -> 1 `i ]
+[e :U 872 ]
+[e $ < -> _i `ui ( _strlen (1 -> _str `*Cuc 869  ]
+[e :U 870 ]
+"67
+}
+[; ;cmd_consol.c: 65: }
+[; ;cmd_consol.c: 67: }
+[; ;cmd_consol.c: 68: printf("Col = %d\r\n", column);
+"68
+[e ( _printf , (. :s 7C -> _column `i ]
+[; ;cmd_consol.c: 69: if (column >= clcd_config_data.clcd_max_col) {
+"69
+[e $ ! >= -> _column `i -> . _clcd_config_data 2 `i 875  ]
+{
+[; ;cmd_consol.c: 70: *data_column = -1;
+"70
+[e = *U _data_column -> -U -> 1 `i `uc ]
+"71
+}
+[; ;cmd_consol.c: 71: } else {
+[e $U 876  ]
+[e :U 875 ]
+{
+[; ;cmd_consol.c: 72: *data_column = column;
+"72
+[e = *U _data_column _column ]
+"73
+}
+[e :U 876 ]
+[; ;cmd_consol.c: 73: }
+[; ;cmd_consol.c: 74: }
+"74
+[e :UE 868 ]
+}
+"76
 [v _parse_cmd_str `(uc ~T0 @X0 1 ef1`*uc ]
 {
-[; ;cmd_consol.c: 58: char parse_cmd_str(char *str) {
+[; ;cmd_consol.c: 76: char parse_cmd_str(char *str) {
 [e :U _parse_cmd_str ]
 [v _str `*uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;cmd_consol.c: 59: printf("%s..2\r\n", str);
-"59
-[e ( _printf , (. :s 8C -> _str `*Cuc ]
-"60
-[v _temp `*uc ~T0 @X0 1 a ]
-"61
-[v _ptr `*uc ~T0 @X0 1 a ]
-[; ;cmd_consol.c: 60: char *temp;
-[; ;cmd_consol.c: 61: char *ptr = str;
-[e = _ptr _str ]
-[; ;cmd_consol.c: 62: if ((temp = strstr(ptr, "KLM+MC?")) != (0)) {
-"62
-[e $ ! != = _temp ( _strstr (2 , -> _ptr `*Cuc :s 9C -> -> 0 `i `*uc 874  ]
-{
-[; ;cmd_consol.c: 63: temp = strtok(ptr, "-', /=");
-"63
-[e = _temp ( _strtok (2 , _ptr :s 10C ]
-[; ;cmd_consol.c: 64: if (temp != (0)) {
-"64
-[e $ ! != _temp -> -> 0 `i `*uc 875  ]
-{
-[; ;cmd_consol.c: 65: strcpy(CMD, temp);
-"65
-[e ( _strcpy (2 , &U _CMD -> _temp `*Cuc ]
-[; ;cmd_consol.c: 66: valid_cmd = 1;
-"66
-[e = _valid_cmd -> -> 1 `i `uc ]
-[; ;cmd_consol.c: 67: memset(str, 0, strlen(str));
-"67
-[e ( _memset (3 , , -> _str `*v -> 0 `i ( _strlen (1 -> _str `*Cuc ]
-[; ;cmd_consol.c: 68: return 0;
-"68
-[e ) -> -> 0 `i `uc ]
-[e $UE 873  ]
-"69
-}
-[e :U 875 ]
-"70
-}
-[; ;cmd_consol.c: 69: }
-[; ;cmd_consol.c: 70: } else if ((temp = strstr(ptr, "KLM+MR?")) != (0)) {
-[e $U 876  ]
-[e :U 874 ]
-[e $ ! != = _temp ( _strstr (2 , -> _ptr `*Cuc :s 11C -> -> 0 `i `*uc 877  ]
-{
-[; ;cmd_consol.c: 71: temp = strtok(ptr, "-', /=");
-"71
-[e = _temp ( _strtok (2 , _ptr :s 12C ]
-[; ;cmd_consol.c: 72: if (temp != (0)) {
-"72
-[e $ ! != _temp -> -> 0 `i `*uc 878  ]
-{
-[; ;cmd_consol.c: 73: strcpy(CMD, temp);
-"73
-[e ( _strcpy (2 , &U _CMD -> _temp `*Cuc ]
-[; ;cmd_consol.c: 74: valid_cmd = 1;
-"74
-[e = _valid_cmd -> -> 1 `i `uc ]
-[; ;cmd_consol.c: 75: memset(str, 0, strlen(str));
-"75
-[e ( _memset (3 , , -> _str `*v -> 0 `i ( _strlen (1 -> _str `*Cuc ]
-[; ;cmd_consol.c: 76: return 0;
-"76
-[e ) -> -> 0 `i `uc ]
-[e $UE 873  ]
+[; ;cmd_consol.c: 77: printf("%s..2\r\n", str);
 "77
-}
-[e :U 878 ]
+[e ( _printf , (. :s 8C -> _str `*Cuc ]
 "78
-}
-[; ;cmd_consol.c: 77: }
-[; ;cmd_consol.c: 78: } else if ((temp = strstr(ptr, "KLM+LCDS?") != (0))) {
-[e $U 879  ]
-[e :U 877 ]
-[e $ ! != = _temp -> -> != ( _strstr (2 , -> _ptr `*Cuc :s 13C -> -> 0 `i `*uc `i `*uc -> -> 0 `i `*uc 880  ]
-{
-[; ;cmd_consol.c: 79: temp = strtok(ptr, "-', /=");
+[v _temp `*uc ~T0 @X0 1 a ]
 "79
-[e = _temp ( _strtok (2 , _ptr :s 14C ]
-[; ;cmd_consol.c: 80: if (temp != (0)) {
+[v _ptr `*uc ~T0 @X0 1 a ]
+[; ;cmd_consol.c: 78: char *temp;
+[; ;cmd_consol.c: 79: char *ptr = str;
+[e = _ptr _str ]
+[; ;cmd_consol.c: 80: if ((temp = strstr(ptr, "KLM+MC?")) != (0)) {
 "80
-[e $ ! != _temp -> -> 0 `i `*uc 881  ]
+[e $ ! != = _temp ( _strstr (2 , -> _ptr `*Cuc :s 9C -> -> 0 `i `*uc 878  ]
 {
-[; ;cmd_consol.c: 81: strcpy(CMD, temp);
+[; ;cmd_consol.c: 81: temp = strtok(ptr, "-', /=");
 "81
-[e ( _strcpy (2 , &U _CMD -> _temp `*Cuc ]
-[; ;cmd_consol.c: 82: valid_cmd = 1;
+[e = _temp ( _strtok (2 , _ptr :s 10C ]
+[; ;cmd_consol.c: 82: if (temp != (0)) {
 "82
-[e = _valid_cmd -> -> 1 `i `uc ]
-[; ;cmd_consol.c: 83: memset(str, 0, strlen(str));
+[e $ ! != _temp -> -> 0 `i `*uc 879  ]
+{
+[; ;cmd_consol.c: 83: strcpy(CMD, temp);
 "83
-[e ( _memset (3 , , -> _str `*v -> 0 `i ( _strlen (1 -> _str `*Cuc ]
-[; ;cmd_consol.c: 84: printf(".....\r\n");
+[e ( _strcpy (2 , &U _CMD -> _temp `*Cuc ]
+[; ;cmd_consol.c: 84: valid_cmd = 1;
 "84
-[e ( _printf :s 15C ]
-[; ;cmd_consol.c: 85: return 0;
+[e = _valid_cmd -> -> 1 `i `uc ]
+[; ;cmd_consol.c: 85: memset(str, 0, strlen(str));
 "85
-[e ) -> -> 0 `i `uc ]
-[e $UE 873  ]
+[e ( _memset (3 , , -> _str `*v -> 0 `i ( _strlen (1 -> _str `*Cuc ]
+[; ;cmd_consol.c: 86: return 0;
 "86
-}
-[e :U 881 ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 877  ]
 "87
 }
-[; ;cmd_consol.c: 86: }
-[; ;cmd_consol.c: 87: } else if ((temp = strstr(ptr, "KLM+LCDS")) != (0)) {
-[e $U 882  ]
-[e :U 880 ]
-[e $ ! != = _temp ( _strstr (2 , -> _ptr `*Cuc :s 16C -> -> 0 `i `*uc 883  ]
-{
-[; ;cmd_consol.c: 88: temp = strtok(ptr, "-', /=");
+[e :U 879 ]
 "88
-[e = _temp ( _strtok (2 , _ptr :s 17C ]
-[; ;cmd_consol.c: 89: if (temp != (0)) {
-"89
-[e $ ! != _temp -> -> 0 `i `*uc 884  ]
+}
+[; ;cmd_consol.c: 87: }
+[; ;cmd_consol.c: 88: } else if ((temp = strstr(ptr, "KLM+MR?")) != (0)) {
+[e $U 880  ]
+[e :U 878 ]
+[e $ ! != = _temp ( _strstr (2 , -> _ptr `*Cuc :s 11C -> -> 0 `i `*uc 881  ]
 {
-[; ;cmd_consol.c: 90: strcpy(CMD, temp);
+[; ;cmd_consol.c: 89: temp = strtok(ptr, "-', /=");
+"89
+[e = _temp ( _strtok (2 , _ptr :s 12C ]
+[; ;cmd_consol.c: 90: if (temp != (0)) {
 "90
-[e ( _strcpy (2 , &U _CMD -> _temp `*Cuc ]
-[; ;cmd_consol.c: 91: temp = strtok((0), "-', /=");
+[e $ ! != _temp -> -> 0 `i `*uc 882  ]
+{
+[; ;cmd_consol.c: 91: strcpy(CMD, temp);
 "91
-[e = _temp ( _strtok (2 , -> -> 0 `i `*uc :s 18C ]
-[; ;cmd_consol.c: 92: printf("%s..\r\n", temp);
+[e ( _strcpy (2 , &U _CMD -> _temp `*Cuc ]
+[; ;cmd_consol.c: 92: valid_cmd = 1;
 "92
-[e ( _printf , (. :s 19C -> _temp `*Cuc ]
+[e = _valid_cmd -> -> 1 `i `uc ]
+[; ;cmd_consol.c: 93: memset(str, 0, strlen(str));
 "93
+[e ( _memset (3 , , -> _str `*v -> 0 `i ( _strlen (1 -> _str `*Cuc ]
+[; ;cmd_consol.c: 94: return 0;
+"94
+[e ) -> -> 0 `i `uc ]
+[e $UE 877  ]
+"95
+}
+[e :U 882 ]
+"96
+}
+[; ;cmd_consol.c: 95: }
+[; ;cmd_consol.c: 96: } else if ((temp = strstr(ptr, "KLM+LCDS?") != (0))) {
+[e $U 883  ]
+[e :U 881 ]
+[e $ ! != = _temp -> -> != ( _strstr (2 , -> _ptr `*Cuc :s 13C -> -> 0 `i `*uc `i `*uc -> -> 0 `i `*uc 884  ]
+{
+[; ;cmd_consol.c: 97: temp = strtok(ptr, "-', /=");
+"97
+[e = _temp ( _strtok (2 , _ptr :s 14C ]
+[; ;cmd_consol.c: 98: if (temp != (0)) {
+"98
+[e $ ! != _temp -> -> 0 `i `*uc 885  ]
+{
+[; ;cmd_consol.c: 99: strcpy(CMD, temp);
+"99
+[e ( _strcpy (2 , &U _CMD -> _temp `*Cuc ]
+[; ;cmd_consol.c: 100: valid_cmd = 1;
+"100
+[e = _valid_cmd -> -> 1 `i `uc ]
+[; ;cmd_consol.c: 101: memset(str, 0, strlen(str));
+"101
+[e ( _memset (3 , , -> _str `*v -> 0 `i ( _strlen (1 -> _str `*Cuc ]
+[; ;cmd_consol.c: 102: printf(".....\r\n");
+"102
+[e ( _printf :s 15C ]
+[; ;cmd_consol.c: 103: return 0;
+"103
+[e ) -> -> 0 `i `uc ]
+[e $UE 877  ]
+"104
+}
+[e :U 885 ]
+"105
+}
+[; ;cmd_consol.c: 104: }
+[; ;cmd_consol.c: 105: } else if ((temp = strstr(ptr, "KLM+LCDS")) != (0)) {
+[e $U 886  ]
+[e :U 884 ]
+[e $ ! != = _temp ( _strstr (2 , -> _ptr `*Cuc :s 16C -> -> 0 `i `*uc 887  ]
+{
+[; ;cmd_consol.c: 106: temp = strtok(ptr, "-', /=");
+"106
+[e = _temp ( _strtok (2 , _ptr :s 17C ]
+[; ;cmd_consol.c: 107: if (temp != (0)) {
+"107
+[e $ ! != _temp -> -> 0 `i `*uc 888  ]
+{
+[; ;cmd_consol.c: 108: strcpy(CMD, temp);
+"108
+[e ( _strcpy (2 , &U _CMD -> _temp `*Cuc ]
+[; ;cmd_consol.c: 109: temp = strtok((0), "-', /=");
+"109
+[e = _temp ( _strtok (2 , -> -> 0 `i `*uc :s 18C ]
+[; ;cmd_consol.c: 110: printf("%s..\r\n", temp);
+"110
+[e ( _printf , (. :s 19C -> _temp `*Cuc ]
+"111
 [v _row `uc ~T0 @X0 1 a ]
-[; ;cmd_consol.c: 93: char row = 0, column = 0;
+[; ;cmd_consol.c: 111: char row = 0, column = 0;
 [e = _row -> -> 0 `i `uc ]
 [v _column `uc ~T0 @X0 1 a ]
 [e = _column -> -> 0 `i `uc ]
-[; ;cmd_consol.c: 94: if (temp != (0)) {
-"94
-[e $ ! != _temp -> -> 0 `i `*uc 885  ]
-{
-[; ;cmd_consol.c: 95: row = atoi(temp);
-"95
-[e = _row -> ( _atoi (1 -> _temp `*Cuc `uc ]
-[; ;cmd_consol.c: 96: if (row > 0) {
-"96
-[e $ ! > -> _row `i -> 0 `i 886  ]
-{
-[; ;cmd_consol.c: 97: temp = strtok((0), "-', /=");
-"97
-[e = _temp ( _strtok (2 , -> -> 0 `i `*uc :s 20C ]
-[; ;cmd_consol.c: 98: if (temp != (0)) {
-"98
-[e $ ! != _temp -> -> 0 `i `*uc 887  ]
-{
-[; ;cmd_consol.c: 99: column = atoi(temp);
-"99
-[e = _column -> ( _atoi (1 -> _temp `*Cuc `uc ]
-[; ;cmd_consol.c: 100: if (column > 0) {
-"100
-[e $ ! > -> _column `i -> 0 `i 888  ]
-{
-[; ;cmd_consol.c: 101: clcd_init_col = column;
-"101
-[e = _clcd_init_col _column ]
-[; ;cmd_consol.c: 102: clcd_init_row = row;
-"102
-[e = _clcd_init_row _row ]
-[; ;cmd_consol.c: 103: valid_cmd = 1;
-"103
-[e = _valid_cmd -> -> 1 `i `uc ]
-[; ;cmd_consol.c: 104: memset(str, 0, strlen(str));
-"104
-[e ( _memset (3 , , -> _str `*v -> 0 `i ( _strlen (1 -> _str `*Cuc ]
-[; ;cmd_consol.c: 105: return 0;
-"105
-[e ) -> -> 0 `i `uc ]
-[e $UE 873  ]
-"106
-}
-[e :U 888 ]
-"107
-}
-[e :U 887 ]
-"108
-}
-[e :U 886 ]
-"109
-}
-[e :U 885 ]
-"110
-}
-[e :U 884 ]
+[; ;cmd_consol.c: 112: if (temp != (0)) {
 "112
-}
-[; ;cmd_consol.c: 106: }
-[; ;cmd_consol.c: 107: }
-[; ;cmd_consol.c: 108: }
-[; ;cmd_consol.c: 109: }
-[; ;cmd_consol.c: 110: }
-[; ;cmd_consol.c: 112: } else if ((temp = strstr(ptr, "KLM+GMDS?")) != (0)) {
-[e $U 889  ]
-[e :U 883 ]
-[e $ ! != = _temp ( _strstr (2 , -> _ptr `*Cuc :s 21C -> -> 0 `i `*uc 890  ]
+[e $ ! != _temp -> -> 0 `i `*uc 889  ]
 {
-[; ;cmd_consol.c: 114: temp = strtok(ptr, "-', /=");
+[; ;cmd_consol.c: 113: row = atoi(temp);
+"113
+[e = _row -> ( _atoi (1 -> _temp `*Cuc `uc ]
+[; ;cmd_consol.c: 114: if (row > 0) {
 "114
-[e = _temp ( _strtok (2 , _ptr :s 22C ]
-[; ;cmd_consol.c: 115: if (temp != (0)) {
+[e $ ! > -> _row `i -> 0 `i 890  ]
+{
+[; ;cmd_consol.c: 115: temp = strtok((0), "-', /=");
 "115
+[e = _temp ( _strtok (2 , -> -> 0 `i `*uc :s 20C ]
+[; ;cmd_consol.c: 116: if (temp != (0)) {
+"116
 [e $ ! != _temp -> -> 0 `i `*uc 891  ]
 {
-[; ;cmd_consol.c: 116: strcpy(CMD, temp);
-"116
-[e ( _strcpy (2 , &U _CMD -> _temp `*Cuc ]
-[; ;cmd_consol.c: 117: valid_cmd = 1;
+[; ;cmd_consol.c: 117: column = atoi(temp);
 "117
-[e = _valid_cmd -> -> 1 `i `uc ]
-[; ;cmd_consol.c: 118: memset(str, 0, strlen(str));
+[e = _column -> ( _atoi (1 -> _temp `*Cuc `uc ]
+[; ;cmd_consol.c: 118: if (column > 0) {
 "118
-[e ( _memset (3 , , -> _str `*v -> 0 `i ( _strlen (1 -> _str `*Cuc ]
-[; ;cmd_consol.c: 119: return 0;
+[e $ ! > -> _column `i -> 0 `i 892  ]
+{
+[; ;cmd_consol.c: 119: clcd_init_col = column;
 "119
-[e ) -> -> 0 `i `uc ]
-[e $UE 873  ]
+[e = _clcd_init_col _column ]
+[; ;cmd_consol.c: 120: clcd_init_row = row;
 "120
+[e = _clcd_init_row _row ]
+[; ;cmd_consol.c: 121: valid_cmd = 1;
+"121
+[e = _valid_cmd -> -> 1 `i `uc ]
+[; ;cmd_consol.c: 122: memset(str, 0, strlen(str));
+"122
+[e ( _memset (3 , , -> _str `*v -> 0 `i ( _strlen (1 -> _str `*Cuc ]
+[; ;cmd_consol.c: 123: return 0;
+"123
+[e ) -> -> 0 `i `uc ]
+[e $UE 877  ]
+"124
+}
+[e :U 892 ]
+"125
 }
 [e :U 891 ]
-"122
-}
-[; ;cmd_consol.c: 120: }
-[; ;cmd_consol.c: 122: } else if ((temp = strstr(ptr, "KLM+SDSTR")) != (0)) {
-[e $U 892  ]
-[e :U 890 ]
-[e $ ! != = _temp ( _strstr (2 , -> _ptr `*Cuc :s 23C -> -> 0 `i `*uc 893  ]
-{
-[; ;cmd_consol.c: 123: if (clcd_config_data.init_done == 1) {
-"123
-[e $ ! == -> . _clcd_config_data 0 `i -> 1 `i 894  ]
-{
-[; ;cmd_consol.c: 124: cmd_data.data_set = 0;
-"124
-[e = . _cmd_data 2 -> -> 0 `i `uc ]
-[; ;cmd_consol.c: 125: temp = strtok(ptr, "-', /=");
-"125
-[e = _temp ( _strtok (2 , _ptr :s 24C ]
-[; ;cmd_consol.c: 126: if (temp != (0)) {
 "126
+}
+[e :U 890 ]
+"127
+}
+[e :U 889 ]
+"128
+}
+[e :U 888 ]
+"130
+}
+[; ;cmd_consol.c: 124: }
+[; ;cmd_consol.c: 125: }
+[; ;cmd_consol.c: 126: }
+[; ;cmd_consol.c: 127: }
+[; ;cmd_consol.c: 128: }
+[; ;cmd_consol.c: 130: } else if ((temp = strstr(ptr, "KLM+GMDS?")) != (0)) {
+[e $U 893  ]
+[e :U 887 ]
+[e $ ! != = _temp ( _strstr (2 , -> _ptr `*Cuc :s 21C -> -> 0 `i `*uc 894  ]
+{
+[; ;cmd_consol.c: 132: temp = strtok(ptr, "-', /=");
+"132
+[e = _temp ( _strtok (2 , _ptr :s 22C ]
+[; ;cmd_consol.c: 133: if (temp != (0)) {
+"133
 [e $ ! != _temp -> -> 0 `i `*uc 895  ]
 {
-[; ;cmd_consol.c: 127: printf("temp = %s, ", temp);
-"127
-[e ( _printf , (. :s 25C -> _temp `*Cuc ]
-[; ;cmd_consol.c: 128: strcpy(CMD, temp);
-"128
-[e ( _strcpy (2 , &U _CMD -> _temp `*Cuc ]
-"129
-[v _uid `uc ~T0 @X0 1 a ]
-[; ;cmd_consol.c: 129: char uid = 0;
-[e = _uid -> -> 0 `i `uc ]
-[; ;cmd_consol.c: 130: cmd_data.uid = -1;
-"130
-[e = . _cmd_data 0 -> -U -> 1 `i `uc ]
-[; ;cmd_consol.c: 131: temp = strtok((0), "-', /=");
-"131
-[e = _temp ( _strtok (2 , -> -> 0 `i `*uc :s 26C ]
-[; ;cmd_consol.c: 132: if (temp != (0)) {
-"132
-[e $ ! != _temp -> -> 0 `i `*uc 896  ]
-{
-[; ;cmd_consol.c: 133: printf("temp = %s, ", temp);
-"133
-[e ( _printf , (. :s 27C -> _temp `*Cuc ]
+[; ;cmd_consol.c: 134: strcpy(CMD, temp);
 "134
-[v _i `uc ~T0 @X0 1 a ]
-[; ;cmd_consol.c: 134: char i = 0;
-[e = _i -> -> 0 `i `uc ]
-[; ;cmd_consol.c: 135: uid = temp[0];
+[e ( _strcpy (2 , &U _CMD -> _temp `*Cuc ]
+[; ;cmd_consol.c: 135: valid_cmd = 1;
 "135
-[e = _uid *U + _temp * -> -> 0 `i `x -> -> # *U _temp `i `x ]
-[; ;cmd_consol.c: 136: if (uid >= 'A' && uid < clcd_config_data.uid_range) {
-"136
-[e $ ! && >= -> _uid `ui -> 65 `ui < -> _uid `i -> . _clcd_config_data 3 `i 897  ]
-{
-[; ;cmd_consol.c: 137: printf("uid = %d, ", uid);
-"137
-[e ( _printf , (. :s 28C -> _uid `i ]
-[; ;cmd_consol.c: 138: cmd_data.uid = uid;
-"138
-[e = . _cmd_data 0 _uid ]
-[; ;cmd_consol.c: 139: temp = strtok((0), "-', /=");
-"139
-[e = _temp ( _strtok (2 , -> -> 0 `i `*uc :s 29C ]
-[; ;cmd_consol.c: 140: if (temp != (0)) {
-"140
-[e $ ! != _temp -> -> 0 `i `*uc 898  ]
-{
-[; ;cmd_consol.c: 141: printf("str = %s\r\n", temp);
-"141
-[e ( _printf , (. :s 30C -> _temp `*Cuc ]
-[; ;cmd_consol.c: 142: if (strlen(temp) < 40) {
-"142
-[e $ ! < ( _strlen (1 -> _temp `*Cuc -> -> 40 `i `ui 899  ]
-{
-[; ;cmd_consol.c: 143: strcpy(cmd_data.data, temp);
-"143
-[e ( _strcpy (2 , &U . _cmd_data 1 -> _temp `*Cuc ]
-[; ;cmd_consol.c: 144: valid_cmd = 1;
-"144
 [e = _valid_cmd -> -> 1 `i `uc ]
-[; ;cmd_consol.c: 145: cmd_data.data_set = 1;
-"145
-[e = . _cmd_data 2 -> -> 1 `i `uc ]
-[; ;cmd_consol.c: 146: memset(str, 0, strlen(str));
-"146
+[; ;cmd_consol.c: 136: memset(str, 0, strlen(str));
+"136
 [e ( _memset (3 , , -> _str `*v -> 0 `i ( _strlen (1 -> _str `*Cuc ]
-[; ;cmd_consol.c: 147: return 0;
-"147
+[; ;cmd_consol.c: 137: return 0;
+"137
 [e ) -> -> 0 `i `uc ]
-[e $UE 873  ]
-"148
-}
-[; ;cmd_consol.c: 148: } else {
-[e $U 900  ]
-[e :U 899 ]
-{
-[; ;cmd_consol.c: 149: return 2;
-"149
-[e ) -> -> 2 `i `uc ]
-[e $UE 873  ]
-"150
-}
-[e :U 900 ]
-"151
-}
-[e :U 898 ]
-"152
-}
-[; ;cmd_consol.c: 150: }
-[; ;cmd_consol.c: 151: }
-[; ;cmd_consol.c: 152: } else {
-[e $U 901  ]
-[e :U 897 ]
-{
-[; ;cmd_consol.c: 153: return 7;
-"153
-[e ) -> -> 7 `i `uc ]
-[e $UE 873  ]
-"154
-}
-[e :U 901 ]
-"155
-}
-[e :U 896 ]
-"156
+[e $UE 877  ]
+"138
 }
 [e :U 895 ]
-"157
+"140
 }
+[; ;cmd_consol.c: 138: }
+[; ;cmd_consol.c: 140: } else if ((temp = strstr(ptr, "KLM+SDSTR")) != (0)) {
+[e $U 896  ]
 [e :U 894 ]
-"158
-}
-[; ;cmd_consol.c: 154: }
-[; ;cmd_consol.c: 155: }
-[; ;cmd_consol.c: 156: }
-[; ;cmd_consol.c: 157: }
-[; ;cmd_consol.c: 158: } else if ((temp = strstr(ptr, "KLM+SDSCROL")) != (0)) {
-[e $U 902  ]
-[e :U 893 ]
-[e $ ! != = _temp ( _strstr (2 , -> _ptr `*Cuc :s 31C -> -> 0 `i `*uc 903  ]
+[e $ ! != = _temp ( _strstr (2 , -> _ptr `*Cuc :s 23C -> -> 0 `i `*uc 897  ]
 {
-[; ;cmd_consol.c: 159: printf("%s...4\r\n", temp);
-"159
-[e ( _printf , (. :s 32C -> _temp `*Cuc ]
-[; ;cmd_consol.c: 160: if (clcd_config_data.init_done == 1) {
-"160
-[e $ ! == -> . _clcd_config_data 0 `i -> 1 `i 904  ]
+[; ;cmd_consol.c: 141: if (clcd_config_data.init_done == 1) {
+"141
+[e $ ! == -> . _clcd_config_data 0 `i -> 1 `i 898  ]
 {
-[; ;cmd_consol.c: 161: cmd_data.scroll_set = 0;
-"161
-[e = . _cmd_data 9 -> -> 0 `i `uc ]
-[; ;cmd_consol.c: 162: temp = strtok(ptr, "-', /=");
-"162
-[e = _temp ( _strtok (2 , _ptr :s 33C ]
-[; ;cmd_consol.c: 163: if (temp != (0)) {
-"163
-[e $ ! != _temp -> -> 0 `i `*uc 905  ]
+[; ;cmd_consol.c: 142: cmd_data.data_set = 0;
+"142
+[e = . _cmd_data 2 -> -> 0 `i `uc ]
+[; ;cmd_consol.c: 143: temp = strtok(ptr, "-', /=");
+"143
+[e = _temp ( _strtok (2 , _ptr :s 24C ]
+[; ;cmd_consol.c: 144: if (temp != (0)) {
+"144
+[e $ ! != _temp -> -> 0 `i `*uc 899  ]
 {
-[; ;cmd_consol.c: 164: strcpy(CMD, temp);
-"164
+[; ;cmd_consol.c: 145: printf("temp = %s, ", temp);
+"145
+[e ( _printf , (. :s 25C -> _temp `*Cuc ]
+[; ;cmd_consol.c: 146: strcpy(CMD, temp);
+"146
 [e ( _strcpy (2 , &U _CMD -> _temp `*Cuc ]
-"165
-[v _scroll `uc ~T0 @X0 1 a ]
-[; ;cmd_consol.c: 165: char scroll = 0;
-[e = _scroll -> -> 0 `i `uc ]
-"166
+"147
 [v _uid `uc ~T0 @X0 1 a ]
-[; ;cmd_consol.c: 166: char uid = 0;
+[; ;cmd_consol.c: 147: char uid = 0;
 [e = _uid -> -> 0 `i `uc ]
-[; ;cmd_consol.c: 167: temp = strtok((0), "-', /=");
-"167
-[e = _temp ( _strtok (2 , -> -> 0 `i `*uc :s 34C ]
-[; ;cmd_consol.c: 168: if (temp != (0)) {
-"168
-[e $ ! != _temp -> -> 0 `i `*uc 906  ]
+[; ;cmd_consol.c: 148: cmd_data.uid = -1;
+"148
+[e = . _cmd_data 0 -> -U -> 1 `i `uc ]
+[; ;cmd_consol.c: 149: temp = strtok((0), "-', /=");
+"149
+[e = _temp ( _strtok (2 , -> -> 0 `i `*uc :s 26C ]
+[; ;cmd_consol.c: 150: if (temp != (0)) {
+"150
+[e $ ! != _temp -> -> 0 `i `*uc 900  ]
 {
-[; ;cmd_consol.c: 169: printf("%s...5\r\n", temp);
-"169
-[e ( _printf , (. :s 35C -> _temp `*Cuc ]
-"170
+[; ;cmd_consol.c: 151: printf("temp = %s, ", temp);
+"151
+[e ( _printf , (. :s 27C -> _temp `*Cuc ]
+"152
 [v _i `uc ~T0 @X0 1 a ]
-[; ;cmd_consol.c: 170: char i = 0;
+[; ;cmd_consol.c: 152: char i = 0;
 [e = _i -> -> 0 `i `uc ]
-[; ;cmd_consol.c: 171: uid = temp[0];
-"171
+[; ;cmd_consol.c: 153: uid = temp[0];
+"153
 [e = _uid *U + _temp * -> -> 0 `i `x -> -> # *U _temp `i `x ]
-[; ;cmd_consol.c: 172: cmd_data.scroll = -1;
-"172
-[e = . _cmd_data 8 -> -U -> 1 `i `uc ]
-[; ;cmd_consol.c: 173: if (uid >= 'A' && uid < clcd_config_data.uid_range) {
-"173
-[e $ ! && >= -> _uid `ui -> 65 `ui < -> _uid `i -> . _clcd_config_data 3 `i 907  ]
+[; ;cmd_consol.c: 154: if (uid >= 'A' && uid < clcd_config_data.uid_range) {
+"154
+[e $ ! && >= -> _uid `ui -> 65 `ui < -> _uid `i -> . _clcd_config_data 3 `i 901  ]
 {
-[; ;cmd_consol.c: 174: printf("uid = %d, ", uid);
-"174
-[e ( _printf , (. :s 36C -> _uid `i ]
-[; ;cmd_consol.c: 175: if (uid == cmd_data.uid) {
-"175
-[e $ ! == -> _uid `i -> . _cmd_data 0 `i 908  ]
+[; ;cmd_consol.c: 155: printf("uid = %d, ", uid);
+"155
+[e ( _printf , (. :s 28C -> _uid `i ]
+[; ;cmd_consol.c: 156: cmd_data.uid = uid;
+"156
+[e = . _cmd_data 0 _uid ]
+[; ;cmd_consol.c: 157: temp = strtok((0), ",");
+"157
+[e = _temp ( _strtok (2 , -> -> 0 `i `*uc :s 29C ]
+[; ;cmd_consol.c: 158: if (temp != (0)) {
+"158
+[e $ ! != _temp -> -> 0 `i `*uc 902  ]
 {
-[; ;cmd_consol.c: 176: temp = strtok((0), "-', /=");
-"176
-[e = _temp ( _strtok (2 , -> -> 0 `i `*uc :s 37C ]
-[; ;cmd_consol.c: 177: if (temp != (0)) {
-"177
-[e $ ! != _temp -> -> 0 `i `*uc 909  ]
+[; ;cmd_consol.c: 159: printf("str = %s\r\n", temp);
+"159
+[e ( _printf , (. :s 30C -> _temp `*Cuc ]
+[; ;cmd_consol.c: 160: if (strlen(temp) < 40) {
+"160
+[e $ ! < ( _strlen (1 -> _temp `*Cuc -> -> 40 `i `ui 903  ]
 {
-[; ;cmd_consol.c: 178: printf("%s...6\r\n", temp);
-"178
-[e ( _printf , (. :s 38C -> _temp `*Cuc ]
-[; ;cmd_consol.c: 179: for (i = 0; i < strlen(temp); i++) {
-"179
-{
-[e = _i -> -> 0 `i `uc ]
-[e $U 913  ]
-[e :U 910 ]
-{
-[; ;cmd_consol.c: 180: if (isdigit(temp[i]) == 1) {
-"180
-[e $ ! == -> ( _isdigit (1 *U + _temp * -> _i `ux -> -> # *U _temp `ui `ux `i -> 1 `i 914  ]
-{
-[; ;cmd_consol.c: 181: scroll = scroll * 10 + (temp[i] - '0');
-"181
-[e = _scroll -> + -> * -> _scroll `i -> 10 `i `ui - -> *U + _temp * -> _i `ux -> -> # *U _temp `ui `ux `ui -> 48 `ui `uc ]
-"182
-}
-[; ;cmd_consol.c: 182: } else {
-[e $U 915  ]
-[e :U 914 ]
-{
-[; ;cmd_consol.c: 184: return 0;
-"184
-[e ) -> -> 0 `i `uc ]
-[e $UE 873  ]
-"185
-}
-[e :U 915 ]
-"186
-}
-"179
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 913 ]
-[e $ < -> _i `ui ( _strlen (1 -> _temp `*Cuc 910  ]
-[e :U 911 ]
-"186
-}
-[; ;cmd_consol.c: 185: }
-[; ;cmd_consol.c: 186: }
-[; ;cmd_consol.c: 188: if (scroll < 3) {
-"188
-[e $ ! < -> _scroll `i -> 3 `i 916  ]
-{
-[; ;cmd_consol.c: 189: printf("scroll = %d, ", scroll);
-"189
-[e ( _printf , (. :s 39C -> _scroll `i ]
-[; ;cmd_consol.c: 190: cmd_data.scroll = scroll;
-"190
-[e = . _cmd_data 8 _scroll ]
-[; ;cmd_consol.c: 191: cmd_data.scroll_set = 1;
-"191
-[e = . _cmd_data 9 -> -> 1 `i `uc ]
-[; ;cmd_consol.c: 192: valid_cmd = 1;
-"192
+[; ;cmd_consol.c: 161: strcpy(cmd_data.data, temp);
+"161
+[e ( _strcpy (2 , &U . _cmd_data 1 -> _temp `*Cuc ]
+[; ;cmd_consol.c: 162: valid_cmd = 1;
+"162
 [e = _valid_cmd -> -> 1 `i `uc ]
-[; ;cmd_consol.c: 193: memset(str, 0, strlen(str));
-"193
+[; ;cmd_consol.c: 163: cmd_data.data_set = 1;
+"163
+[e = . _cmd_data 2 -> -> 1 `i `uc ]
+[; ;cmd_consol.c: 164: memset(str, 0, strlen(str));
+"164
 [e ( _memset (3 , , -> _str `*v -> 0 `i ( _strlen (1 -> _str `*Cuc ]
-[; ;cmd_consol.c: 194: return 0;
-"194
+[; ;cmd_consol.c: 165: return 0;
+"165
 [e ) -> -> 0 `i `uc ]
-[e $UE 873  ]
-"195
+[e $UE 877  ]
+"166
 }
-[; ;cmd_consol.c: 195: } else {
-[e $U 917  ]
-[e :U 916 ]
+[; ;cmd_consol.c: 166: } else {
+[e $U 904  ]
+[e :U 903 ]
 {
-[; ;cmd_consol.c: 196: return 4;
-"196
-[e ) -> -> 4 `i `uc ]
-[e $UE 873  ]
-"197
-}
-[e :U 917 ]
-"198
-}
-[e :U 909 ]
-"199
-}
-[e :U 908 ]
-"200
-}
-[; ;cmd_consol.c: 197: }
-[; ;cmd_consol.c: 198: }
-[; ;cmd_consol.c: 199: }
-[; ;cmd_consol.c: 200: } else {
-[e $U 918  ]
-[e :U 907 ]
-{
-[; ;cmd_consol.c: 201: return 7;
-"201
-[e ) -> -> 7 `i `uc ]
-[e $UE 873  ]
-"202
-}
-[e :U 918 ]
-"203
-}
-[e :U 906 ]
-"204
-}
-[e :U 905 ]
-"205
+[; ;cmd_consol.c: 167: return 2;
+"167
+[e ) -> -> 2 `i `uc ]
+[e $UE 877  ]
+"168
 }
 [e :U 904 ]
-"206
+"169
 }
-[; ;cmd_consol.c: 202: }
+[e :U 902 ]
+"170
+}
+[; ;cmd_consol.c: 168: }
+[; ;cmd_consol.c: 169: }
+[; ;cmd_consol.c: 170: } else {
+[e $U 905  ]
+[e :U 901 ]
+{
+[; ;cmd_consol.c: 171: return 7;
+"171
+[e ) -> -> 7 `i `uc ]
+[e $UE 877  ]
+"172
+}
+[e :U 905 ]
+"173
+}
+[e :U 900 ]
+"174
+}
+[e :U 899 ]
+"175
+}
+[e :U 898 ]
+"176
+}
+[; ;cmd_consol.c: 172: }
+[; ;cmd_consol.c: 173: }
+[; ;cmd_consol.c: 174: }
+[; ;cmd_consol.c: 175: }
+[; ;cmd_consol.c: 176: } else if ((temp = strstr(ptr, "KLM+SDSCROL")) != (0)) {
+[e $U 906  ]
+[e :U 897 ]
+[e $ ! != = _temp ( _strstr (2 , -> _ptr `*Cuc :s 31C -> -> 0 `i `*uc 907  ]
+{
+[; ;cmd_consol.c: 177: printf("%s...4\r\n", temp);
+"177
+[e ( _printf , (. :s 32C -> _temp `*Cuc ]
+[; ;cmd_consol.c: 178: if (clcd_config_data.init_done == 1) {
+"178
+[e $ ! == -> . _clcd_config_data 0 `i -> 1 `i 908  ]
+{
+[; ;cmd_consol.c: 179: cmd_data.scroll_set = 0;
+"179
+[e = . _cmd_data 9 -> -> 0 `i `uc ]
+[; ;cmd_consol.c: 180: temp = strtok(ptr, "-', /=");
+"180
+[e = _temp ( _strtok (2 , _ptr :s 33C ]
+[; ;cmd_consol.c: 181: if (temp != (0)) {
+"181
+[e $ ! != _temp -> -> 0 `i `*uc 909  ]
+{
+[; ;cmd_consol.c: 182: strcpy(CMD, temp);
+"182
+[e ( _strcpy (2 , &U _CMD -> _temp `*Cuc ]
+"183
+[v _scroll `uc ~T0 @X0 1 a ]
+[; ;cmd_consol.c: 183: char scroll = 0;
+[e = _scroll -> -> 0 `i `uc ]
+"184
+[v _uid `uc ~T0 @X0 1 a ]
+[; ;cmd_consol.c: 184: char uid = 0;
+[e = _uid -> -> 0 `i `uc ]
+[; ;cmd_consol.c: 185: temp = strtok((0), "-', /=");
+"185
+[e = _temp ( _strtok (2 , -> -> 0 `i `*uc :s 34C ]
+[; ;cmd_consol.c: 186: if (temp != (0)) {
+"186
+[e $ ! != _temp -> -> 0 `i `*uc 910  ]
+{
+[; ;cmd_consol.c: 187: printf("%s...5\r\n", temp);
+"187
+[e ( _printf , (. :s 35C -> _temp `*Cuc ]
+"188
+[v _i `uc ~T0 @X0 1 a ]
+[; ;cmd_consol.c: 188: char i = 0;
+[e = _i -> -> 0 `i `uc ]
+[; ;cmd_consol.c: 189: uid = temp[0];
+"189
+[e = _uid *U + _temp * -> -> 0 `i `x -> -> # *U _temp `i `x ]
+[; ;cmd_consol.c: 190: cmd_data.scroll = -1;
+"190
+[e = . _cmd_data 8 -> -U -> 1 `i `uc ]
+[; ;cmd_consol.c: 191: if (uid >= 'A' && uid < clcd_config_data.uid_range) {
+"191
+[e $ ! && >= -> _uid `ui -> 65 `ui < -> _uid `i -> . _clcd_config_data 3 `i 911  ]
+{
+[; ;cmd_consol.c: 192: printf("uid = %d, ", uid);
+"192
+[e ( _printf , (. :s 36C -> _uid `i ]
+[; ;cmd_consol.c: 193: if (uid == cmd_data.uid) {
+"193
+[e $ ! == -> _uid `i -> . _cmd_data 0 `i 912  ]
+{
+[; ;cmd_consol.c: 194: temp = strtok((0), "-', /=");
+"194
+[e = _temp ( _strtok (2 , -> -> 0 `i `*uc :s 37C ]
+[; ;cmd_consol.c: 195: if (temp != (0)) {
+"195
+[e $ ! != _temp -> -> 0 `i `*uc 913  ]
+{
+[; ;cmd_consol.c: 196: printf("%s...6\r\n", temp);
+"196
+[e ( _printf , (. :s 38C -> _temp `*Cuc ]
+[; ;cmd_consol.c: 197: for (i = 0; i < strlen(temp); i++) {
+"197
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 917  ]
+[e :U 914 ]
+{
+[; ;cmd_consol.c: 198: if (isdigit(temp[i]) == 1) {
+"198
+[e $ ! == -> ( _isdigit (1 *U + _temp * -> _i `ux -> -> # *U _temp `ui `ux `i -> 1 `i 918  ]
+{
+[; ;cmd_consol.c: 199: scroll = scroll * 10 + (temp[i] - '0');
+"199
+[e = _scroll -> + -> * -> _scroll `i -> 10 `i `ui - -> *U + _temp * -> _i `ux -> -> # *U _temp `ui `ux `ui -> 48 `ui `uc ]
+"200
+}
+[; ;cmd_consol.c: 200: } else {
+[e $U 919  ]
+[e :U 918 ]
+{
+[; ;cmd_consol.c: 202: return 0;
+"202
+[e ) -> -> 0 `i `uc ]
+[e $UE 877  ]
+"203
+}
+[e :U 919 ]
+"204
+}
+"197
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 917 ]
+[e $ < -> _i `ui ( _strlen (1 -> _temp `*Cuc 914  ]
+[e :U 915 ]
+"204
+}
 [; ;cmd_consol.c: 203: }
 [; ;cmd_consol.c: 204: }
-[; ;cmd_consol.c: 205: }
-[; ;cmd_consol.c: 206: } else if ((temp = strstr(ptr, "KLM+SDSERC")) != (0)) {
-[e $U 919  ]
-[e :U 903 ]
-[e $ ! != = _temp ( _strstr (2 , -> _ptr `*Cuc :s 40C -> -> 0 `i `*uc 920  ]
+[; ;cmd_consol.c: 206: if (scroll < 3) {
+"206
+[e $ ! < -> _scroll `i -> 3 `i 920  ]
 {
-[; ;cmd_consol.c: 207: if (clcd_config_data.init_done == 1) {
+[; ;cmd_consol.c: 207: printf("scroll = %d, ", scroll);
 "207
-[e $ ! == -> . _clcd_config_data 0 `i -> 1 `i 921  ]
-{
-[; ;cmd_consol.c: 208: cmd_data.row_col_set = 0;
+[e ( _printf , (. :s 39C -> _scroll `i ]
+[; ;cmd_consol.c: 208: cmd_data.scroll = scroll;
 "208
-[e = . _cmd_data 7 -> -> 0 `i `uc ]
-[; ;cmd_consol.c: 209: temp = strtok(ptr, "-', /=");
+[e = . _cmd_data 8 _scroll ]
+[; ;cmd_consol.c: 209: cmd_data.scroll_set = 1;
 "209
-[e = _temp ( _strtok (2 , _ptr :s 41C ]
-[; ;cmd_consol.c: 210: if (temp != (0)) {
+[e = . _cmd_data 9 -> -> 1 `i `uc ]
+[; ;cmd_consol.c: 210: valid_cmd = 1;
 "210
-[e $ ! != _temp -> -> 0 `i `*uc 922  ]
-{
-[; ;cmd_consol.c: 211: strcpy(CMD, temp);
-"211
-[e ( _strcpy (2 , &U _CMD -> _temp `*Cuc ]
-[; ;cmd_consol.c: 212: temp = strtok((0), "-', /=");
-"212
-[e = _temp ( _strtok (2 , -> -> 0 `i `*uc :s 42C ]
-"213
-[v _uid `uc ~T0 @X0 1 a ]
-[; ;cmd_consol.c: 213: char uid = 0;
-[e = _uid -> -> 0 `i `uc ]
-[; ;cmd_consol.c: 214: if (temp != (0)) {
-"214
-[e $ ! != _temp -> -> 0 `i `*uc 923  ]
-{
-"215
-[v _i `uc ~T0 @X0 1 a ]
-[; ;cmd_consol.c: 215: char i = 0;
-[e = _i -> -> 0 `i `uc ]
-[; ;cmd_consol.c: 216: uid = temp[0];
-"216
-[e = _uid *U + _temp * -> -> 0 `i `x -> -> # *U _temp `i `x ]
-[; ;cmd_consol.c: 217: if (uid >= 'A' && uid < clcd_config_data.uid_range) {
-"217
-[e $ ! && >= -> _uid `ui -> 65 `ui < -> _uid `i -> . _clcd_config_data 3 `i 924  ]
-{
-[; ;cmd_consol.c: 218: printf("uid = %d,\r\n", uid);
-"218
-[e ( _printf , (. :s 43C -> _uid `i ]
-[; ;cmd_consol.c: 219: if (uid == cmd_data.uid) {
-"219
-[e $ ! == -> _uid `i -> . _cmd_data 0 `i 925  ]
-{
-[; ;cmd_consol.c: 220: temp = strtok((0), "-', /=");
-"220
-[e = _temp ( _strtok (2 , -> -> 0 `i `*uc :s 44C ]
-[; ;cmd_consol.c: 221: if (temp != (0)) {
-"221
-[e $ ! != _temp -> -> 0 `i `*uc 926  ]
-{
-[; ;cmd_consol.c: 222: collect_row(temp, &cmd_data.start_row);
-"222
-[e ( _collect_row (2 , _temp &U . _cmd_data 3 ]
-[; ;cmd_consol.c: 223: printf("cmd_data.start_row = %d,\r\n", cmd_data.start_row);
-"223
-[e ( _printf , (. :s 45C -> . _cmd_data 3 `i ]
-[; ;cmd_consol.c: 224: if (cmd_data.start_row != 255) {
-"224
-[e $ ! != -> . _cmd_data 3 `i -> 255 `i 927  ]
-{
-[; ;cmd_consol.c: 225: temp = strtok((0), "-', /=");
-"225
-[e = _temp ( _strtok (2 , -> -> 0 `i `*uc :s 46C ]
-[; ;cmd_consol.c: 226: if (temp != (0)) {
-"226
-[e $ ! != _temp -> -> 0 `i `*uc 928  ]
-{
-[; ;cmd_consol.c: 227: collect_column(temp, &cmd_data.start_col);
-"227
-[e ( _collect_column (2 , _temp &U . _cmd_data 4 ]
-[; ;cmd_consol.c: 228: printf("cmd_data.start_col = %d,\r\n", cmd_data.start_col);
-"228
-[e ( _printf , (. :s 47C -> . _cmd_data 4 `i ]
-[; ;cmd_consol.c: 229: if (cmd_data.start_row != 255) {
-"229
-[e $ ! != -> . _cmd_data 3 `i -> 255 `i 929  ]
-{
-[; ;cmd_consol.c: 230: temp = strtok((0), "-', /=");
-"230
-[e = _temp ( _strtok (2 , -> -> 0 `i `*uc :s 48C ]
-[; ;cmd_consol.c: 231: if (temp != (0)) {
-"231
-[e $ ! != _temp -> -> 0 `i `*uc 930  ]
-{
-[; ;cmd_consol.c: 232: collect_row(temp, &cmd_data.end_row);
-"232
-[e ( _collect_row (2 , _temp &U . _cmd_data 5 ]
-[; ;cmd_consol.c: 233: printf("cmd_data.end_row = %d,\r\n", cmd_data.end_row);
-"233
-[e ( _printf , (. :s 49C -> . _cmd_data 5 `i ]
-[; ;cmd_consol.c: 234: if (cmd_data.end_row != 255) {
-"234
-[e $ ! != -> . _cmd_data 5 `i -> 255 `i 931  ]
-{
-[; ;cmd_consol.c: 235: temp = strtok((0), "-', /=");
-"235
-[e = _temp ( _strtok (2 , -> -> 0 `i `*uc :s 50C ]
-[; ;cmd_consol.c: 236: if (temp != (0)) {
-"236
-[e $ ! != _temp -> -> 0 `i `*uc 932  ]
-{
-[; ;cmd_consol.c: 237: printf("col = %s\r\n", temp);
-"237
-[e ( _printf , (. :s 51C -> _temp `*Cuc ]
-[; ;cmd_consol.c: 238: collect_column(temp, &cmd_data.end_col);
-"238
-[e ( _collect_column (2 , _temp &U . _cmd_data 6 ]
-[; ;cmd_consol.c: 239: printf("cmd_data.end_col = %d,\r\n", cmd_data.end_col);
-"239
-[e ( _printf , (. :s 52C -> . _cmd_data 6 `i ]
-[; ;cmd_consol.c: 240: if (cmd_data.end_row != 255) {
-"240
-[e $ ! != -> . _cmd_data 5 `i -> 255 `i 933  ]
-{
-[; ;cmd_consol.c: 241: cmd_data.row_col_set = 1;
-"241
-[e = . _cmd_data 7 -> -> 1 `i `uc ]
-[; ;cmd_consol.c: 242: valid_cmd = 1;
-"242
 [e = _valid_cmd -> -> 1 `i `uc ]
-[; ;cmd_consol.c: 243: memset(str, 0, strlen(str));
-"243
+[; ;cmd_consol.c: 211: memset(str, 0, strlen(str));
+"211
 [e ( _memset (3 , , -> _str `*v -> 0 `i ( _strlen (1 -> _str `*Cuc ]
-[; ;cmd_consol.c: 244: return 0;
-"244
+[; ;cmd_consol.c: 212: return 0;
+"212
 [e ) -> -> 0 `i `uc ]
-[e $UE 873  ]
-"245
+[e $UE 877  ]
+"213
 }
-[; ;cmd_consol.c: 245: } else {
-[e $U 934  ]
-[e :U 933 ]
+[; ;cmd_consol.c: 213: } else {
+[e $U 921  ]
+[e :U 920 ]
 {
-[; ;cmd_consol.c: 246: return 3;
-"246
-[e ) -> -> 3 `i `uc ]
-[e $UE 873  ]
-"247
-}
-[e :U 934 ]
-"248
-}
-[e :U 932 ]
-"249
-}
-[; ;cmd_consol.c: 247: }
-[; ;cmd_consol.c: 248: }
-[; ;cmd_consol.c: 249: } else {
-[e $U 935  ]
-[e :U 931 ]
-{
-[; ;cmd_consol.c: 250: return 3;
-"250
-[e ) -> -> 3 `i `uc ]
-[e $UE 873  ]
-"251
-}
-[e :U 935 ]
-"252
-}
-[e :U 930 ]
-"253
-}
-[; ;cmd_consol.c: 251: }
-[; ;cmd_consol.c: 252: }
-[; ;cmd_consol.c: 253: } else {
-[e $U 936  ]
-[e :U 929 ]
-{
-[; ;cmd_consol.c: 254: return 3;
-"254
-[e ) -> -> 3 `i `uc ]
-[e $UE 873  ]
-"255
-}
-[e :U 936 ]
-"256
-}
-[e :U 928 ]
-"257
-}
-[; ;cmd_consol.c: 255: }
-[; ;cmd_consol.c: 256: }
-[; ;cmd_consol.c: 257: } else {
-[e $U 937  ]
-[e :U 927 ]
-{
-[; ;cmd_consol.c: 258: return 3;
-"258
-[e ) -> -> 3 `i `uc ]
-[e $UE 873  ]
-"259
-}
-[e :U 937 ]
-"260
-}
-[e :U 926 ]
-"261
-}
-[e :U 925 ]
-"262
-}
-[; ;cmd_consol.c: 259: }
-[; ;cmd_consol.c: 260: }
-[; ;cmd_consol.c: 261: }
-[; ;cmd_consol.c: 262: } else {
-[e $U 938  ]
-[e :U 924 ]
-{
-[; ;cmd_consol.c: 263: return 7;
-"263
-[e ) -> -> 7 `i `uc ]
-[e $UE 873  ]
-"264
-}
-[e :U 938 ]
-"265
-}
-[e :U 923 ]
-"266
-}
-[e :U 922 ]
-"267
+[; ;cmd_consol.c: 214: return 4;
+"214
+[e ) -> -> 4 `i `uc ]
+[e $UE 877  ]
+"215
 }
 [e :U 921 ]
-"268
+"216
 }
-[; ;cmd_consol.c: 264: }
+[e :U 913 ]
+"217
+}
+[e :U 912 ]
+"218
+}
+[; ;cmd_consol.c: 215: }
+[; ;cmd_consol.c: 216: }
+[; ;cmd_consol.c: 217: }
+[; ;cmd_consol.c: 218: } else {
+[e $U 922  ]
+[e :U 911 ]
+{
+[; ;cmd_consol.c: 219: return 7;
+"219
+[e ) -> -> 7 `i `uc ]
+[e $UE 877  ]
+"220
+}
+[e :U 922 ]
+"221
+}
+[e :U 910 ]
+"222
+}
+[e :U 909 ]
+"223
+}
+[e :U 908 ]
+"224
+}
+[; ;cmd_consol.c: 220: }
+[; ;cmd_consol.c: 221: }
+[; ;cmd_consol.c: 222: }
+[; ;cmd_consol.c: 223: }
+[; ;cmd_consol.c: 224: } else if ((temp = strstr(ptr, "KLM+SDSERC")) != (0)) {
+[e $U 923  ]
+[e :U 907 ]
+[e $ ! != = _temp ( _strstr (2 , -> _ptr `*Cuc :s 40C -> -> 0 `i `*uc 924  ]
+{
+[; ;cmd_consol.c: 225: if (clcd_config_data.init_done == 1) {
+"225
+[e $ ! == -> . _clcd_config_data 0 `i -> 1 `i 925  ]
+{
+[; ;cmd_consol.c: 226: cmd_data.row_col_set = 0;
+"226
+[e = . _cmd_data 7 -> -> 0 `i `uc ]
+[; ;cmd_consol.c: 227: temp = strtok(ptr, "-', /=");
+"227
+[e = _temp ( _strtok (2 , _ptr :s 41C ]
+[; ;cmd_consol.c: 228: if (temp != (0)) {
+"228
+[e $ ! != _temp -> -> 0 `i `*uc 926  ]
+{
+[; ;cmd_consol.c: 229: strcpy(CMD, temp);
+"229
+[e ( _strcpy (2 , &U _CMD -> _temp `*Cuc ]
+[; ;cmd_consol.c: 230: temp = strtok((0), "-', /=");
+"230
+[e = _temp ( _strtok (2 , -> -> 0 `i `*uc :s 42C ]
+"231
+[v _uid `uc ~T0 @X0 1 a ]
+[; ;cmd_consol.c: 231: char uid = 0;
+[e = _uid -> -> 0 `i `uc ]
+[; ;cmd_consol.c: 232: if (temp != (0)) {
+"232
+[e $ ! != _temp -> -> 0 `i `*uc 927  ]
+{
+"233
+[v _i `uc ~T0 @X0 1 a ]
+[; ;cmd_consol.c: 233: char i = 0;
+[e = _i -> -> 0 `i `uc ]
+[; ;cmd_consol.c: 234: uid = temp[0];
+"234
+[e = _uid *U + _temp * -> -> 0 `i `x -> -> # *U _temp `i `x ]
+[; ;cmd_consol.c: 235: if (uid >= 'A' && uid < clcd_config_data.uid_range) {
+"235
+[e $ ! && >= -> _uid `ui -> 65 `ui < -> _uid `i -> . _clcd_config_data 3 `i 928  ]
+{
+[; ;cmd_consol.c: 236: printf("uid = %d,\r\n", uid);
+"236
+[e ( _printf , (. :s 43C -> _uid `i ]
+[; ;cmd_consol.c: 237: if (uid == cmd_data.uid) {
+"237
+[e $ ! == -> _uid `i -> . _cmd_data 0 `i 929  ]
+{
+[; ;cmd_consol.c: 238: temp = strtok((0), "-', /=");
+"238
+[e = _temp ( _strtok (2 , -> -> 0 `i `*uc :s 44C ]
+[; ;cmd_consol.c: 239: if (temp != (0)) {
+"239
+[e $ ! != _temp -> -> 0 `i `*uc 930  ]
+{
+[; ;cmd_consol.c: 240: collect_row(temp, &cmd_data.start_row);
+"240
+[e ( _collect_row (2 , _temp &U . _cmd_data 3 ]
+[; ;cmd_consol.c: 241: printf("cmd_data.start_row = %d,\r\n", cmd_data.start_row);
+"241
+[e ( _printf , (. :s 45C -> . _cmd_data 3 `i ]
+[; ;cmd_consol.c: 242: if (cmd_data.start_row != 255) {
+"242
+[e $ ! != -> . _cmd_data 3 `i -> 255 `i 931  ]
+{
+[; ;cmd_consol.c: 243: temp = strtok((0), "-', /=");
+"243
+[e = _temp ( _strtok (2 , -> -> 0 `i `*uc :s 46C ]
+[; ;cmd_consol.c: 244: if (temp != (0)) {
+"244
+[e $ ! != _temp -> -> 0 `i `*uc 932  ]
+{
+[; ;cmd_consol.c: 245: collect_column(temp, &cmd_data.start_col);
+"245
+[e ( _collect_column (2 , _temp &U . _cmd_data 4 ]
+[; ;cmd_consol.c: 246: printf("cmd_data.start_col = %d,\r\n", cmd_data.start_col);
+"246
+[e ( _printf , (. :s 47C -> . _cmd_data 4 `i ]
+[; ;cmd_consol.c: 247: if (cmd_data.start_row != 255) {
+"247
+[e $ ! != -> . _cmd_data 3 `i -> 255 `i 933  ]
+{
+[; ;cmd_consol.c: 248: temp = strtok((0), "-', /=");
+"248
+[e = _temp ( _strtok (2 , -> -> 0 `i `*uc :s 48C ]
+[; ;cmd_consol.c: 249: if (temp != (0)) {
+"249
+[e $ ! != _temp -> -> 0 `i `*uc 934  ]
+{
+[; ;cmd_consol.c: 250: collect_row(temp, &cmd_data.end_row);
+"250
+[e ( _collect_row (2 , _temp &U . _cmd_data 5 ]
+[; ;cmd_consol.c: 251: printf("cmd_data.end_row = %d,\r\n", cmd_data.end_row);
+"251
+[e ( _printf , (. :s 49C -> . _cmd_data 5 `i ]
+[; ;cmd_consol.c: 252: if (cmd_data.end_row != 255) {
+"252
+[e $ ! != -> . _cmd_data 5 `i -> 255 `i 935  ]
+{
+[; ;cmd_consol.c: 253: temp = strtok((0), "-', /=");
+"253
+[e = _temp ( _strtok (2 , -> -> 0 `i `*uc :s 50C ]
+[; ;cmd_consol.c: 254: if (temp != (0)) {
+"254
+[e $ ! != _temp -> -> 0 `i `*uc 936  ]
+{
+[; ;cmd_consol.c: 255: printf("col = %s\r\n", temp);
+"255
+[e ( _printf , (. :s 51C -> _temp `*Cuc ]
+[; ;cmd_consol.c: 256: collect_column(temp, &cmd_data.end_col);
+"256
+[e ( _collect_column (2 , _temp &U . _cmd_data 6 ]
+[; ;cmd_consol.c: 257: printf("cmd_data.end_col = %d,\r\n", cmd_data.end_col);
+"257
+[e ( _printf , (. :s 52C -> . _cmd_data 6 `i ]
+[; ;cmd_consol.c: 258: if (cmd_data.end_row != 255) {
+"258
+[e $ ! != -> . _cmd_data 5 `i -> 255 `i 937  ]
+{
+[; ;cmd_consol.c: 259: cmd_data.row_col_set = 1;
+"259
+[e = . _cmd_data 7 -> -> 1 `i `uc ]
+[; ;cmd_consol.c: 260: valid_cmd = 1;
+"260
+[e = _valid_cmd -> -> 1 `i `uc ]
+[; ;cmd_consol.c: 261: memset(str, 0, strlen(str));
+"261
+[e ( _memset (3 , , -> _str `*v -> 0 `i ( _strlen (1 -> _str `*Cuc ]
+[; ;cmd_consol.c: 262: return 0;
+"262
+[e ) -> -> 0 `i `uc ]
+[e $UE 877  ]
+"263
+}
+[; ;cmd_consol.c: 263: } else {
+[e $U 938  ]
+[e :U 937 ]
+{
+[; ;cmd_consol.c: 264: return 3;
+"264
+[e ) -> -> 3 `i `uc ]
+[e $UE 877  ]
+"265
+}
+[e :U 938 ]
+"266
+}
+[e :U 936 ]
+"267
+}
 [; ;cmd_consol.c: 265: }
 [; ;cmd_consol.c: 266: }
-[; ;cmd_consol.c: 267: }
-[; ;cmd_consol.c: 268: } else if ((temp = strstr(ptr, "KLM+UPDATE")) != (0)) {
+[; ;cmd_consol.c: 267: } else {
 [e $U 939  ]
-[e :U 920 ]
-[e $ ! != = _temp ( _strstr (2 , -> _ptr `*Cuc :s 53C -> -> 0 `i `*uc 940  ]
+[e :U 935 ]
 {
-[; ;cmd_consol.c: 269: strcpy(CMD, temp);
+[; ;cmd_consol.c: 268: return 3;
+"268
+[e ) -> -> 3 `i `uc ]
+[e $UE 877  ]
 "269
-[e ( _strcpy (2 , &U _CMD -> _temp `*Cuc ]
-[; ;cmd_consol.c: 270: memset(str, 0, strlen(str));
+}
+[e :U 939 ]
 "270
-[e ( _memset (3 , , -> _str `*v -> 0 `i ( _strlen (1 -> _str `*Cuc ]
-[; ;cmd_consol.c: 271: valid_cmd = 1;
+}
+[e :U 934 ]
 "271
-[e = _valid_cmd -> -> 1 `i `uc ]
-[; ;cmd_consol.c: 272: return 0;
+}
+[; ;cmd_consol.c: 269: }
+[; ;cmd_consol.c: 270: }
+[; ;cmd_consol.c: 271: } else {
+[e $U 940  ]
+[e :U 933 ]
+{
+[; ;cmd_consol.c: 272: return 3;
 "272
-[e ) -> -> 0 `i `uc ]
-[e $UE 873  ]
+[e ) -> -> 3 `i `uc ]
+[e $UE 877  ]
 "273
 }
-[; ;cmd_consol.c: 273: } else if ((temp = strstr(ptr, "KLM")) != (0)) {
-[e $U 941  ]
 [e :U 940 ]
-[e $ ! != = _temp ( _strstr (2 , -> _ptr `*Cuc :s 54C -> -> 0 `i `*uc 942  ]
-{
-[; ;cmd_consol.c: 274: strcpy(CMD, temp);
 "274
-[e ( _strcpy (2 , &U _CMD -> _temp `*Cuc ]
-[; ;cmd_consol.c: 275: memset(str, 0, strlen(str));
+}
+[e :U 932 ]
 "275
-[e ( _memset (3 , , -> _str `*v -> 0 `i ( _strlen (1 -> _str `*Cuc ]
-[; ;cmd_consol.c: 276: valid_cmd = 1;
+}
+[; ;cmd_consol.c: 273: }
+[; ;cmd_consol.c: 274: }
+[; ;cmd_consol.c: 275: } else {
+[e $U 941  ]
+[e :U 931 ]
+{
+[; ;cmd_consol.c: 276: return 3;
 "276
-[e = _valid_cmd -> -> 1 `i `uc ]
-[; ;cmd_consol.c: 277: return 0;
+[e ) -> -> 3 `i `uc ]
+[e $UE 877  ]
 "277
-[e ) -> -> 0 `i `uc ]
-[e $UE 873  ]
+}
+[e :U 941 ]
 "278
 }
-[e :U 942 ]
+[e :U 930 ]
 "279
-[e :U 941 ]
-[e :U 939 ]
-[e :U 919 ]
-[e :U 902 ]
-[e :U 892 ]
-[e :U 889 ]
-[e :U 882 ]
-[e :U 879 ]
-[e :U 876 ]
-[; ;cmd_consol.c: 278: }
-[; ;cmd_consol.c: 279: memset(str, 0, strlen(str));
-[e ( _memset (3 , , -> _str `*v -> 0 `i ( _strlen (1 -> _str `*Cuc ]
-[; ;cmd_consol.c: 280: return 1;
-"280
-[e ) -> -> 1 `i `uc ]
-[e $UE 873  ]
-[; ;cmd_consol.c: 281: }
-"281
-[e :UE 873 ]
 }
+[e :U 929 ]
+"280
+}
+[; ;cmd_consol.c: 277: }
+[; ;cmd_consol.c: 278: }
+[; ;cmd_consol.c: 279: }
+[; ;cmd_consol.c: 280: } else {
+[e $U 942  ]
+[e :U 928 ]
+{
+[; ;cmd_consol.c: 281: return 7;
+"281
+[e ) -> -> 7 `i `uc ]
+[e $UE 877  ]
+"282
+}
+[e :U 942 ]
 "283
-[v _reply_to_host `(v ~T0 @X0 1 ef ]
-{
-[; ;cmd_consol.c: 283: void reply_to_host() {
-[e :U _reply_to_host ]
-[f ]
-[; ;cmd_consol.c: 284: if (strcmp(CMD, "KLM") == 0) {
+}
+[e :U 927 ]
 "284
-[e $ ! == ( _strcmp (2 , -> &U _CMD `*Cuc :s 55C -> 0 `i 944  ]
-{
-[; ;cmd_consol.c: 285: puts("OK\r\n");
+}
+[e :U 926 ]
 "285
-[e ( _puts (1 :s 56C ]
+}
+[e :U 925 ]
 "286
 }
-[; ;cmd_consol.c: 286: } else if (strcmp(CMD, "KLM+LCDS?") == 0) {
+[; ;cmd_consol.c: 282: }
+[; ;cmd_consol.c: 283: }
+[; ;cmd_consol.c: 284: }
+[; ;cmd_consol.c: 285: }
+[; ;cmd_consol.c: 286: } else if ((temp = strstr(ptr, "KLM+UPDATE")) != (0)) {
+[e $U 943  ]
+[e :U 924 ]
+[e $ ! != = _temp ( _strstr (2 , -> _ptr `*Cuc :s 53C -> -> 0 `i `*uc 944  ]
+{
+[; ;cmd_consol.c: 287: strcpy(CMD, temp);
+"287
+[e ( _strcpy (2 , &U _CMD -> _temp `*Cuc ]
+[; ;cmd_consol.c: 288: memset(str, 0, strlen(str));
+"288
+[e ( _memset (3 , , -> _str `*v -> 0 `i ( _strlen (1 -> _str `*Cuc ]
+[; ;cmd_consol.c: 289: valid_cmd = 1;
+"289
+[e = _valid_cmd -> -> 1 `i `uc ]
+[; ;cmd_consol.c: 290: return 0;
+"290
+[e ) -> -> 0 `i `uc ]
+[e $UE 877  ]
+"291
+}
+[; ;cmd_consol.c: 291: } else if ((temp = strstr(ptr, "KLM+SSTR")) != (0)) {
 [e $U 945  ]
 [e :U 944 ]
-[e $ ! == ( _strcmp (2 , -> &U _CMD `*Cuc :s 57C -> 0 `i 946  ]
+[e $ ! != = _temp ( _strstr (2 , -> _ptr `*Cuc :s 54C -> -> 0 `i `*uc 946  ]
 {
-[; ;cmd_consol.c: 287: printf("%s\r\n", max_display_support());
-"287
-[e ( _printf , (. :s 58C -> ( _max_display_support ..  `*Cuc ]
-[; ;cmd_consol.c: 288: printf("\r\n%s.., OK\r\n", "KLM+LCDS?");
-"288
-[e ( _printf , (. :s 59C :s 60C ]
-"289
-}
-[; ;cmd_consol.c: 289: } else if (strcmp(CMD, "KLM+MC?") == 0) {
-[e $U 947  ]
-[e :U 946 ]
-[e $ ! == ( _strcmp (2 , -> &U _CMD `*Cuc :s 61C -> 0 `i 948  ]
-{
-[; ;cmd_consol.c: 290: printf("%d\r\n", clcd_max_col());
-"290
-[e ( _printf , (. :s 62C -> ( _clcd_max_col ..  `i ]
-[; ;cmd_consol.c: 291: printf("\r\n%s.., OK\r\n", "KLM+MC?");
-"291
-[e ( _printf , (. :s 63C :s 64C ]
+[; ;cmd_consol.c: 292: if (clcd_config_data.init_done == 1) {
 "292
-}
-[; ;cmd_consol.c: 292: } else if (strcmp(CMD, "KLM+MR?") == 0) {
-[e $U 949  ]
-[e :U 948 ]
-[e $ ! == ( _strcmp (2 , -> &U _CMD `*Cuc :s 65C -> 0 `i 950  ]
+[e $ ! == -> . _clcd_config_data 0 `i -> 1 `i 947  ]
 {
-[; ;cmd_consol.c: 293: printf("%d\r\n", clcd_max_row());
+[; ;cmd_consol.c: 293: temp = strtok(ptr, "-', /=");
 "293
-[e ( _printf , (. :s 66C -> ( _clcd_max_row ..  `i ]
-[; ;cmd_consol.c: 294: printf("\r\n%s.., OK\r\n", "KLM+MR?");
+[e = _temp ( _strtok (2 , _ptr :s 55C ]
+[; ;cmd_consol.c: 294: if (temp != (0)) {
 "294
-[e ( _printf , (. :s 67C :s 68C ]
+[e $ ! != _temp -> -> 0 `i `*uc 948  ]
+{
+[; ;cmd_consol.c: 295: strcpy(CMD, temp);
 "295
-}
-[; ;cmd_consol.c: 295: } else if (strcmp(CMD, "KLM+LCDS") == 0) {
-[e $U 951  ]
-[e :U 950 ]
-[e $ ! == ( _strcmp (2 , -> &U _CMD `*Cuc :s 69C -> 0 `i 952  ]
-{
-[; ;cmd_consol.c: 296: init_clcd_cusotom_lcd(clcd_init_row, clcd_init_col);
+[e ( _strcpy (2 , &U _CMD -> _temp `*Cuc ]
 "296
-[e ( _init_clcd_cusotom_lcd (2 , _clcd_init_row _clcd_init_col ]
-[; ;cmd_consol.c: 297: printf("\r\n%s.., OK\r\n", "KLM+LCDS");
+[v _uid `uc ~T0 @X0 1 a ]
+[; ;cmd_consol.c: 296: char uid = 0;
+[e = _uid -> -> 0 `i `uc ]
+[; ;cmd_consol.c: 297: temp = strtok(ptr, "-', /=");
 "297
-[e ( _printf , (. :s 70C :s 71C ]
+[e = _temp ( _strtok (2 , _ptr :s 56C ]
+[; ;cmd_consol.c: 298: if (temp != (0)) {
 "298
-}
-[; ;cmd_consol.c: 298: } else if (strcmp(CMD, "KLM+GMDS?") == 0) {
-[e $U 953  ]
-[e :U 952 ]
-[e $ ! == ( _strcmp (2 , -> &U _CMD `*Cuc :s 72C -> 0 `i 954  ]
+[e $ ! != _temp -> -> 0 `i `*uc 949  ]
 {
-[; ;cmd_consol.c: 299: if (max_display_str() != 0) {
+[; ;cmd_consol.c: 299: uid = temp[0];
 "299
-[e $ ! != -> ( _max_display_str ..  `i -> 0 `i 955  ]
-{
-[; ;cmd_consol.c: 300: printf("%d,%c-%c\r\n", max_display_str(), min_uid_range(), max_uid_range());
+[e = _uid *U + _temp * -> -> 0 `i `x -> -> # *U _temp `i `x ]
+[; ;cmd_consol.c: 300: if (uid >= 'A' && uid < clcd_config_data.uid_range) {
 "300
-[e ( _printf , , , (. :s 73C -> ( _max_display_str ..  `i -> ( _min_uid_range ..  `i -> ( _max_uid_range ..  `i ]
-"301
-}
-[; ;cmd_consol.c: 301: } else {
-[e $U 956  ]
-[e :U 955 ]
+[e $ ! && >= -> _uid `ui -> 65 `ui < -> _uid `i -> . _clcd_config_data 3 `i 950  ]
 {
-[; ;cmd_consol.c: 302: printf("%d\r\n", max_display_str());
+[; ;cmd_consol.c: 301: cmd_data.uid = uid;
+"301
+[e = . _cmd_data 0 _uid ]
 "302
-[e ( _printf , (. :s 74C -> ( _max_display_str ..  `i ]
+}
+[e :U 950 ]
 "303
 }
-[e :U 956 ]
-[; ;cmd_consol.c: 303: }
-[; ;cmd_consol.c: 304: printf("\r\n%s.., OK\r\n", "KLM+GMDS?");
+[e :U 949 ]
 "304
-[e ( _printf , (. :s 75C :s 76C ]
+}
+[e :U 948 ]
 "305
 }
-[; ;cmd_consol.c: 305: } else if (strcmp(CMD, "KLM+SDSTR") == 0) {
-[e $U 957  ]
-[e :U 954 ]
-[e $ ! == ( _strcmp (2 , -> &U _CMD `*Cuc :s 77C -> 0 `i 958  ]
-{
-[; ;cmd_consol.c: 306: printf("\r\n%s.., OK\r\n", "KLM+SDSTR");
+[e :U 947 ]
 "306
-[e ( _printf , (. :s 78C :s 79C ]
+}
+[; ;cmd_consol.c: 302: }
+[; ;cmd_consol.c: 303: }
+[; ;cmd_consol.c: 304: }
+[; ;cmd_consol.c: 305: }
+[; ;cmd_consol.c: 306: } else if ((temp = strstr(ptr, "KLM")) != (0)) {
+[e $U 951  ]
+[e :U 946 ]
+[e $ ! != = _temp ( _strstr (2 , -> _ptr `*Cuc :s 57C -> -> 0 `i `*uc 952  ]
+{
+[; ;cmd_consol.c: 307: strcpy(CMD, temp);
 "307
-}
-[; ;cmd_consol.c: 307: } else if (strcmp(CMD, "KLM+SDSCROL") == 0) {
-[e $U 959  ]
-[e :U 958 ]
-[e $ ! == ( _strcmp (2 , -> &U _CMD `*Cuc :s 80C -> 0 `i 960  ]
-{
-[; ;cmd_consol.c: 308: printf("\r\n%s.., OK\r\n", "KLM+SDSCROL");
+[e ( _strcpy (2 , &U _CMD -> _temp `*Cuc ]
+[; ;cmd_consol.c: 308: memset(str, 0, strlen(str));
 "308
-[e ( _printf , (. :s 81C :s 82C ]
+[e ( _memset (3 , , -> _str `*v -> 0 `i ( _strlen (1 -> _str `*Cuc ]
+[; ;cmd_consol.c: 309: valid_cmd = 1;
 "309
-}
-[; ;cmd_consol.c: 309: } else if (strcmp(CMD, "KLM+SDSERC") == 0) {
-[e $U 961  ]
-[e :U 960 ]
-[e $ ! == ( _strcmp (2 , -> &U _CMD `*Cuc :s 83C -> 0 `i 962  ]
-{
-[; ;cmd_consol.c: 310: printf("\r\n%s.., OK\r\n", "KLM+SDSERC");
+[e = _valid_cmd -> -> 1 `i `uc ]
+[; ;cmd_consol.c: 310: return 0;
 "310
-[e ( _printf , (. :s 84C :s 85C ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 877  ]
 "311
 }
-[; ;cmd_consol.c: 311: } else if (strcmp(CMD, "KLM+UPDATE") == 0) {
-[e $U 963  ]
-[e :U 962 ]
-[e $ ! == ( _strcmp (2 , -> &U _CMD `*Cuc :s 86C -> 0 `i 964  ]
-{
-[; ;cmd_consol.c: 312: if (cmd_data.data_set == 1 && cmd_data.row_col_set == 1 && cmd_data.scroll_set == 1) {
+[e :U 952 ]
 "312
-[e $ ! && && == -> . _cmd_data 2 `i -> 1 `i == -> . _cmd_data 7 `i -> 1 `i == -> . _cmd_data 9 `i -> 1 `i 965  ]
-{
+[e :U 951 ]
+[e :U 945 ]
+[e :U 943 ]
+[e :U 923 ]
+[e :U 906 ]
+[e :U 896 ]
+[e :U 893 ]
+[e :U 886 ]
+[e :U 883 ]
+[e :U 880 ]
+[; ;cmd_consol.c: 311: }
+[; ;cmd_consol.c: 312: memset(str, 0, strlen(str));
+[e ( _memset (3 , , -> _str `*v -> 0 `i ( _strlen (1 -> _str `*Cuc ]
+[; ;cmd_consol.c: 313: return 1;
 "313
-[v _ch `uc ~T0 @X0 1 a ]
-[; ;cmd_consol.c: 313: char ch = update_string_data(&cmd_data);
-[e = _ch ( _update_string_data (1 &U _cmd_data ]
-[; ;cmd_consol.c: 314: if(ch == 1)
+[e ) -> -> 1 `i `uc ]
+[e $UE 877  ]
+[; ;cmd_consol.c: 314: }
 "314
-[e $ ! == -> _ch `i -> 1 `i 966  ]
-[; ;cmd_consol.c: 315: printf("%s\r\n","ERROR");
-"315
-[e ( _printf , (. :s 87C :s 88C ]
-[e $U 967  ]
+[e :UE 877 ]
+}
 "316
-[e :U 966 ]
-[; ;cmd_consol.c: 316: else
-[; ;cmd_consol.c: 317: printf("\r\n%s.., OK\r\n", "KLM+UPDATE");
+[v _reply_to_host `(v ~T0 @X0 1 ef ]
+{
+[; ;cmd_consol.c: 316: void reply_to_host() {
+[e :U _reply_to_host ]
+[f ]
+[; ;cmd_consol.c: 317: if (strcmp(CMD, "KLM") == 0) {
 "317
-[e ( _printf , (. :s 89C :s 90C ]
-[e :U 967 ]
+[e $ ! == ( _strcmp (2 , -> &U _CMD `*Cuc :s 58C -> 0 `i 954  ]
+{
+[; ;cmd_consol.c: 318: puts("OK\r\n");
 "318
-}
-[; ;cmd_consol.c: 318: } else {
-[e $U 968  ]
-[e :U 965 ]
-{
-[; ;cmd_consol.c: 319: if (cmd_data.data_set == 0) {
+[e ( _puts (1 :s 59C ]
 "319
-[e $ ! == -> . _cmd_data 2 `i -> 0 `i 969  ]
+}
+[; ;cmd_consol.c: 319: } else if (strcmp(CMD, "KLM+LCDS?") == 0) {
+[e $U 955  ]
+[e :U 954 ]
+[e $ ! == ( _strcmp (2 , -> &U _CMD `*Cuc :s 60C -> 0 `i 956  ]
 {
-[; ;cmd_consol.c: 320: printf("\r\n%s\r\n", "ERR_STR_SET");
+[; ;cmd_consol.c: 320: printf("%s\r\n", max_display_support());
 "320
-[e ( _printf , (. :s 91C :s 92C ]
+[e ( _printf , (. :s 61C -> ( _max_display_support ..  `*Cuc ]
+[; ;cmd_consol.c: 321: printf("\r\n%s.., OK\r\n", "KLM+LCDS?");
 "321
-}
-[; ;cmd_consol.c: 321: } else if (cmd_data.row_col_set == 0) {
-[e $U 970  ]
-[e :U 969 ]
-[e $ ! == -> . _cmd_data 7 `i -> 0 `i 971  ]
-{
-[; ;cmd_consol.c: 322: printf("\r\n%s\r\n", "ERR_ROW_COL");
+[e ( _printf , (. :s 62C :s 63C ]
 "322
-[e ( _printf , (. :s 93C :s 94C ]
-"323
 }
-[; ;cmd_consol.c: 323: } else if (cmd_data.scroll_set == 0) {
-[e $U 972  ]
-[e :U 971 ]
-[e $ ! == -> . _cmd_data 9 `i -> 0 `i 973  ]
+[; ;cmd_consol.c: 322: } else if (strcmp(CMD, "KLM+MC?") == 0) {
+[e $U 957  ]
+[e :U 956 ]
+[e $ ! == ( _strcmp (2 , -> &U _CMD `*Cuc :s 64C -> 0 `i 958  ]
 {
-[; ;cmd_consol.c: 324: printf("\r\n%s\r\n", "ERR_SCROLL_SET");
+[; ;cmd_consol.c: 323: printf("%d\r\n", clcd_max_col());
+"323
+[e ( _printf , (. :s 65C -> ( _clcd_max_col ..  `i ]
+[; ;cmd_consol.c: 324: printf("\r\n%s.., OK\r\n", "KLM+MC?");
 "324
-[e ( _printf , (. :s 95C :s 96C ]
+[e ( _printf , (. :s 66C :s 67C ]
 "325
 }
-[e :U 973 ]
+[; ;cmd_consol.c: 325: } else if (strcmp(CMD, "KLM+MR?") == 0) {
+[e $U 959  ]
+[e :U 958 ]
+[e $ ! == ( _strcmp (2 , -> &U _CMD `*Cuc :s 68C -> 0 `i 960  ]
+{
+[; ;cmd_consol.c: 326: printf("%d\r\n", clcd_max_row());
 "326
-[e :U 972 ]
-[e :U 970 ]
-}
-[e :U 968 ]
+[e ( _printf , (. :s 69C -> ( _clcd_max_row ..  `i ]
+[; ;cmd_consol.c: 327: printf("\r\n%s.., OK\r\n", "KLM+MR?");
 "327
-}
-[e :U 964 ]
+[e ( _printf , (. :s 70C :s 71C ]
 "328
+}
+[; ;cmd_consol.c: 328: } else if (strcmp(CMD, "KLM+LCDS") == 0) {
+[e $U 961  ]
+[e :U 960 ]
+[e $ ! == ( _strcmp (2 , -> &U _CMD `*Cuc :s 72C -> 0 `i 962  ]
+{
+[; ;cmd_consol.c: 329: init_clcd_cusotom_lcd(clcd_init_row, clcd_init_col);
+"329
+[e ( _init_clcd_cusotom_lcd (2 , _clcd_init_row _clcd_init_col ]
+[; ;cmd_consol.c: 330: printf("\r\n%s.., OK\r\n", "KLM+LCDS");
+"330
+[e ( _printf , (. :s 73C :s 74C ]
+"331
+}
+[; ;cmd_consol.c: 331: } else if (strcmp(CMD, "KLM+GMDS?") == 0) {
+[e $U 963  ]
+[e :U 962 ]
+[e $ ! == ( _strcmp (2 , -> &U _CMD `*Cuc :s 75C -> 0 `i 964  ]
+{
+[; ;cmd_consol.c: 332: if (max_display_str() != 0) {
+"332
+[e $ ! != -> ( _max_display_str ..  `i -> 0 `i 965  ]
+{
+[; ;cmd_consol.c: 333: printf("%d,%c-%c\r\n", max_display_str(), min_uid_range(), max_uid_range());
+"333
+[e ( _printf , , , (. :s 76C -> ( _max_display_str ..  `i -> ( _min_uid_range ..  `i -> ( _max_uid_range ..  `i ]
+"334
+}
+[; ;cmd_consol.c: 334: } else {
+[e $U 966  ]
+[e :U 965 ]
+{
+[; ;cmd_consol.c: 335: printf("%d\r\n", max_display_str());
+"335
+[e ( _printf , (. :s 77C -> ( _max_display_str ..  `i ]
+"336
+}
+[e :U 966 ]
+[; ;cmd_consol.c: 336: }
+[; ;cmd_consol.c: 337: printf("\r\n%s.., OK\r\n", "KLM+GMDS?");
+"337
+[e ( _printf , (. :s 78C :s 79C ]
+"338
+}
+[; ;cmd_consol.c: 338: } else if (strcmp(CMD, "KLM+SDSTR") == 0) {
+[e $U 967  ]
+[e :U 964 ]
+[e $ ! == ( _strcmp (2 , -> &U _CMD `*Cuc :s 80C -> 0 `i 968  ]
+{
+[; ;cmd_consol.c: 339: printf("\r\n%s.., OK\r\n", "KLM+SDSTR");
+"339
+[e ( _printf , (. :s 81C :s 82C ]
+"340
+}
+[; ;cmd_consol.c: 340: } else if (strcmp(CMD, "KLM+SDSCROL") == 0) {
+[e $U 969  ]
+[e :U 968 ]
+[e $ ! == ( _strcmp (2 , -> &U _CMD `*Cuc :s 83C -> 0 `i 970  ]
+{
+[; ;cmd_consol.c: 341: printf("\r\n%s.., OK\r\n", "KLM+SDSCROL");
+"341
+[e ( _printf , (. :s 84C :s 85C ]
+"342
+}
+[; ;cmd_consol.c: 342: } else if (strcmp(CMD, "KLM+SDSERC") == 0) {
+[e $U 971  ]
+[e :U 970 ]
+[e $ ! == ( _strcmp (2 , -> &U _CMD `*Cuc :s 86C -> 0 `i 972  ]
+{
+[; ;cmd_consol.c: 343: printf("\r\n%s.., OK\r\n", "KLM+SDSERC");
+"343
+[e ( _printf , (. :s 87C :s 88C ]
+"344
+}
+[; ;cmd_consol.c: 344: } else if (strcmp(CMD, "KLM+UPDATE") == 0) {
+[e $U 973  ]
+[e :U 972 ]
+[e $ ! == ( _strcmp (2 , -> &U _CMD `*Cuc :s 89C -> 0 `i 974  ]
+{
+[; ;cmd_consol.c: 345: if (cmd_data.data_set == 1 && cmd_data.row_col_set == 1 && cmd_data.scroll_set == 1) {
+"345
+[e $ ! && && == -> . _cmd_data 2 `i -> 1 `i == -> . _cmd_data 7 `i -> 1 `i == -> . _cmd_data 9 `i -> 1 `i 975  ]
+{
+"346
+[v _ch `uc ~T0 @X0 1 a ]
+[; ;cmd_consol.c: 346: char ch = update_string_data(&cmd_data);
+[e = _ch ( _update_string_data (1 &U _cmd_data ]
+[; ;cmd_consol.c: 347: if (ch == 1)
+"347
+[e $ ! == -> _ch `i -> 1 `i 976  ]
+[; ;cmd_consol.c: 348: printf("%s\r\n", "ERROR");
+"348
+[e ( _printf , (. :s 90C :s 91C ]
+[e $U 977  ]
+"349
+[e :U 976 ]
+[; ;cmd_consol.c: 349: else
+[; ;cmd_consol.c: 350: printf("\r\n%s.., OK\r\n", "KLM+UPDATE");
+"350
+[e ( _printf , (. :s 92C :s 93C ]
+[e :U 977 ]
+"351
+}
+[; ;cmd_consol.c: 351: } else {
+[e $U 978  ]
+[e :U 975 ]
+{
+[; ;cmd_consol.c: 352: if (cmd_data.data_set == 0) {
+"352
+[e $ ! == -> . _cmd_data 2 `i -> 0 `i 979  ]
+{
+[; ;cmd_consol.c: 353: printf("\r\n%s\r\n", "ERR_STR_SET");
+"353
+[e ( _printf , (. :s 94C :s 95C ]
+"354
+}
+[; ;cmd_consol.c: 354: } else if (cmd_data.row_col_set == 0) {
+[e $U 980  ]
+[e :U 979 ]
+[e $ ! == -> . _cmd_data 7 `i -> 0 `i 981  ]
+{
+[; ;cmd_consol.c: 355: printf("\r\n%s\r\n", "ERR_ROW_COL");
+"355
+[e ( _printf , (. :s 96C :s 97C ]
+"356
+}
+[; ;cmd_consol.c: 356: } else if (cmd_data.scroll_set == 0) {
+[e $U 982  ]
+[e :U 981 ]
+[e $ ! == -> . _cmd_data 9 `i -> 0 `i 983  ]
+{
+[; ;cmd_consol.c: 357: printf("\r\n%s\r\n", "ERR_SCROLL_SET");
+"357
+[e ( _printf , (. :s 98C :s 99C ]
+"358
+}
+[e :U 983 ]
+"359
+[e :U 982 ]
+[e :U 980 ]
+}
+[e :U 978 ]
+"360
+}
+[e :U 974 ]
+"361
+[e :U 973 ]
+[e :U 971 ]
+[e :U 969 ]
+[e :U 967 ]
 [e :U 963 ]
 [e :U 961 ]
 [e :U 959 ]
 [e :U 957 ]
-[e :U 953 ]
-[e :U 951 ]
-[e :U 949 ]
-[e :U 947 ]
-[e :U 945 ]
-[; ;cmd_consol.c: 325: }
-[; ;cmd_consol.c: 326: }
-[; ;cmd_consol.c: 327: }
-[; ;cmd_consol.c: 328: }
-[e :UE 943 ]
+[e :U 955 ]
+[; ;cmd_consol.c: 358: }
+[; ;cmd_consol.c: 359: }
+[; ;cmd_consol.c: 360: }
+[; ;cmd_consol.c: 361: }
+[e :UE 953 ]
 }
-"330
+"363
 [v _console_init `(v ~T0 @X0 1 ef ]
 {
-[; ;cmd_consol.c: 330: void console_init() {
+[; ;cmd_consol.c: 363: void console_init() {
 [e :U _console_init ]
 [f ]
-[; ;cmd_consol.c: 331: cmd_consol_state = CMD_CONSOL_INIT;
-"331
+[; ;cmd_consol.c: 364: cmd_consol_state = CMD_CONSOL_INIT;
+"364
 [e = _cmd_consol_state . `E7328 0 ]
-[; ;cmd_consol.c: 332: clear_cmd_data();
-"332
+[; ;cmd_consol.c: 365: clear_cmd_data();
+"365
 [e ( _clear_cmd_data ..  ]
-[; ;cmd_consol.c: 333: valid_cmd = 0;
-"333
+[; ;cmd_consol.c: 366: valid_cmd = 0;
+"366
 [e = _valid_cmd -> -> 0 `i `uc ]
-[; ;cmd_consol.c: 334: clcd_init_row = 0;
-"334
+[; ;cmd_consol.c: 367: clcd_init_row = 0;
+"367
 [e = _clcd_init_row -> -> 0 `i `uc ]
-[; ;cmd_consol.c: 335: clcd_init_col = 0;
-"335
+[; ;cmd_consol.c: 368: clcd_init_col = 0;
+"368
 [e = _clcd_init_col -> -> 0 `i `uc ]
-[; ;cmd_consol.c: 336: check = 0;
-"336
+[; ;cmd_consol.c: 369: check = 0;
+"369
 [e = _check -> -> 0 `i `uc ]
-[; ;cmd_consol.c: 337: memset(CMD, 0, sizeof (CMD));
-"337
+[; ;cmd_consol.c: 370: memset(CMD, 0, sizeof (CMD));
+"370
 [e ( _memset (3 , , -> &U _CMD `*v -> 0 `i -> # _CMD `ui ]
-[; ;cmd_consol.c: 338: memset(str_data, 0, sizeof (str_data));
-"338
+[; ;cmd_consol.c: 371: memset(str_data, 0, sizeof (str_data));
+"371
 [e ( _memset (3 , , -> &U _str_data `*v -> 0 `i -> # _str_data `ui ]
-[; ;cmd_consol.c: 339: memset(uart_str, 0, sizeof (uart_str));
-"339
+[; ;cmd_consol.c: 372: memset(uart_str, 0, sizeof (uart_str));
+"372
 [e ( _memset (3 , , -> &U _uart_str `*v -> 0 `i -> # _uart_str `ui ]
-[; ;cmd_consol.c: 340: }
-"340
-[e :UE 974 ]
+[; ;cmd_consol.c: 373: }
+"373
+[e :UE 984 ]
 }
-"342
+"375
 [v _cmd_consol_task `(v ~T0 @X0 1 ef ]
 {
-[; ;cmd_consol.c: 342: void cmd_consol_task() {
+[; ;cmd_consol.c: 375: void cmd_consol_task() {
 [e :U _cmd_consol_task ]
 [f ]
-[; ;cmd_consol.c: 343: if ((eusart1RxCount) > 0) {
-"343
-[e $ ! > -> _eusart1RxCount `i -> 0 `i 976  ]
-{
-"344
-[v F7498 `i ~T0 @X0 1 s i ]
-[i F7498
--> 0 `i
-]
-"345
-[v _ch `uc ~T0 @X0 1 a ]
-[; ;cmd_consol.c: 344: static int i = 0;
-[; ;cmd_consol.c: 345: unsigned char ch = 0;
-[e = _ch -> -> 0 `i `uc ]
-[; ;cmd_consol.c: 346: while ((eusart1RxCount)) {
-"346
-[e $U 977  ]
-[e :U 978 ]
-{
-[; ;cmd_consol.c: 347: ch = getch();
-"347
-[e = _ch ( _getch ..  ]
-[; ;cmd_consol.c: 348: if (ch == '\n' || ch == '\r') {
-"348
-[e $ ! || == -> _ch `ui -> 10 `ui == -> _ch `ui -> 13 `ui 980  ]
-{
-[; ;cmd_consol.c: 349: i = 0;
-"349
-[e = F7498 -> 0 `i ]
-[; ;cmd_consol.c: 350: check = 1;
-"350
-[e = _check -> -> 1 `i `uc ]
-[; ;cmd_consol.c: 351: printf("\r\n");
-"351
-[e ( _printf :s 97C ]
-[; ;cmd_consol.c: 352: break;
-"352
-[e $U 979  ]
-"353
-}
-[; ;cmd_consol.c: 353: } else {
-[e $U 981  ]
-[e :U 980 ]
-{
-[; ;cmd_consol.c: 354: uart_str[i] = ch;
-"354
-[e = *U + &U _uart_str * -> -> F7498 `ui `ux -> -> # *U &U _uart_str `ui `ux _ch ]
-[; ;cmd_consol.c: 355: printf("%c", uart_str[i]);
-"355
-[e ( _printf , (. :s 98C -> *U + &U _uart_str * -> -> F7498 `ui `ux -> -> # *U &U _uart_str `ui `ux `i ]
-"356
-}
-[e :U 981 ]
-[; ;cmd_consol.c: 356: }
-[; ;cmd_consol.c: 357: i++;
-"357
-[e ++ F7498 -> 1 `i ]
-"358
-}
-[e :U 977 ]
-"346
-[e $ != -> _eusart1RxCount `i -> -> -> 0 `i `Vuc `i 978  ]
-[e :U 979 ]
-[; ;cmd_consol.c: 358: }
-[; ;cmd_consol.c: 359: if (i > 150) {
-"359
-[e $ ! > F7498 -> 150 `i 982  ]
-{
-[; ;cmd_consol.c: 360: puts("ERR_CMD_LEN");
-"360
-[e ( _puts (1 :s 99C ]
-[; ;cmd_consol.c: 361: i = 0;
-"361
-[e = F7498 -> 0 `i ]
-"362
-}
-[e :U 982 ]
-"363
-}
-[e :U 976 ]
-[; ;cmd_consol.c: 362: }
-[; ;cmd_consol.c: 363: }
-[; ;cmd_consol.c: 364: switch (cmd_consol_state) {
-"364
-[e $U 984  ]
-{
-[; ;cmd_consol.c: 365: case CMD_CONSOL_INIT:
-"365
-[e :U 985 ]
-[; ;cmd_consol.c: 366: {
-"366
-{
-[; ;cmd_consol.c: 367: memset(CMD, 0, sizeof (CMD));
-"367
-[e ( _memset (3 , , -> &U _CMD `*v -> 0 `i -> # _CMD `ui ]
-[; ;cmd_consol.c: 368: memset(uart_str, 0, sizeof (uart_str));
-"368
-[e ( _memset (3 , , -> &U _uart_str `*v -> 0 `i -> # _uart_str `ui ]
-[; ;cmd_consol.c: 369: valid_cmd = 0;
-"369
-[e = _valid_cmd -> -> 0 `i `uc ]
-[; ;cmd_consol.c: 370: puts("Init_Done\r\n");
-"370
-[e ( _puts (1 :s 100C ]
-[; ;cmd_consol.c: 371: cmd_consol_state = CMD_CONSOL_READ_CMD;
-"371
-[e = _cmd_consol_state . `E7328 1 ]
-[; ;cmd_consol.c: 372: break;
-"372
-[e $U 983  ]
-"373
-}
-[; ;cmd_consol.c: 373: }
-[; ;cmd_consol.c: 374: case CMD_CONSOL_READ_CMD:
-"374
-[e :U 986 ]
-[; ;cmd_consol.c: 375: {
-"375
-{
+[; ;cmd_consol.c: 376: if ((eusart1RxCount) > 0) {
 "376
-[v F7500 `i ~T0 @X0 1 s i ]
-[i F7500
+[e $ ! > -> _eusart1RxCount `i -> 0 `i 986  ]
+{
+"377
+[v F7505 `i ~T0 @X0 1 s i ]
+[i F7505
 -> 0 `i
 ]
-[; ;cmd_consol.c: 376: static int i = 0;
-[; ;cmd_consol.c: 378: if (check == 1) {
 "378
-[e $ ! == -> _check `i -> 1 `i 987  ]
-{
-[; ;cmd_consol.c: 379: check = 0;
+[v _ch `uc ~T0 @X0 1 a ]
+[; ;cmd_consol.c: 377: static int i = 0;
+[; ;cmd_consol.c: 378: unsigned char ch = 0;
+[e = _ch -> -> 0 `i `uc ]
+[; ;cmd_consol.c: 379: while ((eusart1RxCount)) {
 "379
-[e = _check -> -> 0 `i `uc ]
-[; ;cmd_consol.c: 380: if (parse_cmd_str(uart_str) == 0) {
-"380
-[e $ ! == -> ( _parse_cmd_str (1 &U _uart_str `i -> 0 `i 988  ]
-{
-[; ;cmd_consol.c: 381: memset(uart_str, 0, sizeof (uart_str));
-"381
-[e ( _memset (3 , , -> &U _uart_str `*v -> 0 `i -> # _uart_str `ui ]
-[; ;cmd_consol.c: 382: cmd_consol_state = CMD_CONSOL_REPLY_HOST;
-"382
-[e = _cmd_consol_state . `E7328 2 ]
-"383
-}
-[; ;cmd_consol.c: 383: } else {
-[e $U 989  ]
+[e $U 987  ]
 [e :U 988 ]
 {
-[; ;cmd_consol.c: 384: printf("%s\r\n", "ERROR");
+[; ;cmd_consol.c: 380: ch = getch();
+"380
+[e = _ch ( _getch ..  ]
+[; ;cmd_consol.c: 381: if (ch == '\n' || ch == '\r') {
+"381
+[e $ ! || == -> _ch `ui -> 10 `ui == -> _ch `ui -> 13 `ui 990  ]
+{
+[; ;cmd_consol.c: 382: i = 0;
+"382
+[e = F7505 -> 0 `i ]
+[; ;cmd_consol.c: 383: check = 1;
+"383
+[e = _check -> -> 1 `i `uc ]
+[; ;cmd_consol.c: 384: printf("\r\n");
 "384
-[e ( _printf , (. :s 101C :s 102C ]
+[e ( _printf :s 100C ]
+[; ;cmd_consol.c: 385: break;
 "385
-}
-[e :U 989 ]
+[e $U 989  ]
 "386
 }
-[e :U 987 ]
-[; ;cmd_consol.c: 385: }
-[; ;cmd_consol.c: 386: }
-[; ;cmd_consol.c: 387: break;
-"387
-[e $U 983  ]
-"388
-}
-[; ;cmd_consol.c: 388: }
-[; ;cmd_consol.c: 389: case CMD_CONSOL_REPLY_HOST:
-"389
+[; ;cmd_consol.c: 386: }else if(ch == 8){
+[e $U 991  ]
 [e :U 990 ]
-[; ;cmd_consol.c: 390: {
+[e $ ! == -> _ch `i -> 8 `i 992  ]
+{
+[; ;cmd_consol.c: 387: uart_str[i-1]=0;
+"387
+[e = *U + &U _uart_str * -> -> - F7505 -> 1 `i `ui `ux -> -> # *U &U _uart_str `ui `ux -> -> 0 `i `uc ]
+[; ;cmd_consol.c: 388: i--;
+"388
+[e -- F7505 -> 1 `i ]
+[; ;cmd_consol.c: 389: printf("%c", ch);
+"389
+[e ( _printf , (. :s 101C -> _ch `i ]
+[; ;cmd_consol.c: 390: continue;
 "390
-{
-[; ;cmd_consol.c: 391: if (valid_cmd == 1) {
+[e $U 987  ]
 "391
-[e $ ! == -> _valid_cmd `i -> 1 `i 991  ]
-{
-[; ;cmd_consol.c: 392: reply_to_host();
+}
+[; ;cmd_consol.c: 391: }
+[e $U 993  ]
 "392
-[e ( _reply_to_host ..  ]
-[; ;cmd_consol.c: 393: valid_cmd = 0;
+[e :U 992 ]
+[; ;cmd_consol.c: 392: else {
+{
+[; ;cmd_consol.c: 393: uart_str[i] = ch;
 "393
-[e = _valid_cmd -> -> 0 `i `uc ]
+[e = *U + &U _uart_str * -> -> F7505 `ui `ux -> -> # *U &U _uart_str `ui `ux _ch ]
+[; ;cmd_consol.c: 394: printf("%c", uart_str[i]);
+"394
+[e ( _printf , (. :s 102C -> *U + &U _uart_str * -> -> F7505 `ui `ux -> -> # *U &U _uart_str `ui `ux `i ]
 "395
 }
+[e :U 993 ]
 [e :U 991 ]
 [; ;cmd_consol.c: 395: }
-[; ;cmd_consol.c: 396: cmd_consol_state = CMD_CONSOL_READ_CMD;
+[; ;cmd_consol.c: 396: i++;
 "396
-[e = _cmd_consol_state . `E7328 1 ]
-[; ;cmd_consol.c: 397: break;
+[e ++ F7505 -> 1 `i ]
 "397
-[e $U 983  ]
+}
+[e :U 987 ]
+"379
+[e $ != -> _eusart1RxCount `i -> -> -> 0 `i `Vuc `i 988  ]
+[e :U 989 ]
+[; ;cmd_consol.c: 397: }
+[; ;cmd_consol.c: 398: if (i > 150) {
 "398
-}
+[e $ ! > F7505 -> 150 `i 994  ]
+{
+[; ;cmd_consol.c: 399: puts("ERR_CMD_LEN");
 "399
-}
-[; ;cmd_consol.c: 398: }
-[; ;cmd_consol.c: 399: }
-[e $U 983  ]
-"364
-[e :U 984 ]
-[e [\ _cmd_consol_state , $ . `E7328 0 985
- , $ . `E7328 1 986
- , $ . `E7328 2 990
- 983 ]
-"399
-[e :U 983 ]
-[; ;cmd_consol.c: 401: }
+[e ( _puts (1 :s 103C ]
+[; ;cmd_consol.c: 400: i = 0;
+"400
+[e = F7505 -> 0 `i ]
 "401
-[e :UE 975 ]
+}
+[e :U 994 ]
+"402
+}
+[e :U 986 ]
+[; ;cmd_consol.c: 401: }
+[; ;cmd_consol.c: 402: }
+[; ;cmd_consol.c: 403: switch (cmd_consol_state) {
+"403
+[e $U 996  ]
+{
+[; ;cmd_consol.c: 404: case CMD_CONSOL_INIT:
+"404
+[e :U 997 ]
+[; ;cmd_consol.c: 405: {
+"405
+{
+[; ;cmd_consol.c: 406: memset(CMD, 0, sizeof (CMD));
+"406
+[e ( _memset (3 , , -> &U _CMD `*v -> 0 `i -> # _CMD `ui ]
+[; ;cmd_consol.c: 407: memset(uart_str, 0, sizeof (uart_str));
+"407
+[e ( _memset (3 , , -> &U _uart_str `*v -> 0 `i -> # _uart_str `ui ]
+[; ;cmd_consol.c: 408: valid_cmd = 0;
+"408
+[e = _valid_cmd -> -> 0 `i `uc ]
+[; ;cmd_consol.c: 409: puts("Init_Done\r\n");
+"409
+[e ( _puts (1 :s 104C ]
+[; ;cmd_consol.c: 410: cmd_consol_state = CMD_CONSOL_READ_CMD;
+"410
+[e = _cmd_consol_state . `E7328 1 ]
+[; ;cmd_consol.c: 411: break;
+"411
+[e $U 995  ]
+"412
+}
+[; ;cmd_consol.c: 412: }
+[; ;cmd_consol.c: 413: case CMD_CONSOL_READ_CMD:
+"413
+[e :U 998 ]
+[; ;cmd_consol.c: 414: {
+"414
+{
+"415
+[v F7507 `i ~T0 @X0 1 s i ]
+[i F7507
+-> 0 `i
+]
+[; ;cmd_consol.c: 415: static int i = 0;
+[; ;cmd_consol.c: 417: if (check == 1) {
+"417
+[e $ ! == -> _check `i -> 1 `i 999  ]
+{
+[; ;cmd_consol.c: 418: check = 0;
+"418
+[e = _check -> -> 0 `i `uc ]
+[; ;cmd_consol.c: 419: if (parse_cmd_str(uart_str) == 0) {
+"419
+[e $ ! == -> ( _parse_cmd_str (1 &U _uart_str `i -> 0 `i 1000  ]
+{
+[; ;cmd_consol.c: 420: memset(uart_str, 0, sizeof (uart_str));
+"420
+[e ( _memset (3 , , -> &U _uart_str `*v -> 0 `i -> # _uart_str `ui ]
+[; ;cmd_consol.c: 421: cmd_consol_state = CMD_CONSOL_REPLY_HOST;
+"421
+[e = _cmd_consol_state . `E7328 2 ]
+"422
+}
+[; ;cmd_consol.c: 422: } else {
+[e $U 1001  ]
+[e :U 1000 ]
+{
+[; ;cmd_consol.c: 423: printf("%s\r\n", "ERROR");
+"423
+[e ( _printf , (. :s 105C :s 106C ]
+"424
+}
+[e :U 1001 ]
+"425
+}
+[e :U 999 ]
+[; ;cmd_consol.c: 424: }
+[; ;cmd_consol.c: 425: }
+[; ;cmd_consol.c: 426: break;
+"426
+[e $U 995  ]
+"427
+}
+[; ;cmd_consol.c: 427: }
+[; ;cmd_consol.c: 428: case CMD_CONSOL_REPLY_HOST:
+"428
+[e :U 1002 ]
+[; ;cmd_consol.c: 429: {
+"429
+{
+[; ;cmd_consol.c: 430: if (valid_cmd == 1) {
+"430
+[e $ ! == -> _valid_cmd `i -> 1 `i 1003  ]
+{
+[; ;cmd_consol.c: 431: reply_to_host();
+"431
+[e ( _reply_to_host ..  ]
+[; ;cmd_consol.c: 432: valid_cmd = 0;
+"432
+[e = _valid_cmd -> -> 0 `i `uc ]
+"434
+}
+[e :U 1003 ]
+[; ;cmd_consol.c: 434: }
+[; ;cmd_consol.c: 435: cmd_consol_state = CMD_CONSOL_READ_CMD;
+"435
+[e = _cmd_consol_state . `E7328 1 ]
+[; ;cmd_consol.c: 436: break;
+"436
+[e $U 995  ]
+"437
+}
+"438
+}
+[; ;cmd_consol.c: 437: }
+[; ;cmd_consol.c: 438: }
+[e $U 995  ]
+"403
+[e :U 996 ]
+[e [\ _cmd_consol_state , $ . `E7328 0 997
+ , $ . `E7328 1 998
+ , $ . `E7328 2 1002
+ 995 ]
+"438
+[e :U 995 ]
+[; ;cmd_consol.c: 440: }
+"440
+[e :UE 985 ]
 }
 [p f _printf 9175168 ]
-[a 98C 37 99 0 ]
-[a 92C 69 82 82 95 83 84 82 95 83 69 84 0 ]
-[a 96C 69 82 82 95 83 67 82 79 76 76 95 83 69 84 0 ]
+[a 101C 37 99 0 ]
+[a 102C 37 99 0 ]
+[a 95C 69 82 82 95 83 84 82 95 83 69 84 0 ]
+[a 99C 69 82 82 95 83 67 82 79 76 76 95 83 69 84 0 ]
 [a 16C 75 76 77 43 76 67 68 83 0 ]
-[a 69C 75 76 77 43 76 67 68 83 0 ]
-[a 71C 75 76 77 43 76 67 68 83 0 ]
+[a 72C 75 76 77 43 76 67 68 83 0 ]
+[a 74C 75 76 77 43 76 67 68 83 0 ]
+[a 54C 75 76 77 43 83 83 84 82 0 ]
 [a 23C 75 76 77 43 83 68 83 84 82 0 ]
-[a 77C 75 76 77 43 83 68 83 84 82 0 ]
-[a 79C 75 76 77 43 83 68 83 84 82 0 ]
-[a 88C 69 82 82 79 82 0 ]
-[a 102C 69 82 82 79 82 0 ]
-[a 99C 69 82 82 95 67 77 68 95 76 69 78 0 ]
-[a 54C 75 76 77 0 ]
-[a 55C 75 76 77 0 ]
+[a 80C 75 76 77 43 83 68 83 84 82 0 ]
+[a 82C 75 76 77 43 83 68 83 84 82 0 ]
+[a 91C 69 82 82 79 82 0 ]
+[a 106C 69 82 82 79 82 0 ]
+[a 103C 69 82 82 95 67 77 68 95 76 69 78 0 ]
+[a 57C 75 76 77 0 ]
+[a 58C 75 76 77 0 ]
 [a 31C 75 76 77 43 83 68 83 67 82 79 76 0 ]
-[a 80C 75 76 77 43 83 68 83 67 82 79 76 0 ]
-[a 82C 75 76 77 43 83 68 83 67 82 79 76 0 ]
-[a 94C 69 82 82 95 82 79 87 95 67 79 76 0 ]
+[a 83C 75 76 77 43 83 68 83 67 82 79 76 0 ]
+[a 85C 75 76 77 43 83 68 83 67 82 79 76 0 ]
+[a 97C 69 82 82 95 82 79 87 95 67 79 76 0 ]
 [a 53C 75 76 77 43 85 80 68 65 84 69 0 ]
-[a 86C 75 76 77 43 85 80 68 65 84 69 0 ]
-[a 90C 75 76 77 43 85 80 68 65 84 69 0 ]
+[a 89C 75 76 77 43 85 80 68 65 84 69 0 ]
+[a 93C 75 76 77 43 85 80 68 65 84 69 0 ]
 [a 40C 75 76 77 43 83 68 83 69 82 67 0 ]
-[a 83C 75 76 77 43 83 68 83 69 82 67 0 ]
-[a 85C 75 76 77 43 83 68 83 69 82 67 0 ]
+[a 86C 75 76 77 43 83 68 83 69 82 67 0 ]
+[a 88C 75 76 77 43 83 68 83 69 82 67 0 ]
 [a 21C 75 76 77 43 71 77 68 83 63 0 ]
-[a 72C 75 76 77 43 71 77 68 83 63 0 ]
-[a 76C 75 76 77 43 71 77 68 83 63 0 ]
+[a 75C 75 76 77 43 71 77 68 83 63 0 ]
+[a 79C 75 76 77 43 71 77 68 83 63 0 ]
 [a 13C 75 76 77 43 76 67 68 83 63 0 ]
-[a 57C 75 76 77 43 76 67 68 83 63 0 ]
 [a 60C 75 76 77 43 76 67 68 83 63 0 ]
+[a 63C 75 76 77 43 76 67 68 83 63 0 ]
 [a 11C 75 76 77 43 77 82 63 0 ]
-[a 65C 75 76 77 43 77 82 63 0 ]
 [a 68C 75 76 77 43 77 82 63 0 ]
+[a 71C 75 76 77 43 77 82 63 0 ]
 [a 9C 75 76 77 43 77 67 63 0 ]
-[a 61C 75 76 77 43 77 67 63 0 ]
 [a 64C 75 76 77 43 77 67 63 0 ]
+[a 67C 75 76 77 43 77 67 63 0 ]
 [a 10C 45 39 44 32 47 61 0 ]
 [a 12C 45 39 44 32 47 61 0 ]
 [a 14C 45 39 44 32 47 61 0 ]
@@ -8515,7 +8665,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [a 22C 45 39 44 32 47 61 0 ]
 [a 24C 45 39 44 32 47 61 0 ]
 [a 26C 45 39 44 32 47 61 0 ]
-[a 29C 45 39 44 32 47 61 0 ]
 [a 33C 45 39 44 32 47 61 0 ]
 [a 34C 45 39 44 32 47 61 0 ]
 [a 37C 45 39 44 32 47 61 0 ]
@@ -8525,6 +8674,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [a 46C 45 39 44 32 47 61 0 ]
 [a 48C 45 39 44 32 47 61 0 ]
 [a 50C 45 39 44 32 47 61 0 ]
+[a 55C 45 39 44 32 47 61 0 ]
+[a 56C 45 39 44 32 47 61 0 ]
+[a 29C 44 0 ]
 [a 25C 116 101 109 112 32 61 32 37 115 44 32 0 ]
 [a 27C 116 101 109 112 32 61 32 37 115 44 32 0 ]
 [a 39C 115 99 114 111 108 108 32 61 32 37 100 44 32 0 ]
@@ -8534,32 +8686,32 @@ Version 3.2 HI-TECH Software Intermediate Code
 [a 51C 99 111 108 32 61 32 37 115 13 10 0 ]
 [a 5C 105 32 61 32 37 100 44 32 99 111 108 46 46 50 32 61 32 37 115 13 10 0 ]
 [a 2C 99 111 108 46 46 49 32 61 32 37 115 13 10 0 ]
-[a 91C 13 10 37 115 13 10 0 ]
-[a 93C 13 10 37 115 13 10 0 ]
-[a 95C 13 10 37 115 13 10 0 ]
-[a 58C 37 115 13 10 0 ]
-[a 87C 37 115 13 10 0 ]
-[a 101C 37 115 13 10 0 ]
-[a 100C 73 110 105 116 95 68 111 110 101 13 10 0 ]
+[a 94C 13 10 37 115 13 10 0 ]
+[a 96C 13 10 37 115 13 10 0 ]
+[a 98C 13 10 37 115 13 10 0 ]
+[a 61C 37 115 13 10 0 ]
+[a 90C 37 115 13 10 0 ]
+[a 105C 37 115 13 10 0 ]
+[a 104C 73 110 105 116 95 68 111 110 101 13 10 0 ]
 [a 1C 114 111 119 32 61 32 37 100 13 10 0 ]
 [a 7C 67 111 108 32 61 32 37 100 13 10 0 ]
 [a 4C 115 116 114 91 37 100 93 32 61 32 37 100 13 10 0 ]
 [a 6C 115 116 114 91 37 100 93 32 61 32 37 100 13 10 0 ]
 [a 3C 115 116 114 108 101 110 32 61 32 37 100 44 32 105 61 37 100 44 32 99 111 108 46 46 32 61 32 37 100 13 10 0 ]
-[a 62C 37 100 13 10 0 ]
-[a 66C 37 100 13 10 0 ]
-[a 74C 37 100 13 10 0 ]
-[a 73C 37 100 44 37 99 45 37 99 13 10 0 ]
-[a 59C 13 10 37 115 46 46 44 32 79 75 13 10 0 ]
-[a 63C 13 10 37 115 46 46 44 32 79 75 13 10 0 ]
-[a 67C 13 10 37 115 46 46 44 32 79 75 13 10 0 ]
+[a 65C 37 100 13 10 0 ]
+[a 69C 37 100 13 10 0 ]
+[a 77C 37 100 13 10 0 ]
+[a 76C 37 100 44 37 99 45 37 99 13 10 0 ]
+[a 62C 13 10 37 115 46 46 44 32 79 75 13 10 0 ]
+[a 66C 13 10 37 115 46 46 44 32 79 75 13 10 0 ]
 [a 70C 13 10 37 115 46 46 44 32 79 75 13 10 0 ]
-[a 75C 13 10 37 115 46 46 44 32 79 75 13 10 0 ]
+[a 73C 13 10 37 115 46 46 44 32 79 75 13 10 0 ]
 [a 78C 13 10 37 115 46 46 44 32 79 75 13 10 0 ]
 [a 81C 13 10 37 115 46 46 44 32 79 75 13 10 0 ]
 [a 84C 13 10 37 115 46 46 44 32 79 75 13 10 0 ]
-[a 89C 13 10 37 115 46 46 44 32 79 75 13 10 0 ]
-[a 56C 79 75 13 10 0 ]
+[a 87C 13 10 37 115 46 46 44 32 79 75 13 10 0 ]
+[a 92C 13 10 37 115 46 46 44 32 79 75 13 10 0 ]
+[a 59C 79 75 13 10 0 ]
 [a 38C 37 115 46 46 46 54 13 10 0 ]
 [a 35C 37 115 46 46 46 53 13 10 0 ]
 [a 32C 37 115 46 46 46 52 13 10 0 ]
@@ -8571,4 +8723,4 @@ Version 3.2 HI-TECH Software Intermediate Code
 [a 47C 99 109 100 95 100 97 116 97 46 115 116 97 114 116 95 99 111 108 32 61 32 37 100 44 13 10 0 ]
 [a 52C 99 109 100 95 100 97 116 97 46 101 110 100 95 99 111 108 32 61 32 37 100 44 13 10 0 ]
 [a 43C 117 105 100 32 61 32 37 100 44 13 10 0 ]
-[a 97C 13 10 0 ]
+[a 100C 13 10 0 ]

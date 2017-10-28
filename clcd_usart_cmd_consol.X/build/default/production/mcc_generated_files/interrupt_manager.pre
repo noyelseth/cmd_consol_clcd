@@ -8543,39 +8543,6 @@ typedef uint16_t uintptr_t;
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.40\include\stdbool.h"
 typedef unsigned char bool;
 
-# 105 "mcc_generated_files/tmr0.h"
-void TMR0_Initialize(void);
-
-# 134
-void TMR0_StartTimer(void);
-
-# 166
-void TMR0_StopTimer(void);
-
-# 202
-uint16_t TMR0_ReadTimer(void);
-
-# 241
-void TMR0_WriteTimer(uint16_t timerVal);
-
-# 277
-void TMR0_Reload(void);
-
-# 295
-void TMR0_ISR(void);
-
-# 313
-void TMR0_CallBack(void);
-
-# 331
-void TMR0_SetInterruptHandler(void *InterruptHandler);
-
-# 349
-extern void (*TMR0_InterruptHandler)(void);
-
-# 367
-void TMR0_DefaultInterruptHandler(void);
-
 # 93 "mcc_generated_files/tmr1.h"
 void TMR1_Initialize(void);
 
@@ -8602,33 +8569,6 @@ uint8_t TMR1_CheckGateValueStatus(void);
 
 # 366
 bool TMR1_HasOverflowOccured(void);
-
-# 93 "mcc_generated_files/tmr5.h"
-void TMR5_Initialize(void);
-
-# 124
-void TMR5_StartTimer(void);
-
-# 154
-void TMR5_StopTimer(void);
-
-# 188
-uint16_t TMR5_ReadTimer(void);
-
-# 214
-void TMR5_WriteTimer(uint16_t timerVal);
-
-# 246
-void TMR5_Reload(void);
-
-# 287
-void TMR5_StartSinglePulseAcquisition(void);
-
-# 328
-uint8_t TMR5_CheckGateValueStatus(void);
-
-# 366
-bool TMR5_HasOverflowOccured(void);
 
 # 4 "C:\Program Files (x86)\Microchip\xc8\v1.40\include\__size_t.h"
 typedef unsigned size_t;
@@ -8711,6 +8651,66 @@ void EUSART1_Transmit_ISR(void);
 
 # 222
 void EUSART1_Receive_ISR(void);
+
+# 105 "mcc_generated_files/tmr0.h"
+void TMR0_Initialize(void);
+
+# 134
+void TMR0_StartTimer(void);
+
+# 166
+void TMR0_StopTimer(void);
+
+# 202
+uint16_t TMR0_ReadTimer(void);
+
+# 241
+void TMR0_WriteTimer(uint16_t timerVal);
+
+# 277
+void TMR0_Reload(void);
+
+# 295
+void TMR0_ISR(void);
+
+# 313
+void TMR0_CallBack(void);
+
+# 331
+void TMR0_SetInterruptHandler(void *InterruptHandler);
+
+# 349
+extern void (*TMR0_InterruptHandler)(void);
+
+# 367
+void TMR0_DefaultInterruptHandler(void);
+
+# 93 "mcc_generated_files/tmr5.h"
+void TMR5_Initialize(void);
+
+# 124
+void TMR5_StartTimer(void);
+
+# 154
+void TMR5_StopTimer(void);
+
+# 188
+uint16_t TMR5_ReadTimer(void);
+
+# 214
+void TMR5_WriteTimer(uint16_t timerVal);
+
+# 246
+void TMR5_Reload(void);
+
+# 287
+void TMR5_StartSinglePulseAcquisition(void);
+
+# 328
+uint8_t TMR5_CheckGateValueStatus(void);
+
+# 366
+bool TMR5_HasOverflowOccured(void);
 
 # 72 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);

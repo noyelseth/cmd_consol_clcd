@@ -8578,39 +8578,6 @@ void interrupt INTERRUPT_InterruptManager(void);
 # 122
 void INTERRUPT_Initialize (void);
 
-# 105 "mcc_generated_files/tmr0.h"
-void TMR0_Initialize(void);
-
-# 134
-void TMR0_StartTimer(void);
-
-# 166
-void TMR0_StopTimer(void);
-
-# 202
-uint16_t TMR0_ReadTimer(void);
-
-# 241
-void TMR0_WriteTimer(uint16_t timerVal);
-
-# 277
-void TMR0_Reload(void);
-
-# 295
-void TMR0_ISR(void);
-
-# 313
-void TMR0_CallBack(void);
-
-# 331
-void TMR0_SetInterruptHandler(void *InterruptHandler);
-
-# 349
-extern void (*TMR0_InterruptHandler)(void);
-
-# 367
-void TMR0_DefaultInterruptHandler(void);
-
 # 93 "mcc_generated_files/tmr1.h"
 void TMR1_Initialize(void);
 
@@ -8637,33 +8604,6 @@ uint8_t TMR1_CheckGateValueStatus(void);
 
 # 366
 bool TMR1_HasOverflowOccured(void);
-
-# 93 "mcc_generated_files/tmr5.h"
-void TMR5_Initialize(void);
-
-# 124
-void TMR5_StartTimer(void);
-
-# 154
-void TMR5_StopTimer(void);
-
-# 188
-uint16_t TMR5_ReadTimer(void);
-
-# 214
-void TMR5_WriteTimer(uint16_t timerVal);
-
-# 246
-void TMR5_Reload(void);
-
-# 287
-void TMR5_StartSinglePulseAcquisition(void);
-
-# 328
-uint8_t TMR5_CheckGateValueStatus(void);
-
-# 366
-bool TMR5_HasOverflowOccured(void);
 
 # 7 "C:\Program Files (x86)\Microchip\xc8\v1.40\include\stdarg.h"
 typedef void * va_list[1];
@@ -8744,6 +8684,66 @@ void EUSART1_Transmit_ISR(void);
 # 222
 void EUSART1_Receive_ISR(void);
 
+# 105 "mcc_generated_files/tmr0.h"
+void TMR0_Initialize(void);
+
+# 134
+void TMR0_StartTimer(void);
+
+# 166
+void TMR0_StopTimer(void);
+
+# 202
+uint16_t TMR0_ReadTimer(void);
+
+# 241
+void TMR0_WriteTimer(uint16_t timerVal);
+
+# 277
+void TMR0_Reload(void);
+
+# 295
+void TMR0_ISR(void);
+
+# 313
+void TMR0_CallBack(void);
+
+# 331
+void TMR0_SetInterruptHandler(void *InterruptHandler);
+
+# 349
+extern void (*TMR0_InterruptHandler)(void);
+
+# 367
+void TMR0_DefaultInterruptHandler(void);
+
+# 93 "mcc_generated_files/tmr5.h"
+void TMR5_Initialize(void);
+
+# 124
+void TMR5_StartTimer(void);
+
+# 154
+void TMR5_StopTimer(void);
+
+# 188
+uint16_t TMR5_ReadTimer(void);
+
+# 214
+void TMR5_WriteTimer(uint16_t timerVal);
+
+# 246
+void TMR5_Reload(void);
+
+# 287
+void TMR5_StartSinglePulseAcquisition(void);
+
+# 328
+uint8_t TMR5_CheckGateValueStatus(void);
+
+# 366
+bool TMR5_HasOverflowOccured(void);
+
 # 72 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
 
@@ -8819,7 +8819,7 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 
-# 64 "cmd_consol.h"
+# 69 "cmd_consol.h"
 char uart_str[150] = {0};
 char str_data[40] = {0};
 char CMD[15] = {0};
@@ -9003,18 +9003,36 @@ if (row >= clcd_config_data.clcd_max_row) {
 }
 }
 
+char get_uid(char *str) {
+return str[0];
+}
+
+char* get_str(char* str) {
+if (strlen(str) < 40) {
+strcpy(cmd_data.data, str);
+valid_cmd = 1;
+cmd_data.data_set = 1;
+memset(str, 0, strlen(str));
+return str;
+}
+return (0);
+}
+char get_duration(char* str)
+{
+
+}
+
 void collect_column(char *str, char *data_column) {
 printf("col..1 = %s\r\n", str);
 int i = 0;
 char column = 0;
 for (i = 0; i < strlen(str); i++) {
-if (isdigit(str[i]) == 1){
+if (isdigit(str[i]) == 1) {
 column = column * 10 + (str[i] - '0');
-printf("strlen = %d, i=%d, col.. = %d\r\n",strlen(str),i, column);
+printf("strlen = %d, i=%d, col.. = %d\r\n", strlen(str), i, column);
 printf("str[%d] = %d\r\n", i, str[i]);
-}
-else{
-printf("i = %d, col..2 = %s\r\n",i, str);
+} else {
+printf("i = %d, col..2 = %s\r\n", i, str);
 printf("str[%d] = %d\r\n", i, str[i]);
 return;
 }
@@ -9109,7 +9127,7 @@ uid = temp[0];
 if (uid >= 'A' && uid < clcd_config_data.uid_range) {
 printf("uid = %d, ", uid);
 cmd_data.uid = uid;
-temp = strtok((0), "-', /=");
+temp = strtok((0), ",");
 if (temp != (0)) {
 printf("str = %s\r\n", temp);
 if (strlen(temp) < 40) {
@@ -9243,6 +9261,21 @@ strcpy(CMD, temp);
 memset(str, 0, strlen(str));
 valid_cmd = 1;
 return 0;
+} else if ((temp = strstr(ptr, "KLM+SSTR")) != (0)) {
+if (clcd_config_data.init_done == 1) {
+temp = strtok(ptr, "-', /=");
+if (temp != (0)) {
+strcpy(CMD, temp);
+char uid = 0;
+temp = strtok(ptr, "-', /=");
+if (temp != (0)) {
+uid = temp[0];
+if (uid >= 'A' && uid < clcd_config_data.uid_range) {
+cmd_data.uid = uid;
+}
+}
+}
+}
 } else if ((temp = strstr(ptr, "KLM")) != (0)) {
 strcpy(CMD, temp);
 memset(str, 0, strlen(str));
@@ -9284,8 +9317,8 @@ printf("\r\n%s.., OK\r\n", "KLM+SDSERC");
 } else if (strcmp(CMD, "KLM+UPDATE") == 0) {
 if (cmd_data.data_set == 1 && cmd_data.row_col_set == 1 && cmd_data.scroll_set == 1) {
 char ch = update_string_data(&cmd_data);
-if(ch == 1)
-printf("%s\r\n","ERROR");
+if (ch == 1)
+printf("%s\r\n", "ERROR");
 else
 printf("\r\n%s.., OK\r\n", "KLM+UPDATE");
 } else {
@@ -9323,7 +9356,13 @@ i = 0;
 check = 1;
 printf("\r\n");
 break;
-} else {
+}else if(ch == 8){
+uart_str[i-1]=0;
+i--;
+printf("%c", ch);
+continue;
+}
+else {
 uart_str[i] = ch;
 printf("%c", uart_str[i]);
 }
