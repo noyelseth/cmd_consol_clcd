@@ -8430,191 +8430,188 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 990 ]
 [e $ ! == -> _ch `i -> 8 `i 992  ]
 {
-[; ;cmd_consol.c: 387: uart_str[i-1]=0;
+[; ;cmd_consol.c: 387: uart_str[--i]=0;
 "387
-[e = *U + &U _uart_str * -> -> - F7505 -> 1 `i `ui `ux -> -> # *U &U _uart_str `ui `ux -> -> 0 `i `uc ]
-[; ;cmd_consol.c: 388: i--;
+[e = *U + &U _uart_str * -> -> =- F7505 -> 1 `i `ui `ux -> -> # *U &U _uart_str `ui `ux -> -> 0 `i `uc ]
+[; ;cmd_consol.c: 388: printf("%c", ch);
 "388
-[e -- F7505 -> 1 `i ]
-[; ;cmd_consol.c: 389: printf("%c", ch);
-"389
 [e ( _printf , (. :s 101C -> _ch `i ]
-[; ;cmd_consol.c: 390: continue;
-"390
+[; ;cmd_consol.c: 389: continue;
+"389
 [e $U 987  ]
-"391
+"390
 }
-[; ;cmd_consol.c: 391: }
+[; ;cmd_consol.c: 390: }
 [e $U 993  ]
-"392
+"391
 [e :U 992 ]
-[; ;cmd_consol.c: 392: else {
+[; ;cmd_consol.c: 391: else {
 {
-[; ;cmd_consol.c: 393: uart_str[i] = ch;
-"393
+[; ;cmd_consol.c: 392: uart_str[i] = ch;
+"392
 [e = *U + &U _uart_str * -> -> F7505 `ui `ux -> -> # *U &U _uart_str `ui `ux _ch ]
-[; ;cmd_consol.c: 394: printf("%c", uart_str[i]);
-"394
+[; ;cmd_consol.c: 393: printf("%c", uart_str[i]);
+"393
 [e ( _printf , (. :s 102C -> *U + &U _uart_str * -> -> F7505 `ui `ux -> -> # *U &U _uart_str `ui `ux `i ]
-"395
+"394
 }
 [e :U 993 ]
 [e :U 991 ]
-[; ;cmd_consol.c: 395: }
-[; ;cmd_consol.c: 396: i++;
-"396
+[; ;cmd_consol.c: 394: }
+[; ;cmd_consol.c: 395: i++;
+"395
 [e ++ F7505 -> 1 `i ]
-"397
+"396
 }
 [e :U 987 ]
 "379
 [e $ != -> _eusart1RxCount `i -> -> -> 0 `i `Vuc `i 988  ]
 [e :U 989 ]
-[; ;cmd_consol.c: 397: }
-[; ;cmd_consol.c: 398: if (i > 150) {
-"398
+[; ;cmd_consol.c: 396: }
+[; ;cmd_consol.c: 397: if (i > 150) {
+"397
 [e $ ! > F7505 -> 150 `i 994  ]
 {
-[; ;cmd_consol.c: 399: puts("ERR_CMD_LEN");
-"399
+[; ;cmd_consol.c: 398: puts("ERR_CMD_LEN");
+"398
 [e ( _puts (1 :s 103C ]
-[; ;cmd_consol.c: 400: i = 0;
-"400
+[; ;cmd_consol.c: 399: i = 0;
+"399
 [e = F7505 -> 0 `i ]
-"401
+"400
 }
 [e :U 994 ]
-"402
+"401
 }
 [e :U 986 ]
+[; ;cmd_consol.c: 400: }
 [; ;cmd_consol.c: 401: }
-[; ;cmd_consol.c: 402: }
-[; ;cmd_consol.c: 403: switch (cmd_consol_state) {
-"403
+[; ;cmd_consol.c: 402: switch (cmd_consol_state) {
+"402
 [e $U 996  ]
 {
-[; ;cmd_consol.c: 404: case CMD_CONSOL_INIT:
-"404
+[; ;cmd_consol.c: 403: case CMD_CONSOL_INIT:
+"403
 [e :U 997 ]
-[; ;cmd_consol.c: 405: {
+[; ;cmd_consol.c: 404: {
+"404
+{
+[; ;cmd_consol.c: 405: memset(CMD, 0, sizeof (CMD));
 "405
-{
-[; ;cmd_consol.c: 406: memset(CMD, 0, sizeof (CMD));
-"406
 [e ( _memset (3 , , -> &U _CMD `*v -> 0 `i -> # _CMD `ui ]
-[; ;cmd_consol.c: 407: memset(uart_str, 0, sizeof (uart_str));
-"407
+[; ;cmd_consol.c: 406: memset(uart_str, 0, sizeof (uart_str));
+"406
 [e ( _memset (3 , , -> &U _uart_str `*v -> 0 `i -> # _uart_str `ui ]
-[; ;cmd_consol.c: 408: valid_cmd = 0;
-"408
+[; ;cmd_consol.c: 407: valid_cmd = 0;
+"407
 [e = _valid_cmd -> -> 0 `i `uc ]
-[; ;cmd_consol.c: 409: puts("Init_Done\r\n");
-"409
+[; ;cmd_consol.c: 408: puts("Init_Done\r\n");
+"408
 [e ( _puts (1 :s 104C ]
-[; ;cmd_consol.c: 410: cmd_consol_state = CMD_CONSOL_READ_CMD;
-"410
+[; ;cmd_consol.c: 409: cmd_consol_state = CMD_CONSOL_READ_CMD;
+"409
 [e = _cmd_consol_state . `E7328 1 ]
-[; ;cmd_consol.c: 411: break;
-"411
+[; ;cmd_consol.c: 410: break;
+"410
 [e $U 995  ]
-"412
+"411
 }
-[; ;cmd_consol.c: 412: }
-[; ;cmd_consol.c: 413: case CMD_CONSOL_READ_CMD:
-"413
+[; ;cmd_consol.c: 411: }
+[; ;cmd_consol.c: 412: case CMD_CONSOL_READ_CMD:
+"412
 [e :U 998 ]
-[; ;cmd_consol.c: 414: {
-"414
+[; ;cmd_consol.c: 413: {
+"413
 {
-"415
+"414
 [v F7507 `i ~T0 @X0 1 s i ]
 [i F7507
 -> 0 `i
 ]
-[; ;cmd_consol.c: 415: static int i = 0;
-[; ;cmd_consol.c: 417: if (check == 1) {
-"417
+[; ;cmd_consol.c: 414: static int i = 0;
+[; ;cmd_consol.c: 416: if (check == 1) {
+"416
 [e $ ! == -> _check `i -> 1 `i 999  ]
 {
-[; ;cmd_consol.c: 418: check = 0;
-"418
+[; ;cmd_consol.c: 417: check = 0;
+"417
 [e = _check -> -> 0 `i `uc ]
-[; ;cmd_consol.c: 419: if (parse_cmd_str(uart_str) == 0) {
-"419
+[; ;cmd_consol.c: 418: if (parse_cmd_str(uart_str) == 0) {
+"418
 [e $ ! == -> ( _parse_cmd_str (1 &U _uart_str `i -> 0 `i 1000  ]
 {
-[; ;cmd_consol.c: 420: memset(uart_str, 0, sizeof (uart_str));
-"420
+[; ;cmd_consol.c: 419: memset(uart_str, 0, sizeof (uart_str));
+"419
 [e ( _memset (3 , , -> &U _uart_str `*v -> 0 `i -> # _uart_str `ui ]
-[; ;cmd_consol.c: 421: cmd_consol_state = CMD_CONSOL_REPLY_HOST;
-"421
+[; ;cmd_consol.c: 420: cmd_consol_state = CMD_CONSOL_REPLY_HOST;
+"420
 [e = _cmd_consol_state . `E7328 2 ]
-"422
+"421
 }
-[; ;cmd_consol.c: 422: } else {
+[; ;cmd_consol.c: 421: } else {
 [e $U 1001  ]
 [e :U 1000 ]
 {
-[; ;cmd_consol.c: 423: printf("%s\r\n", "ERROR");
-"423
+[; ;cmd_consol.c: 422: printf("%s\r\n", "ERROR");
+"422
 [e ( _printf , (. :s 105C :s 106C ]
-"424
+"423
 }
 [e :U 1001 ]
-"425
+"424
 }
 [e :U 999 ]
+[; ;cmd_consol.c: 423: }
 [; ;cmd_consol.c: 424: }
-[; ;cmd_consol.c: 425: }
-[; ;cmd_consol.c: 426: break;
-"426
+[; ;cmd_consol.c: 425: break;
+"425
 [e $U 995  ]
-"427
+"426
 }
-[; ;cmd_consol.c: 427: }
-[; ;cmd_consol.c: 428: case CMD_CONSOL_REPLY_HOST:
-"428
+[; ;cmd_consol.c: 426: }
+[; ;cmd_consol.c: 427: case CMD_CONSOL_REPLY_HOST:
+"427
 [e :U 1002 ]
-[; ;cmd_consol.c: 429: {
-"429
+[; ;cmd_consol.c: 428: {
+"428
 {
-[; ;cmd_consol.c: 430: if (valid_cmd == 1) {
-"430
+[; ;cmd_consol.c: 429: if (valid_cmd == 1) {
+"429
 [e $ ! == -> _valid_cmd `i -> 1 `i 1003  ]
 {
-[; ;cmd_consol.c: 431: reply_to_host();
-"431
+[; ;cmd_consol.c: 430: reply_to_host();
+"430
 [e ( _reply_to_host ..  ]
-[; ;cmd_consol.c: 432: valid_cmd = 0;
-"432
+[; ;cmd_consol.c: 431: valid_cmd = 0;
+"431
 [e = _valid_cmd -> -> 0 `i `uc ]
-"434
+"433
 }
 [e :U 1003 ]
-[; ;cmd_consol.c: 434: }
-[; ;cmd_consol.c: 435: cmd_consol_state = CMD_CONSOL_READ_CMD;
-"435
+[; ;cmd_consol.c: 433: }
+[; ;cmd_consol.c: 434: cmd_consol_state = CMD_CONSOL_READ_CMD;
+"434
 [e = _cmd_consol_state . `E7328 1 ]
-[; ;cmd_consol.c: 436: break;
-"436
+[; ;cmd_consol.c: 435: break;
+"435
 [e $U 995  ]
+"436
+}
 "437
 }
-"438
-}
+[; ;cmd_consol.c: 436: }
 [; ;cmd_consol.c: 437: }
-[; ;cmd_consol.c: 438: }
 [e $U 995  ]
-"403
+"402
 [e :U 996 ]
 [e [\ _cmd_consol_state , $ . `E7328 0 997
  , $ . `E7328 1 998
  , $ . `E7328 2 1002
  995 ]
-"438
+"437
 [e :U 995 ]
-[; ;cmd_consol.c: 440: }
-"440
+[; ;cmd_consol.c: 439: }
+"439
 [e :UE 985 ]
 }
 [p f _printf 9175168 ]
