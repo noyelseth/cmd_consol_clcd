@@ -69,19 +69,33 @@ char get_dis_frq(char* str, char *data_frq) {
     char frq = 0;
     int i = 0;
     for (i = 0; i < strlen(str); i++) {
-        if (isdigit(str[i]) == 1)
+        if (isdigit(str[i]) == 1) {
             frq = frq * 10 + (str[i] - '0');
-        else
+        } else {
+            *data_frq = 1;
+
             return FAILURE;
+        }
     }
     printf("display_frq = %d\r\n", frq);
-    if (frq >= clcd_config_data.clcd_max_row) {
-        *data_frq = -1;
-        return FAILURE;
-    } else {
-        *data_frq = frq;
-        return SUCCESS;
+    *data_frq = frq;
+    return SUCCESS;
+}
+
+char get_over_write_data(char* str, char *over_write_data) {
+    char over_write = 0;
+    int i = 0;
+    for (i = 0; i < strlen(str); i++) {
+        if (isdigit(str[i]) == 1) {
+            over_write = over_write * 10 + (str[i] - '0');
+        } else {
+            *over_write_data = 0;
+            return FAILURE;
+        }
     }
+    printf("over_write = %d\r\n", over_write);
+    *over_write_data = over_write;
+    return SUCCESS;
 }
 
 void collect_column(char *str, char *data_column) {
@@ -356,14 +370,21 @@ char parse_cmd_str(char *str) {
                                                     if (cmd_data.end_row != 255) {
                                                         temp = strtok(NULL, TOKENER);
                                                         if (temp != NULL) {
-                                                            if (get_direction(temp, cmd_data.scroll) == SUCCESS) {
+                                                            if (get_direction(temp, &cmd_data.scroll) == SUCCESS) {
                                                                 temp = strtok(NULL, TOKENER);
                                                                 if (temp != NULL) {
-                                                                    if (get_dis_frq(temp, cmd_data.dis_frq_set) == SUCCESS) {
-                                                                        cmd_data.row_col_set = true;
-                                                                        valid_cmd = true;
-                                                                        memset(str, 0, strlen(str));
-                                                                        return OK_CMD;
+                                                                    if (get_dis_frq(temp, &cmd_data.dis_frq) == SUCCESS) {
+                                                                        temp = strtok(NULL, TOKENER);
+                                                                        if (temp != NULL) {
+                                                                            if (get_over_write_data(temp, &cmd_data.over_write) == SUCCESS) {
+                                                                                cmd_data.row_col_set = true;
+                                                                                valid_cmd = true;
+                                                                                memset(str, 0, strlen(str));
+                                                                                return OK_CMD;
+                                                                            } else {
+                                                                                return ERROR_OVER_WRITE;
+                                                                            }
+                                                                        }
                                                                     } else {
                                                                         return ERROR_FREQUENCY;
                                                                     }

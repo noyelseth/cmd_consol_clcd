@@ -148,7 +148,7 @@ extern "C" {
 #define CONFLICT_STRING         1
     
     typedef struct {
-        unsigned char uid : 7;
+        unsigned int uid;
         unsigned char string[MAX_DISPLAY_DATA_LEN];
         unsigned int strlen : 7;
         unsigned char start_row : 7;
@@ -160,17 +160,17 @@ extern "C" {
         unsigned char direction : 3;
         unsigned char display_char_count;
         //unsigned char display_loop_count;
-        unsigned int length_count_for_right_scroll : 7;
-        unsigned int length_decount_for_right_scroll : 7;
-        unsigned int length_count_for_left_scroll : 7;
-        unsigned int length_decount_for_left_scroll : 7;
+        unsigned char length_count_for_right_scroll : 7;
+        unsigned char length_decount_for_right_scroll : 7;
+        unsigned char length_count_for_left_scroll : 7;
+        unsigned char length_decount_for_left_scroll : 7;
         //unsigned char eol;
     } CLCD_STRING_DISPLAY_DETAILS;
 
 #define MAX_DISPLAY_STRUCT     20
 
     CLCD_STRING_DISPLAY_DETAILS clcd_display_string_details[MAX_DISPLAY_STRUCT];
-    char conflict_arr[MAX_DISPLAY_STRUCT];
+    int conflict_arr[MAX_DISPLAY_STRUCT];
 
     int print_data_ready;
 
