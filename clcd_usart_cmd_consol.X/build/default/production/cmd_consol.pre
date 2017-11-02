@@ -9135,24 +9135,26 @@ char parse_cmd_str(char *str) {
 printf("%s..2\r\n", str);
 char *temp;
 char *ptr = str;
-if ((temp = strstr(ptr, "MC?")) != (0)) {
 temp = strtok(ptr, "-', /=");
+if (temp != (0)) {
+if (strcmp(temp, "MC?") == 0) {
+
 if (temp != (0)) {
 strcpy(CMD, temp);
 valid_cmd = 1;
 memset(str, 0, strlen(str));
 return 0;
 }
-} else if ((temp = strstr(ptr, "MR?")) != (0)) {
-temp = strtok(ptr, "-', /=");
+} else if (strcmp(temp, "MR?") == 0) {
+
 if (temp != (0)) {
 strcpy(CMD, temp);
 valid_cmd = 1;
 memset(str, 0, strlen(str));
 return 0;
 }
-} else if ((temp = strstr(ptr, "LCDS?") != (0))) {
-temp = strtok(ptr, "-', /=");
+} else if (strcmp(temp, "LCDS?") == 0) {
+
 if (temp != (0)) {
 strcpy(CMD, temp);
 valid_cmd = 1;
@@ -9160,8 +9162,8 @@ memset(str, 0, strlen(str));
 printf(".....\r\n");
 return 0;
 }
-} else if ((temp = strstr(ptr, "LCDS")) != (0)) {
-temp = strtok(ptr, "-', /=");
+} else if (strcmp(temp, "LCDS") == 0) {
+
 if (temp != (0)) {
 strcpy(CMD, temp);
 temp = strtok((0), "-', /=");
@@ -9185,9 +9187,9 @@ return 0;
 }
 }
 
-} else if ((temp = strstr(ptr, "GMDS?")) != (0)) {
+} else if (strcmp(temp, "GMDS?") == 0) {
 
-temp = strtok(ptr, "-', /=");
+
 if (temp != (0)) {
 strcpy(CMD, temp);
 valid_cmd = 1;
@@ -9195,10 +9197,10 @@ memset(str, 0, strlen(str));
 return 0;
 }
 
-} else if ((temp = strstr(ptr, "SDSTR")) != (0)) {
+} else if (strcmp(temp, "SDSTR") == 0) {
 if (clcd_config_data.init_done == 1) {
 cmd_data.data_set = 0;
-temp = strtok(ptr, "-', /=");
+
 if (temp != (0)) {
 printf("temp = %s, ", temp);
 strcpy(CMD, temp);
@@ -9231,11 +9233,11 @@ return 8;
 }
 }
 }
-} else if ((temp = strstr(ptr, "SDSCROL")) != (0)) {
+} else if (strcmp(temp, "SDSCROL") == 0) {
 printf("%s...4\r\n", temp);
 if (clcd_config_data.init_done == 1) {
 cmd_data.scroll_set = 0;
-temp = strtok(ptr, "-', /=");
+
 if (temp != (0)) {
 strcpy(CMD, temp);
 char scroll = 0;
@@ -9279,10 +9281,10 @@ return 8;
 }
 }
 }
-} else if ((temp = strstr(ptr, "SDSERC")) != (0)) {
+} else if (strcmp(temp, "SDSERC") == 0) {
 if (clcd_config_data.init_done == 1) {
 cmd_data.row_col_set = 0;
-temp = strtok(ptr, "-', /=");
+
 if (temp != (0)) {
 strcpy(CMD, temp);
 temp = strtok((0), "-', /=");
@@ -9341,14 +9343,14 @@ return 8;
 }
 }
 }
-} else if ((temp = strstr(ptr, "UPDATE")) != (0)) {
+} else if (strcmp(temp, "UPDATE") == 0) {
 strcpy(CMD, temp);
 memset(str, 0, strlen(str));
 valid_cmd = 1;
 return 0;
-} else if ((temp = strstr(ptr, "SSTR")) != (0)) {
+} else if (strcmp(temp, "SSTR") == 0) {
 if (clcd_config_data.init_done == 1) {
-temp = strtok(ptr, "-', /=");
+
 if (temp != (0)) {
 strcpy(CMD, temp);
 printf("CMD=%s\r\n", CMD);
@@ -9424,7 +9426,7 @@ return 2;
 }
 }
 }
-} else if ((temp = strstr(ptr, "KLM")) != (0)) {
+} else if (strcmp(temp, "KLM") == 0) {
 strcpy(CMD, temp);
 memset(str, 0, strlen(str));
 valid_cmd = 1;
@@ -9432,6 +9434,7 @@ return 0;
 }
 memset(str, 0, strlen(str));
 return 1;
+}
 }
 
 void reply_to_host() {

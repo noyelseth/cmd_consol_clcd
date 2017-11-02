@@ -46,7 +46,7 @@ CMD_CONSOL_REPLY_HOST 2
 "27 C:\Program Files\Microchip\xc8\v1.44\sources\common\memcpy.c
 [v _memcpy memcpy `(*.39v  1 e 2 0 ]
 "8 C:\Program Files\Microchip\xc8\v1.44\sources\common\memset.c
-[v _memset memset `(*.34v  1 e 2 0 ]
+[v _memset memset `(*.39v  1 e 2 0 ]
 "8 C:\Program Files\Microchip\xc8\v1.44\sources\common\puts.c
 [v _puts puts `(i  1 e 2 0 ]
 "12 C:\Program Files\Microchip\xc8\v1.44\sources\common\rand.c
@@ -60,7 +60,7 @@ CMD_CONSOL_REPLY_HOST 2
 "8 C:\Program Files\Microchip\xc8\v1.44\sources\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 3 0 ]
 "4 C:\Program Files\Microchip\xc8\v1.44\sources\common\strchr.c
-[v _strchr strchr `(*.34uc  1 e 2 0 ]
+[v _strchr strchr `(*.32uc  1 e 2 0 ]
 "33 C:\Program Files\Microchip\xc8\v1.44\sources\common\strcmp.c
 [v _strcmp strcmp `(i  1 e 2 0 ]
 "8 C:\Program Files\Microchip\xc8\v1.44\sources\common\strcpy.c
@@ -69,14 +69,10 @@ CMD_CONSOL_REPLY_HOST 2
 [v _strcspn strcspn `(ui  1 e 2 0 ]
 "4 C:\Program Files\Microchip\xc8\v1.44\sources\common\strlen.c
 [v _strlen strlen `(ui  1 e 2 0 ]
-"4 C:\Program Files\Microchip\xc8\v1.44\sources\common\strncmp.c
-[v _strncmp strncmp `(i  1 e 2 0 ]
 "8 C:\Program Files\Microchip\xc8\v1.44\sources\common\strncpy.c
 [v _strncpy strncpy `(*.39uc  1 e 2 0 ]
 "4 C:\Program Files\Microchip\xc8\v1.44\sources\common\strspn.c
 [v _strspn strspn `(ui  1 e 2 0 ]
-"4 C:\Program Files\Microchip\xc8\v1.44\sources\common\strstr.c
-[v _strstr strstr `(*.34uc  1 e 2 0 ]
 "8 C:\Program Files\Microchip\xc8\v1.44\sources\common\strtok.c
 [v _strtok strtok `(*.39uc  1 e 2 0 ]
 "15 C:\Program Files\Microchip\xc8\v1.44\sources\common\Umul16.c
@@ -159,11 +155,11 @@ CMD_CONSOL_REPLY_HOST 2
 [v _collect_column collect_column `(v  1 e 1 0 ]
 "125
 [v _parse_cmd_str parse_cmd_str `(uc  1 e 1 0 ]
-"428
+"431
 [v _reply_to_host reply_to_host `(v  1 e 1 0 ]
-"475
+"478
 [v _console_init console_init `(v  1 e 1 0 ]
-"487
+"490
 [v _cmd_consol_task cmd_consol_task `(v  1 e 1 0 ]
 "5 F:\MPLAB_X_project\git_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\delay.c
 [v _delay delay `(v  1 e 1 0 ]
@@ -444,17 +440,17 @@ CMD_CONSOL_REPLY_HOST 2
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
 "8006
 [v _LATE LATE `VEuc  1 e 1 @3981 ]
-[s S1973 . 1 `uc 1 LATE0 1 0 :1:0 
+[s S1958 . 1 `uc 1 LATE0 1 0 :1:0 
 `uc 1 LATE1 1 0 :1:1 
 `uc 1 LATE2 1 0 :1:2 
 ]
 "8023
-[s S1977 . 1 `uc 1 LE0 1 0 :1:0 
+[s S1962 . 1 `uc 1 LE0 1 0 :1:0 
 `uc 1 LE1 1 0 :1:1 
 `uc 1 LE2 1 0 :1:2 
 ]
-[u S1981 . 1 `S1973 1 . 1 0 `S1977 1 . 1 0 ]
-[v _LATEbits LATEbits `VES1981  1 e 1 @3981 ]
+[u S1966 . 1 `S1958 1 . 1 0 `S1962 1 . 1 0 ]
+[v _LATEbits LATEbits `VES1966  1 e 1 @3981 ]
 "8058
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
 "8280
@@ -789,31 +785,31 @@ CMD_CONSOL_REPLY_HOST 2
 {
 "142
 } 0
-"475 F:\MPLAB_X_project\git_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.c
+"478 F:\MPLAB_X_project\git_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.c
 [v _console_init console_init `(v  1 e 1 0 ]
 {
-"485
+"488
 } 0
 "8
 [v _clear_cmd_data clear_cmd_data `(v  1 e 1 0 ]
 {
 "14
 } 0
-"487
+"490
 [v _cmd_consol_task cmd_consol_task `(v  1 e 1 0 ]
 {
-"490
+"493
 [v cmd_consol_task@ch ch `uc  1 a 1 30 ]
-"489
+"492
 [v cmd_consol_task@i i `i  1 s 2 i ]
-"555
+"558
 } 0
-"428
+"431
 [v _reply_to_host reply_to_host `(v  1 e 1 0 ]
 {
-"458
+"461
 [v reply_to_host@ch ch `uc  1 a 1 28 ]
-"473
+"476
 } 0
 "271 F:\MPLAB_X_project\git_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\clcd.c
 [v _update_string_data update_string_data `(uc  1 e 1 0 ]
@@ -977,16 +973,6 @@ CMD_CONSOL_REPLY_HOST 2
 [v conflict_check@new_end_point new_end_point `uc  1 p 1 52 ]
 [v conflict_check@exist_uid_idx exist_uid_idx `uc  1 a 1 0 ]
 "174
-} 0
-"33 C:\Program Files\Microchip\xc8\v1.44\sources\common\strcmp.c
-[v _strcmp strcmp `(i  1 e 2 0 ]
-{
-"35
-[v strcmp@r r `c  1 a 1 24 ]
-"33
-[v strcmp@s1 s1 `*.39Cuc  1 p 2 19 ]
-[v strcmp@s2 s2 `*.32Cuc  1 p 2 21 ]
-"42
 } 0
 "8 C:\Program Files\Microchip\xc8\v1.44\sources\common\puts.c
 [v _puts puts `(i  1 e 2 0 ]
@@ -1159,36 +1145,36 @@ CMD_CONSOL_REPLY_HOST 2
 "125 F:\MPLAB_X_project\git_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.c
 [v _parse_cmd_str parse_cmd_str `(uc  1 e 1 0 ]
 {
+"284
+[v parse_cmd_str@i_1787 i `uc  1 a 1 8 ]
+"239
+[v parse_cmd_str@i_1779 i `uc  1 a 1 13 ]
+"203
+[v parse_cmd_str@i i `uc  1 a 1 7 ]
 "282
-[v parse_cmd_str@i_1801 i `uc  1 a 1 12 ]
-"237
-[v parse_cmd_str@i_1792 i `uc  1 a 1 15 ]
-"201
-[v parse_cmd_str@i i `uc  1 a 1 11 ]
-"280
-[v parse_cmd_str@uid_1800 uid `uc  1 a 1 19 ]
-"233
-[v parse_cmd_str@uid_1789 uid `uc  1 a 1 18 ]
-"232
-[v parse_cmd_str@scroll scroll `uc  1 a 1 17 ]
-"196
-[v parse_cmd_str@uid uid `uc  1 a 1 16 ]
-"160
-[v parse_cmd_str@column column `uc  1 a 1 14 ]
-[v parse_cmd_str@row row `uc  1 a 1 13 ]
+[v parse_cmd_str@uid_1786 uid `uc  1 a 1 17 ]
+"235
+[v parse_cmd_str@uid_1776 uid `uc  1 a 1 16 ]
+"234
+[v parse_cmd_str@scroll scroll `uc  1 a 1 15 ]
+"198
+[v parse_cmd_str@uid uid `uc  1 a 1 14 ]
+"162
+[v parse_cmd_str@column column `uc  1 a 1 12 ]
+[v parse_cmd_str@row row `uc  1 a 1 11 ]
 "127
-[v parse_cmd_str@temp temp `*.34uc  1 a 2 22 ]
+[v parse_cmd_str@temp temp `*.39uc  1 a 2 18 ]
 "128
-[v parse_cmd_str@ptr ptr `*.39uc  1 a 2 20 ]
+[v parse_cmd_str@ptr ptr `*.39uc  1 a 2 9 ]
 "125
-[v parse_cmd_str@str str `*.39uc  1 p 2 6 ]
-"426
+[v parse_cmd_str@str str `*.39uc  1 p 2 3 ]
+"429
 } 0
 "8 C:\Program Files\Microchip\xc8\v1.44\sources\common\strtok.c
 [v _strtok strtok `(*.39uc  1 e 2 0 ]
 {
-[v strtok@s1 s1 `*.39uc  1 p 2 32 ]
-[v strtok@s2 s2 `*.32Cuc  1 p 2 34 ]
+[v strtok@s1 s1 `*.39uc  1 p 2 30 ]
+[v strtok@s2 s2 `*.32Cuc  1 p 2 32 ]
 "15
 [v strtok@sp sp `*.39uc  1 s 2 sp ]
 "31
@@ -1197,48 +1183,43 @@ CMD_CONSOL_REPLY_HOST 2
 [v _strspn strspn `(ui  1 e 2 0 ]
 {
 "6
-[v strspn@i i `ui  1 a 2 30 ]
+[v strspn@i i `ui  1 a 2 28 ]
 "4
-[v strspn@s1 s1 `*.39Cuc  1 p 2 25 ]
-[v strspn@s2 s2 `*.32Cuc  1 p 2 27 ]
+[v strspn@s1 s1 `*.39Cuc  1 p 2 23 ]
+[v strspn@s2 s2 `*.32Cuc  1 p 2 25 ]
 "14
 } 0
 "4 C:\Program Files\Microchip\xc8\v1.44\sources\common\strcspn.c
 [v _strcspn strcspn `(ui  1 e 2 0 ]
 {
 "6
-[v strcspn@i i `ui  1 a 2 30 ]
+[v strcspn@i i `ui  1 a 2 28 ]
 "4
-[v strcspn@s1 s1 `*.39Cuc  1 p 2 25 ]
-[v strcspn@s2 s2 `*.32Cuc  1 p 2 27 ]
-"14
-} 0
-"4 C:\Program Files\Microchip\xc8\v1.44\sources\common\strstr.c
-[v _strstr strstr `(*.34uc  1 e 2 0 ]
-{
-[v strstr@s1 s1 `*.34Cuc  1 p 2 48 ]
-[v strstr@s2 s2 `*.32Cuc  1 p 2 50 ]
-"12
-} 0
-"4 C:\Program Files\Microchip\xc8\v1.44\sources\common\strncmp.c
-[v _strncmp strncmp `(i  1 e 2 0 ]
-{
-[v strncmp@s1 s1 `*.34Cuc  1 p 2 39 ]
-[v strncmp@s2 s2 `*.32Cuc  1 p 2 41 ]
-[v strncmp@len len `ui  1 p 2 43 ]
+[v strcspn@s1 s1 `*.39Cuc  1 p 2 23 ]
+[v strcspn@s2 s2 `*.32Cuc  1 p 2 25 ]
 "14
 } 0
 "4 C:\Program Files\Microchip\xc8\v1.44\sources\common\strchr.c
-[v _strchr strchr `(*.34uc  1 e 2 0 ]
+[v _strchr strchr `(*.32uc  1 e 2 0 ]
 {
-[v strchr@ptr ptr `*.34Cuc  1 p 2 19 ]
+[v strchr@ptr ptr `*.32Cuc  1 p 2 19 ]
 [v strchr@chr chr `i  1 p 2 21 ]
 "11
+} 0
+"33 C:\Program Files\Microchip\xc8\v1.44\sources\common\strcmp.c
+[v _strcmp strcmp `(i  1 e 2 0 ]
+{
+"35
+[v strcmp@r r `c  1 a 1 24 ]
+"33
+[v strcmp@s1 s1 `*.39Cuc  1 p 2 19 ]
+[v strcmp@s2 s2 `*.32Cuc  1 p 2 21 ]
+"42
 } 0
 "38 F:\MPLAB_X_project\git_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.c
 [v _get_str get_str `(uc  1 e 1 0 ]
 {
-[v get_str@str str `*.34uc  1 p 2 47 ]
+[v get_str@str str `*.39uc  1 p 2 47 ]
 [v get_str@data_str data_str `*.39uc  1 p 2 49 ]
 "47
 } 0
@@ -1249,16 +1230,16 @@ CMD_CONSOL_REPLY_HOST 2
 [v strcpy@cp cp `*.39uc  1 a 2 23 ]
 "8
 [v strcpy@to to `*.39uc  1 p 2 19 ]
-[v strcpy@from from `*.34Cuc  1 p 2 21 ]
+[v strcpy@from from `*.39Cuc  1 p 2 21 ]
 "24
 } 0
 "8 C:\Program Files\Microchip\xc8\v1.44\sources\common\memset.c
-[v _memset memset `(*.34v  1 e 2 0 ]
+[v _memset memset `(*.39v  1 e 2 0 ]
 {
 "15
-[v memset@p p `*.34uc  1 a 2 45 ]
+[v memset@p p `*.39uc  1 a 2 45 ]
 "8
-[v memset@p1 p1 `*.34v  1 p 2 39 ]
+[v memset@p1 p1 `*.39v  1 p 2 39 ]
 [v memset@c c `i  1 p 2 41 ]
 [v memset@n n `ui  1 p 2 43 ]
 "22
@@ -1267,11 +1248,11 @@ CMD_CONSOL_REPLY_HOST 2
 [v _get_over_write_data get_over_write_data `(uc  1 e 1 0 ]
 {
 "87
-[v get_over_write_data@i i `i  1 a 2 4 ]
+[v get_over_write_data@i i `i  1 a 2 1 ]
 "86
-[v get_over_write_data@over_write over_write `uc  1 a 1 3 ]
+[v get_over_write_data@over_write over_write `uc  1 a 1 0 ]
 "85
-[v get_over_write_data@str str `*.34uc  1 p 2 51 ]
+[v get_over_write_data@str str `*.39uc  1 p 2 51 ]
 [v get_over_write_data@over_write_data over_write_data `*.39uc  1 p 2 53 ]
 "99
 } 0
@@ -1279,11 +1260,11 @@ CMD_CONSOL_REPLY_HOST 2
 [v _get_dis_frq get_dis_frq `(uc  1 e 1 0 ]
 {
 "70
-[v get_dis_frq@i i `i  1 a 2 4 ]
+[v get_dis_frq@i i `i  1 a 2 1 ]
 "69
-[v get_dis_frq@frq frq `uc  1 a 1 3 ]
+[v get_dis_frq@frq frq `uc  1 a 1 0 ]
 "68
-[v get_dis_frq@str str `*.34uc  1 p 2 51 ]
+[v get_dis_frq@str str `*.39uc  1 p 2 51 ]
 [v get_dis_frq@data_frq data_frq `*.39uc  1 p 2 53 ]
 "83
 } 0
@@ -1291,11 +1272,11 @@ CMD_CONSOL_REPLY_HOST 2
 [v _get_direction get_direction `(uc  1 e 1 0 ]
 {
 "51
-[v get_direction@i i `i  1 a 2 3 ]
+[v get_direction@i i `i  1 a 2 0 ]
 "50
-[v get_direction@direction direction `uc  1 a 1 5 ]
+[v get_direction@direction direction `uc  1 a 1 2 ]
 "49
-[v get_direction@str str `*.34uc  1 p 2 51 ]
+[v get_direction@str str `*.39uc  1 p 2 51 ]
 [v get_direction@data_direction data_direction `*.39uc  1 p 2 53 ]
 "66
 } 0
@@ -1303,11 +1284,11 @@ CMD_CONSOL_REPLY_HOST 2
 [v _collect_row collect_row `(v  1 e 1 0 ]
 {
 "19
-[v collect_row@i i `i  1 a 2 3 ]
+[v collect_row@i i `i  1 a 2 0 ]
 "18
-[v collect_row@row row `uc  1 a 1 5 ]
+[v collect_row@row row `uc  1 a 1 2 ]
 "16
-[v collect_row@str str `*.34uc  1 p 2 51 ]
+[v collect_row@str str `*.39uc  1 p 2 51 ]
 [v collect_row@data_row data_row `*.39uc  1 p 2 53 ]
 "32
 } 0
@@ -1315,11 +1296,11 @@ CMD_CONSOL_REPLY_HOST 2
 [v _collect_column collect_column `(v  1 e 1 0 ]
 {
 "103
-[v collect_column@i i `i  1 a 2 3 ]
+[v collect_column@i i `i  1 a 2 0 ]
 "104
-[v collect_column@column column `uc  1 a 1 5 ]
+[v collect_column@column column `uc  1 a 1 2 ]
 "101
-[v collect_column@str str `*.34uc  1 p 2 51 ]
+[v collect_column@str str `*.39uc  1 p 2 51 ]
 [v collect_column@data_column data_column `*.39uc  1 p 2 53 ]
 "123
 } 0
@@ -1327,9 +1308,9 @@ CMD_CONSOL_REPLY_HOST 2
 [v _strlen strlen `(ui  1 e 2 0 ]
 {
 "6
-[v strlen@cp cp `*.34Cuc  1 a 2 37 ]
+[v strlen@cp cp `*.39Cuc  1 a 2 37 ]
 "4
-[v strlen@s s `*.34Cuc  1 p 2 33 ]
+[v strlen@s s `*.39Cuc  1 p 2 33 ]
 "13
 } 0
 "464 C:\Program Files\Microchip\xc8\v1.44\sources\common\doprnt.c
@@ -1398,7 +1379,7 @@ CMD_CONSOL_REPLY_HOST 2
 "8
 [v atoi@sign sign `uc  1 a 1 37 ]
 "5
-[v atoi@s s `*.34Cuc  1 p 2 33 ]
+[v atoi@s s `*.39Cuc  1 p 2 33 ]
 "24
 } 0
 "8 C:\Program Files\Microchip\xc8\v1.44\sources\common\isdigit.c
