@@ -1,6 +1,6 @@
 #include "clcd.h"
 #include "delay.h"
-
+#include <time.h> 
 
 //unsigned char lcd_display_array[MAX_ROW][MAX_COL] = {0};
 static char data_count = 0;
@@ -212,10 +212,8 @@ bool conflict(char new_start_point, char new_end_point) {
     return conflict;
 }
 
-
-
 void copy_display_struct(CLCD_STRING_DISPLAY_DETAILS *clcd_str_data, CMD_CONSOL_DATA *data, char uid) {
-    clcd_str_data->uid = data->uid;
+    clcd_str_data->uid = uid;
     strcpy(clcd_str_data->string, data->data);
     clcd_str_data->strlen = strlen(clcd_str_data->string);
     clcd_str_data->start_row = data->start_row;
@@ -230,8 +228,9 @@ void copy_display_struct(CLCD_STRING_DISPLAY_DETAILS *clcd_str_data, CMD_CONSOL_
 }
 
 int get_new_uid() {
-    int i = 0;
-    int uid = rand();
+    int i = 1;
+    srand(i);
+    int uid = (rand() % 100) + 1; // in the range 1 to 100
     for (i = 0; i < clcd_config_data.clcd_max_display_string;) {
         if (clcd_display_string_details[i].uid != 0 && clcd_display_string_details[i].uid != uid) {
             i++;
@@ -240,7 +239,7 @@ int get_new_uid() {
             i++;
             continue;
         } else {
-            uid = rand();
+            uid = (rand() % 100) + 1; // in the range 1 to 100
             i = 0;
             continue;
         }
@@ -248,23 +247,70 @@ int get_new_uid() {
     return uid;
 }
 
-char set_string_data(CMD_CONSOL_DATA *data) {
-    int i = 0;
+void print_conflict_ids() {
+    int conflict_count = 0, j;
+    for (conflict_count = 0; conflict_count < conflict_data_count; conflict_count++) {
+        if (conflict_count == conflict_data_count - 1)
+            printf("%d\r\n", conflict_arr[conflict_count]);
+        else
+            printf("%d, ", conflict_arr[conflict_count]);
+    }
+}
+
+unsigned char set_string_data(CMD_CONSOL_DATA *data) {
+    char i = 0;
     char uid = 0;
     char start_point, end_point;
-    memset(conflict_arr, -1, sizeof (conflict_arr));
-    conflict_data_count = 0;
+    //    memset(conflict_arr, -1, sizeof (conflict_arr));
+    //    conflict_data_count = 0;
     start_point = (data->start_row * clcd_config_data.clcd_max_col) + data->start_col;
     end_point = (data->end_row * clcd_config_data.clcd_max_col) + data->end_col;
     uid = get_new_uid();
-    printf("UID = %c, start_pt = %d, end_pt = %d\r\n", data->uid, start_point, end_point);
-
-    if (data_count < clcd_config_data.clcd_max_display_string) {
+    printf("UID = %d, start_pt = %d, end_pt = %d\r\n", uid, start_point, end_point);
+    if (data->over_write != OVERWRITE) {
+        memset(conflict_arr, -1, sizeof (conflict_arr));
+        conflict_data_count = 0;
         if (conflict(start_point, end_point) != true) {
-            memset(&clcd_display_string_details[data_count], 0, sizeof (CLCD_STRING_DISPLAY_DETAILS));
+            if (data_count < clcd_config_data.clcd_max_display_string) {
+                for (i = 0; i < clcd_config_data.clcd_max_display_string; i++) {
+                    if (clcd_display_string_details[i].uid == 0) {
+                        memset(&clcd_display_string_details[i], 0, sizeof (CLCD_STRING_DISPLAY_DETAILS));
+                        copy_display_struct(&clcd_display_string_details[i], data, uid);
+                        data_count++;
+                        return uid;
+                    }
+                }
+            } else {
+                // TODO:
+            }
+        } else {
+            return CONFLICT_STRING;
         }
     } else {
-
+        if (conflict_data_count != 0) {
+            printf("conflict...2\r\n");
+            int conflict_count = 0, j;
+            for (conflict_count = 0; conflict_count < conflict_data_count; conflict_count++) {
+                for (j = 0; j < clcd_config_data.clcd_max_display_string; j++) {
+                    if (clcd_display_string_details[j].uid == conflict_arr[conflict_count]) {
+                        printf("%d..j=%d,conflict_count=%d \r\n", clcd_display_string_details[j].uid, j, conflict_count);
+                        memset(&clcd_display_string_details[j], 0, sizeof (CLCD_STRING_DISPLAY_DETAILS));
+                        data_count--;
+                        break;
+                    }
+                }
+            }
+            memset(conflict_arr, -1, sizeof (conflict_arr));
+            conflict_data_count = 0;
+            return CONFLICT_STRING_OVERWRITE;
+        } else {
+            if (conflict(start_point, end_point) == true) {
+                //set_string_data(data);      // recursive call for over write new string with old conflicted string
+                return CONFLICT_STRING_CHECK_AND_OVERWRITE;
+            }else{
+                return CONFLICT_STRING_NOT_CONFLICT_WITH_OVERWRITE_ARGUMENT;
+            }
+        }
     }
 }
 
@@ -411,9 +457,14 @@ void write_str(const char* str) {
     unsigned char i = 0;
     while (i < clcd_config_data.clcd_max_col) {
         if (*str != NULL)
+        {
             write_lcd_data(*str++);
+        }
         else
+        {    
             write_lcd_data(' ');
+            str++;
+        }
         //_delay_MS(15);
         i++;
     }
@@ -514,14 +565,14 @@ static void scroll_left_to_right(CLCD_STRING_DISPLAY_DETAILS *clcd_display_strin
 
     if (clcd_display_string_details->length_count_for_right_scroll > clcd_display_string_details->display_char_count) {
         if (clcd_display_string_details->string[FIRST_ROW] != NULL) {
-            memcpy(lcd_display_array[line] + clcd_display_string_details->start_col,
+            strncpy(lcd_display_array[line] + clcd_display_string_details->start_col,
                     clcd_display_string_details->string +
                     ((clcd_display_string_details->strlen - 1) - clcd_display_string_details->length_decount_for_right_scroll),
                     clcd_display_string_details->display_char_count);
         }
     } else {
         if (clcd_display_string_details->string[FIRST_ROW] != NULL) {
-            memcpy(lcd_display_array[line] + clcd_display_string_details->start_col +
+            strncpy(lcd_display_array[line] + clcd_display_string_details->start_col +
                     clcd_display_string_details->length_count_for_right_scroll,
                     clcd_display_string_details->string,
                     clcd_display_string_details->display_char_count - clcd_display_string_details->length_count_for_right_scroll);
@@ -559,11 +610,12 @@ static void scroll_right_to_left(CLCD_STRING_DISPLAY_DETAILS *clcd_display_strin
                 (clcd_display_string_details->display_char_count - (clcd_display_string_details->length_decount_for_left_scroll + 1))));
     } else {
         if (clcd_display_string_details->string[clcd_display_string_details->length_count_for_left_scroll] != NULL) {
-            memcpy(lcd_display_array[line] + clcd_display_string_details->start_col,
+            strncpy(lcd_display_array[line] + clcd_display_string_details->start_col,
                     clcd_display_string_details->string + clcd_display_string_details->length_count_for_left_scroll,
                     clcd_display_string_details->display_char_count);
         } else {
-            //memset(lcd_display_array[line1] + clcd_display_string_details[count].start_col, ' ', clcd_display_string_details[count].display_char_count);
+            memset(lcd_display_array[line] + clcd_display_string_details->start_col,
+            ' ', clcd_display_string_details->display_char_count);
         }
     }
 
@@ -610,18 +662,18 @@ void make_display() {
     unsigned int max_char_len_left_scroll = 0, max_display_len_left_scroll = 0, max_char_len_left_scroll_struct_id = 0;
     int count = 0;
     for (count = 0; count < MAX_DISPLAY_STRUCT; count++) {
-        if (clcd_display_string_details[count].ptr != NULL && clcd_display_string_details[count].direction == SCROLL_RIGHT_TO_LEFT) 
+        if (clcd_display_string_details[count].ptr != NULL && clcd_display_string_details[count].direction == SCROLL_RIGHT_TO_LEFT)
         {
-            max_char_len_right_scroll = max_char_len_right_scroll > clcd_display_string_details[count].strlen ? 
+            max_char_len_right_scroll = max_char_len_right_scroll > clcd_display_string_details[count].strlen ?
                                             max_char_len_right_scroll : clcd_display_string_details[count].strlen;
             //printf("%d\n", max_char_len_right_scroll);
-            max_display_len_right_scroll = max_display_len_right_scroll > clcd_display_string_details[count].display_char_count ? 
+            max_display_len_right_scroll = max_display_len_right_scroll > clcd_display_string_details[count].display_char_count ?
                                                 max_display_len_right_scroll : clcd_display_string_details[count].display_char_count;
-        } else if (clcd_display_string_details[count].ptr != NULL && clcd_display_string_details[count].direction == SCROLL_LEFT_TO_RIGHT) 
+        } else if (clcd_display_string_details[count].ptr != NULL && clcd_display_string_details[count].direction == SCROLL_LEFT_TO_RIGHT)
         {
-            max_char_len_left_scroll = max_char_len_left_scroll > clcd_display_string_details[count].strlen ? 
+            max_char_len_left_scroll = max_char_len_left_scroll > clcd_display_string_details[count].strlen ?
                                             max_char_len_left_scroll : clcd_display_string_details[count].strlen;
-            max_display_len_left_scroll = max_display_len_left_scroll > clcd_display_string_details[count].display_char_count ? 
+            max_display_len_left_scroll = max_display_len_left_scroll > clcd_display_string_details[count].display_char_count ?
                                             max_display_len_left_scroll : clcd_display_string_details[count].display_char_count;
         }
     }
@@ -631,14 +683,14 @@ void make_display() {
         if (clcd_display_string_details[count].direction == SCROLL_RIGHT_TO_LEFT) {
             if (clcd_display_string_details[count].line_addr == LINE1_HOME) {
                 scroll_right_to_left(max_char_len_right_scroll, &clcd_display_string_details[count]);
-            } 
+            }
             else if (clcd_display_string_details[count].line_addr == LINE2_HOME) {
                 scroll_right_to_left(max_char_len_right_scroll, &clcd_display_string_details[count]);
             }
         } else if (clcd_display_string_details[count].direction == SCROLL_LEFT_TO_RIGHT) {
             if (clcd_display_string_details[count].line_addr == LINE1_HOME) {
 
-            } 
+            }
             else if (clcd_display_string_details[count].line_addr == LINE2_HOME) {
 
             }
@@ -647,7 +699,7 @@ void make_display() {
             scroll_off(&clcd_display_string_details[count]);
         }
     }
-    
+
     print_data_ready = true;
     display_text();
 }

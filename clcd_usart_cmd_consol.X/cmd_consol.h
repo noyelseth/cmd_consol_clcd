@@ -30,24 +30,29 @@ extern "C" {
 
 #define KLM_MAX_DISPLAY_STRING_RANGE    "GMDS?"  //
 
-#define KLM_SET_DISPLAY_STRING      "SDSTR"       // KLM+SDSTR=A,HELLO_WORLD        //KLM+SDSTR=B,HELLO_WORLD
-#define KLM_SET_SCROLL              "SDSCROL"        // KLM+SDSCROL=A,0, KLM+SDSCROL=A,1, KLM+SDSCROL=A,2
+#define KLM_SET_DISPLAY_STRING      "SDSTR"       // KLM+SDSTR=39,HELLO_WORLD        //KLM+SDSTR=B,HELLO_WORLD
+#define KLM_SET_SCROLL              "SDSCROL"        // KLM+SDSCROL=39,0, KLM+SDSCROL=A,1, KLM+SDSCROL=A,2
                                                             //KLM+SDSCROL=B,1
-#define KLM_SET_ROW_COL             "SDSERC"  // KLM+SDSERC=A,3,3,3,9       //KLM+SDSERC=B,0,3,0,8 
-#define KLM_SET_FREQUENCY           "SDFRQ"     //KLM+SDFRQ=A,1(sec)
+#define KLM_SET_ROW_COL             "SDSERC"  // KLM+SDSERC=39,3,3,3,9       //KLM+SDSERC=B,0,3,0,8 
+#define KLM_SET_FREQUENCY           "SDFRQ"     //KLM+SDFRQ=39,1(sec)
     
 #define KLM_UPDATE                  "UPDATE"    //KLM+UPDATE
     
-#define KLM_SET_STRING                    "SSTR"   //KLM+SSTR=hello_world...___,0,1,2,3,2,1,1
-
+#define KLM_SET_STRING                    "SSTR"   //KLM+SSTR=hello_world...___,0,1,3,10,2,1,1
+                                                   //KLM+SSTR=hello_world...___,3,1,3,5,1,1,0
+                                                    //KLM+SSTR=hello_world...___,2,7,2,15,1,1,0
+    
+#define KLM_CLEAR_SCREEN                  "CLS"     // KLM+CLS
+    
     // Error Message
-#define CMD_LENGTH_OVER         "ERR_CMD_LEN"
-#define CMD_SUCCESS_MESSAGE     "OK"
-#define CMD_ERROR               "ERROR"
-#define CMD_INIT_NOT_DONE       "ERR_INIT"
-#define DATA_STR_NOT_SET        "ERR_STR_SET"
-#define ROW_COL_NOT_SET         "ERR_ROW_COL"
-#define SCROLL_NOT_SET          "ERR_SCROLL_SET"
+#define CMD_LENGTH_OVER_MSG         "ERR_CMD_LEN"
+#define CMD_SUCCESS_MSG     "OK"
+#define CMD_ERROR_MSG               "ERROR"
+#define CMD_INIT_NOT_DONE_MSG       "ERR_INIT"
+#define DATA_STR_NOT_SET_MSG        "ERR_STR_SET"
+#define ROW_COL_NOT_SET_MSG         "ERR_ROW_COL"
+#define SCROLL_NOT_SET_MSG          "ERR_SCROLL_SET"
+#define ERROR_CONFLICT_MSG          "ERR_CONFLICT"
     
 // ERROR Code
 #define OK_CMD                  0
@@ -60,6 +65,11 @@ extern "C" {
 #define ERROR_CONFLICT          7
 #define ERROR_UID               8
 #define ERROR_INIT_NOT_DONE     9
+    
+#define OVERWRITE                       1
+#define NOT_OVERWRITE                   0
+    
+#define INVALID_ROW_COL         255
 
 
 
@@ -86,7 +96,7 @@ extern "C" {
     } CMD_CONSOL_STATE;
 
     typedef struct {
-        char uid;
+        unsigned int uid;
         char data[MAX_DATA_LEN];
         bool data_set;
         char start_row;

@@ -31,8 +31,20 @@ void collect_row(char *str, char *data_row) {
     }
 }
 
-char get_uid(char *str) {
-    return str[0];
+char get_uid(char *str, unsigned int *data_uid) {
+    unsigned int uid;
+    unsigned int i = 0;
+    for (i = 0; i < strlen(str); i++) {
+        if (isdigit(str[i]) == 1)
+            uid = uid * 10 + (str[i] - '0');
+        else
+            return;
+    }
+    if (uid >= 1 && uid <= 100) {
+        *data_uid = 0;
+    } else {
+        *data_uid = uid;
+    }
 }
 
 char get_str(char* str, char* data_str) {
@@ -190,24 +202,18 @@ char parse_cmd_str(char *str) {
 
         } else if (strcmp(temp, KLM_SET_DISPLAY_STRING) == 0) {
             if (clcd_config_data.init_done == true) {
-                cmd_data.data_set = false;
+                clear_cmd_data();
                 //temp = strtok(ptr, TOKENER);
                 if (temp != NULL) {
                     printf("temp = %s, ", temp);
                     strcpy(CMD, temp);
-                    char uid = 0;
-                    cmd_data.uid = -1;
                     temp = strtok(NULL, TOKENER);
                     if (temp != NULL) {
                         printf("temp = %s, ", temp);
-                        char i = 0;
-                        uid = temp[0];
-                        if (uid >= START_UID && uid < clcd_config_data.uid_range) {
-                            printf("uid = %d, ", uid);
-                            cmd_data.uid = uid;
-                            temp = strtok(NULL, TOKENER_STR);
+                        get_uid(temp, &cmd_data.uid);
+                        if (cmd_data.uid != 0) {
+                            temp = strtok(NULL, TOKENER);
                             if (temp != NULL) {
-                                printf("str = %s\r\n", temp);
                                 if (strlen(temp) < MAX_DATA_LEN) {
                                     strcpy(cmd_data.data, temp);
                                     valid_cmd = true;
@@ -227,43 +233,26 @@ char parse_cmd_str(char *str) {
         } else if (strcmp(temp, KLM_SET_SCROLL) == 0) {
             printf("%s...4\r\n", temp);
             if (clcd_config_data.init_done == true) {
-                cmd_data.scroll_set = false;
+                clear_cmd_data();
                 //temp = strtok(ptr, TOKENER);
                 if (temp != NULL) {
                     strcpy(CMD, temp);
-                    char scroll = 0;
-                    char uid = 0;
                     temp = strtok(NULL, TOKENER);
                     if (temp != NULL) {
                         printf("%s...5\r\n", temp);
-                        char i = 0;
-                        uid = temp[0];
-                        cmd_data.scroll = -1;
-                        if (uid >= START_UID && uid < clcd_config_data.uid_range) {
-                            printf("uid = %d, ", uid);
-                            if (uid == cmd_data.uid) {
-                                temp = strtok(NULL, TOKENER);
-                                if (temp != NULL) {
-                                    printf("%s...6\r\n", temp);
-                                    for (i = 0; i < strlen(temp); i++) {
-                                        if (isdigit(temp[i]) == 1) {
-                                            scroll = scroll * 10 + (temp[i] - '0');
-                                        } else {
-                                            //printf("%s...7\r\n", temp);
-                                            return false;
-                                        }
-                                    }
-                                    //printf("scroll = %d, ", scroll);
-                                    if (scroll < 3) {
-                                        printf("scroll = %d, ", scroll);
-                                        cmd_data.scroll = scroll;
-                                        cmd_data.scroll_set = true;
-                                        valid_cmd = true;
-                                        memset(str, 0, strlen(str));
-                                        return OK_CMD;
-                                    } else {
-                                        return ERROR_SCROLL;
-                                    }
+                        get_uid(temp, &cmd_data.uid);
+                        if (cmd_data.uid != 0) {
+                            temp = strtok(NULL, TOKENER);
+                            if (temp != NULL) {
+                                printf("%s...6\r\n", temp);
+                                get_direction(temp, &cmd_data.scroll);
+                                if (cmd_data.scroll < 3 && cmd_data.scroll != -1) {
+                                    cmd_data.scroll_set = true;
+                                    valid_cmd = true;
+                                    memset(str, 0, strlen(str));
+                                    return OK_CMD;
+                                } else {
+                                    return ERROR_SCROLL;
                                 }
                             }
                         } else {
@@ -274,58 +263,54 @@ char parse_cmd_str(char *str) {
             }
         } else if (strcmp(temp, KLM_SET_ROW_COL) == 0) {
             if (clcd_config_data.init_done == true) {
-                cmd_data.row_col_set = false;
+                clear_cmd_data();
                 //temp = strtok(ptr, TOKENER);
                 if (temp != NULL) {
                     strcpy(CMD, temp);
                     temp = strtok(NULL, TOKENER);
-                    char uid = 0;
                     if (temp != NULL) {
-                        char i = 0;
-                        uid = temp[0];
-                        if (uid >= START_UID && uid < clcd_config_data.uid_range) {
-                            printf("uid = %d,\r\n", uid);
-                            if (uid == cmd_data.uid) {
-                                temp = strtok(NULL, TOKENER);
-                                if (temp != NULL) {
-                                    collect_row(temp, &cmd_data.start_row);
-                                    printf("cmd_data.start_row = %d,\r\n", cmd_data.start_row);
-                                    if (cmd_data.start_row != 255) {
-                                        temp = strtok(NULL, TOKENER);
-                                        if (temp != NULL) {
-                                            collect_column(temp, &cmd_data.start_col);
-                                            printf("cmd_data.start_col = %d,\r\n", cmd_data.start_col);
-                                            if (cmd_data.start_row != 255) {
-                                                temp = strtok(NULL, TOKENER);
-                                                if (temp != NULL) {
-                                                    collect_row(temp, &cmd_data.end_row);
-                                                    printf("cmd_data.end_row = %d,\r\n", cmd_data.end_row);
-                                                    if (cmd_data.end_row != 255) {
-                                                        temp = strtok(NULL, TOKENER);
-                                                        if (temp != NULL) {
-                                                            printf("col = %s\r\n", temp);
-                                                            collect_column(temp, &cmd_data.end_col);
-                                                            printf("cmd_data.end_col = %d,\r\n", cmd_data.end_col);
-                                                            if (cmd_data.end_row != 255) {
-                                                                cmd_data.row_col_set = true;
-                                                                valid_cmd = true;
-                                                                memset(str, 0, strlen(str));
-                                                                return OK_CMD;
-                                                            } else {
-                                                                return ERROR_ROW_COL;
-                                                            }
+                        get_uid(temp, &cmd_data.uid);
+                        if (cmd_data.uid != 0) {
+                            printf("uid = %d,\r\n", cmd_data.uid);
+                            temp = strtok(NULL, TOKENER);
+                            if (temp != NULL) {
+                                collect_row(temp, &cmd_data.start_row);
+                                printf("cmd_data.start_row = %d,\r\n", cmd_data.start_row);
+                                if (cmd_data.start_row != INVALID_ROW_COL) {
+                                    temp = strtok(NULL, TOKENER);
+                                    if (temp != NULL) {
+                                        collect_column(temp, &cmd_data.start_col);
+                                        printf("cmd_data.start_col = %d,\r\n", cmd_data.start_col);
+                                        if (cmd_data.start_row != INVALID_ROW_COL) {
+                                            temp = strtok(NULL, TOKENER);
+                                            if (temp != NULL) {
+                                                collect_row(temp, &cmd_data.end_row);
+                                                printf("cmd_data.end_row = %d,\r\n", cmd_data.end_row);
+                                                if (cmd_data.end_row != INVALID_ROW_COL) {
+                                                    temp = strtok(NULL, TOKENER);
+                                                    if (temp != NULL) {
+                                                        printf("col = %s\r\n", temp);
+                                                        collect_column(temp, &cmd_data.end_col);
+                                                        printf("cmd_data.end_col = %d,\r\n", cmd_data.end_col);
+                                                        if (cmd_data.end_row != INVALID_ROW_COL) {
+                                                            cmd_data.row_col_set = true;
+                                                            valid_cmd = true;
+                                                            memset(str, 0, strlen(str));
+                                                            return OK_CMD;
+                                                        } else {
+                                                            return ERROR_ROW_COL;
                                                         }
-                                                    } else {
-                                                        return ERROR_ROW_COL;
                                                     }
+                                                } else {
+                                                    return ERROR_ROW_COL;
                                                 }
-                                            } else {
-                                                return ERROR_ROW_COL;
                                             }
+                                        } else {
+                                            return ERROR_ROW_COL;
                                         }
-                                    } else {
-                                        return ERROR_ROW_COL;
                                     }
+                                } else {
+                                    return ERROR_ROW_COL;
                                 }
                             }
                         } else {
@@ -341,6 +326,7 @@ char parse_cmd_str(char *str) {
             return OK_CMD;
         } else if (strcmp(temp, KLM_SET_STRING) == 0) {
             if (clcd_config_data.init_done == true) {
+                clear_cmd_data();
                 //temp = strtok(ptr, TOKENER);
                 if (temp != NULL) {
                     strcpy(CMD, temp);
@@ -426,23 +412,22 @@ char parse_cmd_str(char *str) {
         memset(str, 0, strlen(str));
         return ERROR_CMD;
     }
+    memset(str, 0, strlen(str));
+    return ERROR_CMD;
 }
 
 void reply_to_host() {
     if (strcmp(CMD, KLM_CMD) == 0) { //KLM
         puts("OK\r\n");
     } else if (strcmp(CMD, KLM_CLCD_SUPPORT) == 0) { // KLM+LCDS?
-        printf("%s\r\n", max_display_support());
-        printf("\r\n%s.., OK\r\n", KLM_CLCD_SUPPORT);
+        printf("\r\n%s\r\n%s\r\n", max_display_support(), CMD_SUCCESS_MSG);
     } else if (strcmp(CMD, MAX_COLUMN_CMD) == 0) { //KLM+MC?
-        printf("%d\r\n", clcd_max_col());
-        printf("\r\n%s.., OK\r\n", MAX_COLUMN_CMD);
+        printf("\r\n%d\r\n%s\r\n", clcd_max_col(), CMD_SUCCESS_MSG);
     } else if (strcmp(CMD, MAX_ROW_CMD) == 0) { //KLM+MR?
-        printf("%d\r\n", clcd_max_row());
-        printf("\r\n%s.., OK\r\n", MAX_ROW_CMD);
+        printf("\r\n%d\r\n%s\r\n", clcd_max_row(), CMD_SUCCESS_MSG);
     } else if (strcmp(CMD, KLM_INIT) == 0) { //KLM+LCDS=
         init_clcd_cusotom_lcd(clcd_init_row, clcd_init_col);
-        printf("\r\n%s.., OK\r\n", KLM_INIT);
+        printf("\r\n%s\r\n", CMD_SUCCESS_MSG);
     } else if (strcmp(CMD, KLM_MAX_DISPLAY_STRING_RANGE) == 0) { //KLM+GMDS?
         if (max_display_str() != 0) {
             printf("%d,%c-%c\r\n", max_display_str(), min_uid_range(), max_uid_range());
@@ -460,17 +445,40 @@ void reply_to_host() {
         if (cmd_data.data_set == true && cmd_data.row_col_set == true && cmd_data.scroll_set == true) {
             char ch = update_string_data(&cmd_data);
             if (ch == CONFLICT_STRING)
-                printf("%s\r\n", CMD_ERROR);
+                printf("%s\r\n", CMD_ERROR_MSG);
             else
                 printf("\r\n%s.., OK\r\n", KLM_UPDATE);
         } else {
             if (cmd_data.data_set == false) {
-                printf("\r\n%s\r\n", DATA_STR_NOT_SET);
+                printf("\r\n%s\r\n", DATA_STR_NOT_SET_MSG);
             } else if (cmd_data.row_col_set == false) {
-                printf("\r\n%s\r\n", ROW_COL_NOT_SET);
+                printf("\r\n%s\r\n", ROW_COL_NOT_SET_MSG);
             } else if (cmd_data.scroll_set == false) {
-                printf("\r\n%s\r\n", SCROLL_NOT_SET);
+                printf("\r\n%s\r\n", SCROLL_NOT_SET_MSG);
             }
+        }
+    } else if (strcmp(CMD, KLM_SET_STRING) == 0) { //KLM+SSTR
+        unsigned char ch = set_string_data(&cmd_data);
+        if (ch == CONFLICT_STRING) {
+            printf("%s\r\n", ERROR_CONFLICT_MSG);
+            print_conflict_ids();
+        } else if (ch == CONFLICT_STRING_CHECK_AND_OVERWRITE) {
+            ch = set_string_data(&cmd_data);
+            if (ch == CONFLICT_STRING_OVERWRITE) {
+                cmd_data.over_write = NOT_OVERWRITE;
+                ch = set_string_data(&cmd_data);
+                printf("\r\n%d\r\nOK\r\n", ch);
+            }
+        } else if (ch == CONFLICT_STRING_OVERWRITE) {
+            cmd_data.over_write = NOT_OVERWRITE;
+            ch = set_string_data(&cmd_data);
+            printf("\r\n%d\r\nOK\r\n", ch);
+        } else if (ch == CONFLICT_STRING_NOT_CONFLICT_WITH_OVERWRITE_ARGUMENT) {
+            cmd_data.over_write = NOT_OVERWRITE;
+            ch = set_string_data(&cmd_data);
+            printf("\r\n%d\r\nOK\r\n", ch);
+        } else {
+            printf("\r\n%d\r\nOK\r\n", ch);
         }
     }
 }
@@ -514,7 +522,7 @@ void cmd_consol_task() {
             i++;
         }
         if (i > MAX_LEN) {
-            puts(CMD_LENGTH_OVER);
+            puts(CMD_LENGTH_OVER_MSG);
             i = 0;
         }
     }
@@ -538,7 +546,7 @@ void cmd_consol_task() {
                     memset(uart_str, 0, sizeof (uart_str));
                     cmd_consol_state = CMD_CONSOL_REPLY_HOST;
                 } else {
-                    printf("%s\r\n", CMD_ERROR);
+                    printf("%s\r\n", CMD_ERROR_MSG);
                 }
             }
             break;

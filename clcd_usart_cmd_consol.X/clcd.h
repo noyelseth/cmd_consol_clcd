@@ -145,7 +145,10 @@ extern "C" {
 
 #define MAX_DISPLAY_DATA_LEN    40
     
-#define CONFLICT_STRING         1
+#define CONFLICT_STRING                             200
+#define CONFLICT_STRING_CHECK_AND_OVERWRITE         201
+#define CONFLICT_STRING_OVERWRITE                   202
+#define CONFLICT_STRING_NOT_CONFLICT_WITH_OVERWRITE_ARGUMENT           203
     
     typedef struct {
         unsigned int uid;
@@ -221,6 +224,9 @@ extern "C" {
     char max_uid_range();
     char* max_display_support();
     char update_string_data(CMD_CONSOL_DATA *data);
+    
+    unsigned char set_string_data(CMD_CONSOL_DATA *data);
+    void print_conflict_ids();
 
 #ifdef	__cplusplus
 }
