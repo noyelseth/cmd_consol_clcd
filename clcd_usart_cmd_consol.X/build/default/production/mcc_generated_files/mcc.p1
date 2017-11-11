@@ -1,9 +1,9 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "122 mcc_generated_files/interrupt_manager.h
 [v _INTERRUPT_Initialize `(v ~T0 @X0 0 ef ]
-"260 mcc_generated_files/pin_manager.h
+"270 mcc_generated_files/pin_manager.h
 [v _PIN_MANAGER_Initialize `(v ~T0 @X0 0 ef ]
-"85 mcc_generated_files/mcc.h
+"86 mcc_generated_files/mcc.h
 [v _OSCILLATOR_Initialize `(v ~T0 @X0 0 ef ]
 "93 mcc_generated_files/tmr5.h
 [v _TMR5_Initialize `(v ~T0 @X0 0 ef ]
@@ -11,8 +11,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TMR1_Initialize `(v ~T0 @X0 0 ef ]
 "105 mcc_generated_files/tmr0.h
 [v _TMR0_Initialize `(v ~T0 @X0 0 ef ]
-"106 mcc_generated_files/eusart1.h
+"105 mcc_generated_files/eusart1.h
 [v _EUSART1_Initialize `(v ~T0 @X0 0 ef ]
+"95 mcc_generated_files/eusart2.h
+[v _EUSART2_Initialize `(v ~T0 @X0 0 ef ]
 "15868 C:\Program Files (x86)\Microchip\xc8\v1.40\include\pic18f46k22.h
 [v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
 "15812
@@ -6649,8 +6651,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 159: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 161: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delay3(unsigned char);
-[; ;pin_manager.h: 260: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 272: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 270: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 282: void PIN_MANAGER_IOC(void);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -6682,15 +6684,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;interrupt_manager.h: 110: void interrupt INTERRUPT_InterruptManager(void);
 [; ;interrupt_manager.h: 122: void INTERRUPT_Initialize (void);
-[; ;tmr1.h: 93: void TMR1_Initialize(void);
-[; ;tmr1.h: 124: void TMR1_StartTimer(void);
-[; ;tmr1.h: 154: void TMR1_StopTimer(void);
-[; ;tmr1.h: 188: uint16_t TMR1_ReadTimer(void);
-[; ;tmr1.h: 214: void TMR1_WriteTimer(uint16_t timerVal);
-[; ;tmr1.h: 246: void TMR1_Reload(void);
-[; ;tmr1.h: 287: void TMR1_StartSinglePulseAcquisition(void);
-[; ;tmr1.h: 328: uint8_t TMR1_CheckGateValueStatus(void);
-[; ;tmr1.h: 366: bool TMR1_HasOverflowOccured(void);
+[; ;eusart1.h: 76: extern volatile uint8_t eusart1TxBufferRemaining;
+[; ;eusart1.h: 77: extern volatile uint8_t eusart1RxCount;
+[; ;eusart1.h: 105: void EUSART1_Initialize(void);
+[; ;eusart1.h: 154: uint8_t EUSART1_Read(void);
+[; ;eusart1.h: 179: void EUSART1_Write(uint8_t txData);
+[; ;eusart1.h: 200: void EUSART1_Transmit_ISR(void);
+[; ;eusart1.h: 221: void EUSART1_Receive_ISR(void);
+[; ;eusart1.h: 222: void put_string_usart1(char *str);
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
@@ -6721,13 +6722,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
 [; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 195: extern int printf(const char *, ...);
-[; ;eusart1.h: 77: extern volatile uint8_t eusart1TxBufferRemaining;
-[; ;eusart1.h: 78: extern volatile uint8_t eusart1RxCount;
-[; ;eusart1.h: 106: void EUSART1_Initialize(void);
-[; ;eusart1.h: 155: uint8_t EUSART1_Read(void);
-[; ;eusart1.h: 180: void EUSART1_Write(uint8_t txData);
-[; ;eusart1.h: 201: void EUSART1_Transmit_ISR(void);
-[; ;eusart1.h: 222: void EUSART1_Receive_ISR(void);
+[; ;eusart2.h: 95: void EUSART2_Initialize(void);
+[; ;eusart2.h: 115: uint8_t EUSART2_Read(void);
+[; ;eusart2.h: 135: void EUSART2_Write(uint8_t txData);
+[; ;tmr1.h: 93: void TMR1_Initialize(void);
+[; ;tmr1.h: 124: void TMR1_StartTimer(void);
+[; ;tmr1.h: 154: void TMR1_StopTimer(void);
+[; ;tmr1.h: 188: uint16_t TMR1_ReadTimer(void);
+[; ;tmr1.h: 214: void TMR1_WriteTimer(uint16_t timerVal);
+[; ;tmr1.h: 246: void TMR1_Reload(void);
+[; ;tmr1.h: 287: void TMR1_StartSinglePulseAcquisition(void);
+[; ;tmr1.h: 328: uint8_t TMR1_CheckGateValueStatus(void);
+[; ;tmr1.h: 366: bool TMR1_HasOverflowOccured(void);
 [; ;tmr0.h: 105: void TMR0_Initialize(void);
 [; ;tmr0.h: 134: void TMR0_StartTimer(void);
 [; ;tmr0.h: 166: void TMR0_StopTimer(void);
@@ -6748,8 +6754,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr5.h: 287: void TMR5_StartSinglePulseAcquisition(void);
 [; ;tmr5.h: 328: uint8_t TMR5_CheckGateValueStatus(void);
 [; ;tmr5.h: 366: bool TMR5_HasOverflowOccured(void);
-[; ;mcc.h: 72: void SYSTEM_Initialize(void);
-[; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 73: void SYSTEM_Initialize(void);
+[; ;mcc.h: 86: void OSCILLATOR_Initialize(void);
 "111 mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize `(v ~T0 @X0 1 ef ]
 "112
@@ -6779,28 +6785,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;mcc.c: 120: EUSART1_Initialize();
 "120
 [e ( _EUSART1_Initialize ..  ]
-[; ;mcc.c: 121: }
+[; ;mcc.c: 121: EUSART2_Initialize();
 "121
+[e ( _EUSART2_Initialize ..  ]
+[; ;mcc.c: 122: }
+"122
 [e :UE 847 ]
 }
-"123
-[v _OSCILLATOR_Initialize `(v ~T0 @X0 1 ef ]
 "124
+[v _OSCILLATOR_Initialize `(v ~T0 @X0 1 ef ]
+"125
 {
-[; ;mcc.c: 123: void OSCILLATOR_Initialize(void)
-[; ;mcc.c: 124: {
+[; ;mcc.c: 124: void OSCILLATOR_Initialize(void)
+[; ;mcc.c: 125: {
 [e :U _OSCILLATOR_Initialize ]
 [f ]
-[; ;mcc.c: 126: OSCCON = 0x70;
-"126
-[e = _OSCCON -> -> 112 `i `uc ]
-[; ;mcc.c: 128: OSCCON2 = 0x04;
-"128
+[; ;mcc.c: 127: OSCCON = 0x50;
+"127
+[e = _OSCCON -> -> 80 `i `uc ]
+[; ;mcc.c: 129: OSCCON2 = 0x04;
+"129
 [e = _OSCCON2 -> -> 4 `i `uc ]
-[; ;mcc.c: 130: OSCTUNE = 0x80;
-"130
-[e = _OSCTUNE -> -> 128 `i `uc ]
-[; ;mcc.c: 131: }
+[; ;mcc.c: 131: OSCTUNE = 0x80;
 "131
+[e = _OSCTUNE -> -> 128 `i `uc ]
+[; ;mcc.c: 132: }
+"132
 [e :UE 848 ]
 }

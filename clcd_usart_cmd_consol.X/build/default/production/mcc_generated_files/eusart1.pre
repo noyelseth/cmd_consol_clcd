@@ -8531,87 +8531,25 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 4 "C:\Program Files (x86)\Microchip\xc8\v1.40\include\__size_t.h"
-typedef unsigned size_t;
-
-# 7 "C:\Program Files (x86)\Microchip\xc8\v1.40\include\stdarg.h"
-typedef void * va_list[1];
-
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-
-# 43 "C:\Program Files (x86)\Microchip\xc8\v1.40\include\stdio.h"
-struct __prbuf
-{
-char * ptr;
-void (* func)(char);
-};
-
-# 29 "C:\Program Files (x86)\Microchip\xc8\v1.40\include\errno.h"
-extern int errno;
-
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.40\include\conio.h"
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-# 23
-extern char * cgets(char *);
-extern void cputs(const char *);
-
-# 88 "C:\Program Files (x86)\Microchip\xc8\v1.40\include\stdio.h"
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-
-
-# 180
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-
-# 77 "mcc_generated_files/eusart1.h"
+# 76 "mcc_generated_files/eusart1.h"
 extern volatile uint8_t eusart1TxBufferRemaining;
 extern volatile uint8_t eusart1RxCount;
 
-# 106
+# 105
 void EUSART1_Initialize(void);
 
-# 155
+# 154
 uint8_t EUSART1_Read(void);
 
-# 180
+# 179
 void EUSART1_Write(uint8_t txData);
 
-# 201
+# 200
 void EUSART1_Transmit_ISR(void);
 
-# 222
+# 221
 void EUSART1_Receive_ISR(void);
+void put_string_usart1(char *str);
 
 # 61 "mcc_generated_files/eusart1.c"
 volatile uint8_t eusart1TxHead = 0;
@@ -8621,7 +8559,7 @@ volatile uint8_t eusart1TxBufferRemaining;
 
 volatile uint8_t eusart1RxHead = 0;
 volatile uint8_t eusart1RxTail = 0;
-volatile uint8_t eusart1RxBuffer[8];
+volatile uint8_t eusart1RxBuffer[64];
 volatile uint8_t eusart1RxCount;
 
 # 75
@@ -8643,10 +8581,10 @@ RCSTA1 = 0x90;
 TXSTA1 = 0x24;
 
 
-SPBRG1 = 0xA0;
+SPBRG1 = 0x67;
 
 
-SPBRGH1 = 0x01;
+SPBRGH1 = 0x00;
 
 
 
@@ -8705,16 +8643,6 @@ eusart1TxBufferRemaining--;
 PIE1bits.TX1IE = 1;
 }
 
-char getch(void)
-{
-return EUSART1_Read();
-}
-
-void putch(char txData)
-{
-EUSART1_Write(txData);
-}
-
 void EUSART1_Transmit_ISR(void)
 {
 
@@ -8752,5 +8680,12 @@ if(sizeof(eusart1RxBuffer) <= eusart1RxHead)
 eusart1RxHead = 0;
 }
 eusart1RxCount++;
+}
+
+
+void put_string_usart1(char *str) {
+while (*str != 0) {
+EUSART1_Write(*str++);
+}
 }
 

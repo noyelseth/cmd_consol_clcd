@@ -101,6 +101,34 @@
 #define LCD_RS_RA2_SetAnalogMode()  do { ANSELAbits.ANSA2 = 1; } while(0)
 #define LCD_RS_RA2_SetDigitalMode() do { ANSELAbits.ANSA2 = 0; } while(0)
 
+// get/set LCD_D6_RC4 aliases
+#define LCD_D6_RC4_TRIS               TRISCbits.TRISC4
+#define LCD_D6_RC4_LAT                LATCbits.LATC4
+#define LCD_D6_RC4_PORT               PORTCbits.RC4
+#define LCD_D6_RC4_ANS                ANSELCbits.ANSC4
+#define LCD_D6_RC4_SetHigh()            do { LATCbits.LATC4 = 1; } while(0)
+#define LCD_D6_RC4_SetLow()             do { LATCbits.LATC4 = 0; } while(0)
+#define LCD_D6_RC4_Toggle()             do { LATCbits.LATC4 = ~LATCbits.LATC4; } while(0)
+#define LCD_D6_RC4_GetValue()           PORTCbits.RC4
+#define LCD_D6_RC4_SetDigitalInput()    do { TRISCbits.TRISC4 = 1; } while(0)
+#define LCD_D6_RC4_SetDigitalOutput()   do { TRISCbits.TRISC4 = 0; } while(0)
+#define LCD_D6_RC4_SetAnalogMode()  do { ANSELCbits.ANSC4 = 1; } while(0)
+#define LCD_D6_RC4_SetDigitalMode() do { ANSELCbits.ANSC4 = 0; } while(0)
+
+// get/set LCD_D7_RC5 aliases
+#define LCD_D7_RC5_TRIS               TRISCbits.TRISC5
+#define LCD_D7_RC5_LAT                LATCbits.LATC5
+#define LCD_D7_RC5_PORT               PORTCbits.RC5
+#define LCD_D7_RC5_ANS                ANSELCbits.ANSC5
+#define LCD_D7_RC5_SetHigh()            do { LATCbits.LATC5 = 1; } while(0)
+#define LCD_D7_RC5_SetLow()             do { LATCbits.LATC5 = 0; } while(0)
+#define LCD_D7_RC5_Toggle()             do { LATCbits.LATC5 = ~LATCbits.LATC5; } while(0)
+#define LCD_D7_RC5_GetValue()           PORTCbits.RC5
+#define LCD_D7_RC5_SetDigitalInput()    do { TRISCbits.TRISC5 = 1; } while(0)
+#define LCD_D7_RC5_SetDigitalOutput()   do { TRISCbits.TRISC5 = 0; } while(0)
+#define LCD_D7_RC5_SetAnalogMode()  do { ANSELCbits.ANSC5 = 1; } while(0)
+#define LCD_D7_RC5_SetDigitalMode() do { ANSELCbits.ANSC5 = 0; } while(0)
+
 // get/set RC6 procedures
 #define RC6_SetHigh()    do { LATCbits.LATC6 = 1; } while(0)
 #define RC6_SetLow()   do { LATCbits.LATC6 = 0; } while(0)
@@ -205,33 +233,15 @@
 #define LCD_D5_RD5_SetAnalogMode()  do { ANSELDbits.ANSD5 = 1; } while(0)
 #define LCD_D5_RD5_SetDigitalMode() do { ANSELDbits.ANSD5 = 0; } while(0)
 
-// get/set LCD_D6_RD6 aliases
-#define LCD_D6_RD6_TRIS               TRISDbits.TRISD6
-#define LCD_D6_RD6_LAT                LATDbits.LATD6
-#define LCD_D6_RD6_PORT               PORTDbits.RD6
-#define LCD_D6_RD6_ANS                ANSELDbits.ANSD6
-#define LCD_D6_RD6_SetHigh()            do { LATDbits.LATD6 = 1; } while(0)
-#define LCD_D6_RD6_SetLow()             do { LATDbits.LATD6 = 0; } while(0)
-#define LCD_D6_RD6_Toggle()             do { LATDbits.LATD6 = ~LATDbits.LATD6; } while(0)
-#define LCD_D6_RD6_GetValue()           PORTDbits.RD6
-#define LCD_D6_RD6_SetDigitalInput()    do { TRISDbits.TRISD6 = 1; } while(0)
-#define LCD_D6_RD6_SetDigitalOutput()   do { TRISDbits.TRISD6 = 0; } while(0)
-#define LCD_D6_RD6_SetAnalogMode()  do { ANSELDbits.ANSD6 = 1; } while(0)
-#define LCD_D6_RD6_SetDigitalMode() do { ANSELDbits.ANSD6 = 0; } while(0)
-
-// get/set LCD_D7_RD7 aliases
-#define LCD_D7_RD7_TRIS               TRISDbits.TRISD7
-#define LCD_D7_RD7_LAT                LATDbits.LATD7
-#define LCD_D7_RD7_PORT               PORTDbits.RD7
-#define LCD_D7_RD7_ANS                ANSELDbits.ANSD7
-#define LCD_D7_RD7_SetHigh()            do { LATDbits.LATD7 = 1; } while(0)
-#define LCD_D7_RD7_SetLow()             do { LATDbits.LATD7 = 0; } while(0)
-#define LCD_D7_RD7_Toggle()             do { LATDbits.LATD7 = ~LATDbits.LATD7; } while(0)
-#define LCD_D7_RD7_GetValue()           PORTDbits.RD7
-#define LCD_D7_RD7_SetDigitalInput()    do { TRISDbits.TRISD7 = 1; } while(0)
-#define LCD_D7_RD7_SetDigitalOutput()   do { TRISDbits.TRISD7 = 0; } while(0)
-#define LCD_D7_RD7_SetAnalogMode()  do { ANSELDbits.ANSD7 = 1; } while(0)
-#define LCD_D7_RD7_SetDigitalMode() do { ANSELDbits.ANSD7 = 0; } while(0)
+// get/set RD6 procedures
+#define RD6_SetHigh()    do { LATDbits.LATD6 = 1; } while(0)
+#define RD6_SetLow()   do { LATDbits.LATD6 = 0; } while(0)
+#define RD6_Toggle()   do { LATDbits.LATD6 = ~LATDbits.LATD6; } while(0)
+#define RD6_GetValue()         PORTDbits.RD6
+#define RD6_SetDigitalInput()   do { TRISDbits.TRISD6 = 1; } while(0)
+#define RD6_SetDigitalOutput()  do { TRISDbits.TRISD6 = 0; } while(0)
+#define RD6_SetAnalogMode() do { ANSELDbits.ANSD6 = 1; } while(0)
+#define RD6_SetDigitalMode()do { ANSELDbits.ANSD6 = 0; } while(0)
 
 // get/set LED_HEART_BEAT aliases
 #define LED_HEART_BEAT_TRIS               TRISEbits.TRISE2

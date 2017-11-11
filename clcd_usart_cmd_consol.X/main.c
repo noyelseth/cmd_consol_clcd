@@ -19,7 +19,7 @@
     The generated drivers are tested against the following:
         Compiler          :  XC8 1.35
         MPLAB             :  MPLAB X 3.40
-*/
+ */
 
 /*
     (c) 2016 Microchip Technology Inc. and its subsidiaries. You may use this
@@ -41,47 +41,38 @@
 
     MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
     TERMS.
-*/
-#include <xc.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <string.h>
-#include "mcc_generated_files/mcc.h"
-#include "delay.h"
-#include "clcd.h"
-#include "cmd_consol.h"
-void heart_beat()
-{
+ */
+#include "main.h"
+
+void heart_beat() {
     LED_HEART_BEAT_Toggle();
 }
 bool display = false;
-void make_array()
-{
-    static char i=0;
+
+void make_array() {
+    static char i = 0;
     heart_beat();
     //if(i==3)
     //{
-    display = true;//i=0;}
+    display = true; //i=0;}
     //else 
-       // i++;
+    // i++;
 }
 
-void display_screen()
-{
-   display_text();
+void display_screen() {
+    display_text();
 }
+
 /*
                          Main application
  */
-void main(void)
-{
+void main(void) {
     // Initialize the device
     SYSTEM_Initialize();
     TMR5_StopTimer();
     TMR1_StopTimer();
     TMR0_StopTimer();
-    
+
     TMR0_SetInterruptHandler(make_array);
     //TMR3_SetInterruptHandler(display_screen);
 
@@ -117,29 +108,66 @@ void main(void)
     //init_CLCD_config();
     printf("Init_complete..\r\n");
     //_delay_MS(1000);
-//    clear_display_array();
-//    char str[50] = "Iquester Solution LLP..";
-//    char str1[5] = "OK";
-//    char str2[10] = "Cancel";
+    //    clear_display_array();
+    //    char str[50] = "Iquester Solution LLP..";
+    //    char str1[5] = "OK";
+    //    char str2[10] = "Cancel";
     //print_str(LINE1_HOME, 10, 15, str, SCROLL_RIGHT_TO_LEFT);
-//    print_str(LINE1_HOME, 0, 16, str, SCROLL_RIGHT_TO_LEFT);
+    //    print_str(LINE1_HOME, 0, 16, str, SCROLL_RIGHT_TO_LEFT);
     //print_str(LINE2_HOME, 0, 2, str1, SCROLL_RIGHT_TO_LEFT);
     //print_str(LINE2_HOME, 12, 16, str2, SCROLL_RIGHT_TO_LEFT);
     //print_str(LINE1_HOME, 6, 11, str, SCROLL_RIGHT_TO_LEFT);
-   // print_str(LINE1_HOME, 11, 15, str1, SCROLL_RIGHT_TO_LEFT);
-    
+    // print_str(LINE1_HOME, 11, 15, str1, SCROLL_RIGHT_TO_LEFT);
+
     //print_str(LINE2_HOME, 4, 10, str, SCROLL_RIGHT_TO_LEFT);
-    
+
     TMR0_StartTimer();
-    
+    //main_state = CMD_CONSOLE_STATE;
     //char *ch = (char*)malloc(1);
-    while (1)
-    {
+    while (1) {
         // Add your application code
-        cmd_consol_task();
-        if(display == true){make_display();display = false;}
+
+        bool res = cmd_consol_task();
+        if (res == true){
+            
+            main_state = MAKE_DISPLAY_STATE;
+        }
+        switch (main_state) {
+//            case CMD_CONSOLE_STATE:
+//            {
+//                bool res = cmd_consol_task();
+//                if (res == true)
+//                    main_state = MAKE_DISPLAY_STATE;
+//                break;
+//            }
+            case MAKE_DISPLAY_STATE:
+            {
+                make_display();
+                main_state = DISPLAY_STATE;
+                break;
+            }
+            case DISPLAY_STATE:
+            {
+                if (display == true) {
+                    display_text();
+                    display = false;
+                    main_state = MAKE_DISPLAY_STATE;
+                }
+                break;
+            }
+            default:
+            {
+                break;
+            }
+        }
+        //        cmd_consol_task();
+        //        if (display == true) {
+        //            make_display();
+        //            display = false;
+        //            //main_state = CMD_CONSOLE_STATE;
+        //        }
     }
 }
 /**
  End of File
-*/
+ */

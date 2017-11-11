@@ -8473,10 +8473,10 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 260 "mcc_generated_files/pin_manager.h"
+# 270 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
 
-# 272
+# 282
 void PIN_MANAGER_IOC(void);
 
 # 13 "C:\Program Files (x86)\Microchip\xc8\v1.40\include\stdint.h"
@@ -8578,32 +8578,25 @@ void interrupt INTERRUPT_InterruptManager(void);
 # 122
 void INTERRUPT_Initialize (void);
 
-# 93 "mcc_generated_files/tmr1.h"
-void TMR1_Initialize(void);
+# 76 "mcc_generated_files/eusart1.h"
+extern volatile uint8_t eusart1TxBufferRemaining;
+extern volatile uint8_t eusart1RxCount;
 
-# 124
-void TMR1_StartTimer(void);
+# 105
+void EUSART1_Initialize(void);
 
 # 154
-void TMR1_StopTimer(void);
+uint8_t EUSART1_Read(void);
 
-# 188
-uint16_t TMR1_ReadTimer(void);
+# 179
+void EUSART1_Write(uint8_t txData);
 
-# 214
-void TMR1_WriteTimer(uint16_t timerVal);
+# 200
+void EUSART1_Transmit_ISR(void);
 
-# 246
-void TMR1_Reload(void);
-
-# 287
-void TMR1_StartSinglePulseAcquisition(void);
-
-# 328
-uint8_t TMR1_CheckGateValueStatus(void);
-
-# 366
-bool TMR1_HasOverflowOccured(void);
+# 221
+void EUSART1_Receive_ISR(void);
+void put_string_usart1(char *str);
 
 # 7 "C:\Program Files (x86)\Microchip\xc8\v1.40\include\stdarg.h"
 typedef void * va_list[1];
@@ -8665,24 +8658,41 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 77 "mcc_generated_files/eusart1.h"
-extern volatile uint8_t eusart1TxBufferRemaining;
-extern volatile uint8_t eusart1RxCount;
+# 95 "mcc_generated_files/eusart2.h"
+void EUSART2_Initialize(void);
 
-# 106
-void EUSART1_Initialize(void);
+# 115
+uint8_t EUSART2_Read(void);
 
-# 155
-uint8_t EUSART1_Read(void);
+# 135
+void EUSART2_Write(uint8_t txData);
 
-# 180
-void EUSART1_Write(uint8_t txData);
+# 93 "mcc_generated_files/tmr1.h"
+void TMR1_Initialize(void);
 
-# 201
-void EUSART1_Transmit_ISR(void);
+# 124
+void TMR1_StartTimer(void);
 
-# 222
-void EUSART1_Receive_ISR(void);
+# 154
+void TMR1_StopTimer(void);
+
+# 188
+uint16_t TMR1_ReadTimer(void);
+
+# 214
+void TMR1_WriteTimer(uint16_t timerVal);
+
+# 246
+void TMR1_Reload(void);
+
+# 287
+void TMR1_StartSinglePulseAcquisition(void);
+
+# 328
+uint8_t TMR1_CheckGateValueStatus(void);
+
+# 366
+bool TMR1_HasOverflowOccured(void);
 
 # 105 "mcc_generated_files/tmr0.h"
 void TMR0_Initialize(void);
@@ -8744,10 +8754,10 @@ uint8_t TMR5_CheckGateValueStatus(void);
 # 366
 bool TMR5_HasOverflowOccured(void);
 
-# 72 "mcc_generated_files/mcc.h"
+# 73 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
 
-# 85
+# 86
 void OSCILLATOR_Initialize(void);
 
 # 7 "C:\Program Files (x86)\Microchip\xc8\v1.40\include\stdlib.h"
@@ -8819,7 +8829,8 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 
-# 84 "cmd_consol.h"
+# 88 "cmd_consol.h"
+char out_str[100];
 char uart_str[150] = {0};
 char str_data[40] = {0};
 char CMD[15] = {0};
@@ -8853,7 +8864,7 @@ char over_write;
 CMD_CONSOL_STATE cmd_consol_state;
 extern CMD_CONSOL_DATA cmd_data;
 void console_init();
-void cmd_consol_task();
+bool cmd_consol_task();
 
 # 6 "C:\Program Files (x86)\Microchip\xc8\v1.40\include\stddef.h"
 typedef int ptrdiff_t;
@@ -8883,7 +8894,7 @@ extern CLCD_CONFIG_DATA clcd_config_data;
 void init_CLCD_config(void);
 void init_clcd_cusotom_lcd(char clcd_init_row, char clcd_init_col);
 
-# 153
+# 155
 typedef struct {
 unsigned int uid;
 unsigned char string[40];
@@ -8895,12 +8906,14 @@ unsigned char end_row : 7;
 unsigned char end_col : 7;
 unsigned char end_point : 7;
 unsigned char direction : 3;
+unsigned char display_interval : 7;
 unsigned char display_char_count;
 
 unsigned char length_count_for_right_scroll : 7;
 unsigned char length_decount_for_right_scroll : 7;
 unsigned char length_count_for_left_scroll : 7;
 unsigned char length_decount_for_left_scroll : 7;
+unsigned char display_interval_count : 7;
 
 } CLCD_STRING_DISPLAY_DETAILS;
 
@@ -8979,7 +8992,7 @@ extern __bit iscntrl(char);
 extern char toupper(char);
 extern char tolower(char);
 
-# 6 "cmd_consol.c"
+# 7 "cmd_consol.c"
 CMD_CONSOL_DATA cmd_data;
 
 void clear_cmd_data() {
@@ -8991,7 +9004,9 @@ cmd_data.end_row = cmd_data.end_row = -1;
 }
 
 void collect_row(char *str, char *data_row) {
+
 printf("row1 = %s\r\n", str);
+
 char row = 0;
 int i = 0;
 for (i = 0; i < strlen(str); i++) {
@@ -9000,7 +9015,9 @@ row = row * 10 + (str[i] - '0');
 else
 return;
 }
+
 printf("row2 = %d\r\n", row);
+
 if (row >= clcd_config_data.clcd_max_row) {
 *data_row = -1;
 } else {
@@ -9008,7 +9025,7 @@ if (row >= clcd_config_data.clcd_max_row) {
 }
 }
 
-char get_uid(char *str, unsigned int *data_uid) {
+void get_uid(char *str, unsigned int *data_uid) {
 unsigned int uid;
 unsigned int i = 0;
 for (i = 0; i < strlen(str); i++) {
@@ -9044,7 +9061,9 @@ direction = direction * 10 + (str[i] - '0');
 else
 return 0;
 }
+
 printf("direction = %d\r\n", direction);
+
 if (direction >= clcd_config_data.clcd_max_row) {
 *data_direction = -1;
 return 0;
@@ -9066,7 +9085,10 @@ frq = frq * 10 + (str[i] - '0');
 return 0;
 }
 }
+
 printf("display_frq = %d\r\n", frq);
+
+
 *data_frq = frq;
 return 1;
 }
@@ -9082,13 +9104,17 @@ over_write = over_write * 10 + (str[i] - '0');
 return 0;
 }
 }
+
 printf("over_write = %d\r\n", over_write);
+
 *over_write_data = over_write;
 return 1;
 }
 
 void collect_column(char *str, char *data_column) {
+
 printf("col1 = %s\r\n", str);
+
 int i = 0;
 char column = 0;
 for (i = 0; i < strlen(str); i++) {
@@ -9103,7 +9129,9 @@ return;
 }
 
 }
+
 printf("Col2 = %d\r\n", column);
+
 if (column >= clcd_config_data.clcd_max_col) {
 *data_column = -1;
 } else {
@@ -9112,7 +9140,9 @@ if (column >= clcd_config_data.clcd_max_col) {
 }
 
 char parse_cmd_str(char *str) {
+
 printf("%s..2\r\n", str);
+
 char *temp;
 char *ptr = str;
 temp = strtok(ptr, "-', /=");
@@ -9139,7 +9169,9 @@ if (temp != (0)) {
 strcpy(CMD, temp);
 valid_cmd = 1;
 memset(str, 0, strlen(str));
+
 printf(".....\r\n");
+
 return 0;
 }
 } else if (strcmp(temp, "LCDS") == 0) {
@@ -9147,7 +9179,9 @@ return 0;
 if (temp != (0)) {
 strcpy(CMD, temp);
 temp = strtok((0), "-', /=");
+
 printf("%s..\r\n", temp);
+
 char row = 0, column = 0;
 if (temp != (0)) {
 row = atoi(temp);
@@ -9182,11 +9216,15 @@ if (clcd_config_data.init_done == 1) {
 clear_cmd_data();
 
 if (temp != (0)) {
+
 printf("temp = %s, ", temp);
+
 strcpy(CMD, temp);
 temp = strtok((0), "-', /=");
 if (temp != (0)) {
+
 printf("temp = %s, ", temp);
+
 get_uid(temp, &cmd_data.uid);
 if (cmd_data.uid != 0) {
 temp = strtok((0), "-', /=");
@@ -9206,9 +9244,13 @@ return 8;
 }
 }
 }
+} else {
+return 9;
 }
 } else if (strcmp(temp, "SDSCROL") == 0) {
+
 printf("%s...4\r\n", temp);
+
 if (clcd_config_data.init_done == 1) {
 clear_cmd_data();
 
@@ -9216,12 +9258,16 @@ if (temp != (0)) {
 strcpy(CMD, temp);
 temp = strtok((0), "-', /=");
 if (temp != (0)) {
+
 printf("%s...5\r\n", temp);
+
 get_uid(temp, &cmd_data.uid);
 if (cmd_data.uid != 0) {
 temp = strtok((0), "-', /=");
 if (temp != (0)) {
+
 printf("%s...6\r\n", temp);
+
 get_direction(temp, &cmd_data.scroll);
 if (cmd_data.scroll < 3 && cmd_data.scroll != -1) {
 cmd_data.scroll_set = 1;
@@ -9237,6 +9283,8 @@ return 8;
 }
 }
 }
+} else {
+return 9;
 }
 } else if (strcmp(temp, "SDSERC") == 0) {
 if (clcd_config_data.init_done == 1) {
@@ -9248,27 +9296,39 @@ temp = strtok((0), "-', /=");
 if (temp != (0)) {
 get_uid(temp, &cmd_data.uid);
 if (cmd_data.uid != 0) {
+
 printf("uid = %d,\r\n", cmd_data.uid);
+
 temp = strtok((0), "-', /=");
 if (temp != (0)) {
 collect_row(temp, &cmd_data.start_row);
+
 printf("cmd_data.start_row = %d,\r\n", cmd_data.start_row);
+
 if (cmd_data.start_row != 255) {
 temp = strtok((0), "-', /=");
 if (temp != (0)) {
 collect_column(temp, &cmd_data.start_col);
+
 printf("cmd_data.start_col = %d,\r\n", cmd_data.start_col);
+
 if (cmd_data.start_row != 255) {
 temp = strtok((0), "-', /=");
 if (temp != (0)) {
 collect_row(temp, &cmd_data.end_row);
+
 printf("cmd_data.end_row = %d,\r\n", cmd_data.end_row);
+
 if (cmd_data.end_row != 255) {
 temp = strtok((0), "-', /=");
 if (temp != (0)) {
+
 printf("col = %s\r\n", temp);
+
 collect_column(temp, &cmd_data.end_col);
+
 printf("cmd_data.end_col = %d,\r\n", cmd_data.end_col);
+
 if (cmd_data.end_row != 255) {
 cmd_data.row_col_set = 1;
 valid_cmd = 1;
@@ -9295,6 +9355,8 @@ return 8;
 }
 }
 }
+} else {
+return 9;
 }
 } else if (strcmp(temp, "UPDATE") == 0) {
 strcpy(CMD, temp);
@@ -9307,32 +9369,46 @@ clear_cmd_data();
 
 if (temp != (0)) {
 strcpy(CMD, temp);
+
 printf("CMD=%s\r\n", CMD);
+
 temp = strtok((0), ",");
 if (temp != (0)) {
 if (get_str(temp, cmd_data.data) == 1) {
+
 printf("data=%s\r\n", cmd_data.data);
+
 temp = strtok((0), "-', /=");
 if (temp != (0)) {
 collect_row(temp, &cmd_data.start_row);
+
 printf("cmd_data.start_row = %d,\r\n", cmd_data.start_row);
+
 if (cmd_data.start_row != 255) {
 temp = strtok((0), "-', /=");
 if (temp != (0)) {
 collect_column(temp, &cmd_data.start_col);
+
 printf("cmd_data.start_col = %d,\r\n", cmd_data.start_col);
+
 if (cmd_data.start_row != 255) {
 temp = strtok((0), "-', /=");
 if (temp != (0)) {
 collect_row(temp, &cmd_data.end_row);
+
 printf("cmd_data.end_row = %d,\r\n", cmd_data.end_row);
+
 if (cmd_data.end_row != 255) {
 temp = strtok((0), "-', /=");
 if (temp != (0)) {
+
 printf("col = %s\r\n", temp);
+
 collect_column(temp, &cmd_data.end_col);
+
 printf("cmd_data.end_col = %d,\r\n", cmd_data.end_col);
-if (cmd_data.end_row != 255) {
+
+if (cmd_data.end_col != 255) {
 temp = strtok((0), "-', /=");
 if (temp != (0)) {
 if (get_direction(temp, &cmd_data.scroll) == 1) {
@@ -9379,6 +9455,8 @@ return 2;
 }
 }
 }
+} else {
+return 9;
 }
 } else if (strcmp(temp, "KLM") == 0) {
 strcpy(CMD, temp);
@@ -9395,67 +9473,82 @@ return 1;
 
 void reply_to_host() {
 if (strcmp(CMD, "KLM") == 0) {
+memset(out_str, 0, sizeof (out_str));
+sprintf(out_str, "OK\r\n");
+put_string_usart1(out_str);
 puts("OK\r\n");
 } else if (strcmp(CMD, "LCDS?") == 0) {
-printf("\r\n%s\r\n%s\r\n", max_display_support(), "OK");
+printf("%s\r\n%s\r\n", max_display_support(), "OK");
 } else if (strcmp(CMD, "MC?") == 0) {
-printf("\r\n%d\r\n%s\r\n", clcd_max_col(), "OK");
+printf("%d\r\n%s\r\n", clcd_max_col(), "OK");
 } else if (strcmp(CMD, "MR?") == 0) {
-printf("\r\n%d\r\n%s\r\n", clcd_max_row(), "OK");
+printf("%d\r\n%s\r\n", clcd_max_row(), "OK");
 } else if (strcmp(CMD, "LCDS") == 0) {
 init_clcd_cusotom_lcd(clcd_init_row, clcd_init_col);
-printf("\r\n%s\r\n", "OK");
+memset(out_str, 0, sizeof (out_str));
+sprintf(out_str, "%s\r\n", "OK");
+put_string_usart1(out_str);
 } else if (strcmp(CMD, "GMDS?") == 0) {
 if (max_display_str() != 0) {
 printf("%d,%c-%c\r\n", max_display_str(), min_uid_range(), max_uid_range());
 } else {
 printf("%d\r\n", max_display_str());
 }
-printf("\r\n%s.., OK\r\n", "GMDS?");
+printf("%s.., OK\r\n", "GMDS?");
 } else if (strcmp(CMD, "SDSTR") == 0) {
-printf("\r\n%s.., OK\r\n", "SDSTR");
+printf("%s.., OK\r\n", "SDSTR");
 } else if (strcmp(CMD, "SDSCROL") == 0) {
-printf("\r\n%s.., OK\r\n", "SDSCROL");
+printf("%s.., OK\r\n", "SDSCROL");
 } else if (strcmp(CMD, "SDSERC") == 0) {
-printf("\r\n%s.., OK\r\n", "SDSERC");
+printf("%s.., OK\r\n", "SDSERC");
 } else if (strcmp(CMD, "UPDATE") == 0) {
 if (cmd_data.data_set == 1 && cmd_data.row_col_set == 1 && cmd_data.scroll_set == 1) {
 char ch = update_string_data(&cmd_data);
 if (ch == 200)
 printf("%s\r\n", "ERROR");
 else
-printf("\r\n%s.., OK\r\n", "UPDATE");
+printf("%s.., OK\r\n", "UPDATE");
 } else {
 if (cmd_data.data_set == 0) {
-printf("\r\n%s\r\n", "ERR_STR_SET");
+printf("%s\r\n", "ERR_STR_SET");
 } else if (cmd_data.row_col_set == 0) {
-printf("\r\n%s\r\n", "ERR_ROW_COL");
+printf("%s\r\n", "ERR_ROW_COL");
 } else if (cmd_data.scroll_set == 0) {
-printf("\r\n%s\r\n", "ERR_SCROLL_SET");
+printf("%s\r\n", "ERR_SCROLL_SET");
 }
 }
 } else if (strcmp(CMD, "SSTR") == 0) {
 unsigned char ch = set_string_data(&cmd_data);
 if (ch == 200) {
-printf("%s\r\n", "ERR_CONFLICT");
 print_conflict_ids();
+memset(out_str, 0, sizeof (out_str));
+sprintf(out_str, "%s\r\n", "ERR_CONFLICT");
+put_string_usart1(out_str);
 } else if (ch == 201) {
 ch = set_string_data(&cmd_data);
 if (ch == 202) {
 cmd_data.over_write = 0;
 ch = set_string_data(&cmd_data);
-printf("\r\n%d\r\nOK\r\n", ch);
+memset(out_str, 0, sizeof (out_str));
+sprintf(out_str, "%d\r\nOK\r\n", ch);
+put_string_usart1(out_str);
 }
 } else if (ch == 202) {
 cmd_data.over_write = 0;
 ch = set_string_data(&cmd_data);
-printf("\r\n%d\r\nOK\r\n", ch);
+memset(out_str, 0, sizeof (out_str));
+sprintf(out_str, "%d\r\nOK\r\n", ch);
+put_string_usart1(out_str);
 } else if (ch == 203) {
 cmd_data.over_write = 0;
 ch = set_string_data(&cmd_data);
-printf("\r\n%d\r\nOK\r\n", ch);
+memset(out_str, 0, sizeof (out_str));
+sprintf(out_str, "%d\r\nOK\r\n", ch);
+put_string_usart1(out_str);
 } else {
-printf("\r\n%d\r\nOK\r\n", ch);
+memset(out_str, 0, sizeof (out_str));
+sprintf(out_str, "%d\r\nOK\r\n", ch);
+put_string_usart1(out_str);
 }
 }
 }
@@ -9472,12 +9565,13 @@ memset(str_data, 0, sizeof (str_data));
 memset(uart_str, 0, sizeof (uart_str));
 }
 
-void cmd_consol_task() {
+bool cmd_consol_task() {
+bool res = 0;
 if ((eusart1RxCount) > 0) {
 static int i = 0;
 unsigned char ch = 0;
 while ((eusart1RxCount)) {
-ch = getch();
+ch = EUSART1_Read();
 if (ch == '\n' || ch == '\r') {
 i = 0;
 check = 1;
@@ -9491,11 +9585,8 @@ continue;
 uart_str[i] = ch;
 printf("%c", uart_str[i]);
 }
-if (strcmp(uart_str, "KLM+") == 0) {
-memset(uart_str, 0, sizeof (uart_str));
-i = 0;
-continue;
-}
+
+# 606
 i++;
 }
 if (i > 150) {
@@ -9509,7 +9600,10 @@ case CMD_CONSOL_INIT:
 memset(CMD, 0, sizeof (CMD));
 memset(uart_str, 0, sizeof (uart_str));
 valid_cmd = 0;
-puts("Init_Done\r\n");
+memset(out_str, 0, sizeof (out_str));
+sprintf(out_str, "Init_Done\r\n");
+put_string_usart1(out_str);
+printf("%s..\r\n", out_str);
 cmd_consol_state = CMD_CONSOL_READ_CMD;
 break;
 }
@@ -9519,11 +9613,36 @@ static int i = 0;
 
 if (check == 1) {
 check = 0;
-if (parse_cmd_str(uart_str) == 0) {
+char temp_uart_str[150] = {0};
+memset(temp_uart_str, 0, sizeof (temp_uart_str));
+strcpy(temp_uart_str, uart_str);
+if (strstr(temp_uart_str, "KLM+") != (0)) {
+
+printf("%s\r\n", uart_str);
+
+memset(uart_str, 0, sizeof (uart_str));
+strcpy(uart_str, temp_uart_str + strlen("KLM+"));
+} else {
+
+printf("%s\r\n", uart_str);
+
+strcpy(uart_str, temp_uart_str);
+}
+char val = parse_cmd_str(uart_str);
+if (0 == val) {
+memset(temp_uart_str, 0, sizeof (temp_uart_str));
 memset(uart_str, 0, sizeof (uart_str));
 cmd_consol_state = CMD_CONSOL_REPLY_HOST;
+} else if (9 == val) {
+memset(out_str, 0, sizeof (out_str));
+sprintf(out_str, "%s\r\n", "ERR_INIT");
+put_string_usart1(out_str);
+printf("%s\r\n\r\n", out_str);
 } else {
-printf("%s\r\n", "ERROR");
+memset(out_str, 0, sizeof (out_str));
+sprintf(out_str, "%s\r\n", "ERROR");
+put_string_usart1(out_str);
+printf("%s\r\n\r\n", out_str);
 }
 }
 break;
@@ -9536,8 +9655,10 @@ valid_cmd = 0;
 
 }
 cmd_consol_state = CMD_CONSOL_READ_CMD;
+res = 1;
 break;
 }
 }
+return res;
 
 }

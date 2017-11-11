@@ -118,12 +118,13 @@ void SYSTEM_Initialize(void)
     TMR1_Initialize();
     TMR0_Initialize();
     EUSART1_Initialize();
+    EUSART2_Initialize();
 }
 
 void OSCILLATOR_Initialize(void)
 {
-    // SCS FOSC; IRCF 16MHz_HFINTOSC; IDLEN disabled; 
-    OSCCON = 0x70;
+    // SCS FOSC; IRCF 4MHz_HFINTOSC/4; IDLEN disabled; 
+    OSCCON = 0x50;
     // PRISD enabled; SOSCGO disabled; MFIOSEL disabled; 
     OSCCON2 = 0x04;
     // INTSRC enabled; PLLEN disabled; TUN 0; 

@@ -14,6 +14,9 @@ extern "C" {
 
 #include <stdlib.h>
 #include <stdbool.h>
+
+#define DEV_LOG     1
+    #define LOG     1
     
 #define     SUCCESS     1
 #define     FAILURE     0
@@ -41,6 +44,7 @@ extern "C" {
 #define KLM_SET_STRING                    "SSTR"   //KLM+SSTR=hello_world...___,0,1,3,10,2,1,1
                                                    //KLM+SSTR=hello_world...___,3,1,3,5,1,1,0
                                                     //KLM+SSTR=hello_world...___,2,7,2,15,1,1,0
+                                                    //KLM+SSTR=hello_world...___,2,7,3,15,1,1,0
     
 #define KLM_CLEAR_SCREEN                  "CLS"     // KLM+CLS
     
@@ -81,6 +85,7 @@ extern "C" {
 #define TOKENER_STR         ","  
 #define END_OF_LINE     '\n'
 
+    char out_str[100];
     char uart_str[MAX_LEN] = {0};
     char str_data[MAX_DATA_LEN] = {0};
     char CMD[CMD_LEN] = {0};
@@ -114,7 +119,7 @@ extern "C" {
     CMD_CONSOL_STATE cmd_consol_state;
     extern CMD_CONSOL_DATA cmd_data;
     void console_init();
-    void cmd_consol_task();
+    bool cmd_consol_task();
 #ifdef	__cplusplus
 }
 #endif

@@ -72,8 +72,8 @@ void TMR5_Initialize(void)
     //TMR5H 255; 
     TMR5H = 0xFF;
 
-    //TMR5L 236; 
-    TMR5L = 0xEC;
+    //TMR5L 251; 
+    TMR5L = 0xFB;
 
     // Load the TMR value to reload variable
     timer5ReloadVal=TMR5;

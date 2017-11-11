@@ -1,74 +1,49 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"15659 C:\Program Files (x86)\Microchip\xc8\v1.40\include\pic18f46k22.h
-[s S745 :1 `uc 1 ]
-[n S745 . NOT_BOR ]
-"15662
-[s S746 :1 `uc 1 :1 `uc 1 ]
-[n S746 . . NOT_POR ]
-"15666
-[s S747 :2 `uc 1 :1 `uc 1 ]
-[n S747 . . NOT_PD ]
-"15670
-[s S748 :3 `uc 1 :1 `uc 1 ]
-[n S748 . . NOT_TO ]
-"15674
-[s S749 :4 `uc 1 :1 `uc 1 ]
-[n S749 . . NOT_RI ]
-"15678
-[s S750 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S750 . nBOR nPOR nPD nTO nRI . SBOREN IPEN ]
-"15688
-[s S751 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S751 . BOR POR PD TO RI ]
-"15658
-[u S744 `S745 1 `S746 1 `S747 1 `S748 1 `S749 1 `S750 1 `S751 1 ]
-[n S744 . . . . . . . . ]
-"15696
-[v _RCONbits `VS744 ~T0 @X0 0 e@4048 ]
-"16720
-[s S818 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S818 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
-"16730
-[s S819 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S819 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
-"16740
-[s S820 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S820 . . GIEL GIEH ]
-"16719
-[u S817 `S818 1 `S819 1 `S820 1 ]
-[n S817 . . . . ]
-"16746
-[v _INTCONbits `VS817 ~T0 @X0 0 e@4082 ]
-"295 mcc_generated_files/tmr0.h
-[v _TMR0_ISR `(v ~T0 @X0 0 ef ]
-"9315 C:\Program Files (x86)\Microchip\xc8\v1.40\include\pic18f46k22.h
-[s S432 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S432 . TMR1IE TMR2IE CCP1IE SSP1IE TX1IE RC1IE ADIE ]
-"9324
-[s S433 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S433 . . SSPIE TXIE RCIE ]
-"9314
-[u S431 `S432 1 `S433 1 ]
-[n S431 . . . ]
-"9331
-[v _PIE1bits `VS431 ~T0 @X0 0 e@3997 ]
-"9391
-[s S435 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S435 . TMR1IF TMR2IF CCP1IF SSP1IF TX1IF RC1IF ADIF ]
-"9400
-[s S436 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S436 . . SSPIF TXIF RCIF ]
-"9390
-[u S434 `S435 1 `S436 1 ]
-[n S434 . . . ]
-"9407
-[v _PIR1bits `VS434 ~T0 @X0 0 e@3998 ]
-"200 mcc_generated_files/eusart1.h
-[v _EUSART1_Transmit_ISR `(v ~T0 @X0 0 ef ]
-"221
-[v _EUSART1_Receive_ISR `(v ~T0 @X0 0 ef ]
-[; ;interrupt_manager.h: 110: void interrupt INTERRUPT_InterruptManager(void);
-[; ;interrupt_manager.h: 122: void INTERRUPT_Initialize (void);
+"4216 C:\Program Files (x86)\Microchip\xc8\v1.40\include\pic18f46k22.h
+[v _BAUDCON2 `Vuc ~T0 @X0 0 e@3952 ]
+"4477
+[v _RCSTA2 `Vuc ~T0 @X0 0 e@3953 ]
+"4764
+[v _TXSTA2 `Vuc ~T0 @X0 0 e@3954 ]
+"5089
+[v _SPBRG2 `Vuc ~T0 @X0 0 e@3957 ]
+"5126
+[v _SPBRGH2 `Vuc ~T0 @X0 0 e@3958 ]
+"4488
+[s S212 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S212 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
+"4498
+[s S213 :3 `uc 1 :1 `uc 1 ]
+[n S213 . . ADEN ]
+"4502
+[s S214 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S214 . RX9D2 OERR2 FERR2 ADDEN2 CREN2 SREN2 RX92 SPEN2 ]
+"4512
+[s S215 :1 `uc 1 :5 `uc 1 :1 `uc 1 ]
+[n S215 . RCD82 . RC8_92 ]
+"4517
+[s S216 :6 `uc 1 :1 `uc 1 ]
+[n S216 . . RC92 ]
+"4487
+[u S211 `S212 1 `S213 1 `S214 1 `S215 1 `S216 1 ]
+[n S211 . . . . . . ]
+"4522
+[v _RCSTA2bits `VS211 ~T0 @X0 0 e@3953 ]
+"9907
+[s S457 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S457 . TMR1GIF TMR3GIF TMR5GIF CTMUIF TX2IF RC2IF BCL2IF SSP2IF ]
+"9917
+[s S458 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S458 . . RXBNIF . TXBNIF ]
+"9906
+[u S456 `S457 1 `S458 1 ]
+[n S456 . . . ]
+"9924
+[v _PIR3bits `VS456 ~T0 @X0 0 e@4004 ]
+"5052
+[v _RCREG2 `Vuc ~T0 @X0 0 e@3956 ]
+"5015
+[v _TXREG2 `Vuc ~T0 @X0 0 e@3955 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -6621,8 +6596,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 159: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 161: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delay3(unsigned char);
-[; ;pin_manager.h: 270: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 282: void PIN_MANAGER_IOC(void);
+[; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -6651,15 +6625,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;eusart1.h: 76: extern volatile uint8_t eusart1TxBufferRemaining;
-[; ;eusart1.h: 77: extern volatile uint8_t eusart1RxCount;
-[; ;eusart1.h: 105: void EUSART1_Initialize(void);
-[; ;eusart1.h: 154: uint8_t EUSART1_Read(void);
-[; ;eusart1.h: 179: void EUSART1_Write(uint8_t txData);
-[; ;eusart1.h: 200: void EUSART1_Transmit_ISR(void);
-[; ;eusart1.h: 221: void EUSART1_Receive_ISR(void);
-[; ;eusart1.h: 222: void put_string_usart1(char *str);
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
@@ -6693,115 +6658,145 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart2.h: 95: void EUSART2_Initialize(void);
 [; ;eusart2.h: 115: uint8_t EUSART2_Read(void);
 [; ;eusart2.h: 135: void EUSART2_Write(uint8_t txData);
-[; ;tmr1.h: 93: void TMR1_Initialize(void);
-[; ;tmr1.h: 124: void TMR1_StartTimer(void);
-[; ;tmr1.h: 154: void TMR1_StopTimer(void);
-[; ;tmr1.h: 188: uint16_t TMR1_ReadTimer(void);
-[; ;tmr1.h: 214: void TMR1_WriteTimer(uint16_t timerVal);
-[; ;tmr1.h: 246: void TMR1_Reload(void);
-[; ;tmr1.h: 287: void TMR1_StartSinglePulseAcquisition(void);
-[; ;tmr1.h: 328: uint8_t TMR1_CheckGateValueStatus(void);
-[; ;tmr1.h: 366: bool TMR1_HasOverflowOccured(void);
-[; ;tmr0.h: 105: void TMR0_Initialize(void);
-[; ;tmr0.h: 134: void TMR0_StartTimer(void);
-[; ;tmr0.h: 166: void TMR0_StopTimer(void);
-[; ;tmr0.h: 202: uint16_t TMR0_ReadTimer(void);
-[; ;tmr0.h: 241: void TMR0_WriteTimer(uint16_t timerVal);
-[; ;tmr0.h: 277: void TMR0_Reload(void);
-[; ;tmr0.h: 295: void TMR0_ISR(void);
-[; ;tmr0.h: 313: void TMR0_CallBack(void);
-[; ;tmr0.h: 331: void TMR0_SetInterruptHandler(void *InterruptHandler);
-[; ;tmr0.h: 349: extern void (*TMR0_InterruptHandler)(void);
-[; ;tmr0.h: 367: void TMR0_DefaultInterruptHandler(void);
-[; ;tmr5.h: 93: void TMR5_Initialize(void);
-[; ;tmr5.h: 124: void TMR5_StartTimer(void);
-[; ;tmr5.h: 154: void TMR5_StopTimer(void);
-[; ;tmr5.h: 188: uint16_t TMR5_ReadTimer(void);
-[; ;tmr5.h: 214: void TMR5_WriteTimer(uint16_t timerVal);
-[; ;tmr5.h: 246: void TMR5_Reload(void);
-[; ;tmr5.h: 287: void TMR5_StartSinglePulseAcquisition(void);
-[; ;tmr5.h: 328: uint8_t TMR5_CheckGateValueStatus(void);
-[; ;tmr5.h: 366: bool TMR5_HasOverflowOccured(void);
-[; ;mcc.h: 73: void SYSTEM_Initialize(void);
-[; ;mcc.h: 86: void OSCILLATOR_Initialize(void);
-"51 mcc_generated_files/interrupt_manager.c
-[v _INTERRUPT_Initialize `(v ~T0 @X0 1 ef ]
-"52
+"55 mcc_generated_files/eusart2.c
+[v _EUSART2_Initialize `(v ~T0 @X0 1 ef ]
+"56
 {
-[; ;interrupt_manager.c: 51: void INTERRUPT_Initialize (void)
-[; ;interrupt_manager.c: 52: {
-[e :U _INTERRUPT_Initialize ]
+[; ;eusart2.c: 55: void EUSART2_Initialize(void)
+[; ;eusart2.c: 56: {
+[e :U _EUSART2_Initialize ]
 [f ]
-[; ;interrupt_manager.c: 54: RCONbits.IPEN = 0;
-"54
-[e = . . _RCONbits 5 7 -> -> 0 `i `uc ]
-[; ;interrupt_manager.c: 55: }
-"55
+[; ;eusart2.c: 60: BAUDCON2 = 0x08;
+"60
+[e = _BAUDCON2 -> -> 8 `i `uc ]
+[; ;eusart2.c: 63: RCSTA2 = 0x80;
+"63
+[e = _RCSTA2 -> -> 128 `i `uc ]
+[; ;eusart2.c: 66: TXSTA2 = 0x24;
+"66
+[e = _TXSTA2 -> -> 36 `i `uc ]
+[; ;eusart2.c: 69: SPBRG2 = 0x67;
+"69
+[e = _SPBRG2 -> -> 103 `i `uc ]
+[; ;eusart2.c: 72: SPBRGH2 = 0x00;
+"72
+[e = _SPBRGH2 -> -> 0 `i `uc ]
+[; ;eusart2.c: 74: }
+"74
 [e :UE 847 ]
 }
-[v F3 `(v ~T0 @X0 1 tf ]
-"57
-[v _INTERRUPT_InterruptManager `IF3 ~T0 @X0 1 e ]
-"58
+"77
+[v _EUSART2_Read `(uc ~T0 @X0 1 ef ]
+"78
 {
-[; ;interrupt_manager.c: 57: void interrupt INTERRUPT_InterruptManager (void)
-[; ;interrupt_manager.c: 58: {
-[e :U _INTERRUPT_InterruptManager ]
+[; ;eusart2.c: 77: uint8_t EUSART2_Read(void)
+[; ;eusart2.c: 78: {
+[e :U _EUSART2_Read ]
 [f ]
-[; ;interrupt_manager.c: 60: if(INTCONbits.TMR0IE == 1 && INTCONbits.TMR0IF == 1)
-"60
-[e $ ! && == -> . . _INTCONbits 0 5 `i -> 1 `i == -> . . _INTCONbits 0 2 `i -> 1 `i 849  ]
-[; ;interrupt_manager.c: 61: {
-"61
+[; ;eusart2.c: 80: RCSTA2bits.SREN = 1;
+"80
+[e = . . _RCSTA2bits 0 5 -> -> 1 `i `uc ]
+[; ;eusart2.c: 81: while(!PIR3bits.RC2IF)
+"81
+[e $U 849  ]
+[e :U 850 ]
+[; ;eusart2.c: 82: {
+"82
 {
-[; ;interrupt_manager.c: 62: TMR0_ISR();
-"62
-[e ( _TMR0_ISR ..  ]
-"63
+"83
 }
-[; ;interrupt_manager.c: 63: }
-[e $U 850  ]
-"64
 [e :U 849 ]
-[; ;interrupt_manager.c: 64: else if(INTCONbits.PEIE == 1 && PIE1bits.TX1IE == 1 && PIR1bits.TX1IF == 1)
-[e $ ! && && == -> . . _INTCONbits 1 6 `i -> 1 `i == -> . . _PIE1bits 0 4 `i -> 1 `i == -> . . _PIR1bits 0 4 `i -> 1 `i 851  ]
-[; ;interrupt_manager.c: 65: {
-"65
-{
-[; ;interrupt_manager.c: 66: EUSART1_Transmit_ISR();
-"66
-[e ( _EUSART1_Transmit_ISR ..  ]
-"67
-}
-[; ;interrupt_manager.c: 67: }
-[e $U 852  ]
-"68
+"81
+[e $ ! != -> . . _PIR3bits 0 5 `i -> -> -> 0 `i `Vuc `i 850  ]
 [e :U 851 ]
-[; ;interrupt_manager.c: 68: else if(INTCONbits.PEIE == 1 && PIE1bits.RC1IE == 1 && PIR1bits.RC1IF == 1)
-[e $ ! && && == -> . . _INTCONbits 1 6 `i -> 1 `i == -> . . _PIE1bits 0 5 `i -> 1 `i == -> . . _PIR1bits 0 5 `i -> 1 `i 853  ]
-[; ;interrupt_manager.c: 69: {
-"69
+[; ;eusart2.c: 83: }
+[; ;eusart2.c: 86: if(1 == RCSTA2bits.OERR)
+"86
+[e $ ! == -> 1 `i -> . . _RCSTA2bits 0 1 `i 852  ]
+[; ;eusart2.c: 87: {
+"87
 {
-[; ;interrupt_manager.c: 70: EUSART1_Receive_ISR();
-"70
-[e ( _EUSART1_Receive_ISR ..  ]
-"71
+[; ;eusart2.c: 90: RCSTA2bits.SPEN = 0;
+"90
+[e = . . _RCSTA2bits 0 7 -> -> 0 `i `uc ]
+[; ;eusart2.c: 91: RCSTA2bits.SPEN = 1;
+"91
+[e = . . _RCSTA2bits 0 7 -> -> 1 `i `uc ]
+"92
 }
-[; ;interrupt_manager.c: 71: }
-[e $U 854  ]
-"72
-[e :U 853 ]
-[; ;interrupt_manager.c: 72: else
-[; ;interrupt_manager.c: 73: {
-"73
+[e :U 852 ]
+[; ;eusart2.c: 92: }
+[; ;eusart2.c: 94: return RCREG2;
+"94
+[e ) _RCREG2 ]
+[e $UE 848  ]
+[; ;eusart2.c: 95: }
+"95
+[e :UE 848 ]
+}
+"97
+[v _EUSART2_Write `(v ~T0 @X0 1 ef1`uc ]
+"98
 {
-"75
+[; ;eusart2.c: 97: void EUSART2_Write(uint8_t txData)
+[; ;eusart2.c: 98: {
+[e :U _EUSART2_Write ]
+"97
+[v _txData `uc ~T0 @X0 1 r1 ]
+"98
+[f ]
+[; ;eusart2.c: 99: while(0 == PIR3bits.TX2IF)
+"99
+[e $U 854  ]
+[e :U 855 ]
+[; ;eusart2.c: 100: {
+"100
+{
+"101
 }
 [e :U 854 ]
-[e :U 852 ]
-[e :U 850 ]
-[; ;interrupt_manager.c: 75: }
-[; ;interrupt_manager.c: 76: }
-"76
-[e :UE 848 ]
+"99
+[e $ == -> 0 `i -> . . _PIR3bits 0 4 `i 855  ]
+[e :U 856 ]
+[; ;eusart2.c: 101: }
+[; ;eusart2.c: 103: TXREG2 = txData;
+"103
+[e = _TXREG2 _txData ]
+[; ;eusart2.c: 104: }
+"104
+[e :UE 853 ]
+}
+"106
+[v _getch `(uc ~T0 @X0 1 ef ]
+"107
+{
+[; ;eusart2.c: 106: char getch(void)
+[; ;eusart2.c: 107: {
+[e :U _getch ]
+[f ]
+[; ;eusart2.c: 108: return EUSART2_Read();
+"108
+[e ) ( _EUSART2_Read ..  ]
+[e $UE 857  ]
+[; ;eusart2.c: 109: }
+"109
+[e :UE 857 ]
+}
+"111
+[v _putch `(v ~T0 @X0 1 ef1`uc ]
+"112
+{
+[; ;eusart2.c: 111: void putch(char txData)
+[; ;eusart2.c: 112: {
+[e :U _putch ]
+"111
+[v _txData `uc ~T0 @X0 1 r1 ]
+"112
+[f ]
+[; ;eusart2.c: 113: EUSART2_Write(txData);
+"113
+[e ( _EUSART2_Write (1 _txData ]
+[; ;eusart2.c: 114: }
+"114
+[e :UE 858 ]
 }

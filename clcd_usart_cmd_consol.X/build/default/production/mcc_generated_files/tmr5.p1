@@ -6667,9 +6667,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr5.c: 73: TMR5H = 0xFF;
 "73
 [e = _TMR5H -> -> 255 `i `uc ]
-[; ;tmr5.c: 76: TMR5L = 0xEC;
+[; ;tmr5.c: 76: TMR5L = 0xFB;
 "76
-[e = _TMR5L -> -> 236 `i `uc ]
+[e = _TMR5L -> -> 251 `i `uc ]
 [; ;tmr5.c: 79: timer5ReloadVal=TMR5;
 "79
 [e = _timer5ReloadVal -> _TMR5 `ui ]

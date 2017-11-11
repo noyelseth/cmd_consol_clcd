@@ -1,5 +1,6 @@
 #include "clcd.h"
 #include "delay.h"
+#include "mcc_generated_files/eusart1.h"
 #include <time.h> 
 
 //unsigned char lcd_display_array[MAX_ROW][MAX_COL] = {0};
@@ -16,7 +17,7 @@ void reset_clcd() {
 void init_CLCD_config(void) {
     memset(&clcd_config_data, 0, sizeof (CLCD_CONFIG_DATA));
     //Config PORTB as output port, for sending the data
-    DATA_BUS_DIRECTION = 0x00;
+    DATA_BUS_DIRECTION_1 = 0x00;
 
     //Config PORTD as output port, for sending the control signals
     LCD_CONTROL_BUS_DIRECTION = (unsigned char) (LCD_CONTROL_BUS_DIRECTION | 0xF0);
@@ -37,7 +38,7 @@ void init_CLCD_config(void) {
     ENTRY_MODE;
     _delay_MS(250);
 
-    write_lcd_cmd(DISPLAY_ON_CURSOR_BLINK_CMD);
+    write_lcd_cmd(DISPLAY_ON_CURSOR_OFF_CMD);
     _delay_MS(250);
 
     memset(lcd_display_array, ' ', sizeof (lcd_display_array));
@@ -53,14 +54,22 @@ void init_clcd_cusotom_lcd(char clcd_init_row, char clcd_init_col) {
     memset(clcd_display_string_details, 0, sizeof (clcd_display_string_details));
     memset(conflict_arr, 0, sizeof (conflict_arr));
     clcd_config_data.init_done = true;
+#if DEV_LOG
     printf("row = %d", clcd_init_row);
+#endif
     clcd_config_data.clcd_max_row = clcd_init_row;
+#if DEV_LOG
     printf("col = %d", clcd_init_col);
+#endif
     clcd_config_data.clcd_max_col = clcd_init_col;
+#if DEV_LOG
     printf("string_count = %d", (clcd_init_col / DEFAULT_STRING_DIVIDER) * clcd_init_row);
+#endif
     clcd_config_data.clcd_max_display_string = (clcd_init_col / DEFAULT_STRING_DIVIDER) * clcd_init_row;
     clcd_config_data.uid_range = START_UID + clcd_config_data.clcd_max_display_string;
+#if DEV_LOG
     printf("uid_range = %d\r\n", clcd_config_data.uid_range);
+#endif
 }
 
 void init_clcd_lcd_16x2() {
@@ -136,7 +145,7 @@ void copy_data(CLCD_STRING_DISPLAY_DETAILS *clcd_str_data, CMD_CONSOL_DATA *data
 
 bool conflict_check(char exist_uid_idx, char new_start_point, char new_end_point) {
     int i = 0;
-    bool conflict = false;
+    bool conflict_bool = false;
 
     for (i = 0; i < clcd_config_data.clcd_max_display_string;) {
         if (exist_uid_idx != i && clcd_display_string_details[i].uid != 0) {
@@ -144,20 +153,20 @@ bool conflict_check(char exist_uid_idx, char new_start_point, char new_end_point
                 conflict_arr[conflict_data_count++] = clcd_display_string_details[i].uid;
                 i++;
                 printf("ex_sp <= new_sp <=ex_ep\r\n");
-                conflict = true;
+                conflict_bool = true;
                 continue;
             }
             if (new_end_point >= clcd_display_string_details[i].start_point && new_end_point <= clcd_display_string_details[i].end_point) {
                 conflict_arr[conflict_data_count++] = clcd_display_string_details[i].uid;
                 printf("ex_sp <= new_ep <=ex_ep\r\n");
                 i++;
-                conflict = true;
+                conflict_bool = true;
                 continue;
             }
             if (new_start_point <= clcd_display_string_details[i].start_point && new_end_point >= clcd_display_string_details[i].end_point) {
                 conflict_arr[conflict_data_count++] = clcd_display_string_details[i].uid;
                 i++;
-                conflict = true;
+                conflict_bool = true;
                 continue;
             }
         }
@@ -170,33 +179,37 @@ bool conflict_check(char exist_uid_idx, char new_start_point, char new_end_point
     //        printf("%c, ",conflict_arr[i]);
     //    }
     //printf("\r\n");
-    return conflict;
+    return conflict_bool;
 }
 
 bool conflict(char new_start_point, char new_end_point) {
     int i = 0;
-    bool conflict = false;
+    bool conflict_bool = false;
 
     for (i = 0; i < clcd_config_data.clcd_max_display_string;) {
         if (clcd_display_string_details[i].uid != 0) {
             if (new_start_point >= clcd_display_string_details[i].start_point && new_start_point <= clcd_display_string_details[i].end_point) {
                 conflict_arr[conflict_data_count++] = clcd_display_string_details[i].uid;
                 i++;
+#if DEV_LOG
                 printf("ex_sp <= new_sp <=ex_ep\r\n");
-                conflict = true;
+#endif
+                conflict_bool = true;
                 continue;
             }
             if (new_end_point >= clcd_display_string_details[i].start_point && new_end_point <= clcd_display_string_details[i].end_point) {
                 conflict_arr[conflict_data_count++] = clcd_display_string_details[i].uid;
+#if DEV_LOG
                 printf("ex_sp <= new_ep <=ex_ep\r\n");
+#endif
                 i++;
-                conflict = true;
+                conflict_bool = true;
                 continue;
             }
             if (new_start_point <= clcd_display_string_details[i].start_point && new_end_point >= clcd_display_string_details[i].end_point) {
                 conflict_arr[conflict_data_count++] = clcd_display_string_details[i].uid;
                 i++;
-                conflict = true;
+                conflict_bool = true;
                 continue;
             }
         }
@@ -209,12 +222,15 @@ bool conflict(char new_start_point, char new_end_point) {
     //        printf("%c, ",conflict_arr[i]);
     //    }
     //printf("\r\n");
-    return conflict;
+    return conflict_bool;
 }
 
 void copy_display_struct(CLCD_STRING_DISPLAY_DETAILS *clcd_str_data, CMD_CONSOL_DATA *data, char uid) {
     clcd_str_data->uid = uid;
     strcpy(clcd_str_data->string, data->data);
+#if DEV_LOG
+    printf("display_data = %s\r\n", clcd_str_data->string);
+#endif
     clcd_str_data->strlen = strlen(clcd_str_data->string);
     clcd_str_data->start_row = data->start_row;
     clcd_str_data->start_col = data->start_col;
@@ -224,7 +240,10 @@ void copy_display_struct(CLCD_STRING_DISPLAY_DETAILS *clcd_str_data, CMD_CONSOL_
     clcd_str_data->end_point = (clcd_str_data->end_row * clcd_config_data.clcd_max_col) + clcd_str_data->end_col;
     clcd_str_data->direction = data->scroll;
     clcd_str_data->display_char_count = (clcd_str_data->end_point - clcd_str_data->start_point) + 1;
+    clcd_str_data->blink_interval = data->dis_frq;
+#if DEV_LOG
     printf("display_char_count = %d\r\n", clcd_str_data->display_char_count);
+#endif
 }
 
 int get_new_uid() {
@@ -250,10 +269,17 @@ int get_new_uid() {
 void print_conflict_ids() {
     int conflict_count = 0, j;
     for (conflict_count = 0; conflict_count < conflict_data_count; conflict_count++) {
-        if (conflict_count == conflict_data_count - 1)
+        if (conflict_count == conflict_data_count - 1) {
+            memset(out_str, 0, sizeof (out_str));
+            sprintf(out_str, "%d\r\n", conflict_arr[conflict_count]);
+            put_string_usart1(out_str);
             printf("%d\r\n", conflict_arr[conflict_count]);
-        else
+        } else {
+            memset(out_str, 0, sizeof (out_str));
+            sprintf(out_str, "%d, ", conflict_arr[conflict_count]);
+            put_string_usart1(out_str);
             printf("%d, ", conflict_arr[conflict_count]);
+        }
     }
 }
 
@@ -266,7 +292,9 @@ unsigned char set_string_data(CMD_CONSOL_DATA *data) {
     start_point = (data->start_row * clcd_config_data.clcd_max_col) + data->start_col;
     end_point = (data->end_row * clcd_config_data.clcd_max_col) + data->end_col;
     uid = get_new_uid();
+#if DEV_LOG
     printf("UID = %d, start_pt = %d, end_pt = %d\r\n", uid, start_point, end_point);
+#endif
     if (data->over_write != OVERWRITE) {
         memset(conflict_arr, -1, sizeof (conflict_arr));
         conflict_data_count = 0;
@@ -288,12 +316,16 @@ unsigned char set_string_data(CMD_CONSOL_DATA *data) {
         }
     } else {
         if (conflict_data_count != 0) {
+#if DEV_LOG
             printf("conflict...2\r\n");
+#endif
             int conflict_count = 0, j;
             for (conflict_count = 0; conflict_count < conflict_data_count; conflict_count++) {
                 for (j = 0; j < clcd_config_data.clcd_max_display_string; j++) {
                     if (clcd_display_string_details[j].uid == conflict_arr[conflict_count]) {
+#if DEV_LOG
                         printf("%d..j=%d,conflict_count=%d \r\n", clcd_display_string_details[j].uid, j, conflict_count);
+#endif
                         memset(&clcd_display_string_details[j], 0, sizeof (CLCD_STRING_DISPLAY_DETAILS));
                         data_count--;
                         break;
@@ -307,11 +339,12 @@ unsigned char set_string_data(CMD_CONSOL_DATA *data) {
             if (conflict(start_point, end_point) == true) {
                 //set_string_data(data);      // recursive call for over write new string with old conflicted string
                 return CONFLICT_STRING_CHECK_AND_OVERWRITE;
-            }else{
+            } else {
                 return CONFLICT_STRING_NOT_CONFLICT_WITH_OVERWRITE_ARGUMENT;
             }
         }
     }
+    return 0;
 }
 
 char update_string_data(CMD_CONSOL_DATA *data) {
@@ -358,7 +391,9 @@ char str[] = "INIT_SUCCESS";
 
 void clcd_display_string_config() {
     memset(lcd_display_array, ' ', sizeof (lcd_display_array));
+#if DEV_LOG
     printf("sizeof(str) = %d\r\n", sizeof (str));
+#endif
     memcpy(lcd_display_array[0], str, sizeof (str));
     write_str(lcd_display_array[0]);
 }
@@ -368,6 +403,8 @@ void set_cursor(unsigned char row_number, unsigned char col_number) {
         col_number = 0;
     }
     write_lcd_cmd(col_number + row_number);
+    //Wait,if LCD is busy
+    is_busy();
 }
 
 void set_cursor_at_home() {
@@ -422,7 +459,9 @@ void scroll_display_left() {
 void is_busy(void) {
     //Config RD7 as an input port
     //LCD_D7_RD7_SetDigitalInput();
-    DATA_BUS_DIRECTION = 0xFF;
+    LCD_D7_RC5_SetDigitalInput();
+    //DATA_BUS_DIRECTION_1 = 0xFF;
+    //DATA_BUS_DIRECTION_2 = DATA_BUS_DIRECTION_2 & 0xFF;
     //printf("portd.7 = %d\r\n", (int)LCD_D7_RD7_PORT);
     RS = CMD_MODE;
     RW = LCD_READ_MODE;
@@ -435,11 +474,18 @@ void is_busy(void) {
     RW = LCD_WRITE_MODE;
     //Config PORTD as an output
     //LCD_D7_RD7_SetDigitalOutput();
-    DATA_BUS_DIRECTION = 0x00;
+    LCD_D7_RC5_SetDigitalOutput();
+    //DATA_BUS_DIRECTION_1 = 0x00;
+    //DATA_BUS_DIRECTION_2 = DATA_BUS_DIRECTION_2 & 0xDF;
 }
 
 void write_lcd_cmd(unsigned char cmd) {
-    DATA_BUS = cmd;
+    DATA_BUS_1 = DATA_BUS_1 & 0xC0;
+    DATA_BUS_1 = (cmd & 0x3F) | (DATA_BUS_1); // use 0-5 pin for databus of PORTD
+    DATA_BUS_2 = DATA_BUS_2 & 0xCF;
+    cmd = cmd & 0xC0;
+    cmd = cmd >> 2;
+    DATA_BUS_2 = (cmd | DATA_BUS_2); // 4-5 pin for data bus of PORTC
     RS = CMD_MODE;
     RW = LCD_WRITE_MODE;
     LCD_STROBE;
@@ -448,7 +494,12 @@ void write_lcd_cmd(unsigned char cmd) {
 void write_lcd_data(unsigned char data) {
     RS = DATA_MODE;
     RW = LCD_WRITE_MODE;
-    DATA_BUS = data;
+    DATA_BUS_1 = DATA_BUS_1 & 0xC0;
+    DATA_BUS_1 = (data & 0x3F) | (DATA_BUS_1); // use 0-5 pin for databus of PORTD
+    DATA_BUS_2 = DATA_BUS_2 & 0xCF;
+    data = data & 0xC0;
+    data = data >> 2;
+    DATA_BUS_2 = (data | DATA_BUS_2); // 4-5 pin for data bus of PORTC
     LCD_STROBE;
 }
 
@@ -456,12 +507,9 @@ void write_str(const char* str) {
     //printf("hello_world\r\n");
     unsigned char i = 0;
     while (i < clcd_config_data.clcd_max_col) {
-        if (*str != NULL)
-        {
+        if (*str != NULL) {
             write_lcd_data(*str++);
-        }
-        else
-        {    
+        } else {
             write_lcd_data(' ');
             str++;
         }
@@ -615,7 +663,7 @@ static void scroll_right_to_left(CLCD_STRING_DISPLAY_DETAILS *clcd_display_strin
                     clcd_display_string_details->display_char_count);
         } else {
             memset(lcd_display_array[line] + clcd_display_string_details->start_col,
-            ' ', clcd_display_string_details->display_char_count);
+                    ' ', clcd_display_string_details->display_char_count);
         }
     }
 
@@ -639,7 +687,7 @@ static void scroll_off(CLCD_STRING_DISPLAY_DETAILS *clcd_display_string_details)
 
     int i = 0;
     int j = 0, k = 0;
-    char display_char_count = clcd_display_string_details->end_point - clcd_display_string_details->start_point;
+    char display_char_count = clcd_display_string_details->display_char_count; //clcd_display_string_details->end_point - clcd_display_string_details->start_point+1;
     char str_len = strlen(clcd_display_string_details->string);
     line = clcd_display_string_details->start_row;
     j = clcd_display_string_details->start_col;
@@ -707,13 +755,30 @@ void make_display() {
 
 void make_display() {
     int count = 0;
+    
+    memset(lcd_display_array, ' ', sizeof (lcd_display_array));
     for (count = 0; count < clcd_config_data.clcd_max_display_string; count++) {
         if (strlen(clcd_display_string_details[count].string) != 0 && clcd_display_string_details[count].direction == SCROLL_LEFT_TO_RIGHT) {
-            scroll_left_to_right(&clcd_display_string_details[count]);
+            if (clcd_display_string_details[count].blink_interval_count == clcd_display_string_details[count].blink_interval) {
+                scroll_left_to_right(&clcd_display_string_details[count]);
+                clcd_display_string_details[count].blink_interval_count = 0;
+            } else {
+                clcd_display_string_details[count].blink_interval_count++;
+            }
         } else if (strlen(clcd_display_string_details[count].string) != 0 && clcd_display_string_details[count].direction == SCROLL_RIGHT_TO_LEFT) {
-            scroll_right_to_left(&clcd_display_string_details[count]);
+            if (clcd_display_string_details[count].blink_interval_count == clcd_display_string_details[count].blink_interval) {
+                scroll_right_to_left(&clcd_display_string_details[count]);
+                clcd_display_string_details[count].blink_interval_count = 0;
+            } else {
+                clcd_display_string_details[count].blink_interval_count++;
+            }
         } else if (strlen(clcd_display_string_details[count].string) != 0 && clcd_display_string_details[count].direction == SCROLL_OFF) {
-            scroll_off(&clcd_display_string_details[count]);
+            if (clcd_display_string_details[count].blink_interval_count == clcd_display_string_details[count].blink_interval) {
+                scroll_off(&clcd_display_string_details[count]);
+                clcd_display_string_details[count].blink_interval_count = 0;
+            } else {
+                clcd_display_string_details[count].blink_interval_count++;
+            }
         }
     }
     print_data_ready = true;
@@ -722,7 +787,7 @@ void make_display() {
 
 void display_text() {
     if (print_data_ready == true) {
-        CLEAR_DISPLAY; //_delay_MS(250);
+        //CLEAR_DISPLAY; //_delay_MS(250);
         char_enter_mode_left_to_right(); //_delay_MS(250);
         set_cursor(LINE1_HOME, 0);
         write_str(lcd_display_array[0]);

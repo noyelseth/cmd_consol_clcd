@@ -3,21 +3,27 @@
 [d edition pro ]
 [d chip 18F46K22 ]
 [d frameptr 4065 ]
-"114 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.h
-[e E7255 . `uc
+"119 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.h
+[e E7256 . `uc
 CMD_CONSOL_INIT 0
 CMD_CONSOL_READ_CMD 1
 CMD_CONSOL_REPLY_HOST 2
 ]
-[e E7328 . `uc
+[e E7337 . `uc
 CMD_CONSOL_INIT 0
 CMD_CONSOL_READ_CMD 1
 CMD_CONSOL_REPLY_HOST 2
 ]
-[e E7335 . `uc
+[e E7344 . `uc
 CMD_CONSOL_INIT 0
 CMD_CONSOL_READ_CMD 1
 CMD_CONSOL_REPLY_HOST 2
+]
+"30 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\main.h
+[e E7462 . `uc
+CMD_CONSOLE_STATE 0
+MAKE_DISPLAY_STATE 1
+DISPLAY_STATE 2
 ]
 "5 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\atoi.c
 [v _atoi atoi `(i  1 e 2 0 ]
@@ -27,8 +33,8 @@ CMD_CONSOL_REPLY_HOST 2
 [v ___awmod __awmod `(i  1 e 2 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\cputs.c
 [v _cputs cputs `(v  1 e 1 0 ]
-"464 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\doprnt.c
-[v _printf printf `(i  1 e 2 0 ]
+"458 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\doprnt.c
+[v __doprnt _doprnt `(i  1 e 2 0 ]
 "62 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\ftadd.c
@@ -49,6 +55,8 @@ CMD_CONSOL_REPLY_HOST 2
 [v _memcpy memcpy `(*.39v  1 e 2 0 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\memset.c
 [v _memset memset `(*.39v  1 e 2 0 ]
+"13 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\printf.c
+[v _printf printf `(i  1 e 2 0 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\puts.c
 [v _puts puts `(i  1 e 2 0 ]
 "6 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\rand.c
@@ -63,8 +71,10 @@ CMD_CONSOL_REPLY_HOST 2
 [v ___fldiv __fldiv `(d  1 e 3 0 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 3 0 ]
+"13 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\sprintf.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\strchr.c
-[v _strchr strchr `(*.32uc  1 e 2 0 ]
+[v _strchr strchr `(*.34uc  1 e 2 0 ]
 "33 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\strcmp.c
 [v _strcmp strcmp `(i  1 e 2 0 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\strcpy.c
@@ -73,117 +83,121 @@ CMD_CONSOL_REPLY_HOST 2
 [v _strcspn strcspn `(ui  1 e 2 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\strlen.c
 [v _strlen strlen `(ui  1 e 2 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\strncmp.c
+[v _strncmp strncmp `(i  1 e 2 0 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\strncpy.c
 [v _strncpy strncpy `(*.39uc  1 e 2 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\strspn.c
 [v _strspn strspn `(ui  1 e 2 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\strstr.c
+[v _strstr strstr `(*.34uc  1 e 2 0 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\strtok.c
 [v _strtok strtok `(*.39uc  1 e 2 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"11 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\clcd.c
+"12 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\clcd.c
 [v _reset_clcd reset_clcd `(v  1 e 1 0 ]
-"16
+"17
 [v _init_CLCD_config init_CLCD_config `(v  1 e 1 0 ]
-"50
+"51
 [v _init_clcd_cusotom_lcd init_clcd_cusotom_lcd `(v  1 e 1 0 ]
-"82
+"91
 [v _max_display_str max_display_str `(uc  1 e 1 0 ]
-"89
+"98
 [v _min_uid_range min_uid_range `(uc  1 e 1 0 ]
-"96
+"105
 [v _max_uid_range max_uid_range `(uc  1 e 1 0 ]
-"103
+"112
 [v _max_display_support max_display_support `(*.32uc  1 e 2 0 ]
-"107
+"116
 [v _clcd_max_row clcd_max_row `(uc  1 e 1 0 ]
-"114
+"123
 [v _clcd_max_col clcd_max_col `(uc  1 e 1 0 ]
-"121
+"130
 [v _copy_data copy_data `(v  1 e 1 0 ]
-"137
+"146
 [v _conflict_check conflict_check `(uc  1 e 1 0 ]
-"176
+"185
 [v _conflict conflict `(uc  1 e 1 0 ]
-"215
+"228
 [v _copy_display_struct copy_display_struct `(v  1 e 1 0 ]
-"230
+"249
 [v _get_new_uid get_new_uid `(i  1 e 2 0 ]
-"250
+"269
 [v _print_conflict_ids print_conflict_ids `(v  1 e 1 0 ]
-"260
+"286
 [v _set_string_data set_string_data `(uc  1 e 1 0 ]
-"317
+"350
 [v _update_string_data update_string_data `(uc  1 e 1 0 ]
-"359
+"392
 [v _clcd_display_string_config clcd_display_string_config `(v  1 e 1 0 ]
-"366
+"401
 [v _set_cursor set_cursor `(v  1 e 1 0 ]
-"407
+"444
 [v _char_enter_mode_left_to_right char_enter_mode_left_to_right `(v  1 e 1 0 ]
-"422
+"459
 [v _is_busy is_busy `(v  1 e 1 0 ]
-"441
+"482
 [v _write_lcd_cmd write_lcd_cmd `(v  1 e 1 0 ]
-"448
+"494
 [v _write_lcd_data write_lcd_data `(v  1 e 1 0 ]
-"455
+"506
 [v _write_str write_str `(v  1 e 1 0 ]
-"473
+"521
 [v _put_string put_string `(v  1 e 1 0 ]
-"538
+"586
 [v _clear_display_structure clear_display_structure `(v  1 e 1 0 ]
-"542
+"590
 [v _reset_display_structure_count reset_display_structure_count `(v  1 e 1 0 ]
-"547
+"595
 [v _clear_display_array clear_display_array `(v  1 e 1 0 ]
-"552
+"600
 [v _scroll_left_to_right scroll_left_to_right `(v  1 s 1 scroll_left_to_right ]
-"592
+"640
 [v _scroll_right_to_left scroll_right_to_left `(v  1 s 1 scroll_right_to_left ]
-"637
+"685
 [v _scroll_off scroll_off `(v  1 s 1 scroll_off ]
-"708
+"756
 [v _make_display make_display `(v  1 e 1 0 ]
-"723
+"787
 [v _display_text display_text `(v  1 e 1 0 ]
-"8 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.c
+"9 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.c
 [v _clear_cmd_data clear_cmd_data `(v  1 e 1 0 ]
-"16
+"17
 [v _collect_row collect_row `(v  1 e 1 0 ]
-"34
-[v _get_uid get_uid `(uc  1 e 1 0 ]
-"50
+"39
+[v _get_uid get_uid `(v  1 e 1 0 ]
+"55
 [v _get_str get_str `(uc  1 e 1 0 ]
-"61
+"66
 [v _get_direction get_direction `(uc  1 e 1 0 ]
-"80
+"87
 [v _get_dis_frq get_dis_frq `(uc  1 e 1 0 ]
-"97
+"107
 [v _get_over_write_data get_over_write_data `(uc  1 e 1 0 ]
-"113
+"125
 [v _collect_column collect_column `(v  1 e 1 0 ]
-"137
+"153
 [v _parse_cmd_str parse_cmd_str `(uc  1 e 1 0 ]
-"419
+"485
 [v _reply_to_host reply_to_host `(v  1 e 1 0 ]
-"486
+"567
 [v _console_init console_init `(v  1 e 1 0 ]
-"498
-[v _cmd_consol_task cmd_consol_task `(v  1 e 1 0 ]
+"579
+[v _cmd_consol_task cmd_consol_task `(uc  1 e 1 0 ]
 "5 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\delay.c
 [v _delay delay `(v  1 e 1 0 ]
 "17
 [v __delay_10uS _delay_10uS `(v  1 e 1 0 ]
 "29
 [v __delay_MS _delay_MS `(v  1 e 1 0 ]
-"54 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\main.c
+"47 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\main.c
 [v _heart_beat heart_beat `(v  1 e 1 0 ]
-"59
+"52
 [v _make_array make_array `(v  1 e 1 0 ]
-"77
+"69
 [v _main main `(v  1 e 1 0 ]
 "75 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/eusart1.c
 [v _EUSART1_Initialize EUSART1_Initialize `(v  1 e 1 0 ]
@@ -192,20 +206,26 @@ CMD_CONSOL_REPLY_HOST 2
 "132
 [v _EUSART1_Write EUSART1_Write `(v  1 e 1 0 ]
 "155
-[v _getch getch `(uc  1 e 1 0 ]
-"160
-[v _putch putch `(v  1 e 1 0 ]
-"165
 [v _EUSART1_Transmit_ISR EUSART1_Transmit_ISR `(v  1 e 1 0 ]
-"184
+"174
 [v _EUSART1_Receive_ISR EUSART1_Receive_ISR `(v  1 e 1 0 ]
+"195
+[v _put_string_usart1 put_string_usart1 `(v  1 e 1 0 ]
+"55 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/eusart2.c
+[v _EUSART2_Initialize EUSART2_Initialize `(v  1 e 1 0 ]
+"77
+[v _EUSART2_Read EUSART2_Read `(uc  1 e 1 0 ]
+"97
+[v _EUSART2_Write EUSART2_Write `(v  1 e 1 0 ]
+"111
+[v _putch putch `(v  1 e 1 0 ]
 "51 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
 "57
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
 "111 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
-"123
+"124
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
 "51 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
@@ -313,6 +333,51 @@ CMD_CONSOL_REPLY_HOST 2
 [v _TMR5H TMR5H `VEuc  1 e 1 @3920 ]
 "2671
 [v _WPUB WPUB `VEuc  1 e 1 @3937 ]
+"4216
+[v _BAUDCON2 BAUDCON2 `VEuc  1 e 1 @3952 ]
+"4477
+[v _RCSTA2 RCSTA2 `VEuc  1 e 1 @3953 ]
+[s S524 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"4522
+[s S533 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 ADEN 1 0 :1:3 
+]
+[s S899 . 1 `uc 1 RX9D2 1 0 :1:0 
+`uc 1 OERR2 1 0 :1:1 
+`uc 1 FERR2 1 0 :1:2 
+`uc 1 ADDEN2 1 0 :1:3 
+`uc 1 CREN2 1 0 :1:4 
+`uc 1 SREN2 1 0 :1:5 
+`uc 1 RX92 1 0 :1:6 
+`uc 1 SPEN2 1 0 :1:7 
+]
+[s S908 . 1 `uc 1 RCD82 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 RC8_92 1 0 :1:6 
+]
+[s S912 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC92 1 0 :1:6 
+]
+[u S915 . 1 `S524 1 . 1 0 `S533 1 . 1 0 `S899 1 . 1 0 `S908 1 . 1 0 `S912 1 . 1 0 ]
+[v _RCSTA2bits RCSTA2bits `VES915  1 e 1 @3953 ]
+"4764
+[v _TXSTA2 TXSTA2 `VEuc  1 e 1 @3954 ]
+"5015
+[v _TXREG2 TXREG2 `VEuc  1 e 1 @3955 ]
+"5052
+[v _RCREG2 RCREG2 `VEuc  1 e 1 @3956 ]
+"5089
+[v _SPBRG2 SPBRG2 `VEuc  1 e 1 @3957 ]
+"5126
+[v _SPBRGH2 SPBRGH2 `VEuc  1 e 1 @3958 ]
 [s S317 . 1 `uc 1 TMR4IF 1 0 :1:0 
 `uc 1 TMR5IF 1 0 :1:1 
 `uc 1 TMR6IF 1 0 :1:2 
@@ -320,7 +385,7 @@ CMD_CONSOL_REPLY_HOST 2
 "6128
 [u S321 . 1 `S317 1 . 1 0 ]
 [v _PIR5bits PIR5bits `VES321  1 e 1 @3966 ]
-[s S923 . 1 `uc 1 RA0 1 0 :1:0 
+[s S1054 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -330,118 +395,129 @@ CMD_CONSOL_REPLY_HOST 2
 `uc 1 RA7 1 0 :1:7 
 ]
 "6277
-[s S932 . 1 `uc 1 AN0 1 0 :1:0 
+[s S1063 . 1 `uc 1 AN0 1 0 :1:0 
 `uc 1 AN1 1 0 :1:1 
 `uc 1 AN2 1 0 :1:2 
 `uc 1 AN3 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 AN4 1 0 :1:5 
 ]
-[s S939 . 1 `uc 1 C12IN0M 1 0 :1:0 
+[s S1070 . 1 `uc 1 C12IN0M 1 0 :1:0 
 `uc 1 C12IN1M 1 0 :1:1 
 `uc 1 C2INP 1 0 :1:2 
 `uc 1 C1INP 1 0 :1:3 
 `uc 1 C1OUT 1 0 :1:4 
 `uc 1 C2OUT 1 0 :1:5 
 ]
-[s S946 . 1 `uc 1 C12IN0N 1 0 :1:0 
+[s S1077 . 1 `uc 1 C12IN0N 1 0 :1:0 
 `uc 1 C12IN1N 1 0 :1:1 
 `uc 1 VREFM 1 0 :1:2 
 `uc 1 VREFP 1 0 :1:3 
 `uc 1 T0CKI 1 0 :1:4 
 `uc 1 SS 1 0 :1:5 
 ]
-[s S953 . 1 `uc 1 . 1 0 :5:0 
+[s S1084 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_SS 1 0 :1:5 
 ]
-[s S956 . 1 `uc 1 . 1 0 :2:0 
+[s S1087 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 VREFN 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 SRQ 1 0 :1:4 
 `uc 1 nSS 1 0 :1:5 
 ]
-[s S962 . 1 `uc 1 . 1 0 :2:0 
+[s S1093 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 CVREF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 LVDIN 1 0 :1:5 
 ]
-[s S967 . 1 `uc 1 . 1 0 :2:0 
+[s S1098 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 DACOUT 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 HLVDIN 1 0 :1:5 
 ]
-[s S972 . 1 `uc 1 . 1 0 :5:0 
+[s S1103 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SS1 1 0 :1:5 
 ]
-[s S975 . 1 `uc 1 . 1 0 :5:0 
+[s S1106 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_SS1 1 0 :1:5 
 ]
-[s S978 . 1 `uc 1 . 1 0 :5:0 
+[s S1109 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 nSS1 1 0 :1:5 
 ]
-[s S981 . 1 `uc 1 . 1 0 :5:0 
+[s S1112 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRNQ 1 0 :1:5 
 ]
-[s S984 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+[s S1115 . 1 `uc 1 ULPWUIN 1 0 :1:0 
 `uc 1 . 1 0 :6:1 
 `uc 1 RJPU 1 0 :1:7 
 ]
-[u S988 . 1 `S923 1 . 1 0 `S932 1 . 1 0 `S939 1 . 1 0 `S946 1 . 1 0 `S953 1 . 1 0 `S956 1 . 1 0 `S962 1 . 1 0 `S967 1 . 1 0 `S972 1 . 1 0 `S975 1 . 1 0 `S978 1 . 1 0 `S981 1 . 1 0 `S984 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES988  1 e 1 @3968 ]
+[u S1119 . 1 `S1054 1 . 1 0 `S1063 1 . 1 0 `S1070 1 . 1 0 `S1077 1 . 1 0 `S1084 1 . 1 0 `S1087 1 . 1 0 `S1093 1 . 1 0 `S1098 1 . 1 0 `S1103 1 . 1 0 `S1106 1 . 1 0 `S1109 1 . 1 0 `S1112 1 . 1 0 `S1115 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES1119  1 e 1 @3968 ]
+"6745
+[v _PORTC PORTC `VEuc  1 e 1 @3970 ]
+[s S1288 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"6817
+[s S1338 . 1 `uc 1 T1OSO 1 0 :1:0 
+`uc 1 T1OSI 1 0 :1:1 
+`uc 1 T5CKI 1 0 :1:2 
+`uc 1 SCK 1 0 :1:3 
+`uc 1 SDI 1 0 :1:4 
+`uc 1 SDO 1 0 :1:5 
+`uc 1 TX 1 0 :1:6 
+`uc 1 RX 1 0 :1:7 
+]
+[s S1347 . 1 `uc 1 P2B 1 0 :1:0 
+`uc 1 P2A 1 0 :1:1 
+`uc 1 P1A 1 0 :1:2 
+`uc 1 SCL 1 0 :1:3 
+`uc 1 SDA 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CK 1 0 :1:6 
+`uc 1 DT 1 0 :1:7 
+]
+[s S1356 . 1 `uc 1 T1CKI 1 0 :1:0 
+`uc 1 CCP2 1 0 :1:1 
+`uc 1 CCP1 1 0 :1:2 
+`uc 1 SCK1 1 0 :1:3 
+`uc 1 SDI1 1 0 :1:4 
+`uc 1 SDO1 1 0 :1:5 
+`uc 1 TX1 1 0 :1:6 
+`uc 1 RX1 1 0 :1:7 
+]
+[s S1365 . 1 `uc 1 T3CKI 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 CTPLS 1 0 :1:2 
+`uc 1 SCL1 1 0 :1:3 
+`uc 1 SDA1 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CK1 1 0 :1:6 
+`uc 1 DT1 1 0 :1:7 
+]
+[s S1374 . 1 `uc 1 T3G 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 AN14 1 0 :1:2 
+`uc 1 AN15 1 0 :1:3 
+`uc 1 AN16 1 0 :1:4 
+`uc 1 AN17 1 0 :1:5 
+`uc 1 AN18 1 0 :1:6 
+`uc 1 AN19 1 0 :1:7 
+]
+[s S1383 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 PA2 1 0 :1:1 
+`uc 1 PA1 1 0 :1:2 
+]
+[u S1387 . 1 `S1288 1 . 1 0 `S1338 1 . 1 0 `S1347 1 . 1 0 `S1356 1 . 1 0 `S1365 1 . 1 0 `S1374 1 . 1 0 `S1383 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES1387  1 e 1 @3970 ]
 "7051
 [v _PORTD PORTD `VEuc  1 e 1 @3971 ]
-[s S1147 . 1 `uc 1 RD0 1 0 :1:0 
-`uc 1 RD1 1 0 :1:1 
-`uc 1 RD2 1 0 :1:2 
-`uc 1 RD3 1 0 :1:3 
-`uc 1 RD4 1 0 :1:4 
-`uc 1 RD5 1 0 :1:5 
-`uc 1 RD6 1 0 :1:6 
-`uc 1 RD7 1 0 :1:7 
-]
-"7114
-[s S1156 . 1 `uc 1 . 1 0 :2:0 
-`uc 1 P2B 1 0 :1:2 
-`uc 1 P2C 1 0 :1:3 
-`uc 1 P2D 1 0 :1:4 
-`uc 1 P1B 1 0 :1:5 
-`uc 1 P1C 1 0 :1:6 
-`uc 1 P1D 1 0 :1:7 
-]
-[s S1164 . 1 `uc 1 . 1 0 :1:0 
-`uc 1 CCP4 1 0 :1:1 
-`uc 1 . 1 0 :4:2 
-`uc 1 TX2 1 0 :1:6 
-`uc 1 RX2 1 0 :1:7 
-]
-[s S1170 . 1 `uc 1 . 1 0 :3:0 
-`uc 1 NOT_SS2 1 0 :1:3 
-]
-[s S1173 . 1 `uc 1 SCK2 1 0 :1:0 
-`uc 1 SDI2 1 0 :1:1 
-`uc 1 . 1 0 :1:2 
-`uc 1 nSS2 1 0 :1:3 
-`uc 1 SDO2 1 0 :1:4 
-`uc 1 . 1 0 :1:5 
-`uc 1 CK2 1 0 :1:6 
-`uc 1 DT2 1 0 :1:7 
-]
-[s S1182 . 1 `uc 1 SCL2 1 0 :1:0 
-`uc 1 SDA2 1 0 :1:1 
-`uc 1 . 1 0 :1:2 
-`uc 1 SS2 1 0 :1:3 
-]
-[s S1187 . 1 `uc 1 AN20 1 0 :1:0 
-`uc 1 AN21 1 0 :1:1 
-`uc 1 AN22 1 0 :1:2 
-`uc 1 AN23 1 0 :1:3 
-`uc 1 AN24 1 0 :1:4 
-`uc 1 AN25 1 0 :1:5 
-`uc 1 AN26 1 0 :1:6 
-`uc 1 AN27 1 0 :1:7 
-]
-[u S1196 . 1 `S1147 1 . 1 0 `S1156 1 . 1 0 `S1164 1 . 1 0 `S1170 1 . 1 0 `S1173 1 . 1 0 `S1182 1 . 1 0 `S1187 1 . 1 0 ]
-[v _PORTDbits PORTDbits `VES1196  1 e 1 @3971 ]
 "7467
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
 "7578
@@ -452,23 +528,35 @@ CMD_CONSOL_REPLY_HOST 2
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
 "7911
 [v _LATE LATE `VEuc  1 e 1 @3981 ]
-[s S1969 . 1 `uc 1 LATE0 1 0 :1:0 
+[s S2224 . 1 `uc 1 LATE0 1 0 :1:0 
 `uc 1 LATE1 1 0 :1:1 
 `uc 1 LATE2 1 0 :1:2 
 ]
 "7928
-[s S1973 . 1 `uc 1 LE0 1 0 :1:0 
+[s S2228 . 1 `uc 1 LE0 1 0 :1:0 
 `uc 1 LE1 1 0 :1:1 
 `uc 1 LE2 1 0 :1:2 
 ]
-[u S1977 . 1 `S1969 1 . 1 0 `S1973 1 . 1 0 ]
-[v _LATEbits LATEbits `VES1977  1 e 1 @3981 ]
+[u S2232 . 1 `S2224 1 . 1 0 `S2228 1 . 1 0 ]
+[v _LATEbits LATEbits `VES2232  1 e 1 @3981 ]
 "7962
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
 "8183
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
 "8404
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+[s S1279 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"8436
+[u S1297 . 1 `S1279 1 . 1 0 `S1288 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES1297  1 e 1 @3988 ]
 "8625
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
 "8846
@@ -507,22 +595,27 @@ CMD_CONSOL_REPLY_HOST 2
 ]
 [u S245 . 1 `S232 1 . 1 0 `S240 1 . 1 0 ]
 [v _PIR1bits PIR1bits `VES245  1 e 1 @3998 ]
+[s S950 . 1 `uc 1 TMR1GIF 1 0 :1:0 
+`uc 1 TMR3GIF 1 0 :1:1 
+`uc 1 TMR5GIF 1 0 :1:2 
+`uc 1 CTMUIF 1 0 :1:3 
+`uc 1 TX2IF 1 0 :1:4 
+`uc 1 RC2IF 1 0 :1:5 
+`uc 1 BCL2IF 1 0 :1:6 
+`uc 1 SSP2IF 1 0 :1:7 
+]
+"9924
+[s S959 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RXBNIF 1 0 :1:1 
+`uc 1 . 1 0 :2:2 
+`uc 1 TXBNIF 1 0 :1:4 
+]
+[u S964 . 1 `S950 1 . 1 0 `S959 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES964  1 e 1 @4004 ]
 "10260
 [v _RCSTA1 RCSTA1 `VEuc  1 e 1 @4011 ]
-[s S520 . 1 `uc 1 RX9D 1 0 :1:0 
-`uc 1 OERR 1 0 :1:1 
-`uc 1 FERR 1 0 :1:2 
-`uc 1 ADDEN 1 0 :1:3 
-`uc 1 CREN 1 0 :1:4 
-`uc 1 SREN 1 0 :1:5 
-`uc 1 RX9 1 0 :1:6 
-`uc 1 SPEN 1 0 :1:7 
-]
 "10313
-[s S529 . 1 `uc 1 . 1 0 :3:0 
-`uc 1 ADEN 1 0 :1:3 
-]
-[s S532 . 1 `uc 1 RX9D1 1 0 :1:0 
+[s S536 . 1 `uc 1 RX9D1 1 0 :1:0 
 `uc 1 OERR1 1 0 :1:1 
 `uc 1 FERR1 1 0 :1:2 
 `uc 1 ADDEN1 1 0 :1:3 
@@ -531,18 +624,18 @@ CMD_CONSOL_REPLY_HOST 2
 `uc 1 RX91 1 0 :1:6 
 `uc 1 SPEN1 1 0 :1:7 
 ]
-[s S541 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S545 . 1 `uc 1 RCD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S545 . 1 `uc 1 . 1 0 :6:0 
+[s S549 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S548 . 1 `uc 1 . 1 0 :5:0 
+[s S552 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[u S551 . 1 `S520 1 . 1 0 `S529 1 . 1 0 `S532 1 . 1 0 `S541 1 . 1 0 `S545 1 . 1 0 `S548 1 . 1 0 ]
-[v _RCSTA1bits RCSTA1bits `VES551  1 e 1 @4011 ]
+[u S555 . 1 `S524 1 . 1 0 `S533 1 . 1 0 `S536 1 . 1 0 `S545 1 . 1 0 `S549 1 . 1 0 `S552 1 . 1 0 ]
+[v _RCSTA1bits RCSTA1bits `VES555  1 e 1 @4011 ]
 "10715
 [v _TXSTA1 TXSTA1 `VEuc  1 e 1 @4012 ]
 "11089
@@ -557,11 +650,11 @@ CMD_CONSOL_REPLY_HOST 2
 [v _BAUDCON1 BAUDCON1 `VEuc  1 e 1 @4024 ]
 "15403
 [v _T1GCON T1GCON `VEuc  1 e 1 @4044 ]
-[s S696 . 1 `uc 1 . 1 0 :3:0 
+[s S698 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 T1GGO_NOT_DONE 1 0 :1:3 
 ]
 "15433
-[s S699 . 1 `uc 1 T1GSS 1 0 :2:0 
+[s S701 . 1 `uc 1 T1GSS 1 0 :2:0 
 `uc 1 T1GVAL 1 0 :1:2 
 `uc 1 T1GGO_nDONE 1 0 :1:3 
 `uc 1 T1GSPM 1 0 :1:4 
@@ -569,30 +662,30 @@ CMD_CONSOL_REPLY_HOST 2
 `uc 1 T1GPOL 1 0 :1:6 
 `uc 1 TMR1GE 1 0 :1:7 
 ]
-[s S707 . 1 `uc 1 T1GSS0 1 0 :1:0 
+[s S709 . 1 `uc 1 T1GSS0 1 0 :1:0 
 `uc 1 T1GSS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T1G_DONE 1 0 :1:3 
 ]
-[s S712 . 1 `uc 1 . 1 0 :3:0 
+[s S714 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 T1GGO 1 0 :1:3 
 ]
-[u S715 . 1 `S696 1 . 1 0 `S699 1 . 1 0 `S707 1 . 1 0 `S712 1 . 1 0 ]
-[v _T1GCONbits T1GCONbits `VES715  1 e 1 @4044 ]
+[u S717 . 1 `S698 1 . 1 0 `S701 1 . 1 0 `S709 1 . 1 0 `S714 1 . 1 0 ]
+[v _T1GCONbits T1GCONbits `VES717  1 e 1 @4044 ]
 "15497
 [v _T1CON T1CON `VEuc  1 e 1 @4045 ]
-[s S646 . 1 `uc 1 . 1 0 :2:0 
+[s S648 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T1SYNC 1 0 :1:2 
 ]
 "15530
-[s S649 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S651 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 T1RD16 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 T1SOSCEN 1 0 :1:3 
 `uc 1 T1CKPS 1 0 :2:4 
 `uc 1 TMR1CS 1 0 :2:6 
 ]
-[s S656 . 1 `uc 1 . 1 0 :1:0 
+[s S658 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RD16 1 0 :1:1 
 `uc 1 T1SYNC 1 0 :1:2 
 `uc 1 T1OSCEN 1 0 :1:3 
@@ -601,11 +694,11 @@ CMD_CONSOL_REPLY_HOST 2
 `uc 1 TMR1CS0 1 0 :1:6 
 `uc 1 TMR1CS1 1 0 :1:7 
 ]
-[s S665 . 1 `uc 1 . 1 0 :3:0 
+[s S667 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SOSCEN 1 0 :1:3 
 ]
-[u S668 . 1 `S646 1 . 1 0 `S649 1 . 1 0 `S656 1 . 1 0 `S665 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES668  1 e 1 @4045 ]
+[u S670 . 1 `S648 1 . 1 0 `S651 1 . 1 0 `S658 1 . 1 0 `S667 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES670  1 e 1 @4045 ]
 "15609
 [v _TMR1 TMR1 `VEus  1 e 2 @4046 ]
 "15615
@@ -650,7 +743,7 @@ CMD_CONSOL_REPLY_HOST 2
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
 "15950
 [v _T0CON T0CON `VEuc  1 e 1 @4053 ]
-[s S822 . 1 `uc 1 T0PS 1 0 :3:0 
+[s S824 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -658,12 +751,12 @@ CMD_CONSOL_REPLY_HOST 2
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "15970
-[s S829 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S831 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 ]
-[u S833 . 1 `S822 1 . 1 0 `S829 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES833  1 e 1 @4053 ]
+[u S835 . 1 `S824 1 . 1 0 `S831 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES835  1 e 1 @4053 ]
 "16025
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "16044
@@ -715,18 +808,18 @@ CMD_CONSOL_REPLY_HOST 2
 [v _dpowers dpowers `C[5]ui  1 s 10 dpowers ]
 "3 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\rand.c
 [v _randx randx `l  1 s 4 randx ]
-"6 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\clcd.c
+"7 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\clcd.c
 [v _data_count data_count `uc  1 s 1 data_count ]
-"8
-[v _conflict_data_count conflict_data_count `uc  1 s 1 conflict_data_count ]
-[s S900 . 5 `uc 1 init_done 1 0 `uc 1 clcd_max_row 1 1 `uc 1 clcd_max_col 1 2 `uc 1 uid_range 1 3 `uc 1 clcd_max_display_string 1 4 ]
 "9
-[v _clcd_config_data clcd_config_data `S900  1 e 5 0 ]
-"357
+[v _conflict_data_count conflict_data_count `uc  1 s 1 conflict_data_count ]
+[s S1031 . 5 `uc 1 init_done 1 0 `uc 1 clcd_max_row 1 1 `uc 1 clcd_max_col 1 2 `uc 1 uid_range 1 3 `uc 1 clcd_max_display_string 1 4 ]
+"10
+[v _clcd_config_data clcd_config_data `S1031  1 e 5 0 ]
+"390
 [v _str str `[13]uc  1 e 13 0 ]
 "93 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\clcd.h
 [v _lcd_display_array lcd_display_array `[4][20]uc  1 e 80 0 ]
-[s S884 . 55 `ui 1 uid 2 0 `[40]uc 1 string 40 2 `uc 1 strlen 1 42 :7:0 
+[s S1013 . 57 `ui 1 uid 2 0 `[40]uc 1 string 40 2 `uc 1 strlen 1 42 :7:0 
 `uc 1 start_row 1 43 :7:0 
 `uc 1 start_col 1 44 :7:0 
 `uc 1 start_point 1 45 :7:0 
@@ -734,40 +827,46 @@ CMD_CONSOL_REPLY_HOST 2
 `uc 1 end_col 1 47 :7:0 
 `uc 1 end_point 1 48 :7:0 
 `uc 1 direction 1 49 :3:0 
-`uc 1 display_char_count 1 50 `uc 1 length_count_for_right_scroll 1 51 :7:0 
-`uc 1 length_decount_for_right_scroll 1 52 :7:0 
-`uc 1 length_count_for_left_scroll 1 53 :7:0 
-`uc 1 length_decount_for_left_scroll 1 54 :7:0 
+`uc 1 display_interval 1 50 :7:0 
+`uc 1 display_char_count 1 51 `uc 1 length_count_for_right_scroll 1 52 :7:0 
+`uc 1 length_decount_for_right_scroll 1 53 :7:0 
+`uc 1 length_count_for_left_scroll 1 54 :7:0 
+`uc 1 length_decount_for_left_scroll 1 55 :7:0 
+`uc 1 display_interval_count 1 56 :7:0 
 ]
-"175
-[v _clcd_display_string_details clcd_display_string_details `[20]S884  1 e 1100 0 ]
-"176
-[v _conflict_arr conflict_arr `[20]i  1 e 40 0 ]
-"178
-[v _print_data_ready print_data_ready `i  1 e 2 0 ]
+"179
+[v _clcd_display_string_details clcd_display_string_details `[20]S1013  1 e 1140 0 ]
 "180
+[v _conflict_arr conflict_arr `[20]i  1 e 40 0 ]
+"182
+[v _print_data_ready print_data_ready `i  1 e 2 0 ]
+"184
 [v _display_struct_count display_struct_count `i  1 e 2 0 ]
-[s S1087 . 53 `ui 1 uid 2 0 `[40]uc 1 data 40 2 `uc 1 data_set 1 42 `uc 1 start_row 1 43 `uc 1 start_col 1 44 `uc 1 end_row 1 45 `uc 1 end_col 1 46 `uc 1 row_col_set 1 47 `uc 1 scroll 1 48 `uc 1 scroll_set 1 49 `uc 1 dis_frq 1 50 `uc 1 dis_frq_set 1 51 `uc 1 over_write 1 52 ]
-"6 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.c
-[v _cmd_data cmd_data `S1087  1 e 53 0 ]
-"84 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.h
-[v _uart_str uart_str `[150]uc  1 e 150 0 ]
-"85
-[v _str_data str_data `[40]uc  1 e 40 0 ]
-"86
-[v _CMD CMD `[15]uc  1 e 15 0 ]
-"87
-[v _valid_cmd valid_cmd `uc  1 e 1 0 ]
-"88
-[v _clcd_init_row clcd_init_row `uc  1 e 1 0 ]
+[s S1218 . 53 `ui 1 uid 2 0 `[40]uc 1 data 40 2 `uc 1 data_set 1 42 `uc 1 start_row 1 43 `uc 1 start_col 1 44 `uc 1 end_row 1 45 `uc 1 end_col 1 46 `uc 1 row_col_set 1 47 `uc 1 scroll 1 48 `uc 1 scroll_set 1 49 `uc 1 dis_frq 1 50 `uc 1 dis_frq_set 1 51 `uc 1 over_write 1 52 ]
+"7 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.c
+[v _cmd_data cmd_data `S1218  1 e 53 0 ]
+"88 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.h
+[v _out_str out_str `[100]uc  1 e 100 0 ]
 "89
-[v _clcd_init_col clcd_init_col `uc  1 e 1 0 ]
+[v _uart_str uart_str `[150]uc  1 e 150 0 ]
 "90
+[v _str_data str_data `[40]uc  1 e 40 0 ]
+"91
+[v _CMD CMD `[15]uc  1 e 15 0 ]
+"92
+[v _valid_cmd valid_cmd `uc  1 e 1 0 ]
+"93
+[v _clcd_init_row clcd_init_row `uc  1 e 1 0 ]
+"94
+[v _clcd_init_col clcd_init_col `uc  1 e 1 0 ]
+"95
 [v _check check `uc  1 e 1 0 ]
-"114
-[v _cmd_consol_state cmd_consol_state `E7255  1 e 1 0 ]
-"58 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\main.c
+"119
+[v _cmd_consol_state cmd_consol_state `E7256  1 e 1 0 ]
+"50 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\main.c
 [v _display display `uc  1 e 1 0 ]
+"30 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\main.h
+[v _main_state main_state `E7462  1 e 1 0 ]
 "61 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/eusart1.c
 [v _eusart1TxHead eusart1TxHead `VEuc  1 e 1 0 ]
 "62
@@ -781,7 +880,7 @@ CMD_CONSOL_REPLY_HOST 2
 "67
 [v _eusart1RxTail eusart1RxTail `VEuc  1 e 1 0 ]
 "68
-[v _eusart1RxBuffer eusart1RxBuffer `VE[8]uc  1 e 8 0 ]
+[v _eusart1RxBuffer eusart1RxBuffer `VE[64]uc  1 e 64 0 ]
 "69
 [v _eusart1RxCount eusart1RxCount `VEuc  1 e 1 0 ]
 "57 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/tmr0.c
@@ -792,62 +891,87 @@ CMD_CONSOL_REPLY_HOST 2
 [v _timer1ReloadVal timer1ReloadVal `VEui  1 e 2 0 ]
 "56 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/tmr5.c
 [v _timer5ReloadVal timer5ReloadVal `VEui  1 e 2 0 ]
-"77 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\main.c
+"69 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"142
+"130
+[v main@res res `uc  1 a 1 20 ]
+"170
 } 0
-"486 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.c
+"567 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.c
 [v _console_init console_init `(v  1 e 1 0 ]
 {
-"496
+"577
 } 0
-"498
-[v _cmd_consol_task cmd_consol_task `(v  1 e 1 0 ]
+"579
+[v _cmd_consol_task cmd_consol_task `(uc  1 e 1 0 ]
 {
-"501
-[v cmd_consol_task@ch ch `uc  1 a 1 13 ]
-"500
+"632
+[v cmd_consol_task@temp_uart_str temp_uart_str `[150]uc  1 a 150 0 ]
+"647
+[v cmd_consol_task@val val `uc  1 a 1 151 ]
+"583
+[v cmd_consol_task@ch ch `uc  1 a 1 152 ]
+"580
+[v cmd_consol_task@res res `uc  1 a 1 150 ]
+"582
 [v cmd_consol_task@i i `i  1 s 2 i ]
-"566
+"631
+[v cmd_consol_task@F7537 F7537 `[150]uc  1 s 150 F7537 ]
+"680
 } 0
-"419
+"4 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\strstr.c
+[v _strstr strstr `(*.34uc  1 e 2 0 ]
+{
+[v strstr@s1 s1 `*.34Cuc  1 p 2 44 ]
+[v strstr@s2 s2 `*.32Cuc  1 p 2 46 ]
+"12
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\strncmp.c
+[v _strncmp strncmp `(i  1 e 2 0 ]
+{
+[v strncmp@s1 s1 `*.34Cuc  1 p 2 35 ]
+[v strncmp@s2 s2 `*.32Cuc  1 p 2 37 ]
+[v strncmp@len len `ui  1 p 2 39 ]
+"14
+} 0
+"485 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.c
 [v _reply_to_host reply_to_host `(v  1 e 1 0 ]
 {
-"446
-[v reply_to_host@ch ch `uc  1 a 1 0 ]
-"461
-[v reply_to_host@ch_1876 ch `uc  1 a 1 1 ]
-"484
+"517
+[v reply_to_host@ch ch `uc  1 a 1 17 ]
+"532
+[v reply_to_host@ch_2113 ch `uc  1 a 1 18 ]
+"565
 } 0
-"317 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\clcd.c
+"350 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\clcd.c
 [v _update_string_data update_string_data `(uc  1 e 1 0 ]
 {
-"318
-[v update_string_data@i i `i  1 a 2 7 ]
-"320
-[v update_string_data@end_point end_point `uc  1 a 1 6 ]
-[v update_string_data@start_point start_point `uc  1 a 1 5 ]
-"319
-[v update_string_data@exist_uid_idx exist_uid_idx `uc  1 a 1 4 ]
-[s S1087 . 53 `ui 1 uid 2 0 `[40]uc 1 data 40 2 `uc 1 data_set 1 42 `uc 1 start_row 1 43 `uc 1 start_col 1 44 `uc 1 end_row 1 45 `uc 1 end_col 1 46 `uc 1 row_col_set 1 47 `uc 1 scroll 1 48 `uc 1 scroll_set 1 49 `uc 1 dis_frq 1 50 `uc 1 dis_frq_set 1 51 `uc 1 over_write 1 52 ]
-"317
-[v update_string_data@data data `*.39S1087  1 p 2 62 ]
-"355
+"351
+[v update_string_data@i i `i  1 a 2 11 ]
+"353
+[v update_string_data@end_point end_point `uc  1 a 1 10 ]
+[v update_string_data@start_point start_point `uc  1 a 1 9 ]
+"352
+[v update_string_data@exist_uid_idx exist_uid_idx `uc  1 a 1 8 ]
+[s S1218 . 53 `ui 1 uid 2 0 `[40]uc 1 data 40 2 `uc 1 data_set 1 42 `uc 1 start_row 1 43 `uc 1 start_col 1 44 `uc 1 end_row 1 45 `uc 1 end_col 1 46 `uc 1 row_col_set 1 47 `uc 1 scroll 1 48 `uc 1 scroll_set 1 49 `uc 1 dis_frq 1 50 `uc 1 dis_frq_set 1 51 `uc 1 over_write 1 52 ]
+"350
+[v update_string_data@data data `*.39S1218  1 p 2 62 ]
+"388
 } 0
-"708
+"756
 [v _make_display make_display `(v  1 e 1 0 ]
 {
-"709
+"757
 [v make_display@count count `i  1 a 2 60 ]
-"721
+"785
 } 0
-"592
+"640
 [v _scroll_right_to_left scroll_right_to_left `(v  1 s 1 scroll_right_to_left ]
 {
-"594
+"642
 [v scroll_right_to_left@line line `uc  1 a 1 56 ]
-[s S884 . 55 `ui 1 uid 2 0 `[40]uc 1 string 40 2 `uc 1 strlen 1 42 :7:0 
+[s S1013 . 57 `ui 1 uid 2 0 `[40]uc 1 string 40 2 `uc 1 strlen 1 42 :7:0 
 `uc 1 start_row 1 43 :7:0 
 `uc 1 start_col 1 44 :7:0 
 `uc 1 start_point 1 45 :7:0 
@@ -855,30 +979,32 @@ CMD_CONSOL_REPLY_HOST 2
 `uc 1 end_col 1 47 :7:0 
 `uc 1 end_point 1 48 :7:0 
 `uc 1 direction 1 49 :3:0 
-`uc 1 display_char_count 1 50 `uc 1 length_count_for_right_scroll 1 51 :7:0 
-`uc 1 length_decount_for_right_scroll 1 52 :7:0 
-`uc 1 length_count_for_left_scroll 1 53 :7:0 
-`uc 1 length_decount_for_left_scroll 1 54 :7:0 
+`uc 1 display_interval 1 50 :7:0 
+`uc 1 display_char_count 1 51 `uc 1 length_count_for_right_scroll 1 52 :7:0 
+`uc 1 length_decount_for_right_scroll 1 53 :7:0 
+`uc 1 length_count_for_left_scroll 1 54 :7:0 
+`uc 1 length_decount_for_left_scroll 1 55 :7:0 
+`uc 1 display_interval_count 1 56 :7:0 
 ]
-"592
-[v scroll_right_to_left@clcd_display_string_details clcd_display_string_details `*.39S884  1 p 2 43 ]
-"635
+"640
+[v scroll_right_to_left@clcd_display_string_details clcd_display_string_details `*.39S1013  1 p 2 43 ]
+"683
 } 0
-"637
+"685
 [v _scroll_off scroll_off `(v  1 s 1 scroll_off ]
 {
-"640
+"688
 [v scroll_off@i i `i  1 a 2 48 ]
-"641
+"689
 [v scroll_off@j j `i  1 a 2 46 ]
 [v scroll_off@k k `i  1 a 2 41 ]
-"643
+"691
 [v scroll_off@str_len str_len `uc  1 a 1 45 ]
-"642
+"690
 [v scroll_off@display_char_count display_char_count `uc  1 a 1 44 ]
-"638
+"686
 [v scroll_off@line line `uc  1 a 1 43 ]
-[s S884 . 55 `ui 1 uid 2 0 `[40]uc 1 string 40 2 `uc 1 strlen 1 42 :7:0 
+[s S1013 . 57 `ui 1 uid 2 0 `[40]uc 1 string 40 2 `uc 1 strlen 1 42 :7:0 
 `uc 1 start_row 1 43 :7:0 
 `uc 1 start_col 1 44 :7:0 
 `uc 1 start_point 1 45 :7:0 
@@ -886,21 +1012,23 @@ CMD_CONSOL_REPLY_HOST 2
 `uc 1 end_col 1 47 :7:0 
 `uc 1 end_point 1 48 :7:0 
 `uc 1 direction 1 49 :3:0 
-`uc 1 display_char_count 1 50 `uc 1 length_count_for_right_scroll 1 51 :7:0 
-`uc 1 length_decount_for_right_scroll 1 52 :7:0 
-`uc 1 length_count_for_left_scroll 1 53 :7:0 
-`uc 1 length_decount_for_left_scroll 1 54 :7:0 
+`uc 1 display_interval 1 50 :7:0 
+`uc 1 display_char_count 1 51 `uc 1 length_count_for_right_scroll 1 52 :7:0 
+`uc 1 length_decount_for_right_scroll 1 53 :7:0 
+`uc 1 length_count_for_left_scroll 1 54 :7:0 
+`uc 1 length_decount_for_left_scroll 1 55 :7:0 
+`uc 1 display_interval_count 1 56 :7:0 
 ]
-"637
-[v scroll_off@clcd_display_string_details clcd_display_string_details `*.39S884  1 p 2 35 ]
-"657
+"685
+[v scroll_off@clcd_display_string_details clcd_display_string_details `*.39S1013  1 p 2 35 ]
+"705
 } 0
-"552
+"600
 [v _scroll_left_to_right scroll_left_to_right `(v  1 s 1 scroll_left_to_right ]
 {
-"553
+"601
 [v scroll_left_to_right@line line `uc  1 a 1 53 ]
-[s S884 . 55 `ui 1 uid 2 0 `[40]uc 1 string 40 2 `uc 1 strlen 1 42 :7:0 
+[s S1013 . 57 `ui 1 uid 2 0 `[40]uc 1 string 40 2 `uc 1 strlen 1 42 :7:0 
 `uc 1 start_row 1 43 :7:0 
 `uc 1 start_col 1 44 :7:0 
 `uc 1 start_point 1 45 :7:0 
@@ -908,14 +1036,16 @@ CMD_CONSOL_REPLY_HOST 2
 `uc 1 end_col 1 47 :7:0 
 `uc 1 end_point 1 48 :7:0 
 `uc 1 direction 1 49 :3:0 
-`uc 1 display_char_count 1 50 `uc 1 length_count_for_right_scroll 1 51 :7:0 
-`uc 1 length_decount_for_right_scroll 1 52 :7:0 
-`uc 1 length_count_for_left_scroll 1 53 :7:0 
-`uc 1 length_decount_for_left_scroll 1 54 :7:0 
+`uc 1 display_interval 1 50 :7:0 
+`uc 1 display_char_count 1 51 `uc 1 length_count_for_right_scroll 1 52 :7:0 
+`uc 1 length_decount_for_right_scroll 1 53 :7:0 
+`uc 1 length_count_for_left_scroll 1 54 :7:0 
+`uc 1 length_decount_for_left_scroll 1 55 :7:0 
+`uc 1 display_interval_count 1 56 :7:0 
 ]
-"552
-[v scroll_left_to_right@clcd_display_string_details clcd_display_string_details `*.39S884  1 p 2 43 ]
-"590
+"600
+[v scroll_left_to_right@clcd_display_string_details clcd_display_string_details `*.39S1013  1 p 2 43 ]
+"638
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\strncpy.c
 [v _strncpy strncpy `(*.39uc  1 e 2 0 ]
@@ -928,29 +1058,58 @@ CMD_CONSOL_REPLY_HOST 2
 [v strncpy@size size `ui  1 p 2 19 ]
 "27
 } 0
-"723 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\clcd.c
+"787 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\clcd.c
 [v _display_text display_text `(v  1 e 1 0 ]
 {
-"739
+"803
 } 0
-"366
+"401
 [v _set_cursor set_cursor `(v  1 e 1 0 ]
 {
 [v set_cursor@row_number row_number `uc  1 a 1 wreg ]
 [v set_cursor@row_number row_number `uc  1 a 1 wreg ]
 [v set_cursor@col_number col_number `uc  1 p 1 23 ]
 [v set_cursor@row_number row_number `uc  1 a 1 24 ]
-"371
+"408
 } 0
-"407
+"459
+[v _is_busy is_busy `(v  1 e 1 0 ]
+{
+"480
+} 0
+"17 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\delay.c
+[v __delay_10uS _delay_10uS `(v  1 e 1 0 ]
+{
+"18
+[v __delay_10uS@val val `i  1 a 2 18 ]
+"17
+[v __delay_10uS@delay delay `i  1 p 2 15 ]
+"26
+} 0
+"94 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/tmr5.c
+[v _TMR5_StopTimer TMR5_StopTimer `(v  1 e 1 0 ]
+{
+"98
+} 0
+"136
+[v _TMR5_Reload TMR5_Reload `(v  1 e 1 0 ]
+{
+"141
+} 0
+"153
+[v _TMR5_HasOverflowOccured TMR5_HasOverflowOccured `(uc  1 e 1 0 ]
+{
+"157
+} 0
+"444 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\clcd.c
 [v _char_enter_mode_left_to_right char_enter_mode_left_to_right `(v  1 e 1 0 ]
 {
-"412
+"449
 } 0
-"121
+"130
 [v _copy_data copy_data `(v  1 e 1 0 ]
 {
-[s S884 . 55 `ui 1 uid 2 0 `[40]uc 1 string 40 2 `uc 1 strlen 1 42 :7:0 
+[s S1013 . 57 `ui 1 uid 2 0 `[40]uc 1 string 40 2 `uc 1 strlen 1 42 :7:0 
 `uc 1 start_row 1 43 :7:0 
 `uc 1 start_col 1 44 :7:0 
 `uc 1 start_point 1 45 :7:0 
@@ -958,57 +1117,59 @@ CMD_CONSOL_REPLY_HOST 2
 `uc 1 end_col 1 47 :7:0 
 `uc 1 end_point 1 48 :7:0 
 `uc 1 direction 1 49 :3:0 
-`uc 1 display_char_count 1 50 `uc 1 length_count_for_right_scroll 1 51 :7:0 
-`uc 1 length_decount_for_right_scroll 1 52 :7:0 
-`uc 1 length_count_for_left_scroll 1 53 :7:0 
-`uc 1 length_decount_for_left_scroll 1 54 :7:0 
+`uc 1 display_interval 1 50 :7:0 
+`uc 1 display_char_count 1 51 `uc 1 length_count_for_right_scroll 1 52 :7:0 
+`uc 1 length_decount_for_right_scroll 1 53 :7:0 
+`uc 1 length_count_for_left_scroll 1 54 :7:0 
+`uc 1 length_decount_for_left_scroll 1 55 :7:0 
+`uc 1 display_interval_count 1 56 :7:0 
 ]
-[v copy_data@clcd_str_data clcd_str_data `*.39S884  1 p 2 47 ]
-[s S1087 . 53 `ui 1 uid 2 0 `[40]uc 1 data 40 2 `uc 1 data_set 1 42 `uc 1 start_row 1 43 `uc 1 start_col 1 44 `uc 1 end_row 1 45 `uc 1 end_col 1 46 `uc 1 row_col_set 1 47 `uc 1 scroll 1 48 `uc 1 scroll_set 1 49 `uc 1 dis_frq 1 50 `uc 1 dis_frq_set 1 51 `uc 1 over_write 1 52 ]
-[v copy_data@data data `*.39S1087  1 p 2 49 ]
-"135
+[v copy_data@clcd_str_data clcd_str_data `*.39S1013  1 p 2 56 ]
+[s S1218 . 53 `ui 1 uid 2 0 `[40]uc 1 data 40 2 `uc 1 data_set 1 42 `uc 1 start_row 1 43 `uc 1 start_col 1 44 `uc 1 end_row 1 45 `uc 1 end_col 1 46 `uc 1 row_col_set 1 47 `uc 1 scroll 1 48 `uc 1 scroll_set 1 49 `uc 1 dis_frq 1 50 `uc 1 dis_frq_set 1 51 `uc 1 over_write 1 52 ]
+[v copy_data@data data `*.39S1218  1 p 2 58 ]
+"144
 } 0
-"137
+"146
 [v _conflict_check conflict_check `(uc  1 e 1 0 ]
 {
 [v conflict_check@exist_uid_idx exist_uid_idx `uc  1 a 1 wreg ]
-"138
-[v conflict_check@i i `i  1 a 2 54 ]
-"139
-[v conflict_check@conflict conflict `uc  1 a 1 53 ]
-"137
+"147
+[v conflict_check@i i `i  1 a 2 2 ]
+"148
+[v conflict_check@conflict_bool conflict_bool `uc  1 a 1 1 ]
+"146
 [v conflict_check@exist_uid_idx exist_uid_idx `uc  1 a 1 wreg ]
-[v conflict_check@new_start_point new_start_point `uc  1 p 1 47 ]
-[v conflict_check@new_end_point new_end_point `uc  1 p 1 48 ]
-[v conflict_check@exist_uid_idx exist_uid_idx `uc  1 a 1 52 ]
-"174
+[v conflict_check@new_start_point new_start_point `uc  1 p 1 56 ]
+[v conflict_check@new_end_point new_end_point `uc  1 p 1 57 ]
+[v conflict_check@exist_uid_idx exist_uid_idx `uc  1 a 1 0 ]
+"183
 } 0
-"260
+"286
 [v _set_string_data set_string_data `(uc  1 e 1 0 ]
 {
-"292
-[v set_string_data@j j `i  1 a 2 6 ]
-[v set_string_data@conflict_count conflict_count `i  1 a 2 3 ]
-"261
-[v set_string_data@i i `uc  1 a 1 5 ]
-"262
-[v set_string_data@uid uid `uc  1 a 1 2 ]
-"263
-[v set_string_data@end_point end_point `uc  1 a 1 1 ]
-[v set_string_data@start_point start_point `uc  1 a 1 0 ]
-[s S1087 . 53 `ui 1 uid 2 0 `[40]uc 1 data 40 2 `uc 1 data_set 1 42 `uc 1 start_row 1 43 `uc 1 start_col 1 44 `uc 1 end_row 1 45 `uc 1 end_col 1 46 `uc 1 row_col_set 1 47 `uc 1 scroll 1 48 `uc 1 scroll_set 1 49 `uc 1 dis_frq 1 50 `uc 1 dis_frq_set 1 51 `uc 1 over_write 1 52 ]
-"260
-[v set_string_data@data data `*.39S1087  1 p 2 55 ]
-"315
+"322
+[v set_string_data@j j `i  1 a 2 12 ]
+[v set_string_data@conflict_count conflict_count `i  1 a 2 9 ]
+"287
+[v set_string_data@i i `uc  1 a 1 11 ]
+"288
+[v set_string_data@uid uid `uc  1 a 1 8 ]
+"289
+[v set_string_data@end_point end_point `uc  1 a 1 7 ]
+[v set_string_data@start_point start_point `uc  1 a 1 6 ]
+[s S1218 . 53 `ui 1 uid 2 0 `[40]uc 1 data 40 2 `uc 1 data_set 1 42 `uc 1 start_row 1 43 `uc 1 start_col 1 44 `uc 1 end_row 1 45 `uc 1 end_col 1 46 `uc 1 row_col_set 1 47 `uc 1 scroll 1 48 `uc 1 scroll_set 1 49 `uc 1 dis_frq 1 50 `uc 1 dis_frq_set 1 51 `uc 1 over_write 1 52 ]
+"286
+[v set_string_data@data data `*.39S1218  1 p 2 0 ]
+"348
 } 0
-"230
+"249
 [v _get_new_uid get_new_uid `(i  1 e 2 0 ]
 {
-"231
+"250
 [v get_new_uid@i i `i  1 a 2 42 ]
-"233
+"252
 [v get_new_uid@uid uid `i  1 a 2 40 ]
-"248
+"267
 } 0
 "6 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\rand.c
 [v _srand srand `(v  1 e 1 0 ]
@@ -1042,10 +1203,10 @@ CMD_CONSOL_REPLY_HOST 2
 [v ___awmod@divisor divisor `i  1 p 2 31 ]
 "35
 } 0
-"215 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\clcd.c
+"228 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\clcd.c
 [v _copy_display_struct copy_display_struct `(v  1 e 1 0 ]
 {
-[s S884 . 55 `ui 1 uid 2 0 `[40]uc 1 string 40 2 `uc 1 strlen 1 42 :7:0 
+[s S1013 . 57 `ui 1 uid 2 0 `[40]uc 1 string 40 2 `uc 1 strlen 1 42 :7:0 
 `uc 1 start_row 1 43 :7:0 
 `uc 1 start_col 1 44 :7:0 
 `uc 1 start_point 1 45 :7:0 
@@ -1053,29 +1214,32 @@ CMD_CONSOL_REPLY_HOST 2
 `uc 1 end_col 1 47 :7:0 
 `uc 1 end_point 1 48 :7:0 
 `uc 1 direction 1 49 :3:0 
-`uc 1 display_char_count 1 50 `uc 1 length_count_for_right_scroll 1 51 :7:0 
-`uc 1 length_decount_for_right_scroll 1 52 :7:0 
-`uc 1 length_count_for_left_scroll 1 53 :7:0 
-`uc 1 length_decount_for_left_scroll 1 54 :7:0 
+`uc 1 display_interval 1 50 :7:0 
+`uc 1 display_char_count 1 51 `uc 1 length_count_for_right_scroll 1 52 :7:0 
+`uc 1 length_decount_for_right_scroll 1 53 :7:0 
+`uc 1 length_count_for_left_scroll 1 54 :7:0 
+`uc 1 length_decount_for_left_scroll 1 55 :7:0 
+`uc 1 display_interval_count 1 56 :7:0 
 ]
-[v copy_display_struct@clcd_str_data clcd_str_data `*.39S884  1 p 2 47 ]
-[s S1087 . 53 `ui 1 uid 2 0 `[40]uc 1 data 40 2 `uc 1 data_set 1 42 `uc 1 start_row 1 43 `uc 1 start_col 1 44 `uc 1 end_row 1 45 `uc 1 end_col 1 46 `uc 1 row_col_set 1 47 `uc 1 scroll 1 48 `uc 1 scroll_set 1 49 `uc 1 dis_frq 1 50 `uc 1 dis_frq_set 1 51 `uc 1 over_write 1 52 ]
-[v copy_display_struct@data data `*.39S1087  1 p 2 49 ]
-[v copy_display_struct@uid uid `uc  1 p 1 51 ]
-"228
+[v copy_display_struct@clcd_str_data clcd_str_data `*.39S1013  1 p 2 56 ]
+[s S1218 . 53 `ui 1 uid 2 0 `[40]uc 1 data 40 2 `uc 1 data_set 1 42 `uc 1 start_row 1 43 `uc 1 start_col 1 44 `uc 1 end_row 1 45 `uc 1 end_col 1 46 `uc 1 row_col_set 1 47 `uc 1 scroll 1 48 `uc 1 scroll_set 1 49 `uc 1 dis_frq 1 50 `uc 1 dis_frq_set 1 51 `uc 1 over_write 1 52 ]
+[v copy_display_struct@data data `*.39S1218  1 p 2 58 ]
+[v copy_display_struct@uid uid `uc  1 p 1 60 ]
+"247
 } 0
-"176
+"185
 [v _conflict conflict `(uc  1 e 1 0 ]
 {
 [v conflict@new_start_point new_start_point `uc  1 a 1 wreg ]
-"177
-[v conflict@i i `i  1 a 2 53 ]
-[v conflict@conflict conflict `uc  1 a 1 51 ]
-"176
+"186
+[v conflict@i i `i  1 a 2 62 ]
+"187
+[v conflict@conflict_bool conflict_bool `uc  1 a 1 60 ]
+"185
 [v conflict@new_start_point new_start_point `uc  1 a 1 wreg ]
-[v conflict@new_end_point new_end_point `uc  1 p 1 47 ]
-[v conflict@new_start_point new_start_point `uc  1 a 1 52 ]
-"213
+[v conflict@new_end_point new_end_point `uc  1 p 1 56 ]
+[v conflict@new_start_point new_start_point `uc  1 a 1 61 ]
+"226
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\puts.c
 [v _puts puts `(i  1 e 2 0 ]
@@ -1089,96 +1253,123 @@ CMD_CONSOL_REPLY_HOST 2
 [v cputs@s s `*.32Cuc  1 p 2 17 ]
 "8
 } 0
-"250 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\clcd.c
+"269 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\clcd.c
 [v _print_conflict_ids print_conflict_ids `(v  1 e 1 0 ]
 {
-"251
-[v print_conflict_ids@conflict_count conflict_count `i  1 a 2 51 ]
-"258
+"270
+[v print_conflict_ids@conflict_count conflict_count `i  1 a 2 60 ]
+"284
 } 0
-"89
+"13 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\sprintf.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+{
+[s S2318 __prbuf 4 `*.39uc 1 ptr 2 0 `*.37(v 1 func 2 2 ]
+"29
+[v sprintf@pb pb `S2318  1 a 4 50 ]
+"28
+[v sprintf@ap ap `[1]*.39v  1 a 2 48 ]
+"13
+[v sprintf@wh wh `*.39uc  1 p 2 42 ]
+[v sprintf@f f `*.32Cuc  1 p 2 44 ]
+"38
+} 0
+"195 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/eusart1.c
+[v _put_string_usart1 put_string_usart1 `(v  1 e 1 0 ]
+{
+[v put_string_usart1@str str `*.39uc  1 p 2 16 ]
+"199
+} 0
+"132
+[v _EUSART1_Write EUSART1_Write `(v  1 e 1 0 ]
+{
+[v EUSART1_Write@txData txData `uc  1 a 1 wreg ]
+[v EUSART1_Write@txData txData `uc  1 a 1 wreg ]
+[v EUSART1_Write@txData txData `uc  1 a 1 15 ]
+"153
+} 0
+"98 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\clcd.c
 [v _min_uid_range min_uid_range `(uc  1 e 1 0 ]
 {
-"94
+"103
 } 0
-"96
+"105
 [v _max_uid_range max_uid_range `(uc  1 e 1 0 ]
 {
-"101
+"110
 } 0
-"103
+"112
 [v _max_display_support max_display_support `(*.32uc  1 e 2 0 ]
 {
-"105
+"114
 } 0
-"82
+"91
 [v _max_display_str max_display_str `(uc  1 e 1 0 ]
 {
-"87
+"96
 } 0
-"50
+"51
 [v _init_clcd_cusotom_lcd init_clcd_cusotom_lcd `(v  1 e 1 0 ]
 {
 [v init_clcd_cusotom_lcd@clcd_init_row clcd_init_row `uc  1 a 1 wreg ]
 [v init_clcd_cusotom_lcd@clcd_init_row clcd_init_row `uc  1 a 1 wreg ]
-[v init_clcd_cusotom_lcd@clcd_init_col clcd_init_col `uc  1 p 1 47 ]
-[v init_clcd_cusotom_lcd@clcd_init_row clcd_init_row `uc  1 a 1 48 ]
-"64
+[v init_clcd_cusotom_lcd@clcd_init_col clcd_init_col `uc  1 p 1 56 ]
+[v init_clcd_cusotom_lcd@clcd_init_row clcd_init_row `uc  1 a 1 57 ]
+"73
 } 0
-"16
+"17
 [v _init_CLCD_config init_CLCD_config `(v  1 e 1 0 ]
 {
-"48
+"49
 } 0
-"441
+"482
 [v _write_lcd_cmd write_lcd_cmd `(v  1 e 1 0 ]
 {
 [v write_lcd_cmd@cmd cmd `uc  1 a 1 wreg ]
 [v write_lcd_cmd@cmd cmd `uc  1 a 1 wreg ]
 [v write_lcd_cmd@cmd cmd `uc  1 a 1 22 ]
-"446
+"492
 } 0
-"11
+"12
 [v _reset_clcd reset_clcd `(v  1 e 1 0 ]
 {
-"14
+"15
 } 0
-"547
+"595
 [v _clear_display_array clear_display_array `(v  1 e 1 0 ]
 {
-"550
+"598
 } 0
-"542
+"590
 [v _reset_display_structure_count reset_display_structure_count `(v  1 e 1 0 ]
 {
-"545
+"593
 } 0
-"538
+"586
 [v _clear_display_structure clear_display_structure `(v  1 e 1 0 ]
 {
-"540
+"588
 } 0
-"359
+"392
 [v _clcd_display_string_config clcd_display_string_config `(v  1 e 1 0 ]
 {
-"364
+"399
 } 0
-"455
+"506
 [v _write_str write_str `(v  1 e 1 0 ]
 {
-"457
+"508
 [v write_str@i i `uc  1 a 1 25 ]
-"455
+"506
 [v write_str@str str `*.39Cuc  1 p 2 23 ]
-"471
+"519
 } 0
-"448
+"494
 [v _write_lcd_data write_lcd_data `(v  1 e 1 0 ]
 {
 [v write_lcd_data@data data `uc  1 a 1 wreg ]
 [v write_lcd_data@data data `uc  1 a 1 wreg ]
 [v write_lcd_data@data data `uc  1 a 1 22 ]
-"453
+"504
 } 0
 "5 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\delay.c
 [v _delay delay `(v  1 e 1 0 ]
@@ -1240,35 +1431,35 @@ CMD_CONSOL_REPLY_HOST 2
 [v ___awdiv@divisor divisor `i  1 p 2 17 ]
 "42
 } 0
-"107 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\clcd.c
+"116 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\clcd.c
 [v _clcd_max_row clcd_max_row `(uc  1 e 1 0 ]
 {
-"112
+"121
 } 0
-"114
+"123
 [v _clcd_max_col clcd_max_col `(uc  1 e 1 0 ]
 {
-"119
+"128
 } 0
-"137 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.c
+"153 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.c
 [v _parse_cmd_str parse_cmd_str `(uc  1 e 1 0 ]
 {
-"174
-[v parse_cmd_str@column column `uc  1 a 1 60 ]
-[v parse_cmd_str@row row `uc  1 a 1 59 ]
-"139
-[v parse_cmd_str@temp temp `*.39uc  1 a 2 61 ]
-"140
-[v parse_cmd_str@ptr ptr `*.39uc  1 a 2 57 ]
-"137
-[v parse_cmd_str@str str `*.39uc  1 p 2 55 ]
-"417
+"196
+[v parse_cmd_str@column column `uc  1 a 1 5 ]
+[v parse_cmd_str@row row `uc  1 a 1 4 ]
+"157
+[v parse_cmd_str@temp temp `*.39uc  1 a 2 6 ]
+"158
+[v parse_cmd_str@ptr ptr `*.39uc  1 a 2 2 ]
+"153
+[v parse_cmd_str@str str `*.39uc  1 p 2 0 ]
+"483
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\strtok.c
 [v _strtok strtok `(*.39uc  1 e 2 0 ]
 {
-[v strtok@s1 s1 `*.39uc  1 p 2 26 ]
-[v strtok@s2 s2 `*.32Cuc  1 p 2 28 ]
+[v strtok@s1 s1 `*.39uc  1 p 2 28 ]
+[v strtok@s2 s2 `*.32Cuc  1 p 2 30 ]
 "15
 [v strtok@sp sp `*.39uc  1 s 2 sp ]
 "31
@@ -1277,26 +1468,26 @@ CMD_CONSOL_REPLY_HOST 2
 [v _strspn strspn `(ui  1 e 2 0 ]
 {
 "6
-[v strspn@i i `ui  1 a 2 24 ]
+[v strspn@i i `ui  1 a 2 26 ]
 "4
-[v strspn@s1 s1 `*.39Cuc  1 p 2 19 ]
-[v strspn@s2 s2 `*.32Cuc  1 p 2 21 ]
+[v strspn@s1 s1 `*.39Cuc  1 p 2 21 ]
+[v strspn@s2 s2 `*.32Cuc  1 p 2 23 ]
 "14
 } 0
 "4 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\strcspn.c
 [v _strcspn strcspn `(ui  1 e 2 0 ]
 {
 "6
-[v strcspn@i i `ui  1 a 2 24 ]
+[v strcspn@i i `ui  1 a 2 26 ]
 "4
-[v strcspn@s1 s1 `*.39Cuc  1 p 2 19 ]
-[v strcspn@s2 s2 `*.32Cuc  1 p 2 21 ]
+[v strcspn@s1 s1 `*.39Cuc  1 p 2 21 ]
+[v strcspn@s2 s2 `*.32Cuc  1 p 2 23 ]
 "14
 } 0
 "4 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\strchr.c
-[v _strchr strchr `(*.32uc  1 e 2 0 ]
+[v _strchr strchr `(*.34uc  1 e 2 0 ]
 {
-[v strchr@ptr ptr `*.32Cuc  1 p 2 15 ]
+[v strchr@ptr ptr `*.34Cuc  1 p 2 15 ]
 [v strchr@chr chr `i  1 p 2 17 ]
 "11
 } 0
@@ -1310,139 +1501,152 @@ CMD_CONSOL_REPLY_HOST 2
 [v strcmp@s2 s2 `*.32Cuc  1 p 2 17 ]
 "42
 } 0
-"34 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.c
-[v _get_uid get_uid `(uc  1 e 1 0 ]
+"39 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.c
+[v _get_uid get_uid `(v  1 e 1 0 ]
 {
-"35
+"40
 [v get_uid@uid uid `ui  1 a 2 43 ]
-"36
+"41
 [v get_uid@i i `ui  1 a 2 41 ]
-"34
+"39
 [v get_uid@str str `*.39uc  1 p 2 35 ]
 [v get_uid@data_uid data_uid `*.39ui  1 p 2 37 ]
-"48
+"53
 } 0
-"50
+"55
 [v _get_str get_str `(uc  1 e 1 0 ]
 {
 [v get_str@str str `*.39uc  1 p 2 43 ]
 [v get_str@data_str data_str `*.39uc  1 p 2 45 ]
-"59
+"64
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\strcpy.c
 [v _strcpy strcpy `(*.39uc  1 e 2 0 ]
 {
 "15
-[v strcpy@cp cp `*.39uc  1 a 2 19 ]
+[v strcpy@cp cp `*.39uc  1 a 2 39 ]
 "8
-[v strcpy@to to `*.39uc  1 p 2 15 ]
-[v strcpy@from from `*.39Cuc  1 p 2 17 ]
+[v strcpy@to to `*.39uc  1 p 2 35 ]
+[v strcpy@from from `*.39Cuc  1 p 2 37 ]
 "24
 } 0
-"97 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.c
+"107 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.c
 [v _get_over_write_data get_over_write_data `(uc  1 e 1 0 ]
 {
-"99
-[v get_over_write_data@i i `i  1 a 2 53 ]
-"98
-[v get_over_write_data@over_write over_write `uc  1 a 1 52 ]
-"97
-[v get_over_write_data@str str `*.39uc  1 p 2 47 ]
-[v get_over_write_data@over_write_data over_write_data `*.39uc  1 p 2 49 ]
-"111
+"109
+[v get_over_write_data@i i `i  1 a 2 62 ]
+"108
+[v get_over_write_data@over_write over_write `uc  1 a 1 61 ]
+"107
+[v get_over_write_data@str str `*.39uc  1 p 2 56 ]
+[v get_over_write_data@over_write_data over_write_data `*.39uc  1 p 2 58 ]
+"123
 } 0
-"80
+"87
 [v _get_dis_frq get_dis_frq `(uc  1 e 1 0 ]
 {
-"82
-[v get_dis_frq@i i `i  1 a 2 53 ]
-"81
-[v get_dis_frq@frq frq `uc  1 a 1 52 ]
-"80
-[v get_dis_frq@str str `*.39uc  1 p 2 47 ]
-[v get_dis_frq@data_frq data_frq `*.39uc  1 p 2 49 ]
-"95
+"89
+[v get_dis_frq@i i `i  1 a 2 62 ]
+"88
+[v get_dis_frq@frq frq `uc  1 a 1 61 ]
+"87
+[v get_dis_frq@str str `*.39uc  1 p 2 56 ]
+[v get_dis_frq@data_frq data_frq `*.39uc  1 p 2 58 ]
+"105
 } 0
-"61
+"66
 [v _get_direction get_direction `(uc  1 e 1 0 ]
 {
-"63
-[v get_direction@i i `i  1 a 2 52 ]
-"62
-[v get_direction@direction direction `uc  1 a 1 54 ]
-"61
-[v get_direction@str str `*.39uc  1 p 2 47 ]
-[v get_direction@data_direction data_direction `*.39uc  1 p 2 49 ]
-"78
+"68
+[v get_direction@i i `i  1 a 2 61 ]
+"67
+[v get_direction@direction direction `uc  1 a 1 63 ]
+"66
+[v get_direction@str str `*.39uc  1 p 2 56 ]
+[v get_direction@data_direction data_direction `*.39uc  1 p 2 58 ]
+"85
 } 0
-"16
+"17
 [v _collect_row collect_row `(v  1 e 1 0 ]
 {
-"19
-[v collect_row@i i `i  1 a 2 52 ]
-"18
-[v collect_row@row row `uc  1 a 1 54 ]
-"16
-[v collect_row@str str `*.39uc  1 p 2 47 ]
-[v collect_row@data_row data_row `*.39uc  1 p 2 49 ]
-"32
+"22
+[v collect_row@i i `i  1 a 2 61 ]
+"21
+[v collect_row@row row `uc  1 a 1 63 ]
+"17
+[v collect_row@str str `*.39uc  1 p 2 56 ]
+[v collect_row@data_row data_row `*.39uc  1 p 2 58 ]
+"37
 } 0
-"113
+"125
 [v _collect_column collect_column `(v  1 e 1 0 ]
 {
-"115
-[v collect_column@i i `i  1 a 2 52 ]
-"116
-[v collect_column@column column `uc  1 a 1 54 ]
-"113
-[v collect_column@str str `*.39uc  1 p 2 47 ]
-[v collect_column@data_column data_column `*.39uc  1 p 2 49 ]
-"135
+"129
+[v collect_column@i i `i  1 a 2 61 ]
+"130
+[v collect_column@column column `uc  1 a 1 63 ]
+"125
+[v collect_column@str str `*.39uc  1 p 2 56 ]
+[v collect_column@data_column data_column `*.39uc  1 p 2 58 ]
+"151
 } 0
 "4 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\strlen.c
 [v _strlen strlen `(ui  1 e 2 0 ]
 {
 "6
-[v strlen@cp cp `*.39Cuc  1 a 2 33 ]
+[v strlen@cp cp `*.34Cuc  1 a 2 33 ]
 "4
-[v strlen@s s `*.39Cuc  1 p 2 29 ]
+[v strlen@s s `*.34Cuc  1 p 2 29 ]
 "13
 } 0
-"464 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\doprnt.c
+"13 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\printf.c
 [v _printf printf `(i  1 e 2 0 ]
 {
-"528
-[v printf@val val `ui  1 a 2 44 ]
-"466
-[v printf@ap ap `[1]*.39v  1 a 2 42 ]
+[s S2318 __prbuf 4 `*.39uc 1 ptr 2 0 `*.37(v 1 func 2 2 ]
+"21
+[v printf@pb pb `S2318  1 a 4 52 ]
+"15
+[v printf@ap ap `[1]*.39v  1 a 2 50 ]
+"13
+[v printf@f f `*.32Cuc  1 p 2 42 ]
+"28
+} 0
+"458 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\doprnt.c
+[v __doprnt _doprnt `(i  1 e 2 0 ]
+{
 "530
-[v printf@cp cp `*.34Cuc  1 a 2 40 ]
+[v __doprnt@cp cp `*.34Cuc  1 a 2 39 ]
+"528
+[v __doprnt@val val `ui  1 a 2 37 ]
 "499
-[v printf@c c `c  1 a 1 46 ]
+[v __doprnt@c c `c  1 a 1 41 ]
 "506
-[v printf@prec prec `c  1 a 1 39 ]
+[v __doprnt@prec prec `c  1 a 1 36 ]
 "508
-[v printf@flag flag `uc  1 a 1 38 ]
-"464
-[v printf@f f `*.32Cuc  1 p 2 29 ]
+[v __doprnt@flag flag `uc  1 a 1 35 ]
+[s S2318 __prbuf 4 `*.39uc 1 ptr 2 0 `*.37(v 1 func 2 2 ]
+"458
+[v __doprnt@pb pb `*.39S2318  1 p 2 27 ]
+[v __doprnt@f f `*.32Cuc  1 p 2 29 ]
+[v __doprnt@ap ap `*.39*.39v  1 p 2 31 ]
 "1541
 } 0
-"160 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/eusart1.c
+"111 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/eusart2.c
 [v _putch putch `(v  1 e 1 0 ]
 {
 [v putch@txData txData `uc  1 a 1 wreg ]
 [v putch@txData txData `uc  1 a 1 wreg ]
-"162
+"113
 [v putch@txData txData `uc  1 a 1 16 ]
-"163
+"114
 } 0
-"132
-[v _EUSART1_Write EUSART1_Write `(v  1 e 1 0 ]
+"97
+[v _EUSART2_Write EUSART2_Write `(v  1 e 1 0 ]
 {
-[v EUSART1_Write@txData txData `uc  1 a 1 wreg ]
-[v EUSART1_Write@txData txData `uc  1 a 1 wreg ]
-[v EUSART1_Write@txData txData `uc  1 a 1 15 ]
-"153
+[v EUSART2_Write@txData txData `uc  1 a 1 wreg ]
+[v EUSART2_Write@txData txData `uc  1 a 1 wreg ]
+[v EUSART2_Write@txData txData `uc  1 a 1 15 ]
+"104
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\lwmod.c
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
@@ -1466,10 +1670,10 @@ CMD_CONSOL_REPLY_HOST 2
 [v ___lwdiv@divisor divisor `ui  1 p 2 17 ]
 "31
 } 0
-"8 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.c
+"9 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\cmd_consol.c
 [v _clear_cmd_data clear_cmd_data `(v  1 e 1 0 ]
 {
-"14
+"15
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.40\sources\common\memset.c
 [v _memset memset `(*.39v  1 e 2 0 ]
@@ -1512,22 +1716,12 @@ CMD_CONSOL_REPLY_HOST 2
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 25 ]
 "53
 } 0
-"155 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/eusart1.c
-[v _getch getch `(uc  1 e 1 0 ]
-{
-"158
-} 0
-"112
+"112 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/eusart1.c
 [v _EUSART1_Read EUSART1_Read `(uc  1 e 1 0 ]
 {
 "114
 [v EUSART1_Read@readValue readValue `uc  1 a 1 15 ]
 "130
-} 0
-"94 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/tmr5.c
-[v _TMR5_StopTimer TMR5_StopTimer `(v  1 e 1 0 ]
-{
-"98
 } 0
 "101 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/tmr0.c
 [v _TMR0_StopTimer TMR0_StopTimer `(v  1 e 1 0 ]
@@ -1537,7 +1731,7 @@ CMD_CONSOL_REPLY_HOST 2
 "111 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 {
-"121
+"122
 } 0
 "62 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/tmr5.c
 [v _TMR5_Initialize TMR5_Initialize `(v  1 e 1 0 ]
@@ -1580,15 +1774,20 @@ CMD_CONSOL_REPLY_HOST 2
 {
 "91
 } 0
-"123 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/mcc.c
+"124 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/mcc.c
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
 {
-"131
+"132
 } 0
 "51 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
 {
 "55
+} 0
+"55 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/eusart2.c
+[v _EUSART2_Initialize EUSART2_Initialize `(v  1 e 1 0 ]
+{
+"74
 } 0
 "75 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/eusart1.c
 [v _EUSART1_Initialize EUSART1_Initialize `(v  1 e 1 0 ]
@@ -1615,23 +1814,23 @@ CMD_CONSOL_REPLY_HOST 2
 {
 "169
 } 0
-"59 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\main.c
+"52 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\main.c
 [v _make_array make_array `(v  1 e 1 0 ]
 {
-"68
+"60
 } 0
-"54
+"47
 [v _heart_beat heart_beat `(v  1 e 1 0 ]
 {
-"57
+"49
 } 0
-"165 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/eusart1.c
+"155 E:\Project_IQ\MPLAB_X_project\git_noyel_clcd\cmd_consol_clcd\clcd_usart_cmd_consol.X\mcc_generated_files/eusart1.c
 [v _EUSART1_Transmit_ISR EUSART1_Transmit_ISR `(v  1 e 1 0 ]
 {
-"182
+"172
 } 0
-"184
+"174
 [v _EUSART1_Receive_ISR EUSART1_Receive_ISR `(v  1 e 1 0 ]
 {
-"202
+"192
 } 0

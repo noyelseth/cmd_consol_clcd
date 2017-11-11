@@ -8577,7 +8577,7 @@ T5GCON = 0x00;
 TMR5H = 0xFF;
 
 
-TMR5L = 0xEC;
+TMR5L = 0xFB;
 
 
 timer5ReloadVal=TMR5;

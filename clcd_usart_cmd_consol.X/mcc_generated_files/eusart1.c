@@ -19,7 +19,7 @@
     The generated drivers are tested against the following:
         Compiler          :  XC8 1.35
         MPLAB             :  MPLAB X 3.40
-*/
+ */
 
 /*
     (c) 2016 Microchip Technology Inc. and its subsidiaries. You may use this
@@ -41,22 +41,22 @@
 
     MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
     TERMS.
-*/
+ */
 
 /**
   Section: Included Files
-*/
+ */
 #include "eusart1.h"
 
 /**
   Section: Macro Declarations
-*/
+ */
 #define EUSART1_TX_BUFFER_SIZE 8
-#define EUSART1_RX_BUFFER_SIZE 8
+#define EUSART1_RX_BUFFER_SIZE 64
 
 /**
   Section: Global Variables
-*/
+ */
 
 volatile uint8_t eusart1TxHead = 0;
 volatile uint8_t eusart1TxTail = 0;
@@ -70,7 +70,7 @@ volatile uint8_t eusart1RxCount;
 
 /**
   Section: EUSART1 APIs
-*/
+ */
 
 void EUSART1_Initialize(void)
 {
@@ -90,10 +90,10 @@ void EUSART1_Initialize(void)
     TXSTA1 = 0x24;
 
     // Baud Rate = 9600; 
-    SPBRG1 = 0xA0;
+    SPBRG1 = 0x67;
 
     // Baud Rate = 9600; 
-    SPBRGH1 = 0x01;
+    SPBRGH1 = 0x00;
 
 
     // initializing the driver state
@@ -112,7 +112,7 @@ void EUSART1_Initialize(void)
 uint8_t EUSART1_Read(void)
 {
     uint8_t readValue  = 0;
-    
+
     while(0 == eusart1RxCount)
     {
     }
@@ -150,16 +150,6 @@ void EUSART1_Write(uint8_t txData)
         eusart1TxBufferRemaining--;
     }
     PIE1bits.TX1IE = 1;
-}
-
-char getch(void)
-{
-    return EUSART1_Read();
-}
-
-void putch(char txData)
-{
-    EUSART1_Write(txData);
 }
 
 void EUSART1_Transmit_ISR(void)
@@ -200,6 +190,14 @@ void EUSART1_Receive_ISR(void)
     }
     eusart1RxCount++;
 }
+
+
+void put_string_usart1(char *str) {
+    while (*str != 0) {
+        EUSART1_Write(*str++);
+    }
+}
+
 /**
   End of File
-*/
+ */

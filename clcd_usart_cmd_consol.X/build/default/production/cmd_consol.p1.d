@@ -4,6 +4,7 @@
 clcd.h  \
 mcc_generated_files/mcc.h  \
 mcc_generated_files/eusart1.h  \
+mcc_generated_files/eusart2.h  \
 cmd_consol.h  \
 mcc_generated_files/interrupt_manager.h  \
 mcc_generated_files/tmr0.h  \

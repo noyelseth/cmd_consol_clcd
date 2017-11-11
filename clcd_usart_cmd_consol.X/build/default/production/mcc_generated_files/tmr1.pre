@@ -8574,10 +8574,10 @@ T1CON = 0x32;
 T1GCON = 0x00;
 
 
-TMR1H = 0xFE;
+TMR1H = 0xFF;
 
 
-TMR1L = 0x0C;
+TMR1L = 0x83;
 
 
 timer1ReloadVal=TMR1;

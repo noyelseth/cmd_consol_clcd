@@ -53,7 +53,6 @@
 #include <xc.h>
 #include <stdbool.h>
 #include <stdint.h>
-#include <stdio.h>
 
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -220,7 +219,7 @@ void EUSART1_Transmit_ISR(void);
     None
 */
 void EUSART1_Receive_ISR(void);
-
+void put_string_usart1(char *str);
 #ifdef __cplusplus  // Provide C++ Compatibility
 
     }

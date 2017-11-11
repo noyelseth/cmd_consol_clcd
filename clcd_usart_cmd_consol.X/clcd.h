@@ -106,7 +106,7 @@ extern "C" {
 #define RS      LCD_RS_RA2_PORT
 #define RW      LCD_RW_RA1_PORT
 #define EN      LCD_EN_RA0_PORT
-#define BUSY    LCD_D7_RD7_PORT
+#define BUSY    LCD_D7_RC5_PORT
 
 #define CMD_MODE 0
 #define DATA_MODE 1
@@ -114,8 +114,10 @@ extern "C" {
 #define LCD_WRITE_MODE  0
 #define LCD_READ_MODE  1
 
-#define DATA_BUS    PORTD
-#define DATA_BUS_DIRECTION  TRISD
+#define DATA_BUS_1    PORTD
+#define DATA_BUS_2    PORTC
+#define DATA_BUS_DIRECTION_1  TRISD
+#define DATA_BUS_DIRECTION_2  TRISC
 
 #define LCD_CONTROL_BUS_DIRECTION   TRISA
 
@@ -161,12 +163,16 @@ extern "C" {
         unsigned char end_col : 7;
         unsigned char end_point : 7;
         unsigned char direction : 3;
+        unsigned char blink_interval : 7;
+        unsigned char scroll_interval : 7;
         unsigned char display_char_count;
         //unsigned char display_loop_count;
         unsigned char length_count_for_right_scroll : 7;
         unsigned char length_decount_for_right_scroll : 7;
         unsigned char length_count_for_left_scroll : 7;
         unsigned char length_decount_for_left_scroll : 7;
+        unsigned char blink_interval_count : 7;
+        unsigned char scroll_interval_count : 7;
         //unsigned char eol;
     } CLCD_STRING_DISPLAY_DETAILS;
 

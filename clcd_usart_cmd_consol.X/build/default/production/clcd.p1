@@ -1,16 +1,16 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"114 cmd_consol.h
-[c E7255 0 1 2 .. ]
-[n E7255 . CMD_CONSOL_INIT CMD_CONSOL_READ_CMD CMD_CONSOL_REPLY_HOST  ]
-"153 clcd.h
-[s S853 `ui 1 `uc -> 40 `i :7 `uc 1 :7 `uc 1 :7 `uc 1 :7 `uc 1 :7 `uc 1 :7 `uc 1 :7 `uc 1 :3 `uc 1 `uc 1 :7 `uc 1 :7 `uc 1 :7 `uc 1 :7 `uc 1 ]
-[n S853 . uid string strlen start_row start_col start_point end_row end_col end_point direction display_char_count length_count_for_right_scroll length_decount_for_right_scroll length_count_for_left_scroll length_decount_for_left_scroll ]
+"119 cmd_consol.h
+[c E7256 0 1 2 .. ]
+[n E7256 . CMD_CONSOL_INIT CMD_CONSOL_READ_CMD CMD_CONSOL_REPLY_HOST  ]
+"155 clcd.h
+[s S853 `ui 1 `uc -> 40 `i :7 `uc 1 :7 `uc 1 :7 `uc 1 :7 `uc 1 :7 `uc 1 :7 `uc 1 :7 `uc 1 :3 `uc 1 :7 `uc 1 `uc 1 :7 `uc 1 :7 `uc 1 :7 `uc 1 :7 `uc 1 :7 `uc 1 ]
+[n S853 . uid string strlen start_row start_col start_point end_row end_col end_point direction display_interval display_char_count length_count_for_right_scroll length_decount_for_right_scroll length_count_for_left_scroll length_decount_for_left_scroll display_interval_count ]
 "95
 [s S852 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S852 . init_done clcd_max_row clcd_max_col uid_range clcd_max_display_string ]
-"217
+"221
 [v _clear_display_array `(v ~T0 @X0 0 ef ]
-"216
+"220
 [v _reset_display_structure_count `(v ~T0 @X0 0 ef ]
 "16 C:\Program Files (x86)\Microchip\xc8\v1.40\include\string.h
 [v _memset `(*v ~T0 @X0 0 ef3`*v`i`ui ]
@@ -64,13 +64,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PORTAbits `VS325 ~T0 @X0 0 e@3968 ]
 "19 delay.h
 [v __delay_MS `(v ~T0 @X0 0 ef1`i ]
-"196 clcd.h
+"200 clcd.h
 [v _write_lcd_cmd `(v ~T0 @X0 0 ef1`uc ]
-"182
+"186
 [v _clcd_display_string_config `(v ~T0 @X0 0 ef ]
 "195 C:\Program Files (x86)\Microchip\xc8\v1.40\include\stdio.h
 [v _printf `(i ~T0 @X0 0 ev`*Cuc ]
-"98 cmd_consol.h
+"103 cmd_consol.h
 [s S851 `ui 1 `uc -> 40 `i `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S851 . uid data data_set start_row start_col end_row end_col row_col_set scroll scroll_set dis_frq dis_frq_set over_write ]
 "35 C:\Program Files (x86)\Microchip\xc8\v1.40\include\string.h
@@ -81,47 +81,66 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _srand `(v ~T0 @X0 0 ef1`ui ]
 "60
 [v _rand `(i ~T0 @X0 0 ef ]
-"210 clcd.h
+"194 C:\Program Files (x86)\Microchip\xc8\v1.40\include\stdio.h
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+"222 mcc_generated_files/eusart1.h
+[v _put_string_usart1 `(v ~T0 @X0 0 ef1`*uc ]
+"214 clcd.h
 [v _make_display `(v ~T0 @X0 0 ef ]
 "14 C:\Program Files (x86)\Microchip\xc8\v1.40\include\string.h
 [v _memcpy `(*v ~T0 @X0 0 ef3`*v`*Cv`ui ]
-"203 clcd.h
+"207 clcd.h
 [v _write_str `(v ~T0 @X0 0 ef1`*Cuc ]
+"203
+[v _is_busy `(v ~T0 @X0 0 ef ]
+"8415 C:\Program Files (x86)\Microchip\xc8\v1.40\include\pic18f46k22.h
+[s S401 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S401 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"8425
+[s S402 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S402 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"8414
+[u S400 `S401 1 `S402 1 ]
+[n S400 . . . ]
+"8436
+[v _TRISCbits `VS400 ~T0 @X0 0 e@3988 ]
 "17 delay.h
 [v __delay_10uS `(v ~T0 @X0 0 ef1`i ]
 "21
 [v _delay `(v ~T0 @X0 0 ef1`i ]
-"7057 C:\Program Files (x86)\Microchip\xc8\v1.40\include\pic18f46k22.h
-[s S357 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S357 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"7067
-[s S358 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S358 . . P2B P2C P2D P1B P1C P1D ]
-"7076
-[s S359 :1 `uc 1 :1 `uc 1 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S359 . . CCP4 . TX2 RX2 ]
-"7083
-[s S360 :3 `uc 1 :1 `uc 1 ]
-[n S360 . . NOT_SS2 ]
-"7087
-[s S361 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S361 . SCK2 SDI2 . nSS2 SDO2 . CK2 DT2 ]
-"7097
-[s S362 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S362 . SCL2 SDA2 . SS2 ]
-"7103
-[s S363 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S363 . AN20 AN21 AN22 AN23 AN24 AN25 AN26 AN27 ]
-"7056
-[u S356 `S357 1 `S358 1 `S359 1 `S360 1 `S361 1 `S362 1 `S363 1 ]
-[n S356 . . . . . . . . ]
-"7114
-[v _PORTDbits `VS356 ~T0 @X0 0 e@3971 ]
+"6751 C:\Program Files (x86)\Microchip\xc8\v1.40\include\pic18f46k22.h
+[s S349 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S349 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"6761
+[s S350 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S350 . T1OSO T1OSI T5CKI SCK SDI SDO TX RX ]
+"6771
+[s S351 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S351 . P2B P2A P1A SCL SDA . CK DT ]
+"6781
+[s S352 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S352 . T1CKI CCP2 CCP1 SCK1 SDI1 SDO1 TX1 RX1 ]
+"6791
+[s S353 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S353 . T3CKI . CTPLS SCL1 SDA1 . CK1 DT1 ]
+"6801
+[s S354 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S354 . T3G . AN14 AN15 AN16 AN17 AN18 AN19 ]
+"6811
+[s S355 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S355 . . PA2 PA1 ]
+"6750
+[u S348 `S349 1 `S350 1 `S351 1 `S352 1 `S353 1 `S354 1 `S355 1 ]
+[n S348 . . . . . . . . ]
+"6817
+[v _PORTCbits `VS348 ~T0 @X0 0 e@3970 ]
 "7051
 [v _PORTD `Vuc ~T0 @X0 0 e@3971 ]
+"6745
+[v _PORTC `Vuc ~T0 @X0 0 e@3970 ]
 "37 C:\Program Files (x86)\Microchip\xc8\v1.40\include\string.h
 [v _strncpy `(*uc ~T0 @X0 0 ef3`*uc`*Cuc`ui ]
-"208 clcd.h
+"212 clcd.h
 [v _display_text `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -6811,94 +6830,97 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 58: extern char * strrichr(const char *, int);
 [; ;stddef.h: 6: typedef int ptrdiff_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;pin_manager.h: 260: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 272: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 270: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 282: void PIN_MANAGER_IOC(void);
 [; ;delay.h: 17: void _delay_10uS(int delay);
 [; ;delay.h: 19: void _delay_MS(int delay);
 [; ;delay.h: 21: void delay(int delay);
-"84 cmd_consol.h
+"88 cmd_consol.h
+[v _out_str `uc ~T0 @X0 -> 100 `i e ]
+[; ;cmd_consol.h: 88: char out_str[100];
+"89
 [v _uart_str `uc ~T0 @X0 -> 150 `i e ]
 [i _uart_str
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;cmd_consol.h: 84: char uart_str[150] = {0};
-"85
+[; ;cmd_consol.h: 89: char uart_str[150] = {0};
+"90
 [v _str_data `uc ~T0 @X0 -> 40 `i e ]
 [i _str_data
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;cmd_consol.h: 85: char str_data[40] = {0};
-"86
+[; ;cmd_consol.h: 90: char str_data[40] = {0};
+"91
 [v _CMD `uc ~T0 @X0 -> 15 `i e ]
 [i _CMD
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;cmd_consol.h: 86: char CMD[15] = {0};
-"87
+[; ;cmd_consol.h: 91: char CMD[15] = {0};
+"92
 [v _valid_cmd `uc ~T0 @X0 1 e ]
 [i _valid_cmd
 -> -> 0 `i `uc
 ]
-[; ;cmd_consol.h: 87: bool valid_cmd = 0;
-"88
+[; ;cmd_consol.h: 92: bool valid_cmd = 0;
+"93
 [v _clcd_init_row `uc ~T0 @X0 1 e ]
 [i _clcd_init_row
 -> -> 0 `i `uc
 ]
-[; ;cmd_consol.h: 88: char clcd_init_row = 0;
-"89
+[; ;cmd_consol.h: 93: char clcd_init_row = 0;
+"94
 [v _clcd_init_col `uc ~T0 @X0 1 e ]
 [i _clcd_init_col
 -> -> 0 `i `uc
 ]
-[; ;cmd_consol.h: 89: char clcd_init_col = 0;
-"90
+[; ;cmd_consol.h: 94: char clcd_init_col = 0;
+"95
 [v _check `uc ~T0 @X0 1 e ]
 [i _check
 -> -> 0 `i `uc
 ]
-[; ;cmd_consol.h: 90: bool check = 0;
-[; ;cmd_consol.h: 92: typedef enum {
-[; ;cmd_consol.h: 93: CMD_CONSOL_INIT,
-[; ;cmd_consol.h: 94: CMD_CONSOL_READ_CMD,
-[; ;cmd_consol.h: 95: CMD_CONSOL_REPLY_HOST,
-[; ;cmd_consol.h: 96: } CMD_CONSOL_STATE;
-[; ;cmd_consol.h: 98: typedef struct {
-[; ;cmd_consol.h: 99: unsigned int uid;
-[; ;cmd_consol.h: 100: char data[40];
-[; ;cmd_consol.h: 101: bool data_set;
-[; ;cmd_consol.h: 102: char start_row;
-[; ;cmd_consol.h: 103: char start_col;
-[; ;cmd_consol.h: 104: char end_row;
-[; ;cmd_consol.h: 105: char end_col;
-[; ;cmd_consol.h: 106: bool row_col_set;
-[; ;cmd_consol.h: 107: char scroll;
-[; ;cmd_consol.h: 108: bool scroll_set;
-[; ;cmd_consol.h: 109: char dis_frq;
-[; ;cmd_consol.h: 110: bool dis_frq_set;
-[; ;cmd_consol.h: 111: char over_write;
-[; ;cmd_consol.h: 112: } CMD_CONSOL_DATA;
-"114
-[v _cmd_consol_state `E7255 ~T0 @X0 1 e ]
-[; ;cmd_consol.h: 114: CMD_CONSOL_STATE cmd_consol_state;
-[; ;cmd_consol.h: 115: extern CMD_CONSOL_DATA cmd_data;
-[; ;cmd_consol.h: 116: void console_init();
-[; ;cmd_consol.h: 117: void cmd_consol_task();
+[; ;cmd_consol.h: 95: bool check = 0;
+[; ;cmd_consol.h: 97: typedef enum {
+[; ;cmd_consol.h: 98: CMD_CONSOL_INIT,
+[; ;cmd_consol.h: 99: CMD_CONSOL_READ_CMD,
+[; ;cmd_consol.h: 100: CMD_CONSOL_REPLY_HOST,
+[; ;cmd_consol.h: 101: } CMD_CONSOL_STATE;
+[; ;cmd_consol.h: 103: typedef struct {
+[; ;cmd_consol.h: 104: unsigned int uid;
+[; ;cmd_consol.h: 105: char data[40];
+[; ;cmd_consol.h: 106: bool data_set;
+[; ;cmd_consol.h: 107: char start_row;
+[; ;cmd_consol.h: 108: char start_col;
+[; ;cmd_consol.h: 109: char end_row;
+[; ;cmd_consol.h: 110: char end_col;
+[; ;cmd_consol.h: 111: bool row_col_set;
+[; ;cmd_consol.h: 112: char scroll;
+[; ;cmd_consol.h: 113: bool scroll_set;
+[; ;cmd_consol.h: 114: char dis_frq;
+[; ;cmd_consol.h: 115: bool dis_frq_set;
+[; ;cmd_consol.h: 116: char over_write;
+[; ;cmd_consol.h: 117: } CMD_CONSOL_DATA;
+"119
+[v _cmd_consol_state `E7256 ~T0 @X0 1 e ]
+[; ;cmd_consol.h: 119: CMD_CONSOL_STATE cmd_consol_state;
+[; ;cmd_consol.h: 120: extern CMD_CONSOL_DATA cmd_data;
+[; ;cmd_consol.h: 121: void console_init();
+[; ;cmd_consol.h: 122: bool cmd_consol_task();
 "28 clcd.h
 [v _LCD_16x2_DISPLAY `uc ~T0 @X0 1 e ]
 [; ;clcd.h: 28: char LCD_16x2_DISPLAY;
 "29
 [v _LCD_20x4_DISPLAY `uc ~T0 @X0 1 e ]
 [; ;clcd.h: 29: char LCD_20x4_DISPLAY;
-[v F7282 `uc ~T0 @X0 -> 20 `i t ]
+[v F7283 `uc ~T0 @X0 -> 20 `i t ]
 "93
-[v _lcd_display_array `F7282 ~T0 @X0 -> 4 `i e ]
+[v _lcd_display_array `F7283 ~T0 @X0 -> 4 `i e ]
 [; ;clcd.h: 93: unsigned char lcd_display_array[4][20];
 [; ;clcd.h: 95: typedef struct {
 [; ;clcd.h: 96: bool init_done;
@@ -6910,70 +6932,80 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;clcd.h: 102: extern CLCD_CONFIG_DATA clcd_config_data;
 [; ;clcd.h: 103: void init_CLCD_config(void);
 [; ;clcd.h: 104: void init_clcd_cusotom_lcd(char clcd_init_row, char clcd_init_col);
-[; ;clcd.h: 153: typedef struct {
-[; ;clcd.h: 154: unsigned int uid;
-[; ;clcd.h: 155: unsigned char string[40];
-[; ;clcd.h: 156: unsigned int strlen : 7;
-[; ;clcd.h: 157: unsigned char start_row : 7;
-[; ;clcd.h: 158: unsigned char start_col : 7;
-[; ;clcd.h: 159: unsigned char start_point : 7;
-[; ;clcd.h: 160: unsigned char end_row : 7;
-[; ;clcd.h: 161: unsigned char end_col : 7;
-[; ;clcd.h: 162: unsigned char end_point : 7;
-[; ;clcd.h: 163: unsigned char direction : 3;
-[; ;clcd.h: 164: unsigned char display_char_count;
-[; ;clcd.h: 166: unsigned char length_count_for_right_scroll : 7;
-[; ;clcd.h: 167: unsigned char length_decount_for_right_scroll : 7;
-[; ;clcd.h: 168: unsigned char length_count_for_left_scroll : 7;
-[; ;clcd.h: 169: unsigned char length_decount_for_left_scroll : 7;
-[; ;clcd.h: 171: } CLCD_STRING_DISPLAY_DETAILS;
-"175
+[; ;clcd.h: 155: typedef struct {
+[; ;clcd.h: 156: unsigned int uid;
+[; ;clcd.h: 157: unsigned char string[40];
+[; ;clcd.h: 158: unsigned int strlen : 7;
+[; ;clcd.h: 159: unsigned char start_row : 7;
+[; ;clcd.h: 160: unsigned char start_col : 7;
+[; ;clcd.h: 161: unsigned char start_point : 7;
+[; ;clcd.h: 162: unsigned char end_row : 7;
+[; ;clcd.h: 163: unsigned char end_col : 7;
+[; ;clcd.h: 164: unsigned char end_point : 7;
+[; ;clcd.h: 165: unsigned char direction : 3;
+[; ;clcd.h: 166: unsigned char display_interval : 7;
+[; ;clcd.h: 167: unsigned char display_char_count;
+[; ;clcd.h: 169: unsigned char length_count_for_right_scroll : 7;
+[; ;clcd.h: 170: unsigned char length_decount_for_right_scroll : 7;
+[; ;clcd.h: 171: unsigned char length_count_for_left_scroll : 7;
+[; ;clcd.h: 172: unsigned char length_decount_for_left_scroll : 7;
+[; ;clcd.h: 173: unsigned char display_interval_count : 7;
+[; ;clcd.h: 175: } CLCD_STRING_DISPLAY_DETAILS;
+"179
 [v _clcd_display_string_details `S853 ~T0 @X0 -> 20 `i e ]
-[; ;clcd.h: 175: CLCD_STRING_DISPLAY_DETAILS clcd_display_string_details[20];
-"176
-[v _conflict_arr `i ~T0 @X0 -> 20 `i e ]
-[; ;clcd.h: 176: int conflict_arr[20];
-"178
-[v _print_data_ready `i ~T0 @X0 1 e ]
-[; ;clcd.h: 178: int print_data_ready;
+[; ;clcd.h: 179: CLCD_STRING_DISPLAY_DETAILS clcd_display_string_details[20];
 "180
+[v _conflict_arr `i ~T0 @X0 -> 20 `i e ]
+[; ;clcd.h: 180: int conflict_arr[20];
+"182
+[v _print_data_ready `i ~T0 @X0 1 e ]
+[; ;clcd.h: 182: int print_data_ready;
+"184
 [v _display_struct_count `i ~T0 @X0 1 e ]
 [i _display_struct_count
 -> 0 `i
 ]
-[; ;clcd.h: 180: int display_struct_count = 0;
-[; ;clcd.h: 182: void clcd_display_string_config();
-[; ;clcd.h: 184: void set_cursor(unsigned char row_number, unsigned char col_number);
-[; ;clcd.h: 185: void set_cursor_at_home();
-[; ;clcd.h: 187: void display_and_cursor_control(unsigned char mode);
-[; ;clcd.h: 189: void scroll_text_right_to_left();
-[; ;clcd.h: 190: void scroll_text_left_to_right();
-[; ;clcd.h: 191: void char_enter_mode_left_to_right();
-[; ;clcd.h: 193: void scroll_display_right();
-[; ;clcd.h: 194: void scroll_display_left();
-[; ;clcd.h: 196: void write_lcd_cmd(unsigned char cmd);
-[; ;clcd.h: 197: void write_lcd_data(unsigned char data);
-[; ;clcd.h: 199: void is_busy(void);
-[; ;clcd.h: 201: void display_string(unsigned char row_number, const char* str, unsigned char alignment);
-[; ;clcd.h: 203: void write_str(const char* str);
-[; ;clcd.h: 205: void put_string(unsigned char row_number, unsigned char col_number, const char* str);
-[; ;clcd.h: 206: void put_char(unsigned char row_number, unsigned char col_number, const char ch);
-[; ;clcd.h: 208: void display_text();
-[; ;clcd.h: 210: void make_display();
-[; ;clcd.h: 212: void print_str(unsigned char row_number, unsigned char start_col_number,
-[; ;clcd.h: 213: unsigned char end_col_number, const char* str, unsigned char direction);
-[; ;clcd.h: 215: void clear_display_structure();
-[; ;clcd.h: 216: void reset_display_structure_count();
-[; ;clcd.h: 217: void clear_display_array();
-[; ;clcd.h: 219: char clcd_max_row();
-[; ;clcd.h: 220: char clcd_max_col();
-[; ;clcd.h: 222: char max_display_str();
-[; ;clcd.h: 223: char min_uid_range();
-[; ;clcd.h: 224: char max_uid_range();
-[; ;clcd.h: 225: char* max_display_support();
-[; ;clcd.h: 226: char update_string_data(CMD_CONSOL_DATA *data);
-[; ;clcd.h: 228: unsigned char set_string_data(CMD_CONSOL_DATA *data);
-[; ;clcd.h: 229: void print_conflict_ids();
+[; ;clcd.h: 184: int display_struct_count = 0;
+[; ;clcd.h: 186: void clcd_display_string_config();
+[; ;clcd.h: 188: void set_cursor(unsigned char row_number, unsigned char col_number);
+[; ;clcd.h: 189: void set_cursor_at_home();
+[; ;clcd.h: 191: void display_and_cursor_control(unsigned char mode);
+[; ;clcd.h: 193: void scroll_text_right_to_left();
+[; ;clcd.h: 194: void scroll_text_left_to_right();
+[; ;clcd.h: 195: void char_enter_mode_left_to_right();
+[; ;clcd.h: 197: void scroll_display_right();
+[; ;clcd.h: 198: void scroll_display_left();
+[; ;clcd.h: 200: void write_lcd_cmd(unsigned char cmd);
+[; ;clcd.h: 201: void write_lcd_data(unsigned char data);
+[; ;clcd.h: 203: void is_busy(void);
+[; ;clcd.h: 205: void display_string(unsigned char row_number, const char* str, unsigned char alignment);
+[; ;clcd.h: 207: void write_str(const char* str);
+[; ;clcd.h: 209: void put_string(unsigned char row_number, unsigned char col_number, const char* str);
+[; ;clcd.h: 210: void put_char(unsigned char row_number, unsigned char col_number, const char ch);
+[; ;clcd.h: 212: void display_text();
+[; ;clcd.h: 214: void make_display();
+[; ;clcd.h: 216: void print_str(unsigned char row_number, unsigned char start_col_number,
+[; ;clcd.h: 217: unsigned char end_col_number, const char* str, unsigned char direction);
+[; ;clcd.h: 219: void clear_display_structure();
+[; ;clcd.h: 220: void reset_display_structure_count();
+[; ;clcd.h: 221: void clear_display_array();
+[; ;clcd.h: 223: char clcd_max_row();
+[; ;clcd.h: 224: char clcd_max_col();
+[; ;clcd.h: 226: char max_display_str();
+[; ;clcd.h: 227: char min_uid_range();
+[; ;clcd.h: 228: char max_uid_range();
+[; ;clcd.h: 229: char* max_display_support();
+[; ;clcd.h: 230: char update_string_data(CMD_CONSOL_DATA *data);
+[; ;clcd.h: 232: unsigned char set_string_data(CMD_CONSOL_DATA *data);
+[; ;clcd.h: 233: void print_conflict_ids();
+[; ;eusart1.h: 76: extern volatile uint8_t eusart1TxBufferRemaining;
+[; ;eusart1.h: 77: extern volatile uint8_t eusart1RxCount;
+[; ;eusart1.h: 105: void EUSART1_Initialize(void);
+[; ;eusart1.h: 154: uint8_t EUSART1_Read(void);
+[; ;eusart1.h: 179: void EUSART1_Write(uint8_t txData);
+[; ;eusart1.h: 200: void EUSART1_Transmit_ISR(void);
+[; ;eusart1.h: 221: void EUSART1_Receive_ISR(void);
+[; ;eusart1.h: 222: void put_string_usart1(char *str);
 [; ;time.h: 8: typedef long time_t;
 [; ;time.h: 9: struct tm {
 [; ;time.h: 10: int tm_sec;
@@ -6995,1211 +7027,1245 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;time.h: 50: extern struct tm * localtime(const time_t *) ;
 [; ;time.h: 51: extern size_t strftime(char *, size_t, const char *, const struct tm *) ;
 [; ;time.h: 52: extern time_t mktime(struct tm *);
-"6 clcd.c
+"7 clcd.c
 [v _data_count `uc ~T0 @X0 1 s ]
 [i _data_count
 -> -> 0 `i `uc
 ]
-[; ;clcd.c: 6: static char data_count = 0;
-"7
+[; ;clcd.c: 7: static char data_count = 0;
+"8
 [v _uid_count `uc ~T0 @X0 1 s ]
 [i _uid_count
 -> -> 65 `ui `uc
 ]
-[; ;clcd.c: 7: static char uid_count = 'A';
-"8
+[; ;clcd.c: 8: static char uid_count = 'A';
+"9
 [v _conflict_data_count `uc ~T0 @X0 1 s ]
 [i _conflict_data_count
 -> -> 0 `i `uc
 ]
-[; ;clcd.c: 8: static char conflict_data_count = 0;
-"9
+[; ;clcd.c: 9: static char conflict_data_count = 0;
+"10
 [v _clcd_config_data `S852 ~T0 @X0 1 e ]
-[; ;clcd.c: 9: CLCD_CONFIG_DATA clcd_config_data;
-"11
+[; ;clcd.c: 10: CLCD_CONFIG_DATA clcd_config_data;
+"12
 [v _reset_clcd `(v ~T0 @X0 1 ef ]
 {
-[; ;clcd.c: 11: void reset_clcd() {
+[; ;clcd.c: 12: void reset_clcd() {
 [e :U _reset_clcd ]
 [f ]
-[; ;clcd.c: 12: clear_display_array();
-"12
-[e ( _clear_display_array ..  ]
-[; ;clcd.c: 13: reset_display_structure_count();
+[; ;clcd.c: 13: clear_display_array();
 "13
-[e ( _reset_display_structure_count ..  ]
-[; ;clcd.c: 14: }
+[e ( _clear_display_array ..  ]
+[; ;clcd.c: 14: reset_display_structure_count();
 "14
+[e ( _reset_display_structure_count ..  ]
+[; ;clcd.c: 15: }
+"15
 [e :UE 855 ]
 }
-"16
+"17
 [v _init_CLCD_config `(v ~T0 @X0 1 ef ]
 {
-[; ;clcd.c: 16: void init_CLCD_config(void) {
+[; ;clcd.c: 17: void init_CLCD_config(void) {
 [e :U _init_CLCD_config ]
 [f ]
-[; ;clcd.c: 17: memset(&clcd_config_data, 0, sizeof (CLCD_CONFIG_DATA));
-"17
+[; ;clcd.c: 18: memset(&clcd_config_data, 0, sizeof (CLCD_CONFIG_DATA));
+"18
 [e ( _memset (3 , , -> &U _clcd_config_data `*v -> 0 `i -> # `S852 `ui ]
-[; ;clcd.c: 19: TRISD = 0x00;
-"19
+[; ;clcd.c: 20: TRISD = 0x00;
+"20
 [e = _TRISD -> -> 0 `i `uc ]
-[; ;clcd.c: 22: TRISA = (unsigned char) (TRISA | 0xF0);
-"22
+[; ;clcd.c: 23: TRISA = (unsigned char) (TRISA | 0xF0);
+"23
 [e = _TRISA -> | -> _TRISA `i -> 240 `i `uc ]
-[; ;clcd.c: 24: PORTAbits.RA0 = 0;
-"24
-[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
-[; ;clcd.c: 25: _delay_MS(250);
+[; ;clcd.c: 25: PORTAbits.RA0 = 0;
 "25
+[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
+[; ;clcd.c: 26: _delay_MS(250);
+"26
 [e ( __delay_MS (1 -> 250 `i ]
-[; ;clcd.c: 28: write_lcd_cmd(0X38);
-"28
-[e ( _write_lcd_cmd (1 -> -> 56 `i `uc ]
-[; ;clcd.c: 29: _delay_MS(250);
+[; ;clcd.c: 29: write_lcd_cmd(0X38);
 "29
+[e ( _write_lcd_cmd (1 -> -> 56 `i `uc ]
+[; ;clcd.c: 30: _delay_MS(250);
+"30
 [e ( __delay_MS (1 -> 250 `i ]
-[; ;clcd.c: 31: write_lcd_cmd(0x0E);;
-"31
-[e ( _write_lcd_cmd (1 -> -> 14 `i `uc ]
-[; ;clcd.c: 32: _delay_MS(250);
+[; ;clcd.c: 32: write_lcd_cmd(0x0E);;
 "32
+[e ( _write_lcd_cmd (1 -> -> 14 `i `uc ]
+[; ;clcd.c: 33: _delay_MS(250);
+"33
 [e ( __delay_MS (1 -> 250 `i ]
-[; ;clcd.c: 34: write_lcd_cmd(0x01);;
-"34
-[e ( _write_lcd_cmd (1 -> -> 1 `i `uc ]
-[; ;clcd.c: 35: _delay_MS(250);
+[; ;clcd.c: 35: write_lcd_cmd(0x01);;
 "35
+[e ( _write_lcd_cmd (1 -> -> 1 `i `uc ]
+[; ;clcd.c: 36: _delay_MS(250);
+"36
 [e ( __delay_MS (1 -> 250 `i ]
-[; ;clcd.c: 37: write_lcd_cmd(0x06);;
-"37
-[e ( _write_lcd_cmd (1 -> -> 6 `i `uc ]
-[; ;clcd.c: 38: _delay_MS(250);
+[; ;clcd.c: 38: write_lcd_cmd(0x06);;
 "38
+[e ( _write_lcd_cmd (1 -> -> 6 `i `uc ]
+[; ;clcd.c: 39: _delay_MS(250);
+"39
 [e ( __delay_MS (1 -> 250 `i ]
-[; ;clcd.c: 40: write_lcd_cmd(0x0F);
-"40
-[e ( _write_lcd_cmd (1 -> -> 15 `i `uc ]
-[; ;clcd.c: 41: _delay_MS(250);
+[; ;clcd.c: 41: write_lcd_cmd(0x0C);
 "41
+[e ( _write_lcd_cmd (1 -> -> 12 `i `uc ]
+[; ;clcd.c: 42: _delay_MS(250);
+"42
 [e ( __delay_MS (1 -> 250 `i ]
-[; ;clcd.c: 43: memset(lcd_display_array, ' ', sizeof (lcd_display_array));
-"43
+[; ;clcd.c: 44: memset(lcd_display_array, ' ', sizeof (lcd_display_array));
+"44
 [e ( _memset (3 , , -> &U _lcd_display_array `*v -> -> 32 `ui `i -> # _lcd_display_array `ui ]
-[; ;clcd.c: 45: clcd_display_string_config();
-"45
+[; ;clcd.c: 46: clcd_display_string_config();
+"46
 [e ( _clcd_display_string_config ..  ]
-[; ;clcd.c: 47: reset_clcd();
-"47
-[e ( _reset_clcd ..  ]
-[; ;clcd.c: 48: }
+[; ;clcd.c: 48: reset_clcd();
 "48
+[e ( _reset_clcd ..  ]
+[; ;clcd.c: 49: }
+"49
 [e :UE 856 ]
 }
-"50
+"51
 [v _init_clcd_cusotom_lcd `(v ~T0 @X0 1 ef2`uc`uc ]
 {
-[; ;clcd.c: 50: void init_clcd_cusotom_lcd(char clcd_init_row, char clcd_init_col) {
+[; ;clcd.c: 51: void init_clcd_cusotom_lcd(char clcd_init_row, char clcd_init_col) {
 [e :U _init_clcd_cusotom_lcd ]
 [v _clcd_init_row `uc ~T0 @X0 1 r1 ]
 [v _clcd_init_col `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;clcd.c: 51: init_CLCD_config();
-"51
-[e ( _init_CLCD_config ..  ]
-[; ;clcd.c: 52: data_count = 0;
+[; ;clcd.c: 52: init_CLCD_config();
 "52
-[e = _data_count -> -> 0 `i `uc ]
-[; ;clcd.c: 53: memset(clcd_display_string_details, 0, sizeof (clcd_display_string_details));
+[e ( _init_CLCD_config ..  ]
+[; ;clcd.c: 53: data_count = 0;
 "53
-[e ( _memset (3 , , -> &U _clcd_display_string_details `*v -> 0 `i -> # _clcd_display_string_details `ui ]
-[; ;clcd.c: 54: memset(conflict_arr, 0, sizeof (conflict_arr));
+[e = _data_count -> -> 0 `i `uc ]
+[; ;clcd.c: 54: memset(clcd_display_string_details, 0, sizeof (clcd_display_string_details));
 "54
-[e ( _memset (3 , , -> &U _conflict_arr `*v -> 0 `i -> # _conflict_arr `ui ]
-[; ;clcd.c: 55: clcd_config_data.init_done = 1;
+[e ( _memset (3 , , -> &U _clcd_display_string_details `*v -> 0 `i -> # _clcd_display_string_details `ui ]
+[; ;clcd.c: 55: memset(conflict_arr, 0, sizeof (conflict_arr));
 "55
-[e = . _clcd_config_data 0 -> -> 1 `i `uc ]
-[; ;clcd.c: 56: printf("row = %d", clcd_init_row);
+[e ( _memset (3 , , -> &U _conflict_arr `*v -> 0 `i -> # _conflict_arr `ui ]
+[; ;clcd.c: 56: clcd_config_data.init_done = 1;
 "56
-[e ( _printf , (. :s 1C -> _clcd_init_row `i ]
-[; ;clcd.c: 57: clcd_config_data.clcd_max_row = clcd_init_row;
-"57
-[e = . _clcd_config_data 1 _clcd_init_row ]
-[; ;clcd.c: 58: printf("col = %d", clcd_init_col);
+[e = . _clcd_config_data 0 -> -> 1 `i `uc ]
+[; ;clcd.c: 58: printf("row = %d", clcd_init_row);
 "58
-[e ( _printf , (. :s 2C -> _clcd_init_col `i ]
-[; ;clcd.c: 59: clcd_config_data.clcd_max_col = clcd_init_col;
-"59
-[e = . _clcd_config_data 2 _clcd_init_col ]
-[; ;clcd.c: 60: printf("string_count = %d", (clcd_init_col / 4) * clcd_init_row);
+[e ( _printf , (. :s 1C -> _clcd_init_row `i ]
+[; ;clcd.c: 60: clcd_config_data.clcd_max_row = clcd_init_row;
 "60
-[e ( _printf , (. :s 3C * / -> _clcd_init_col `i -> 4 `i -> _clcd_init_row `i ]
-[; ;clcd.c: 61: clcd_config_data.clcd_max_display_string = (clcd_init_col / 4) * clcd_init_row;
-"61
-[e = . _clcd_config_data 4 -> * / -> _clcd_init_col `i -> 4 `i -> _clcd_init_row `i `uc ]
-[; ;clcd.c: 62: clcd_config_data.uid_range = 'A' + clcd_config_data.clcd_max_display_string;
+[e = . _clcd_config_data 1 _clcd_init_row ]
+[; ;clcd.c: 62: printf("col = %d", clcd_init_col);
 "62
-[e = . _clcd_config_data 3 -> + -> 65 `ui -> . _clcd_config_data 4 `ui `uc ]
-[; ;clcd.c: 63: printf("uid_range = %d\r\n", clcd_config_data.uid_range);
-"63
-[e ( _printf , (. :s 4C -> . _clcd_config_data 3 `i ]
-[; ;clcd.c: 64: }
+[e ( _printf , (. :s 2C -> _clcd_init_col `i ]
+[; ;clcd.c: 64: clcd_config_data.clcd_max_col = clcd_init_col;
 "64
+[e = . _clcd_config_data 2 _clcd_init_col ]
+[; ;clcd.c: 66: printf("string_count = %d", (clcd_init_col / 4) * clcd_init_row);
+"66
+[e ( _printf , (. :s 3C * / -> _clcd_init_col `i -> 4 `i -> _clcd_init_row `i ]
+[; ;clcd.c: 68: clcd_config_data.clcd_max_display_string = (clcd_init_col / 4) * clcd_init_row;
+"68
+[e = . _clcd_config_data 4 -> * / -> _clcd_init_col `i -> 4 `i -> _clcd_init_row `i `uc ]
+[; ;clcd.c: 69: clcd_config_data.uid_range = 'A' + clcd_config_data.clcd_max_display_string;
+"69
+[e = . _clcd_config_data 3 -> + -> 65 `ui -> . _clcd_config_data 4 `ui `uc ]
+[; ;clcd.c: 71: printf("uid_range = %d\r\n", clcd_config_data.uid_range);
+"71
+[e ( _printf , (. :s 4C -> . _clcd_config_data 3 `i ]
+[; ;clcd.c: 73: }
+"73
 [e :UE 857 ]
 }
-"66
+"75
 [v _init_clcd_lcd_16x2 `(v ~T0 @X0 1 ef ]
 {
-[; ;clcd.c: 66: void init_clcd_lcd_16x2() {
+[; ;clcd.c: 75: void init_clcd_lcd_16x2() {
 [e :U _init_clcd_lcd_16x2 ]
 [f ]
-[; ;clcd.c: 67: init_CLCD_config();
-"67
+[; ;clcd.c: 76: init_CLCD_config();
+"76
 [e ( _init_CLCD_config ..  ]
-[; ;clcd.c: 68: clcd_config_data.init_done = 1;
-"68
+[; ;clcd.c: 77: clcd_config_data.init_done = 1;
+"77
 [e = . _clcd_config_data 0 -> -> 1 `i `uc ]
-[; ;clcd.c: 69: clcd_config_data.clcd_max_col = 16;
-"69
+[; ;clcd.c: 78: clcd_config_data.clcd_max_col = 16;
+"78
 [e = . _clcd_config_data 2 -> -> 16 `i `uc ]
-[; ;clcd.c: 70: clcd_config_data.clcd_max_row = 2;
-"70
+[; ;clcd.c: 79: clcd_config_data.clcd_max_row = 2;
+"79
 [e = . _clcd_config_data 1 -> -> 2 `i `uc ]
-[; ;clcd.c: 71: clcd_config_data.clcd_max_display_string = 8;
-"71
+[; ;clcd.c: 80: clcd_config_data.clcd_max_display_string = 8;
+"80
 [e = . _clcd_config_data 4 -> -> 8 `i `uc ]
-[; ;clcd.c: 72: }
-"72
+[; ;clcd.c: 81: }
+"81
 [e :UE 858 ]
 }
-"74
+"83
 [v _init_clcd_lcd_20x4 `(v ~T0 @X0 1 ef ]
 {
-[; ;clcd.c: 74: void init_clcd_lcd_20x4() {
+[; ;clcd.c: 83: void init_clcd_lcd_20x4() {
 [e :U _init_clcd_lcd_20x4 ]
 [f ]
-[; ;clcd.c: 75: init_CLCD_config();
-"75
+[; ;clcd.c: 84: init_CLCD_config();
+"84
 [e ( _init_CLCD_config ..  ]
-[; ;clcd.c: 76: clcd_config_data.init_done = 1;
-"76
+[; ;clcd.c: 85: clcd_config_data.init_done = 1;
+"85
 [e = . _clcd_config_data 0 -> -> 1 `i `uc ]
-[; ;clcd.c: 77: clcd_config_data.clcd_max_col = 20;
-"77
+[; ;clcd.c: 86: clcd_config_data.clcd_max_col = 20;
+"86
 [e = . _clcd_config_data 2 -> -> 20 `i `uc ]
-[; ;clcd.c: 78: clcd_config_data.clcd_max_row = 4;
-"78
+[; ;clcd.c: 87: clcd_config_data.clcd_max_row = 4;
+"87
 [e = . _clcd_config_data 1 -> -> 4 `i `uc ]
-[; ;clcd.c: 79: clcd_config_data.clcd_max_display_string = 20;
-"79
+[; ;clcd.c: 88: clcd_config_data.clcd_max_display_string = 20;
+"88
 [e = . _clcd_config_data 4 -> -> 20 `i `uc ]
-[; ;clcd.c: 80: }
-"80
+[; ;clcd.c: 89: }
+"89
 [e :UE 859 ]
 }
-"82
+"91
 [v _max_display_str `(uc ~T0 @X0 1 ef ]
 {
-[; ;clcd.c: 82: char max_display_str() {
+[; ;clcd.c: 91: char max_display_str() {
 [e :U _max_display_str ]
 [f ]
-[; ;clcd.c: 83: if (clcd_config_data.init_done == 0)
-"83
+[; ;clcd.c: 92: if (clcd_config_data.init_done == 0)
+"92
 [e $ ! == -> . _clcd_config_data 0 `i -> 0 `i 861  ]
-[; ;clcd.c: 84: return 0;
-"84
+[; ;clcd.c: 93: return 0;
+"93
 [e ) -> -> 0 `i `uc ]
 [e $UE 860  ]
 [e $U 862  ]
-"85
+"94
 [e :U 861 ]
-[; ;clcd.c: 85: else
-[; ;clcd.c: 86: return clcd_config_data.clcd_max_display_string;
-"86
+[; ;clcd.c: 94: else
+[; ;clcd.c: 95: return clcd_config_data.clcd_max_display_string;
+"95
 [e ) . _clcd_config_data 4 ]
 [e $UE 860  ]
 [e :U 862 ]
-[; ;clcd.c: 87: }
-"87
+[; ;clcd.c: 96: }
+"96
 [e :UE 860 ]
 }
-"89
+"98
 [v _min_uid_range `(uc ~T0 @X0 1 ef ]
 {
-[; ;clcd.c: 89: char min_uid_range() {
+[; ;clcd.c: 98: char min_uid_range() {
 [e :U _min_uid_range ]
 [f ]
-[; ;clcd.c: 90: if (clcd_config_data.init_done == 0)
-"90
+[; ;clcd.c: 99: if (clcd_config_data.init_done == 0)
+"99
 [e $ ! == -> . _clcd_config_data 0 `i -> 0 `i 864  ]
-[; ;clcd.c: 91: return 0;
-"91
+[; ;clcd.c: 100: return 0;
+"100
 [e ) -> -> 0 `i `uc ]
 [e $UE 863  ]
 [e $U 865  ]
-"92
+"101
 [e :U 864 ]
-[; ;clcd.c: 92: else
-[; ;clcd.c: 93: return 'A';
-"93
+[; ;clcd.c: 101: else
+[; ;clcd.c: 102: return 'A';
+"102
 [e ) -> -> 65 `ui `uc ]
 [e $UE 863  ]
 [e :U 865 ]
-[; ;clcd.c: 94: }
-"94
+[; ;clcd.c: 103: }
+"103
 [e :UE 863 ]
 }
-"96
+"105
 [v _max_uid_range `(uc ~T0 @X0 1 ef ]
 {
-[; ;clcd.c: 96: char max_uid_range() {
+[; ;clcd.c: 105: char max_uid_range() {
 [e :U _max_uid_range ]
 [f ]
-[; ;clcd.c: 97: if (clcd_config_data.init_done == 0)
-"97
+[; ;clcd.c: 106: if (clcd_config_data.init_done == 0)
+"106
 [e $ ! == -> . _clcd_config_data 0 `i -> 0 `i 867  ]
-[; ;clcd.c: 98: return 0;
-"98
+[; ;clcd.c: 107: return 0;
+"107
 [e ) -> -> 0 `i `uc ]
 [e $UE 866  ]
 [e $U 868  ]
-"99
+"108
 [e :U 867 ]
-[; ;clcd.c: 99: else
-[; ;clcd.c: 100: return clcd_config_data.uid_range - 1;
-"100
+[; ;clcd.c: 108: else
+[; ;clcd.c: 109: return clcd_config_data.uid_range - 1;
+"109
 [e ) -> - -> . _clcd_config_data 3 `i -> 1 `i `uc ]
 [e $UE 866  ]
 [e :U 868 ]
-[; ;clcd.c: 101: }
-"101
+[; ;clcd.c: 110: }
+"110
 [e :UE 866 ]
 }
-"103
+"112
 [v _max_display_support `(*uc ~T0 @X0 1 ef ]
 {
-[; ;clcd.c: 103: char* max_display_support() {
+[; ;clcd.c: 112: char* max_display_support() {
 [e :U _max_display_support ]
 [f ]
-[; ;clcd.c: 104: return "4,20";
-"104
+[; ;clcd.c: 113: return "4,20";
+"113
 [e ) -> :s 5C `*uc ]
 [e $UE 869  ]
-[; ;clcd.c: 105: }
-"105
+[; ;clcd.c: 114: }
+"114
 [e :UE 869 ]
 }
-"107
+"116
 [v _clcd_max_row `(uc ~T0 @X0 1 ef ]
 {
-[; ;clcd.c: 107: char clcd_max_row() {
+[; ;clcd.c: 116: char clcd_max_row() {
 [e :U _clcd_max_row ]
 [f ]
-[; ;clcd.c: 108: if (clcd_config_data.init_done == 0)
-"108
+[; ;clcd.c: 117: if (clcd_config_data.init_done == 0)
+"117
 [e $ ! == -> . _clcd_config_data 0 `i -> 0 `i 871  ]
-[; ;clcd.c: 109: return 0;
-"109
+[; ;clcd.c: 118: return 0;
+"118
 [e ) -> -> 0 `i `uc ]
 [e $UE 870  ]
 [e $U 872  ]
-"110
+"119
 [e :U 871 ]
-[; ;clcd.c: 110: else
-[; ;clcd.c: 111: return clcd_config_data.clcd_max_row;
-"111
+[; ;clcd.c: 119: else
+[; ;clcd.c: 120: return clcd_config_data.clcd_max_row;
+"120
 [e ) . _clcd_config_data 1 ]
 [e $UE 870  ]
 [e :U 872 ]
-[; ;clcd.c: 112: }
-"112
+[; ;clcd.c: 121: }
+"121
 [e :UE 870 ]
 }
-"114
+"123
 [v _clcd_max_col `(uc ~T0 @X0 1 ef ]
 {
-[; ;clcd.c: 114: char clcd_max_col() {
+[; ;clcd.c: 123: char clcd_max_col() {
 [e :U _clcd_max_col ]
 [f ]
-[; ;clcd.c: 115: if (clcd_config_data.init_done == 0)
-"115
+[; ;clcd.c: 124: if (clcd_config_data.init_done == 0)
+"124
 [e $ ! == -> . _clcd_config_data 0 `i -> 0 `i 874  ]
-[; ;clcd.c: 116: return 0;
-"116
+[; ;clcd.c: 125: return 0;
+"125
 [e ) -> -> 0 `i `uc ]
 [e $UE 873  ]
 [e $U 875  ]
-"117
+"126
 [e :U 874 ]
-[; ;clcd.c: 117: else
-[; ;clcd.c: 118: return clcd_config_data.clcd_max_col;
-"118
+[; ;clcd.c: 126: else
+[; ;clcd.c: 127: return clcd_config_data.clcd_max_col;
+"127
 [e ) . _clcd_config_data 2 ]
 [e $UE 873  ]
 [e :U 875 ]
-[; ;clcd.c: 119: }
-"119
+[; ;clcd.c: 128: }
+"128
 [e :UE 873 ]
 }
-"121
+"130
 [v _copy_data `(v ~T0 @X0 1 ef2`*S853`*S851 ]
 {
-[; ;clcd.c: 121: void copy_data(CLCD_STRING_DISPLAY_DETAILS *clcd_str_data, CMD_CONSOL_DATA *data) {
+[; ;clcd.c: 130: void copy_data(CLCD_STRING_DISPLAY_DETAILS *clcd_str_data, CMD_CONSOL_DATA *data) {
 [e :U _copy_data ]
 [v _clcd_str_data `*S853 ~T0 @X0 1 r1 ]
 [v _data `*S851 ~T0 @X0 1 r2 ]
 [f ]
-"122
+"131
 [v _row1 `uc ~T0 @X0 1 a ]
 [v _col1 `uc ~T0 @X0 1 a ]
 [v _row2 `uc ~T0 @X0 1 a ]
 [v _col2 `uc ~T0 @X0 1 a ]
-[; ;clcd.c: 122: char row1, col1, row2, col2;
-[; ;clcd.c: 123: clcd_str_data->uid = data->uid;
-"123
-[e = . *U _clcd_str_data 0 . *U _data 0 ]
-[; ;clcd.c: 124: strcpy(clcd_str_data->string, data->data);
-"124
-[e ( _strcpy (2 , &U . *U _clcd_str_data 1 -> &U . *U _data 1 `*Cuc ]
-[; ;clcd.c: 125: clcd_str_data->strlen = strlen(clcd_str_data->string);
-"125
-[e = . *U _clcd_str_data 2 -> ( _strlen (1 -> &U . *U _clcd_str_data 1 `*Cuc `uc ]
-[; ;clcd.c: 126: clcd_str_data->start_row = data->start_row;
-"126
-[e = . *U _clcd_str_data 3 . *U _data 3 ]
-[; ;clcd.c: 127: clcd_str_data->start_col = data->start_col;
-"127
-[e = . *U _clcd_str_data 4 . *U _data 4 ]
-[; ;clcd.c: 128: clcd_str_data->end_row = data->end_row;
-"128
-[e = . *U _clcd_str_data 6 . *U _data 5 ]
-[; ;clcd.c: 129: clcd_str_data->end_col = data->end_col;
-"129
-[e = . *U _clcd_str_data 7 . *U _data 6 ]
-[; ;clcd.c: 130: clcd_str_data->start_point = (clcd_str_data->start_row * clcd_config_data.clcd_max_col) + clcd_str_data->start_col;
-"130
-[e = . *U _clcd_str_data 5 -> + * -> . *U _clcd_str_data 3 `i -> . _clcd_config_data 2 `i -> . *U _clcd_str_data 4 `i `uc ]
-[; ;clcd.c: 131: clcd_str_data->end_point = (clcd_str_data->end_row * clcd_config_data.clcd_max_col) + clcd_str_data->end_col;
-"131
-[e = . *U _clcd_str_data 8 -> + * -> . *U _clcd_str_data 6 `i -> . _clcd_config_data 2 `i -> . *U _clcd_str_data 7 `i `uc ]
-[; ;clcd.c: 132: clcd_str_data->direction = data->scroll;
+[; ;clcd.c: 131: char row1, col1, row2, col2;
+[; ;clcd.c: 132: clcd_str_data->uid = data->uid;
 "132
-[e = . *U _clcd_str_data 9 . *U _data 8 ]
-[; ;clcd.c: 133: clcd_str_data->display_char_count = (clcd_str_data->end_point - clcd_str_data->start_point) + 1;
+[e = . *U _clcd_str_data 0 . *U _data 0 ]
+[; ;clcd.c: 133: strcpy(clcd_str_data->string, data->data);
 "133
-[e = . *U _clcd_str_data 10 -> + - -> . *U _clcd_str_data 8 `i -> . *U _clcd_str_data 5 `i -> 1 `i `uc ]
-[; ;clcd.c: 134: printf("display_char_count = %d\r\n", clcd_str_data->display_char_count);
+[e ( _strcpy (2 , &U . *U _clcd_str_data 1 -> &U . *U _data 1 `*Cuc ]
+[; ;clcd.c: 134: clcd_str_data->strlen = strlen(clcd_str_data->string);
 "134
-[e ( _printf , (. :s 6C -> . *U _clcd_str_data 10 `i ]
-[; ;clcd.c: 135: }
+[e = . *U _clcd_str_data 2 -> ( _strlen (1 -> &U . *U _clcd_str_data 1 `*Cuc `uc ]
+[; ;clcd.c: 135: clcd_str_data->start_row = data->start_row;
 "135
+[e = . *U _clcd_str_data 3 . *U _data 3 ]
+[; ;clcd.c: 136: clcd_str_data->start_col = data->start_col;
+"136
+[e = . *U _clcd_str_data 4 . *U _data 4 ]
+[; ;clcd.c: 137: clcd_str_data->end_row = data->end_row;
+"137
+[e = . *U _clcd_str_data 6 . *U _data 5 ]
+[; ;clcd.c: 138: clcd_str_data->end_col = data->end_col;
+"138
+[e = . *U _clcd_str_data 7 . *U _data 6 ]
+[; ;clcd.c: 139: clcd_str_data->start_point = (clcd_str_data->start_row * clcd_config_data.clcd_max_col) + clcd_str_data->start_col;
+"139
+[e = . *U _clcd_str_data 5 -> + * -> . *U _clcd_str_data 3 `i -> . _clcd_config_data 2 `i -> . *U _clcd_str_data 4 `i `uc ]
+[; ;clcd.c: 140: clcd_str_data->end_point = (clcd_str_data->end_row * clcd_config_data.clcd_max_col) + clcd_str_data->end_col;
+"140
+[e = . *U _clcd_str_data 8 -> + * -> . *U _clcd_str_data 6 `i -> . _clcd_config_data 2 `i -> . *U _clcd_str_data 7 `i `uc ]
+[; ;clcd.c: 141: clcd_str_data->direction = data->scroll;
+"141
+[e = . *U _clcd_str_data 9 . *U _data 8 ]
+[; ;clcd.c: 142: clcd_str_data->display_char_count = (clcd_str_data->end_point - clcd_str_data->start_point) + 1;
+"142
+[e = . *U _clcd_str_data 11 -> + - -> . *U _clcd_str_data 8 `i -> . *U _clcd_str_data 5 `i -> 1 `i `uc ]
+[; ;clcd.c: 143: printf("display_char_count = %d\r\n", clcd_str_data->display_char_count);
+"143
+[e ( _printf , (. :s 6C -> . *U _clcd_str_data 11 `i ]
+[; ;clcd.c: 144: }
+"144
 [e :UE 876 ]
 }
-"137
+"146
 [v _conflict_check `(uc ~T0 @X0 1 ef3`uc`uc`uc ]
 {
-[; ;clcd.c: 137: bool conflict_check(char exist_uid_idx, char new_start_point, char new_end_point) {
+[; ;clcd.c: 146: bool conflict_check(char exist_uid_idx, char new_start_point, char new_end_point) {
 [e :U _conflict_check ]
 [v _exist_uid_idx `uc ~T0 @X0 1 r1 ]
 [v _new_start_point `uc ~T0 @X0 1 r2 ]
 [v _new_end_point `uc ~T0 @X0 1 r3 ]
 [f ]
-"138
+"147
 [v _i `i ~T0 @X0 1 a ]
-[; ;clcd.c: 138: int i = 0;
+[; ;clcd.c: 147: int i = 0;
 [e = _i -> 0 `i ]
-"139
-[v _conflict `uc ~T0 @X0 1 a ]
-[; ;clcd.c: 139: bool conflict = 0;
-[e = _conflict -> -> 0 `i `uc ]
-[; ;clcd.c: 141: for (i = 0; i < clcd_config_data.clcd_max_display_string;) {
-"141
+"148
+[v _conflict_bool `uc ~T0 @X0 1 a ]
+[; ;clcd.c: 148: bool conflict_bool = 0;
+[e = _conflict_bool -> -> 0 `i `uc ]
+[; ;clcd.c: 150: for (i = 0; i < clcd_config_data.clcd_max_display_string;) {
+"150
 {
 [e = _i -> 0 `i ]
 [e $U 881  ]
 [e :U 878 ]
 {
-[; ;clcd.c: 142: if (exist_uid_idx != i && clcd_display_string_details[i].uid != 0) {
-"142
+[; ;clcd.c: 151: if (exist_uid_idx != i && clcd_display_string_details[i].uid != 0) {
+"151
 [e $ ! && != -> _exist_uid_idx `i _i != . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 0 -> -> 0 `i `ui 882  ]
 {
-[; ;clcd.c: 143: if (new_start_point >= clcd_display_string_details[i].start_point && new_start_point <= clcd_display_string_details[i].end_point) {
-"143
+[; ;clcd.c: 152: if (new_start_point >= clcd_display_string_details[i].start_point && new_start_point <= clcd_display_string_details[i].end_point) {
+"152
 [e $ ! && >= -> _new_start_point `i -> . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 5 `i <= -> _new_start_point `i -> . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 8 `i 883  ]
 {
-[; ;clcd.c: 144: conflict_arr[conflict_data_count++] = clcd_display_string_details[i].uid;
-"144
+[; ;clcd.c: 153: conflict_arr[conflict_data_count++] = clcd_display_string_details[i].uid;
+"153
 [e = *U + &U _conflict_arr * -> ++ _conflict_data_count -> -> 1 `i `uc `ux -> -> # *U &U _conflict_arr `ui `ux -> . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 0 `i ]
-[; ;clcd.c: 145: i++;
-"145
+[; ;clcd.c: 154: i++;
+"154
 [e ++ _i -> 1 `i ]
-[; ;clcd.c: 146: printf("ex_sp <= new_sp <=ex_ep\r\n");
-"146
+[; ;clcd.c: 155: printf("ex_sp <= new_sp <=ex_ep\r\n");
+"155
 [e ( _printf :s 7C ]
-[; ;clcd.c: 147: conflict = 1;
-"147
-[e = _conflict -> -> 1 `i `uc ]
-[; ;clcd.c: 148: continue;
-"148
+[; ;clcd.c: 156: conflict_bool = 1;
+"156
+[e = _conflict_bool -> -> 1 `i `uc ]
+[; ;clcd.c: 157: continue;
+"157
 [e $U 880  ]
-"149
+"158
 }
 [e :U 883 ]
-[; ;clcd.c: 149: }
-[; ;clcd.c: 150: if (new_end_point >= clcd_display_string_details[i].start_point && new_end_point <= clcd_display_string_details[i].end_point) {
-"150
+[; ;clcd.c: 158: }
+[; ;clcd.c: 159: if (new_end_point >= clcd_display_string_details[i].start_point && new_end_point <= clcd_display_string_details[i].end_point) {
+"159
 [e $ ! && >= -> _new_end_point `i -> . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 5 `i <= -> _new_end_point `i -> . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 8 `i 884  ]
 {
-[; ;clcd.c: 151: conflict_arr[conflict_data_count++] = clcd_display_string_details[i].uid;
-"151
-[e = *U + &U _conflict_arr * -> ++ _conflict_data_count -> -> 1 `i `uc `ux -> -> # *U &U _conflict_arr `ui `ux -> . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 0 `i ]
-[; ;clcd.c: 152: printf("ex_sp <= new_ep <=ex_ep\r\n");
-"152
-[e ( _printf :s 8C ]
-[; ;clcd.c: 153: i++;
-"153
-[e ++ _i -> 1 `i ]
-[; ;clcd.c: 154: conflict = 1;
-"154
-[e = _conflict -> -> 1 `i `uc ]
-[; ;clcd.c: 155: continue;
-"155
-[e $U 880  ]
-"156
-}
-[e :U 884 ]
-[; ;clcd.c: 156: }
-[; ;clcd.c: 157: if (new_start_point <= clcd_display_string_details[i].start_point && new_end_point >= clcd_display_string_details[i].end_point) {
-"157
-[e $ ! && <= -> _new_start_point `i -> . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 5 `i >= -> _new_end_point `i -> . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 8 `i 885  ]
-{
-[; ;clcd.c: 158: conflict_arr[conflict_data_count++] = clcd_display_string_details[i].uid;
-"158
-[e = *U + &U _conflict_arr * -> ++ _conflict_data_count -> -> 1 `i `uc `ux -> -> # *U &U _conflict_arr `ui `ux -> . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 0 `i ]
-[; ;clcd.c: 159: i++;
-"159
-[e ++ _i -> 1 `i ]
-[; ;clcd.c: 160: conflict = 1;
+[; ;clcd.c: 160: conflict_arr[conflict_data_count++] = clcd_display_string_details[i].uid;
 "160
-[e = _conflict -> -> 1 `i `uc ]
-[; ;clcd.c: 161: continue;
+[e = *U + &U _conflict_arr * -> ++ _conflict_data_count -> -> 1 `i `uc `ux -> -> # *U &U _conflict_arr `ui `ux -> . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 0 `i ]
+[; ;clcd.c: 161: printf("ex_sp <= new_ep <=ex_ep\r\n");
 "161
-[e $U 880  ]
+[e ( _printf :s 8C ]
+[; ;clcd.c: 162: i++;
 "162
-}
-[e :U 885 ]
-"163
-}
-[e :U 882 ]
-[; ;clcd.c: 162: }
-[; ;clcd.c: 163: }
-[; ;clcd.c: 164: i++;
-"164
 [e ++ _i -> 1 `i ]
+[; ;clcd.c: 163: conflict_bool = 1;
+"163
+[e = _conflict_bool -> -> 1 `i `uc ]
+[; ;clcd.c: 164: continue;
+"164
+[e $U 880  ]
 "165
 }
+[e :U 884 ]
+[; ;clcd.c: 165: }
+[; ;clcd.c: 166: if (new_start_point <= clcd_display_string_details[i].start_point && new_end_point >= clcd_display_string_details[i].end_point) {
+"166
+[e $ ! && <= -> _new_start_point `i -> . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 5 `i >= -> _new_end_point `i -> . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 8 `i 885  ]
+{
+[; ;clcd.c: 167: conflict_arr[conflict_data_count++] = clcd_display_string_details[i].uid;
+"167
+[e = *U + &U _conflict_arr * -> ++ _conflict_data_count -> -> 1 `i `uc `ux -> -> # *U &U _conflict_arr `ui `ux -> . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 0 `i ]
+[; ;clcd.c: 168: i++;
+"168
+[e ++ _i -> 1 `i ]
+[; ;clcd.c: 169: conflict_bool = 1;
+"169
+[e = _conflict_bool -> -> 1 `i `uc ]
+[; ;clcd.c: 170: continue;
+"170
+[e $U 880  ]
+"171
+}
+[e :U 885 ]
+"172
+}
+[e :U 882 ]
+[; ;clcd.c: 171: }
+[; ;clcd.c: 172: }
+[; ;clcd.c: 173: i++;
+"173
+[e ++ _i -> 1 `i ]
+"174
+}
 [e :U 880 ]
-"141
+"150
 [e :U 881 ]
 [e $ < _i -> . _clcd_config_data 4 `i 878  ]
 [e :U 879 ]
-"165
-}
-[; ;clcd.c: 165: }
-[; ;clcd.c: 173: return conflict;
-"173
-[e ) _conflict ]
-[e $UE 877  ]
-[; ;clcd.c: 174: }
 "174
+}
+[; ;clcd.c: 174: }
+[; ;clcd.c: 182: return conflict_bool;
+"182
+[e ) _conflict_bool ]
+[e $UE 877  ]
+[; ;clcd.c: 183: }
+"183
 [e :UE 877 ]
 }
-"176
+"185
 [v _conflict `(uc ~T0 @X0 1 ef2`uc`uc ]
 {
-[; ;clcd.c: 176: bool conflict(char new_start_point, char new_end_point) {
+[; ;clcd.c: 185: bool conflict(char new_start_point, char new_end_point) {
 [e :U _conflict ]
 [v _new_start_point `uc ~T0 @X0 1 r1 ]
 [v _new_end_point `uc ~T0 @X0 1 r2 ]
 [f ]
-"177
+"186
 [v _i `i ~T0 @X0 1 a ]
-[; ;clcd.c: 177: int i = 0;
+[; ;clcd.c: 186: int i = 0;
 [e = _i -> 0 `i ]
-[v _conflict `uc ~T0 @X0 1 a ]
-[; ;clcd.c: 178: bool conflict = 0;
-"178
-[e = _conflict -> -> 0 `i `uc ]
-[; ;clcd.c: 180: for (i = 0; i < clcd_config_data.clcd_max_display_string;) {
-"180
+"187
+[v _conflict_bool `uc ~T0 @X0 1 a ]
+[; ;clcd.c: 187: bool conflict_bool = 0;
+[e = _conflict_bool -> -> 0 `i `uc ]
+[; ;clcd.c: 189: for (i = 0; i < clcd_config_data.clcd_max_display_string;) {
+"189
 {
 [e = _i -> 0 `i ]
 [e $U 890  ]
 [e :U 887 ]
 {
-[; ;clcd.c: 181: if (clcd_display_string_details[i].uid != 0) {
-"181
+[; ;clcd.c: 190: if (clcd_display_string_details[i].uid != 0) {
+"190
 [e $ ! != . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 0 -> -> 0 `i `ui 891  ]
 {
-[; ;clcd.c: 182: if (new_start_point >= clcd_display_string_details[i].start_point && new_start_point <= clcd_display_string_details[i].end_point) {
-"182
+[; ;clcd.c: 191: if (new_start_point >= clcd_display_string_details[i].start_point && new_start_point <= clcd_display_string_details[i].end_point) {
+"191
 [e $ ! && >= -> _new_start_point `i -> . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 5 `i <= -> _new_start_point `i -> . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 8 `i 892  ]
 {
-[; ;clcd.c: 183: conflict_arr[conflict_data_count++] = clcd_display_string_details[i].uid;
-"183
+[; ;clcd.c: 192: conflict_arr[conflict_data_count++] = clcd_display_string_details[i].uid;
+"192
 [e = *U + &U _conflict_arr * -> ++ _conflict_data_count -> -> 1 `i `uc `ux -> -> # *U &U _conflict_arr `ui `ux -> . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 0 `i ]
-[; ;clcd.c: 184: i++;
-"184
+[; ;clcd.c: 193: i++;
+"193
 [e ++ _i -> 1 `i ]
-[; ;clcd.c: 185: printf("ex_sp <= new_sp <=ex_ep\r\n");
-"185
+[; ;clcd.c: 195: printf("ex_sp <= new_sp <=ex_ep\r\n");
+"195
 [e ( _printf :s 9C ]
-[; ;clcd.c: 186: conflict = 1;
-"186
-[e = _conflict -> -> 1 `i `uc ]
-[; ;clcd.c: 187: continue;
-"187
+[; ;clcd.c: 197: conflict_bool = 1;
+"197
+[e = _conflict_bool -> -> 1 `i `uc ]
+[; ;clcd.c: 198: continue;
+"198
 [e $U 889  ]
-"188
+"199
 }
 [e :U 892 ]
-[; ;clcd.c: 188: }
-[; ;clcd.c: 189: if (new_end_point >= clcd_display_string_details[i].start_point && new_end_point <= clcd_display_string_details[i].end_point) {
-"189
+[; ;clcd.c: 199: }
+[; ;clcd.c: 200: if (new_end_point >= clcd_display_string_details[i].start_point && new_end_point <= clcd_display_string_details[i].end_point) {
+"200
 [e $ ! && >= -> _new_end_point `i -> . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 5 `i <= -> _new_end_point `i -> . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 8 `i 893  ]
 {
-[; ;clcd.c: 190: conflict_arr[conflict_data_count++] = clcd_display_string_details[i].uid;
-"190
+[; ;clcd.c: 201: conflict_arr[conflict_data_count++] = clcd_display_string_details[i].uid;
+"201
 [e = *U + &U _conflict_arr * -> ++ _conflict_data_count -> -> 1 `i `uc `ux -> -> # *U &U _conflict_arr `ui `ux -> . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 0 `i ]
-[; ;clcd.c: 191: printf("ex_sp <= new_ep <=ex_ep\r\n");
-"191
+[; ;clcd.c: 203: printf("ex_sp <= new_ep <=ex_ep\r\n");
+"203
 [e ( _printf :s 10C ]
-[; ;clcd.c: 192: i++;
-"192
+[; ;clcd.c: 205: i++;
+"205
 [e ++ _i -> 1 `i ]
-[; ;clcd.c: 193: conflict = 1;
-"193
-[e = _conflict -> -> 1 `i `uc ]
-[; ;clcd.c: 194: continue;
-"194
+[; ;clcd.c: 206: conflict_bool = 1;
+"206
+[e = _conflict_bool -> -> 1 `i `uc ]
+[; ;clcd.c: 207: continue;
+"207
 [e $U 889  ]
-"195
+"208
 }
 [e :U 893 ]
-[; ;clcd.c: 195: }
-[; ;clcd.c: 196: if (new_start_point <= clcd_display_string_details[i].start_point && new_end_point >= clcd_display_string_details[i].end_point) {
-"196
+[; ;clcd.c: 208: }
+[; ;clcd.c: 209: if (new_start_point <= clcd_display_string_details[i].start_point && new_end_point >= clcd_display_string_details[i].end_point) {
+"209
 [e $ ! && <= -> _new_start_point `i -> . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 5 `i >= -> _new_end_point `i -> . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 8 `i 894  ]
 {
-[; ;clcd.c: 197: conflict_arr[conflict_data_count++] = clcd_display_string_details[i].uid;
-"197
+[; ;clcd.c: 210: conflict_arr[conflict_data_count++] = clcd_display_string_details[i].uid;
+"210
 [e = *U + &U _conflict_arr * -> ++ _conflict_data_count -> -> 1 `i `uc `ux -> -> # *U &U _conflict_arr `ui `ux -> . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 0 `i ]
-[; ;clcd.c: 198: i++;
-"198
+[; ;clcd.c: 211: i++;
+"211
 [e ++ _i -> 1 `i ]
-[; ;clcd.c: 199: conflict = 1;
-"199
-[e = _conflict -> -> 1 `i `uc ]
-[; ;clcd.c: 200: continue;
-"200
+[; ;clcd.c: 212: conflict_bool = 1;
+"212
+[e = _conflict_bool -> -> 1 `i `uc ]
+[; ;clcd.c: 213: continue;
+"213
 [e $U 889  ]
-"201
+"214
 }
 [e :U 894 ]
-"202
+"215
 }
 [e :U 891 ]
-[; ;clcd.c: 201: }
-[; ;clcd.c: 202: }
-[; ;clcd.c: 203: i++;
-"203
+[; ;clcd.c: 214: }
+[; ;clcd.c: 215: }
+[; ;clcd.c: 216: i++;
+"216
 [e ++ _i -> 1 `i ]
-"204
+"217
 }
 [e :U 889 ]
-"180
+"189
 [e :U 890 ]
 [e $ < _i -> . _clcd_config_data 4 `i 887  ]
 [e :U 888 ]
-"204
+"217
 }
-[; ;clcd.c: 204: }
-[; ;clcd.c: 212: return conflict;
-"212
-[e ) _conflict ]
+[; ;clcd.c: 217: }
+[; ;clcd.c: 225: return conflict_bool;
+"225
+[e ) _conflict_bool ]
 [e $UE 886  ]
-[; ;clcd.c: 213: }
-"213
+[; ;clcd.c: 226: }
+"226
 [e :UE 886 ]
 }
-"215
+"228
 [v _copy_display_struct `(v ~T0 @X0 1 ef3`*S853`*S851`uc ]
 {
-[; ;clcd.c: 215: void copy_display_struct(CLCD_STRING_DISPLAY_DETAILS *clcd_str_data, CMD_CONSOL_DATA *data, char uid) {
+[; ;clcd.c: 228: void copy_display_struct(CLCD_STRING_DISPLAY_DETAILS *clcd_str_data, CMD_CONSOL_DATA *data, char uid) {
 [e :U _copy_display_struct ]
 [v _clcd_str_data `*S853 ~T0 @X0 1 r1 ]
 [v _data `*S851 ~T0 @X0 1 r2 ]
 [v _uid `uc ~T0 @X0 1 r3 ]
 [f ]
-[; ;clcd.c: 216: clcd_str_data->uid = uid;
-"216
+[; ;clcd.c: 229: clcd_str_data->uid = uid;
+"229
 [e = . *U _clcd_str_data 0 -> _uid `ui ]
-[; ;clcd.c: 217: strcpy(clcd_str_data->string, data->data);
-"217
+[; ;clcd.c: 230: strcpy(clcd_str_data->string, data->data);
+"230
 [e ( _strcpy (2 , &U . *U _clcd_str_data 1 -> &U . *U _data 1 `*Cuc ]
-[; ;clcd.c: 218: clcd_str_data->strlen = strlen(clcd_str_data->string);
-"218
+[; ;clcd.c: 232: printf("display_data = %s\r\n", clcd_str_data->string);
+"232
+[e ( _printf , (. :s 11C -> &U . *U _clcd_str_data 1 `*Cuc ]
+[; ;clcd.c: 234: clcd_str_data->strlen = strlen(clcd_str_data->string);
+"234
 [e = . *U _clcd_str_data 2 -> ( _strlen (1 -> &U . *U _clcd_str_data 1 `*Cuc `uc ]
-[; ;clcd.c: 219: clcd_str_data->start_row = data->start_row;
-"219
+[; ;clcd.c: 235: clcd_str_data->start_row = data->start_row;
+"235
 [e = . *U _clcd_str_data 3 . *U _data 3 ]
-[; ;clcd.c: 220: clcd_str_data->start_col = data->start_col;
-"220
+[; ;clcd.c: 236: clcd_str_data->start_col = data->start_col;
+"236
 [e = . *U _clcd_str_data 4 . *U _data 4 ]
-[; ;clcd.c: 221: clcd_str_data->end_row = data->end_row;
-"221
+[; ;clcd.c: 237: clcd_str_data->end_row = data->end_row;
+"237
 [e = . *U _clcd_str_data 6 . *U _data 5 ]
-[; ;clcd.c: 222: clcd_str_data->end_col = data->end_col;
-"222
+[; ;clcd.c: 238: clcd_str_data->end_col = data->end_col;
+"238
 [e = . *U _clcd_str_data 7 . *U _data 6 ]
-[; ;clcd.c: 223: clcd_str_data->start_point = (clcd_str_data->start_row * clcd_config_data.clcd_max_col) + clcd_str_data->start_col;
-"223
+[; ;clcd.c: 239: clcd_str_data->start_point = (clcd_str_data->start_row * clcd_config_data.clcd_max_col) + clcd_str_data->start_col;
+"239
 [e = . *U _clcd_str_data 5 -> + * -> . *U _clcd_str_data 3 `i -> . _clcd_config_data 2 `i -> . *U _clcd_str_data 4 `i `uc ]
-[; ;clcd.c: 224: clcd_str_data->end_point = (clcd_str_data->end_row * clcd_config_data.clcd_max_col) + clcd_str_data->end_col;
-"224
+[; ;clcd.c: 240: clcd_str_data->end_point = (clcd_str_data->end_row * clcd_config_data.clcd_max_col) + clcd_str_data->end_col;
+"240
 [e = . *U _clcd_str_data 8 -> + * -> . *U _clcd_str_data 6 `i -> . _clcd_config_data 2 `i -> . *U _clcd_str_data 7 `i `uc ]
-[; ;clcd.c: 225: clcd_str_data->direction = data->scroll;
-"225
+[; ;clcd.c: 241: clcd_str_data->direction = data->scroll;
+"241
 [e = . *U _clcd_str_data 9 . *U _data 8 ]
-[; ;clcd.c: 226: clcd_str_data->display_char_count = (clcd_str_data->end_point - clcd_str_data->start_point) + 1;
-"226
-[e = . *U _clcd_str_data 10 -> + - -> . *U _clcd_str_data 8 `i -> . *U _clcd_str_data 5 `i -> 1 `i `uc ]
-[; ;clcd.c: 227: printf("display_char_count = %d\r\n", clcd_str_data->display_char_count);
-"227
-[e ( _printf , (. :s 11C -> . *U _clcd_str_data 10 `i ]
-[; ;clcd.c: 228: }
-"228
+[; ;clcd.c: 242: clcd_str_data->display_char_count = (clcd_str_data->end_point - clcd_str_data->start_point) + 1;
+"242
+[e = . *U _clcd_str_data 11 -> + - -> . *U _clcd_str_data 8 `i -> . *U _clcd_str_data 5 `i -> 1 `i `uc ]
+[; ;clcd.c: 243: clcd_str_data->display_interval = data->dis_frq;
+"243
+[e = . *U _clcd_str_data 10 . *U _data 10 ]
+[; ;clcd.c: 245: printf("display_char_count = %d\r\n", clcd_str_data->display_char_count);
+"245
+[e ( _printf , (. :s 12C -> . *U _clcd_str_data 11 `i ]
+[; ;clcd.c: 247: }
+"247
 [e :UE 895 ]
 }
-"230
+"249
 [v _get_new_uid `(i ~T0 @X0 1 ef ]
 {
-[; ;clcd.c: 230: int get_new_uid() {
+[; ;clcd.c: 249: int get_new_uid() {
 [e :U _get_new_uid ]
 [f ]
-"231
+"250
 [v _i `i ~T0 @X0 1 a ]
-[; ;clcd.c: 231: int i = 1;
+[; ;clcd.c: 250: int i = 1;
 [e = _i -> 1 `i ]
-[; ;clcd.c: 232: srand(i);
-"232
+[; ;clcd.c: 251: srand(i);
+"251
 [e ( _srand (1 -> _i `ui ]
-"233
+"252
 [v _uid `i ~T0 @X0 1 a ]
-[; ;clcd.c: 233: int uid = (rand() % 100) + 1;
+[; ;clcd.c: 252: int uid = (rand() % 100) + 1;
 [e = _uid + % ( _rand ..  -> 100 `i -> 1 `i ]
-[; ;clcd.c: 234: for (i = 0; i < clcd_config_data.clcd_max_display_string;) {
-"234
+[; ;clcd.c: 253: for (i = 0; i < clcd_config_data.clcd_max_display_string;) {
+"253
 {
 [e = _i -> 0 `i ]
 [e $U 900  ]
 [e :U 897 ]
 {
-[; ;clcd.c: 235: if (clcd_display_string_details[i].uid != 0 && clcd_display_string_details[i].uid != uid) {
-"235
+[; ;clcd.c: 254: if (clcd_display_string_details[i].uid != 0 && clcd_display_string_details[i].uid != uid) {
+"254
 [e $ ! && != . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 0 -> -> 0 `i `ui != . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 0 -> _uid `ui 901  ]
 {
-[; ;clcd.c: 236: i++;
-"236
+[; ;clcd.c: 255: i++;
+"255
 [e ++ _i -> 1 `i ]
-[; ;clcd.c: 237: continue;
-"237
+[; ;clcd.c: 256: continue;
+"256
 [e $U 899  ]
-"238
+"257
 }
-[; ;clcd.c: 238: } else if (clcd_display_string_details[i].uid == 0) {
+[; ;clcd.c: 257: } else if (clcd_display_string_details[i].uid == 0) {
 [e $U 902  ]
 [e :U 901 ]
 [e $ ! == . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 0 -> -> 0 `i `ui 903  ]
 {
-[; ;clcd.c: 239: i++;
-"239
+[; ;clcd.c: 258: i++;
+"258
 [e ++ _i -> 1 `i ]
-[; ;clcd.c: 240: continue;
-"240
+[; ;clcd.c: 259: continue;
+"259
 [e $U 899  ]
-"241
+"260
 }
-[; ;clcd.c: 241: } else {
+[; ;clcd.c: 260: } else {
 [e $U 904  ]
 [e :U 903 ]
 {
-[; ;clcd.c: 242: uid = (rand() % 100) + 1;
-"242
+[; ;clcd.c: 261: uid = (rand() % 100) + 1;
+"261
 [e = _uid + % ( _rand ..  -> 100 `i -> 1 `i ]
-[; ;clcd.c: 243: i = 0;
-"243
+[; ;clcd.c: 262: i = 0;
+"262
 [e = _i -> 0 `i ]
-[; ;clcd.c: 244: continue;
-"244
+[; ;clcd.c: 263: continue;
+"263
 [e $U 899  ]
-"245
+"264
 }
 [e :U 904 ]
 [e :U 902 ]
-"246
+"265
 }
 [e :U 899 ]
-"234
+"253
 [e :U 900 ]
 [e $ < _i -> . _clcd_config_data 4 `i 897  ]
 [e :U 898 ]
-"246
+"265
 }
-[; ;clcd.c: 245: }
-[; ;clcd.c: 246: }
-[; ;clcd.c: 247: return uid;
-"247
+[; ;clcd.c: 264: }
+[; ;clcd.c: 265: }
+[; ;clcd.c: 266: return uid;
+"266
 [e ) _uid ]
 [e $UE 896  ]
-[; ;clcd.c: 248: }
-"248
+[; ;clcd.c: 267: }
+"267
 [e :UE 896 ]
 }
-"250
+"269
 [v _print_conflict_ids `(v ~T0 @X0 1 ef ]
 {
-[; ;clcd.c: 250: void print_conflict_ids() {
+[; ;clcd.c: 269: void print_conflict_ids() {
 [e :U _print_conflict_ids ]
 [f ]
-"251
+"270
 [v _conflict_count `i ~T0 @X0 1 a ]
-[; ;clcd.c: 251: int conflict_count = 0, j;
+[; ;clcd.c: 270: int conflict_count = 0, j;
 [e = _conflict_count -> 0 `i ]
 [v _j `i ~T0 @X0 1 a ]
-[; ;clcd.c: 252: for (conflict_count = 0; conflict_count < conflict_data_count; conflict_count++) {
-"252
+[; ;clcd.c: 271: for (conflict_count = 0; conflict_count < conflict_data_count; conflict_count++) {
+"271
 {
 [e = _conflict_count -> 0 `i ]
 [e $U 909  ]
 [e :U 906 ]
 {
-[; ;clcd.c: 253: if (conflict_count == conflict_data_count - 1)
-"253
+[; ;clcd.c: 272: if (conflict_count == conflict_data_count - 1) {
+"272
 [e $ ! == _conflict_count - -> _conflict_data_count `i -> 1 `i 910  ]
-[; ;clcd.c: 254: printf("%d\r\n", conflict_arr[conflict_count]);
-"254
-[e ( _printf , (. :s 12C *U + &U _conflict_arr * -> -> _conflict_count `ui `ux -> -> # *U &U _conflict_arr `ui `ux ]
-[e $U 911  ]
-"255
-[e :U 910 ]
-[; ;clcd.c: 255: else
-[; ;clcd.c: 256: printf("%d, ", conflict_arr[conflict_count]);
-"256
-[e ( _printf , (. :s 13C *U + &U _conflict_arr * -> -> _conflict_count `ui `ux -> -> # *U &U _conflict_arr `ui `ux ]
-[e :U 911 ]
-"257
+{
+[; ;clcd.c: 273: memset(out_str, 0, sizeof (out_str));
+"273
+[e ( _memset (3 , , -> &U _out_str `*v -> 0 `i -> # _out_str `ui ]
+[; ;clcd.c: 274: sprintf(out_str, "%d\r\n", conflict_arr[conflict_count]);
+"274
+[e ( _sprintf (1 , (. , &U _out_str :s 13C *U + &U _conflict_arr * -> -> _conflict_count `ui `ux -> -> # *U &U _conflict_arr `ui `ux ]
+[; ;clcd.c: 275: put_string_usart1(out_str);
+"275
+[e ( _put_string_usart1 (1 &U _out_str ]
+[; ;clcd.c: 276: printf("%d\r\n", conflict_arr[conflict_count]);
+"276
+[e ( _printf , (. :s 14C *U + &U _conflict_arr * -> -> _conflict_count `ui `ux -> -> # *U &U _conflict_arr `ui `ux ]
+"277
 }
-"252
+[; ;clcd.c: 277: } else {
+[e $U 911  ]
+[e :U 910 ]
+{
+[; ;clcd.c: 278: memset(out_str, 0, sizeof (out_str));
+"278
+[e ( _memset (3 , , -> &U _out_str `*v -> 0 `i -> # _out_str `ui ]
+[; ;clcd.c: 279: sprintf(out_str, "%d, ", conflict_arr[conflict_count]);
+"279
+[e ( _sprintf (1 , (. , &U _out_str :s 15C *U + &U _conflict_arr * -> -> _conflict_count `ui `ux -> -> # *U &U _conflict_arr `ui `ux ]
+[; ;clcd.c: 280: put_string_usart1(out_str);
+"280
+[e ( _put_string_usart1 (1 &U _out_str ]
+[; ;clcd.c: 281: printf("%d, ", conflict_arr[conflict_count]);
+"281
+[e ( _printf , (. :s 16C *U + &U _conflict_arr * -> -> _conflict_count `ui `ux -> -> # *U &U _conflict_arr `ui `ux ]
+"282
+}
+[e :U 911 ]
+"283
+}
+"271
 [e ++ _conflict_count -> 1 `i ]
 [e :U 909 ]
 [e $ < _conflict_count -> _conflict_data_count `i 906  ]
 [e :U 907 ]
-"257
+"283
 }
-[; ;clcd.c: 257: }
-[; ;clcd.c: 258: }
-"258
+[; ;clcd.c: 282: }
+[; ;clcd.c: 283: }
+[; ;clcd.c: 284: }
+"284
 [e :UE 905 ]
 }
-"260
+"286
 [v _set_string_data `(uc ~T0 @X0 1 ef1`*S851 ]
 {
-[; ;clcd.c: 260: unsigned char set_string_data(CMD_CONSOL_DATA *data) {
+[; ;clcd.c: 286: unsigned char set_string_data(CMD_CONSOL_DATA *data) {
 [e :U _set_string_data ]
 [v _data `*S851 ~T0 @X0 1 r1 ]
 [f ]
-"261
+"287
 [v _i `uc ~T0 @X0 1 a ]
-[; ;clcd.c: 261: char i = 0;
+[; ;clcd.c: 287: char i = 0;
 [e = _i -> -> 0 `i `uc ]
-"262
+"288
 [v _uid `uc ~T0 @X0 1 a ]
-[; ;clcd.c: 262: char uid = 0;
+[; ;clcd.c: 288: char uid = 0;
 [e = _uid -> -> 0 `i `uc ]
-"263
+"289
 [v _start_point `uc ~T0 @X0 1 a ]
 [v _end_point `uc ~T0 @X0 1 a ]
-[; ;clcd.c: 263: char start_point, end_point;
-[; ;clcd.c: 266: start_point = (data->start_row * clcd_config_data.clcd_max_col) + data->start_col;
-"266
+[; ;clcd.c: 289: char start_point, end_point;
+[; ;clcd.c: 292: start_point = (data->start_row * clcd_config_data.clcd_max_col) + data->start_col;
+"292
 [e = _start_point -> + * -> . *U _data 3 `i -> . _clcd_config_data 2 `i -> . *U _data 4 `i `uc ]
-[; ;clcd.c: 267: end_point = (data->end_row * clcd_config_data.clcd_max_col) + data->end_col;
-"267
+[; ;clcd.c: 293: end_point = (data->end_row * clcd_config_data.clcd_max_col) + data->end_col;
+"293
 [e = _end_point -> + * -> . *U _data 5 `i -> . _clcd_config_data 2 `i -> . *U _data 6 `i `uc ]
-[; ;clcd.c: 268: uid = get_new_uid();
-"268
+[; ;clcd.c: 294: uid = get_new_uid();
+"294
 [e = _uid -> ( _get_new_uid ..  `uc ]
-[; ;clcd.c: 269: printf("UID = %d, start_pt = %d, end_pt = %d\r\n", uid, start_point, end_point);
-"269
-[e ( _printf , , , (. :s 14C -> _uid `i -> _start_point `i -> _end_point `i ]
-[; ;clcd.c: 270: if (data->over_write != 1) {
-"270
+[; ;clcd.c: 296: printf("UID = %d, start_pt = %d, end_pt = %d\r\n", uid, start_point, end_point);
+"296
+[e ( _printf , , , (. :s 17C -> _uid `i -> _start_point `i -> _end_point `i ]
+[; ;clcd.c: 298: if (data->over_write != 1) {
+"298
 [e $ ! != -> . *U _data 12 `i -> 1 `i 913  ]
 {
-[; ;clcd.c: 271: memset(conflict_arr, -1, sizeof (conflict_arr));
-"271
+[; ;clcd.c: 299: memset(conflict_arr, -1, sizeof (conflict_arr));
+"299
 [e ( _memset (3 , , -> &U _conflict_arr `*v -U -> 1 `i -> # _conflict_arr `ui ]
-[; ;clcd.c: 272: conflict_data_count = 0;
-"272
+[; ;clcd.c: 300: conflict_data_count = 0;
+"300
 [e = _conflict_data_count -> -> 0 `i `uc ]
-[; ;clcd.c: 273: if (conflict(start_point, end_point) != 1) {
-"273
+[; ;clcd.c: 301: if (conflict(start_point, end_point) != 1) {
+"301
 [e $ ! != -> ( _conflict (2 , _start_point _end_point `i -> 1 `i 914  ]
 {
-[; ;clcd.c: 274: if (data_count < clcd_config_data.clcd_max_display_string) {
-"274
+[; ;clcd.c: 302: if (data_count < clcd_config_data.clcd_max_display_string) {
+"302
 [e $ ! < -> _data_count `i -> . _clcd_config_data 4 `i 915  ]
 {
-[; ;clcd.c: 275: for (i = 0; i < clcd_config_data.clcd_max_display_string; i++) {
-"275
+[; ;clcd.c: 303: for (i = 0; i < clcd_config_data.clcd_max_display_string; i++) {
+"303
 {
 [e = _i -> -> 0 `i `uc ]
 [e $U 919  ]
 [e :U 916 ]
 {
-[; ;clcd.c: 276: if (clcd_display_string_details[i].uid == 0) {
-"276
+[; ;clcd.c: 304: if (clcd_display_string_details[i].uid == 0) {
+"304
 [e $ ! == . *U + &U _clcd_display_string_details * -> _i `ux -> -> # *U &U _clcd_display_string_details `ui `ux 0 -> -> 0 `i `ui 920  ]
 {
-[; ;clcd.c: 277: memset(&clcd_display_string_details[i], 0, sizeof (CLCD_STRING_DISPLAY_DETAILS));
-"277
+[; ;clcd.c: 305: memset(&clcd_display_string_details[i], 0, sizeof (CLCD_STRING_DISPLAY_DETAILS));
+"305
 [e ( _memset (3 , , -> &U *U + &U _clcd_display_string_details * -> _i `ux -> -> # *U &U _clcd_display_string_details `ui `ux `*v -> 0 `i -> # `S853 `ui ]
-[; ;clcd.c: 278: copy_display_struct(&clcd_display_string_details[i], data, uid);
-"278
+[; ;clcd.c: 306: copy_display_struct(&clcd_display_string_details[i], data, uid);
+"306
 [e ( _copy_display_struct (3 , , &U *U + &U _clcd_display_string_details * -> _i `ux -> -> # *U &U _clcd_display_string_details `ui `ux _data _uid ]
-[; ;clcd.c: 279: data_count++;
-"279
+[; ;clcd.c: 307: data_count++;
+"307
 [e ++ _data_count -> -> 1 `i `uc ]
-[; ;clcd.c: 280: return uid;
-"280
+[; ;clcd.c: 308: return uid;
+"308
 [e ) _uid ]
 [e $UE 912  ]
-"281
+"309
 }
 [e :U 920 ]
-"282
+"310
 }
-"275
+"303
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 919 ]
 [e $ < -> _i `i -> . _clcd_config_data 4 `i 916  ]
 [e :U 917 ]
-"282
+"310
 }
-"283
+"311
 }
-[; ;clcd.c: 281: }
-[; ;clcd.c: 282: }
-[; ;clcd.c: 283: } else {
+[; ;clcd.c: 309: }
+[; ;clcd.c: 310: }
+[; ;clcd.c: 311: } else {
 [e $U 921  ]
 [e :U 915 ]
 {
-"285
+"313
 }
 [e :U 921 ]
-"286
+"314
 }
-[; ;clcd.c: 285: }
-[; ;clcd.c: 286: } else {
+[; ;clcd.c: 313: }
+[; ;clcd.c: 314: } else {
 [e $U 922  ]
 [e :U 914 ]
 {
-[; ;clcd.c: 287: return 200;
-"287
+[; ;clcd.c: 315: return 200;
+"315
 [e ) -> -> 200 `i `uc ]
 [e $UE 912  ]
-"288
+"316
 }
 [e :U 922 ]
-"289
+"317
 }
-[; ;clcd.c: 288: }
-[; ;clcd.c: 289: } else {
+[; ;clcd.c: 316: }
+[; ;clcd.c: 317: } else {
 [e $U 923  ]
 [e :U 913 ]
 {
-[; ;clcd.c: 290: if (conflict_data_count != 0) {
-"290
+[; ;clcd.c: 318: if (conflict_data_count != 0) {
+"318
 [e $ ! != -> _conflict_data_count `i -> 0 `i 924  ]
 {
-[; ;clcd.c: 291: printf("conflict...2\r\n");
-"291
-[e ( _printf :s 15C ]
-"292
+[; ;clcd.c: 320: printf("conflict...2\r\n");
+"320
+[e ( _printf :s 18C ]
+"322
 [v _conflict_count `i ~T0 @X0 1 a ]
-[; ;clcd.c: 292: int conflict_count = 0, j;
+[; ;clcd.c: 322: int conflict_count = 0, j;
 [e = _conflict_count -> 0 `i ]
 [v _j `i ~T0 @X0 1 a ]
-[; ;clcd.c: 293: for (conflict_count = 0; conflict_count < conflict_data_count; conflict_count++) {
-"293
+[; ;clcd.c: 323: for (conflict_count = 0; conflict_count < conflict_data_count; conflict_count++) {
+"323
 {
 [e = _conflict_count -> 0 `i ]
 [e $U 928  ]
 [e :U 925 ]
 {
-[; ;clcd.c: 294: for (j = 0; j < clcd_config_data.clcd_max_display_string; j++) {
-"294
+[; ;clcd.c: 324: for (j = 0; j < clcd_config_data.clcd_max_display_string; j++) {
+"324
 {
 [e = _j -> 0 `i ]
 [e $U 932  ]
 [e :U 929 ]
 {
-[; ;clcd.c: 295: if (clcd_display_string_details[j].uid == conflict_arr[conflict_count]) {
-"295
+[; ;clcd.c: 325: if (clcd_display_string_details[j].uid == conflict_arr[conflict_count]) {
+"325
 [e $ ! == . *U + &U _clcd_display_string_details * -> -> _j `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 0 -> *U + &U _conflict_arr * -> -> _conflict_count `ui `ux -> -> # *U &U _conflict_arr `ui `ux `ui 933  ]
 {
-[; ;clcd.c: 296: printf("%d..j=%d,conflict_count=%d \r\n", clcd_display_string_details[j].uid, j, conflict_count);
-"296
-[e ( _printf , , , (. :s 16C . *U + &U _clcd_display_string_details * -> -> _j `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 0 _j _conflict_count ]
-[; ;clcd.c: 297: memset(&clcd_display_string_details[j], 0, sizeof (CLCD_STRING_DISPLAY_DETAILS));
-"297
+[; ;clcd.c: 327: printf("%d..j=%d,conflict_count=%d \r\n", clcd_display_string_details[j].uid, j, conflict_count);
+"327
+[e ( _printf , , , (. :s 19C . *U + &U _clcd_display_string_details * -> -> _j `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 0 _j _conflict_count ]
+[; ;clcd.c: 329: memset(&clcd_display_string_details[j], 0, sizeof (CLCD_STRING_DISPLAY_DETAILS));
+"329
 [e ( _memset (3 , , -> &U *U + &U _clcd_display_string_details * -> -> _j `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux `*v -> 0 `i -> # `S853 `ui ]
-[; ;clcd.c: 298: data_count--;
-"298
+[; ;clcd.c: 330: data_count--;
+"330
 [e -- _data_count -> -> 1 `i `uc ]
-[; ;clcd.c: 299: break;
-"299
+[; ;clcd.c: 331: break;
+"331
 [e $U 930  ]
-"300
+"332
 }
 [e :U 933 ]
-"301
+"333
 }
-"294
+"324
 [e ++ _j -> 1 `i ]
 [e :U 932 ]
 [e $ < _j -> . _clcd_config_data 4 `i 929  ]
 [e :U 930 ]
-"301
+"333
 }
-"302
+"334
 }
-"293
+"323
 [e ++ _conflict_count -> 1 `i ]
 [e :U 928 ]
 [e $ < _conflict_count -> _conflict_data_count `i 925  ]
 [e :U 926 ]
-"302
+"334
 }
-[; ;clcd.c: 300: }
-[; ;clcd.c: 301: }
-[; ;clcd.c: 302: }
-[; ;clcd.c: 303: memset(conflict_arr, -1, sizeof (conflict_arr));
-"303
+[; ;clcd.c: 332: }
+[; ;clcd.c: 333: }
+[; ;clcd.c: 334: }
+[; ;clcd.c: 335: memset(conflict_arr, -1, sizeof (conflict_arr));
+"335
 [e ( _memset (3 , , -> &U _conflict_arr `*v -U -> 1 `i -> # _conflict_arr `ui ]
-[; ;clcd.c: 304: conflict_data_count = 0;
-"304
+[; ;clcd.c: 336: conflict_data_count = 0;
+"336
 [e = _conflict_data_count -> -> 0 `i `uc ]
-[; ;clcd.c: 305: return 202;
-"305
+[; ;clcd.c: 337: return 202;
+"337
 [e ) -> -> 202 `i `uc ]
 [e $UE 912  ]
-"306
+"338
 }
-[; ;clcd.c: 306: } else {
+[; ;clcd.c: 338: } else {
 [e $U 934  ]
 [e :U 924 ]
 {
-[; ;clcd.c: 307: if (conflict(start_point, end_point) == 1) {
-"307
+[; ;clcd.c: 339: if (conflict(start_point, end_point) == 1) {
+"339
 [e $ ! == -> ( _conflict (2 , _start_point _end_point `i -> 1 `i 935  ]
 {
-[; ;clcd.c: 309: return 201;
-"309
+[; ;clcd.c: 341: return 201;
+"341
 [e ) -> -> 201 `i `uc ]
 [e $UE 912  ]
-"310
+"342
 }
-[; ;clcd.c: 310: }else{
+[; ;clcd.c: 342: } else {
 [e $U 936  ]
 [e :U 935 ]
 {
-[; ;clcd.c: 311: return 203;
-"311
+[; ;clcd.c: 343: return 203;
+"343
 [e ) -> -> 203 `i `uc ]
 [e $UE 912  ]
-"312
+"344
 }
 [e :U 936 ]
-"313
+"345
 }
 [e :U 934 ]
-"314
+"346
 }
 [e :U 923 ]
-[; ;clcd.c: 312: }
-[; ;clcd.c: 313: }
-[; ;clcd.c: 314: }
-[; ;clcd.c: 315: }
-"315
+[; ;clcd.c: 344: }
+[; ;clcd.c: 345: }
+[; ;clcd.c: 346: }
+[; ;clcd.c: 347: return 0;
+"347
+[e ) -> -> 0 `i `uc ]
+[e $UE 912  ]
+[; ;clcd.c: 348: }
+"348
 [e :UE 912 ]
 }
-"317
+"350
 [v _update_string_data `(uc ~T0 @X0 1 ef1`*S851 ]
 {
-[; ;clcd.c: 317: char update_string_data(CMD_CONSOL_DATA *data) {
+[; ;clcd.c: 350: char update_string_data(CMD_CONSOL_DATA *data) {
 [e :U _update_string_data ]
 [v _data `*S851 ~T0 @X0 1 r1 ]
 [f ]
-"318
+"351
 [v _i `i ~T0 @X0 1 a ]
-[; ;clcd.c: 318: int i = 0;
+[; ;clcd.c: 351: int i = 0;
 [e = _i -> 0 `i ]
-"319
+"352
 [v _exist_uid_idx `uc ~T0 @X0 1 a ]
-[; ;clcd.c: 319: char exist_uid_idx = -1;
+[; ;clcd.c: 352: char exist_uid_idx = -1;
 [e = _exist_uid_idx -> -U -> 1 `i `uc ]
-"320
+"353
 [v _start_point `uc ~T0 @X0 1 a ]
 [v _end_point `uc ~T0 @X0 1 a ]
-[; ;clcd.c: 320: char start_point, end_point;
-[; ;clcd.c: 321: memset(conflict_arr, -1, sizeof (conflict_arr));
-"321
+[; ;clcd.c: 353: char start_point, end_point;
+[; ;clcd.c: 354: memset(conflict_arr, -1, sizeof (conflict_arr));
+"354
 [e ( _memset (3 , , -> &U _conflict_arr `*v -U -> 1 `i -> # _conflict_arr `ui ]
-[; ;clcd.c: 322: conflict_data_count = 0;
-"322
+[; ;clcd.c: 355: conflict_data_count = 0;
+"355
 [e = _conflict_data_count -> -> 0 `i `uc ]
-[; ;clcd.c: 323: start_point = (data->start_row * clcd_config_data.clcd_max_col) + data->start_col;
-"323
+[; ;clcd.c: 356: start_point = (data->start_row * clcd_config_data.clcd_max_col) + data->start_col;
+"356
 [e = _start_point -> + * -> . *U _data 3 `i -> . _clcd_config_data 2 `i -> . *U _data 4 `i `uc ]
-[; ;clcd.c: 324: end_point = (data->end_row * clcd_config_data.clcd_max_col) + data->end_col;
-"324
+[; ;clcd.c: 357: end_point = (data->end_row * clcd_config_data.clcd_max_col) + data->end_col;
+"357
 [e = _end_point -> + * -> . *U _data 5 `i -> . _clcd_config_data 2 `i -> . *U _data 6 `i `uc ]
-[; ;clcd.c: 326: printf("UID = %c, start_pt = %d, end_pt = %d\r\n", data->uid, start_point, end_point);
-"326
-[e ( _printf , , , (. :s 17C . *U _data 0 -> _start_point `i -> _end_point `i ]
-[; ;clcd.c: 328: if (data_count < clcd_config_data.clcd_max_display_string) {
-"328
+[; ;clcd.c: 359: printf("UID = %c, start_pt = %d, end_pt = %d\r\n", data->uid, start_point, end_point);
+"359
+[e ( _printf , , , (. :s 20C . *U _data 0 -> _start_point `i -> _end_point `i ]
+[; ;clcd.c: 361: if (data_count < clcd_config_data.clcd_max_display_string) {
+"361
 [e $ ! < -> _data_count `i -> . _clcd_config_data 4 `i 938  ]
 {
-[; ;clcd.c: 329: for (i = 0; i < clcd_config_data.clcd_max_display_string; i++) {
-"329
+[; ;clcd.c: 362: for (i = 0; i < clcd_config_data.clcd_max_display_string; i++) {
+"362
 {
 [e = _i -> 0 `i ]
 [e $U 942  ]
 [e :U 939 ]
 {
-[; ;clcd.c: 330: if (clcd_display_string_details[i].uid == data->uid) {
-"330
+[; ;clcd.c: 363: if (clcd_display_string_details[i].uid == data->uid) {
+"363
 [e $ ! == . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 0 . *U _data 0 943  ]
 {
-[; ;clcd.c: 331: exist_uid_idx = i;
-"331
+[; ;clcd.c: 364: exist_uid_idx = i;
+"364
 [e = _exist_uid_idx -> _i `uc ]
-[; ;clcd.c: 332: conflict_arr[conflict_data_count++] = clcd_display_string_details[i].uid;
-"332
+[; ;clcd.c: 365: conflict_arr[conflict_data_count++] = clcd_display_string_details[i].uid;
+"365
 [e = *U + &U _conflict_arr * -> ++ _conflict_data_count -> -> 1 `i `uc `ux -> -> # *U &U _conflict_arr `ui `ux -> . *U + &U _clcd_display_string_details * -> -> _i `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 0 `i ]
-[; ;clcd.c: 333: conflict_check(exist_uid_idx, start_point, end_point);
-"333
+[; ;clcd.c: 366: conflict_check(exist_uid_idx, start_point, end_point);
+"366
 [e ( _conflict_check (3 , , _exist_uid_idx _start_point _end_point ]
-[; ;clcd.c: 334: return 200;
-"334
+[; ;clcd.c: 367: return 200;
+"367
 [e ) -> -> 200 `i `uc ]
 [e $UE 937  ]
-"335
+"368
 }
-[; ;clcd.c: 335: } else {
+[; ;clcd.c: 368: } else {
 [e $U 944  ]
 [e :U 943 ]
 {
-[; ;clcd.c: 336: if (conflict_check(exist_uid_idx, start_point, end_point) == 1) {
-"336
+[; ;clcd.c: 369: if (conflict_check(exist_uid_idx, start_point, end_point) == 1) {
+"369
 [e $ ! == -> ( _conflict_check (3 , , _exist_uid_idx _start_point _end_point `i -> 1 `i 945  ]
 {
-[; ;clcd.c: 337: printf("conflict: uid\r\n");
-"337
-[e ( _printf :s 18C ]
-[; ;clcd.c: 338: for (i = 0; i < clcd_config_data.clcd_max_display_string; i++) {
-"338
+[; ;clcd.c: 370: printf("conflict: uid\r\n");
+"370
+[e ( _printf :s 21C ]
+[; ;clcd.c: 371: for (i = 0; i < clcd_config_data.clcd_max_display_string; i++) {
+"371
 {
 [e = _i -> 0 `i ]
 [e $U 949  ]
 [e :U 946 ]
 {
-[; ;clcd.c: 339: if (conflict_arr[i] != -1)
-"339
+[; ;clcd.c: 372: if (conflict_arr[i] != -1)
+"372
 [e $ ! != *U + &U _conflict_arr * -> -> _i `ui `ux -> -> # *U &U _conflict_arr `ui `ux -U -> 1 `i 950  ]
-[; ;clcd.c: 340: printf("%c, ", conflict_arr[i]);
-"340
-[e ( _printf , (. :s 19C *U + &U _conflict_arr * -> -> _i `ui `ux -> -> # *U &U _conflict_arr `ui `ux ]
+[; ;clcd.c: 373: printf("%c, ", conflict_arr[i]);
+"373
+[e ( _printf , (. :s 22C *U + &U _conflict_arr * -> -> _i `ui `ux -> -> # *U &U _conflict_arr `ui `ux ]
 [e :U 950 ]
-"341
+"374
 }
-"338
+"371
 [e ++ _i -> 1 `i ]
 [e :U 949 ]
 [e $ < _i -> . _clcd_config_data 4 `i 946  ]
 [e :U 947 ]
-"341
+"374
 }
-[; ;clcd.c: 341: }
-[; ;clcd.c: 342: printf("\r\n");
-"342
-[e ( _printf :s 20C ]
-[; ;clcd.c: 343: return 200;
-"343
+[; ;clcd.c: 374: }
+[; ;clcd.c: 375: printf("\r\n");
+"375
+[e ( _printf :s 23C ]
+[; ;clcd.c: 376: return 200;
+"376
 [e ) -> -> 200 `i `uc ]
 [e $UE 937  ]
-"344
+"377
 }
 [e :U 945 ]
-"345
+"378
 }
 [e :U 944 ]
-"346
+"379
 }
-"329
+"362
 [e ++ _i -> 1 `i ]
 [e :U 942 ]
 [e $ < _i -> . _clcd_config_data 4 `i 939  ]
 [e :U 940 ]
-"346
+"379
 }
-[; ;clcd.c: 344: }
-[; ;clcd.c: 345: }
-[; ;clcd.c: 346: }
-[; ;clcd.c: 347: memset(&clcd_display_string_details[data_count], 0, sizeof (CLCD_STRING_DISPLAY_DETAILS));
-"347
+[; ;clcd.c: 377: }
+[; ;clcd.c: 378: }
+[; ;clcd.c: 379: }
+[; ;clcd.c: 380: memset(&clcd_display_string_details[data_count], 0, sizeof (CLCD_STRING_DISPLAY_DETAILS));
+"380
 [e ( _memset (3 , , -> &U *U + &U _clcd_display_string_details * -> _data_count `ux -> -> # *U &U _clcd_display_string_details `ui `ux `*v -> 0 `i -> # `S853 `ui ]
-[; ;clcd.c: 348: copy_data(&clcd_display_string_details[data_count], data);
-"348
+[; ;clcd.c: 381: copy_data(&clcd_display_string_details[data_count], data);
+"381
 [e ( _copy_data (2 , &U *U + &U _clcd_display_string_details * -> _data_count `ux -> -> # *U &U _clcd_display_string_details `ui `ux _data ]
-[; ;clcd.c: 349: data_count++;
-"349
+[; ;clcd.c: 382: data_count++;
+"382
 [e ++ _data_count -> -> 1 `i `uc ]
-[; ;clcd.c: 350: make_display();
-"350
+[; ;clcd.c: 383: make_display();
+"383
 [e ( _make_display ..  ]
-"351
+"384
 }
-[; ;clcd.c: 351: } else {
+[; ;clcd.c: 384: } else {
 [e $U 951  ]
 [e :U 938 ]
 {
-"353
+"386
 }
 [e :U 951 ]
-[; ;clcd.c: 353: }
-[; ;clcd.c: 354: return 0;
-"354
+[; ;clcd.c: 386: }
+[; ;clcd.c: 387: return 0;
+"387
 [e ) -> -> 0 `i `uc ]
 [e $UE 937  ]
-[; ;clcd.c: 355: }
-"355
+[; ;clcd.c: 388: }
+"388
 [e :UE 937 ]
 }
-"357
+"390
 [v _str `uc ~T0 @X0 -> 0 `x e ]
 [i _str
 :U ..
@@ -8218,129 +8284,132 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-[; ;clcd.c: 357: char str[] = "INIT_SUCCESS";
-"359
+[; ;clcd.c: 390: char str[] = "INIT_SUCCESS";
+"392
 [v _clcd_display_string_config `(v ~T0 @X0 1 ef ]
 {
-[; ;clcd.c: 359: void clcd_display_string_config() {
+[; ;clcd.c: 392: void clcd_display_string_config() {
 [e :U _clcd_display_string_config ]
 [f ]
-[; ;clcd.c: 360: memset(lcd_display_array, ' ', sizeof (lcd_display_array));
-"360
+[; ;clcd.c: 393: memset(lcd_display_array, ' ', sizeof (lcd_display_array));
+"393
 [e ( _memset (3 , , -> &U _lcd_display_array `*v -> -> 32 `ui `i -> # _lcd_display_array `ui ]
-[; ;clcd.c: 361: printf("sizeof(str) = %d\r\n", sizeof (str));
-"361
-[e ( _printf , (. :s 21C -> # _str `ui ]
-[; ;clcd.c: 362: memcpy(lcd_display_array[0], str, sizeof (str));
-"362
+[; ;clcd.c: 395: printf("sizeof(str) = %d\r\n", sizeof (str));
+"395
+[e ( _printf , (. :s 24C -> # _str `ui ]
+[; ;clcd.c: 397: memcpy(lcd_display_array[0], str, sizeof (str));
+"397
 [e ( _memcpy (3 , , -> &U *U + &U _lcd_display_array * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux `*v -> &U _str `*Cv -> # _str `ui ]
-[; ;clcd.c: 363: write_str(lcd_display_array[0]);
-"363
+[; ;clcd.c: 398: write_str(lcd_display_array[0]);
+"398
 [e ( _write_str (1 -> &U *U + &U _lcd_display_array * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux `*Cuc ]
-[; ;clcd.c: 364: }
-"364
+[; ;clcd.c: 399: }
+"399
 [e :UE 952 ]
 }
-"366
+"401
 [v _set_cursor `(v ~T0 @X0 1 ef2`uc`uc ]
 {
-[; ;clcd.c: 366: void set_cursor(unsigned char row_number, unsigned char col_number) {
+[; ;clcd.c: 401: void set_cursor(unsigned char row_number, unsigned char col_number) {
 [e :U _set_cursor ]
 [v _row_number `uc ~T0 @X0 1 r1 ]
 [v _col_number `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;clcd.c: 367: if (col_number > 20) {
-"367
+[; ;clcd.c: 402: if (col_number > 20) {
+"402
 [e $ ! > -> _col_number `i -> 20 `i 954  ]
 {
-[; ;clcd.c: 368: col_number = 0;
-"368
+[; ;clcd.c: 403: col_number = 0;
+"403
 [e = _col_number -> -> 0 `i `uc ]
-"369
+"404
 }
 [e :U 954 ]
-[; ;clcd.c: 369: }
-[; ;clcd.c: 370: write_lcd_cmd(col_number + row_number);
-"370
+[; ;clcd.c: 404: }
+[; ;clcd.c: 405: write_lcd_cmd(col_number + row_number);
+"405
 [e ( _write_lcd_cmd (1 -> + -> _col_number `i -> _row_number `i `uc ]
-[; ;clcd.c: 371: }
-"371
+[; ;clcd.c: 407: is_busy();
+"407
+[e ( _is_busy ..  ]
+[; ;clcd.c: 408: }
+"408
 [e :UE 953 ]
 }
-"373
+"410
 [v _set_cursor_at_home `(v ~T0 @X0 1 ef ]
 {
-[; ;clcd.c: 373: void set_cursor_at_home() {
+[; ;clcd.c: 410: void set_cursor_at_home() {
 [e :U _set_cursor_at_home ]
 [f ]
-[; ;clcd.c: 374: write_lcd_cmd(0x02);
-"374
+[; ;clcd.c: 411: write_lcd_cmd(0x02);
+"411
 [e ( _write_lcd_cmd (1 -> -> 2 `i `uc ]
-[; ;clcd.c: 375: }
-"375
+[; ;clcd.c: 412: }
+"412
 [e :UE 955 ]
 }
-"377
+"414
 [v _display_and_cursor_control `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;clcd.c: 377: void display_and_cursor_control(unsigned char mode) {
+[; ;clcd.c: 414: void display_and_cursor_control(unsigned char mode) {
 [e :U _display_and_cursor_control ]
 [v _mode `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;clcd.c: 378: switch (mode) {
-"378
+[; ;clcd.c: 415: switch (mode) {
+"415
 [e $U 958  ]
 {
-[; ;clcd.c: 379: case 0:
-"379
+[; ;clcd.c: 416: case 0:
+"416
 [e :U 959 ]
-[; ;clcd.c: 380: write_lcd_cmd(0x08);
-"380
+[; ;clcd.c: 417: write_lcd_cmd(0x08);
+"417
 [e ( _write_lcd_cmd (1 -> -> 8 `i `uc ]
-[; ;clcd.c: 381: break;
-"381
+[; ;clcd.c: 418: break;
+"418
 [e $U 957  ]
-[; ;clcd.c: 382: case 1:
-"382
+[; ;clcd.c: 419: case 1:
+"419
 [e :U 960 ]
-[; ;clcd.c: 383: write_lcd_cmd(0x0A);
-"383
+[; ;clcd.c: 420: write_lcd_cmd(0x0A);
+"420
 [e ( _write_lcd_cmd (1 -> -> 10 `i `uc ]
-[; ;clcd.c: 384: break;
-"384
+[; ;clcd.c: 421: break;
+"421
 [e $U 957  ]
-[; ;clcd.c: 385: case 2:
-"385
+[; ;clcd.c: 422: case 2:
+"422
 [e :U 961 ]
-[; ;clcd.c: 386: write_lcd_cmd(0x0F);
-"386
+[; ;clcd.c: 423: write_lcd_cmd(0x0F);
+"423
 [e ( _write_lcd_cmd (1 -> -> 15 `i `uc ]
-[; ;clcd.c: 387: break;
-"387
+[; ;clcd.c: 424: break;
+"424
 [e $U 957  ]
-[; ;clcd.c: 388: case 3:
-"388
+[; ;clcd.c: 425: case 3:
+"425
 [e :U 962 ]
-[; ;clcd.c: 389: write_lcd_cmd(0x0C);
-"389
+[; ;clcd.c: 426: write_lcd_cmd(0x0C);
+"426
 [e ( _write_lcd_cmd (1 -> -> 12 `i `uc ]
-[; ;clcd.c: 390: break;
-"390
+[; ;clcd.c: 427: break;
+"427
 [e $U 957  ]
-[; ;clcd.c: 391: case 4:
-"391
+[; ;clcd.c: 428: case 4:
+"428
 [e :U 963 ]
-[; ;clcd.c: 392: write_lcd_cmd(0x0E);
-"392
+[; ;clcd.c: 429: write_lcd_cmd(0x0E);
+"429
 [e ( _write_lcd_cmd (1 -> -> 14 `i `uc ]
-[; ;clcd.c: 393: break;
-"393
+[; ;clcd.c: 430: break;
+"430
 [e $U 957  ]
-"394
+"431
 }
-[; ;clcd.c: 394: }
+[; ;clcd.c: 431: }
 [e $U 957  ]
-"378
+"415
 [e :U 958 ]
 [e [\ _mode , $ -> -> 0 `i `uc 959
  , $ -> -> 1 `i `uc 960
@@ -8348,979 +8417,1075 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ -> -> 3 `i `uc 962
  , $ -> -> 4 `i `uc 963
  957 ]
-"394
+"431
 [e :U 957 ]
-[; ;clcd.c: 395: }
-"395
+[; ;clcd.c: 432: }
+"432
 [e :UE 956 ]
 }
-"407
+"444
 [v _char_enter_mode_left_to_right `(v ~T0 @X0 1 ef ]
 {
-[; ;clcd.c: 407: void char_enter_mode_left_to_right() {
+[; ;clcd.c: 444: void char_enter_mode_left_to_right() {
 [e :U _char_enter_mode_left_to_right ]
 [f ]
-[; ;clcd.c: 411: write_lcd_cmd(0x06);
-"411
+[; ;clcd.c: 448: write_lcd_cmd(0x06);
+"448
 [e ( _write_lcd_cmd (1 -> -> 6 `i `uc ]
-[; ;clcd.c: 412: }
-"412
+[; ;clcd.c: 449: }
+"449
 [e :UE 964 ]
 }
-"414
+"451
 [v _scroll_display_right `(v ~T0 @X0 1 ef ]
 {
-[; ;clcd.c: 414: void scroll_display_right() {
+[; ;clcd.c: 451: void scroll_display_right() {
 [e :U _scroll_display_right ]
 [f ]
-[; ;clcd.c: 415: write_lcd_cmd(0x1C);
-"415
+[; ;clcd.c: 452: write_lcd_cmd(0x1C);
+"452
 [e ( _write_lcd_cmd (1 -> -> 28 `i `uc ]
-[; ;clcd.c: 416: }
-"416
+[; ;clcd.c: 453: }
+"453
 [e :UE 965 ]
 }
-"418
+"455
 [v _scroll_display_left `(v ~T0 @X0 1 ef ]
 {
-[; ;clcd.c: 418: void scroll_display_left() {
+[; ;clcd.c: 455: void scroll_display_left() {
 [e :U _scroll_display_left ]
 [f ]
-[; ;clcd.c: 419: write_lcd_cmd(0x18);
-"419
+[; ;clcd.c: 456: write_lcd_cmd(0x18);
+"456
 [e ( _write_lcd_cmd (1 -> -> 24 `i `uc ]
-[; ;clcd.c: 420: }
-"420
+[; ;clcd.c: 457: }
+"457
 [e :UE 966 ]
 }
-"422
+"459
 [v _is_busy `(v ~T0 @X0 1 ef ]
 {
-[; ;clcd.c: 422: void is_busy(void) {
+[; ;clcd.c: 459: void is_busy(void) {
 [e :U _is_busy ]
 [f ]
-[; ;clcd.c: 425: TRISD = 0xFF;
-"425
-[e = _TRISD -> -> 255 `i `uc ]
-[; ;clcd.c: 427: PORTAbits.RA2 = 0;
-"427
-[e = . . _PORTAbits 0 2 -> -> 0 `i `uc ]
-[; ;clcd.c: 428: PORTAbits.RA1 = 1;
-"428
-[e = . . _PORTAbits 0 1 -> -> 1 `i `uc ]
-[; ;clcd.c: 429: _delay_10uS(1);
-"429
-[e ( __delay_10uS (1 -> 1 `i ]
-[; ;clcd.c: 430: do {
-"430
+[; ;clcd.c: 462: do { TRISCbits.TRISC5 = 1; } while(0);
+"462
 [e :U 970 ]
 {
-[; ;clcd.c: 431: {PORTAbits.RA0 = 1; delay(1); PORTAbits.RA0 = 0;};
-"431
+[e = . . _TRISCbits 0 5 -> -> 1 `i `uc ]
+}
+[e :U 969 ]
+[; ;clcd.c: 466: PORTAbits.RA2 = 0;
+"466
+[e = . . _PORTAbits 0 2 -> -> 0 `i `uc ]
+[; ;clcd.c: 467: PORTAbits.RA1 = 1;
+"467
+[e = . . _PORTAbits 0 1 -> -> 1 `i `uc ]
+[; ;clcd.c: 468: _delay_10uS(1);
+"468
+[e ( __delay_10uS (1 -> 1 `i ]
+[; ;clcd.c: 469: do {
+"469
+[e :U 973 ]
+{
+[; ;clcd.c: 470: {PORTAbits.RA0 = 1; delay(1); PORTAbits.RA0 = 0;};
+"470
 {
 [e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
 [e ( _delay (1 -> 1 `i ]
 [e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
 }
-"432
+"471
 }
-[; ;clcd.c: 432: } while (PORTDbits.RD7 == 1);
-[e $ == -> . . _PORTDbits 0 7 `i -> 1 `i 970  ]
-[e :U 969 ]
-[; ;clcd.c: 435: PORTAbits.RA1 = 0;
-"435
+[; ;clcd.c: 471: } while (PORTCbits.RC5 == 1);
+[e $ == -> . . _PORTCbits 0 5 `i -> 1 `i 973  ]
+[e :U 972 ]
+[; ;clcd.c: 474: PORTAbits.RA1 = 0;
+"474
 [e = . . _PORTAbits 0 1 -> -> 0 `i `uc ]
-[; ;clcd.c: 438: TRISD = 0x00;
-"438
-[e = _TRISD -> -> 0 `i `uc ]
-[; ;clcd.c: 439: }
-"439
+[; ;clcd.c: 477: do { TRISCbits.TRISC5 = 0; } while(0);
+"477
+[e :U 976 ]
+{
+[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
+}
+[e :U 975 ]
+[; ;clcd.c: 480: }
+"480
 [e :UE 967 ]
 }
-"441
+"482
 [v _write_lcd_cmd `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;clcd.c: 441: void write_lcd_cmd(unsigned char cmd) {
+[; ;clcd.c: 482: void write_lcd_cmd(unsigned char cmd) {
 [e :U _write_lcd_cmd ]
 [v _cmd `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;clcd.c: 442: PORTD = cmd;
-"442
-[e = _PORTD _cmd ]
-[; ;clcd.c: 443: PORTAbits.RA2 = 0;
-"443
+[; ;clcd.c: 483: PORTD = PORTD & 0xC0;
+"483
+[e = _PORTD -> & -> _PORTD `i -> 192 `i `uc ]
+[; ;clcd.c: 484: PORTD = (cmd & 0x3F) | (PORTD);
+"484
+[e = _PORTD -> | & -> _cmd `i -> 63 `i -> _PORTD `i `uc ]
+[; ;clcd.c: 485: PORTC = PORTC & 0xCF;
+"485
+[e = _PORTC -> & -> _PORTC `i -> 207 `i `uc ]
+[; ;clcd.c: 486: cmd = cmd & 0xC0;
+"486
+[e = _cmd -> & -> _cmd `i -> 192 `i `uc ]
+[; ;clcd.c: 487: cmd = cmd >> 2;
+"487
+[e = _cmd -> >> -> _cmd `i -> 2 `i `uc ]
+[; ;clcd.c: 488: PORTC = (cmd | PORTC);
+"488
+[e = _PORTC -> | -> _cmd `i -> _PORTC `i `uc ]
+[; ;clcd.c: 489: PORTAbits.RA2 = 0;
+"489
 [e = . . _PORTAbits 0 2 -> -> 0 `i `uc ]
-[; ;clcd.c: 444: PORTAbits.RA1 = 0;
-"444
+[; ;clcd.c: 490: PORTAbits.RA1 = 0;
+"490
 [e = . . _PORTAbits 0 1 -> -> 0 `i `uc ]
-[; ;clcd.c: 445: {PORTAbits.RA0 = 1; delay(1); PORTAbits.RA0 = 0;};
-"445
+[; ;clcd.c: 491: {PORTAbits.RA0 = 1; delay(1); PORTAbits.RA0 = 0;};
+"491
 {
 [e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
 [e ( _delay (1 -> 1 `i ]
 [e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
 }
-[; ;clcd.c: 446: }
-"446
-[e :UE 971 ]
+[; ;clcd.c: 492: }
+"492
+[e :UE 977 ]
 }
-"448
+"494
 [v _write_lcd_data `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;clcd.c: 448: void write_lcd_data(unsigned char data) {
+[; ;clcd.c: 494: void write_lcd_data(unsigned char data) {
 [e :U _write_lcd_data ]
 [v _data `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;clcd.c: 449: PORTAbits.RA2 = 1;
-"449
+[; ;clcd.c: 495: PORTAbits.RA2 = 1;
+"495
 [e = . . _PORTAbits 0 2 -> -> 1 `i `uc ]
-[; ;clcd.c: 450: PORTAbits.RA1 = 0;
-"450
+[; ;clcd.c: 496: PORTAbits.RA1 = 0;
+"496
 [e = . . _PORTAbits 0 1 -> -> 0 `i `uc ]
-[; ;clcd.c: 451: PORTD = data;
-"451
-[e = _PORTD _data ]
-[; ;clcd.c: 452: {PORTAbits.RA0 = 1; delay(1); PORTAbits.RA0 = 0;};
-"452
+[; ;clcd.c: 497: PORTD = PORTD & 0xC0;
+"497
+[e = _PORTD -> & -> _PORTD `i -> 192 `i `uc ]
+[; ;clcd.c: 498: PORTD = (data & 0x3F) | (PORTD);
+"498
+[e = _PORTD -> | & -> _data `i -> 63 `i -> _PORTD `i `uc ]
+[; ;clcd.c: 499: PORTC = PORTC & 0xCF;
+"499
+[e = _PORTC -> & -> _PORTC `i -> 207 `i `uc ]
+[; ;clcd.c: 500: data = data & 0xC0;
+"500
+[e = _data -> & -> _data `i -> 192 `i `uc ]
+[; ;clcd.c: 501: data = data >> 2;
+"501
+[e = _data -> >> -> _data `i -> 2 `i `uc ]
+[; ;clcd.c: 502: PORTC = (data | PORTC);
+"502
+[e = _PORTC -> | -> _data `i -> _PORTC `i `uc ]
+[; ;clcd.c: 503: {PORTAbits.RA0 = 1; delay(1); PORTAbits.RA0 = 0;};
+"503
 {
 [e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
 [e ( _delay (1 -> 1 `i ]
 [e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
 }
-[; ;clcd.c: 453: }
-"453
-[e :UE 972 ]
+[; ;clcd.c: 504: }
+"504
+[e :UE 978 ]
 }
-"455
+"506
 [v _write_str `(v ~T0 @X0 1 ef1`*Cuc ]
 {
-[; ;clcd.c: 455: void write_str(const char* str) {
+[; ;clcd.c: 506: void write_str(const char* str) {
 [e :U _write_str ]
 [v _str `*Cuc ~T0 @X0 1 r1 ]
 [f ]
-"457
+"508
 [v _i `uc ~T0 @X0 1 a ]
-[; ;clcd.c: 457: unsigned char i = 0;
+[; ;clcd.c: 508: unsigned char i = 0;
 [e = _i -> -> 0 `i `uc ]
-[; ;clcd.c: 458: while (i < clcd_config_data.clcd_max_col) {
-"458
-[e $U 974  ]
-[e :U 975 ]
+[; ;clcd.c: 509: while (i < clcd_config_data.clcd_max_col) {
+"509
+[e $U 980  ]
+[e :U 981 ]
 {
-[; ;clcd.c: 459: if (*str != (0))
-"459
-[e $ ! != -> *U _str `i -> 0 `i 977  ]
-[; ;clcd.c: 460: {
-"460
+[; ;clcd.c: 510: if (*str != (0)) {
+"510
+[e $ ! != -> *U _str `i -> 0 `i 983  ]
 {
-[; ;clcd.c: 461: write_lcd_data(*str++);
-"461
+[; ;clcd.c: 511: write_lcd_data(*str++);
+"511
 [e ( _write_lcd_data (1 *U ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x ]
-"462
+"512
 }
-[; ;clcd.c: 462: }
-[e $U 978  ]
-"463
-[e :U 977 ]
-[; ;clcd.c: 463: else
-[; ;clcd.c: 464: {
-"464
+[; ;clcd.c: 512: } else {
+[e $U 984  ]
+[e :U 983 ]
 {
-[; ;clcd.c: 465: write_lcd_data(' ');
-"465
+[; ;clcd.c: 513: write_lcd_data(' ');
+"513
 [e ( _write_lcd_data (1 -> -> 32 `ui `uc ]
-[; ;clcd.c: 466: str++;
-"466
+[; ;clcd.c: 514: str++;
+"514
 [e ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x ]
-"467
+"515
 }
-[e :U 978 ]
-[; ;clcd.c: 467: }
-[; ;clcd.c: 469: i++;
-"469
+[e :U 984 ]
+[; ;clcd.c: 515: }
+[; ;clcd.c: 517: i++;
+"517
 [e ++ _i -> -> 1 `i `uc ]
-"470
+"518
 }
-[e :U 974 ]
-"458
-[e $ < -> _i `i -> . _clcd_config_data 2 `i 975  ]
-[e :U 976 ]
-[; ;clcd.c: 470: }
-[; ;clcd.c: 471: }
-"471
-[e :UE 973 ]
+[e :U 980 ]
+"509
+[e $ < -> _i `i -> . _clcd_config_data 2 `i 981  ]
+[e :U 982 ]
+[; ;clcd.c: 518: }
+[; ;clcd.c: 519: }
+"519
+[e :UE 979 ]
 }
-"473
+"521
 [v _put_string `(v ~T0 @X0 1 ef3`uc`uc`*Cuc ]
 {
-[; ;clcd.c: 473: void put_string(unsigned char row_number, unsigned char col_number, const char* str) {
+[; ;clcd.c: 521: void put_string(unsigned char row_number, unsigned char col_number, const char* str) {
 [e :U _put_string ]
 [v _row_number `uc ~T0 @X0 1 r1 ]
 [v _col_number `uc ~T0 @X0 1 r2 ]
 [v _str `*Cuc ~T0 @X0 1 r3 ]
 [f ]
-"474
+"522
 [v _str_len `i ~T0 @X0 1 a ]
-[; ;clcd.c: 474: int str_len = strlen(str);
+[; ;clcd.c: 522: int str_len = strlen(str);
 [e = _str_len -> ( _strlen (1 _str `i ]
-"475
+"523
 [v _lcd_location `uc ~T0 @X0 1 a ]
 [v _i `uc ~T0 @X0 1 a ]
-[; ;clcd.c: 475: unsigned char lcd_location, i = 0;
+[; ;clcd.c: 523: unsigned char lcd_location, i = 0;
 [e = _i -> -> 0 `i `uc ]
-[; ;clcd.c: 477: lcd_location = row_number + col_number;
-"477
+[; ;clcd.c: 525: lcd_location = row_number + col_number;
+"525
 [e = _lcd_location -> + -> _row_number `i -> _col_number `i `uc ]
-[; ;clcd.c: 479: write_lcd_cmd(lcd_location);
-"479
+[; ;clcd.c: 527: write_lcd_cmd(lcd_location);
+"527
 [e ( _write_lcd_cmd (1 _lcd_location ]
-[; ;clcd.c: 481: is_busy();
-"481
+[; ;clcd.c: 529: is_busy();
+"529
 [e ( _is_busy ..  ]
-[; ;clcd.c: 482: write_str(str);
-"482
+[; ;clcd.c: 530: write_str(str);
+"530
 [e ( _write_str (1 _str ]
-[; ;clcd.c: 483: }
-"483
-[e :UE 979 ]
+[; ;clcd.c: 531: }
+"531
+[e :UE 985 ]
 }
-"485
+"533
 [v _put_char `(v ~T0 @X0 1 ef3`uc`uc`Cuc ]
 {
-[; ;clcd.c: 485: void put_char(unsigned char row_number, unsigned char col_number, const char ch) {
+[; ;clcd.c: 533: void put_char(unsigned char row_number, unsigned char col_number, const char ch) {
 [e :U _put_char ]
 [v _row_number `uc ~T0 @X0 1 r1 ]
 [v _col_number `uc ~T0 @X0 1 r2 ]
 [v _ch `Cuc ~T0 @X0 1 r3 ]
 [f ]
-"486
+"534
 [v _lcd_location `uc ~T0 @X0 1 a ]
 [v _i `uc ~T0 @X0 1 a ]
-[; ;clcd.c: 486: unsigned char lcd_location, i = 0;
+[; ;clcd.c: 534: unsigned char lcd_location, i = 0;
 [e = _i -> -> 0 `i `uc ]
-[; ;clcd.c: 487: lcd_location = row_number + col_number;
-"487
+[; ;clcd.c: 535: lcd_location = row_number + col_number;
+"535
 [e = _lcd_location -> + -> _row_number `i -> _col_number `i `uc ]
-[; ;clcd.c: 489: write_lcd_cmd(lcd_location);
-"489
+[; ;clcd.c: 537: write_lcd_cmd(lcd_location);
+"537
 [e ( _write_lcd_cmd (1 _lcd_location ]
-[; ;clcd.c: 491: is_busy();
-"491
+[; ;clcd.c: 539: is_busy();
+"539
 [e ( _is_busy ..  ]
-[; ;clcd.c: 493: write_lcd_data(ch);
-"493
+[; ;clcd.c: 541: write_lcd_data(ch);
+"541
 [e ( _write_lcd_data (1 _ch ]
-[; ;clcd.c: 494: _delay_MS(15);
-"494
+[; ;clcd.c: 542: _delay_MS(15);
+"542
 [e ( __delay_MS (1 -> 15 `i ]
-[; ;clcd.c: 495: }
-"495
-[e :UE 980 ]
+[; ;clcd.c: 543: }
+"543
+[e :UE 986 ]
 }
-"497
+"545
 [v _display_string `(v ~T0 @X0 1 ef3`uc`*Cuc`uc ]
 {
-[; ;clcd.c: 497: void display_string(unsigned char row_number, const char* str, unsigned char alignment) {
+[; ;clcd.c: 545: void display_string(unsigned char row_number, const char* str, unsigned char alignment) {
 [e :U _display_string ]
 [v _row_number `uc ~T0 @X0 1 r1 ]
 [v _str `*Cuc ~T0 @X0 1 r2 ]
 [v _alignment `uc ~T0 @X0 1 r3 ]
 [f ]
-"498
+"546
 [v _str_len `i ~T0 @X0 1 a ]
-[; ;clcd.c: 498: int str_len = strlen(str);
+[; ;clcd.c: 546: int str_len = strlen(str);
 [e = _str_len -> ( _strlen (1 _str `i ]
-[; ;clcd.c: 499: printf("%s, strlen %d\r\n", str, str_len);
-"499
-[e ( _printf , , (. :s 22C _str _str_len ]
-"500
+[; ;clcd.c: 547: printf("%s, strlen %d\r\n", str, str_len);
+"547
+[e ( _printf , , (. :s 25C _str _str_len ]
+"548
 [v _row `uc ~T0 @X0 1 a ]
 [v _col `uc ~T0 @X0 1 a ]
-[; ;clcd.c: 500: unsigned char row, col = 0;
+[; ;clcd.c: 548: unsigned char row, col = 0;
 [e = _col -> -> 0 `i `uc ]
-[; ;clcd.c: 501: switch (alignment) {
-"501
-[e $U 983  ]
+[; ;clcd.c: 549: switch (alignment) {
+"549
+[e $U 989  ]
 {
-[; ;clcd.c: 502: case 0:
-"502
-[e :U 984 ]
-[; ;clcd.c: 503: {
-"503
-{
-[; ;clcd.c: 504: row = row_number;
-"504
-[e = _row _row_number ]
-[; ;clcd.c: 505: put_string(row, 0, str);
-"505
-[e ( _put_string (3 , , _row -> -> 0 `i `uc _str ]
-[; ;clcd.c: 506: break;
-"506
-[e $U 982  ]
-"507
-}
-[; ;clcd.c: 507: }
-[; ;clcd.c: 508: case 1:
-"508
-[e :U 985 ]
-[; ;clcd.c: 509: {
-"509
-{
-"510
-[v _mid_col `uc ~T0 @X0 1 a ]
-[; ;clcd.c: 510: char mid_col = 20 / 2;
-[e = _mid_col -> / -> 20 `i -> 2 `i `uc ]
-"511
-[v _mid_char `uc ~T0 @X0 1 a ]
-[; ;clcd.c: 511: char mid_char = str_len / 2;
-[e = _mid_char -> / _str_len -> 2 `i `uc ]
-[; ;clcd.c: 512: printf("mid_char = %d\r\n", mid_char);
-"512
-[e ( _printf , (. :s 23C -> _mid_char `i ]
-[; ;clcd.c: 513: row = row_number;
-"513
-[e = _row _row_number ]
-[; ;clcd.c: 514: if (mid_char > mid_col) {
-"514
-[e $ ! > -> _mid_char `i -> _mid_col `i 986  ]
-{
-[; ;clcd.c: 515: col = (mid_char - mid_col);
-"515
-[e = _col -> - -> _mid_char `i -> _mid_col `i `uc ]
-[; ;clcd.c: 516: put_string(row, 0, str + col);
-"516
-[e ( _put_string (3 , , _row -> -> 0 `i `uc + _str * -> _col `ux -> -> # *U _str `ui `ux ]
-"517
-}
-[; ;clcd.c: 517: } else if (mid_char <= mid_col) {
-[e $U 987  ]
-[e :U 986 ]
-[e $ ! <= -> _mid_char `i -> _mid_col `i 988  ]
-{
-[; ;clcd.c: 518: col = (mid_col - mid_char);
-"518
-[e = _col -> - -> _mid_col `i -> _mid_char `i `uc ]
-[; ;clcd.c: 519: put_string(row, col, str);
-"519
-[e ( _put_string (3 , , _row _col _str ]
-"520
-}
-[e :U 988 ]
-"521
-[e :U 987 ]
-[; ;clcd.c: 520: }
-[; ;clcd.c: 521: break;
-[e $U 982  ]
-"522
-}
-[; ;clcd.c: 522: }
-[; ;clcd.c: 523: case 2:
-"523
-[e :U 989 ]
-[; ;clcd.c: 524: {
-"524
-{
-[; ;clcd.c: 525: row = row_number;
-"525
-[e = _row _row_number ]
-[; ;clcd.c: 526: if (str_len > 20) {
-"526
-[e $ ! > _str_len -> 20 `i 990  ]
-{
-[; ;clcd.c: 527: col = str_len - 20;
-"527
-[e = _col -> - _str_len -> 20 `i `uc ]
-[; ;clcd.c: 528: put_string(row, 0, str + col);
-"528
-[e ( _put_string (3 , , _row -> -> 0 `i `uc + _str * -> _col `ux -> -> # *U _str `ui `ux ]
-"529
-}
-[; ;clcd.c: 529: } else {
-[e $U 991  ]
+[; ;clcd.c: 550: case 0:
+"550
 [e :U 990 ]
+[; ;clcd.c: 551: {
+"551
 {
-[; ;clcd.c: 530: col = 20 - str_len;
-"530
-[e = _col -> - -> 20 `i _str_len `uc ]
-[; ;clcd.c: 531: put_string(row, col, str);
-"531
-[e ( _put_string (3 , , _row _col _str ]
-"532
+[; ;clcd.c: 552: row = row_number;
+"552
+[e = _row _row_number ]
+[; ;clcd.c: 553: put_string(row, 0, str);
+"553
+[e ( _put_string (3 , , _row -> -> 0 `i `uc _str ]
+[; ;clcd.c: 554: break;
+"554
+[e $U 988  ]
+"555
 }
+[; ;clcd.c: 555: }
+[; ;clcd.c: 556: case 1:
+"556
 [e :U 991 ]
-[; ;clcd.c: 532: }
-[; ;clcd.c: 533: break;
-"533
-[e $U 982  ]
-"534
+[; ;clcd.c: 557: {
+"557
+{
+"558
+[v _mid_col `uc ~T0 @X0 1 a ]
+[; ;clcd.c: 558: char mid_col = 20 / 2;
+[e = _mid_col -> / -> 20 `i -> 2 `i `uc ]
+"559
+[v _mid_char `uc ~T0 @X0 1 a ]
+[; ;clcd.c: 559: char mid_char = str_len / 2;
+[e = _mid_char -> / _str_len -> 2 `i `uc ]
+[; ;clcd.c: 560: printf("mid_char = %d\r\n", mid_char);
+"560
+[e ( _printf , (. :s 26C -> _mid_char `i ]
+[; ;clcd.c: 561: row = row_number;
+"561
+[e = _row _row_number ]
+[; ;clcd.c: 562: if (mid_char > mid_col) {
+"562
+[e $ ! > -> _mid_char `i -> _mid_col `i 992  ]
+{
+[; ;clcd.c: 563: col = (mid_char - mid_col);
+"563
+[e = _col -> - -> _mid_char `i -> _mid_col `i `uc ]
+[; ;clcd.c: 564: put_string(row, 0, str + col);
+"564
+[e ( _put_string (3 , , _row -> -> 0 `i `uc + _str * -> _col `ux -> -> # *U _str `ui `ux ]
+"565
 }
-"535
+[; ;clcd.c: 565: } else if (mid_char <= mid_col) {
+[e $U 993  ]
+[e :U 992 ]
+[e $ ! <= -> _mid_char `i -> _mid_col `i 994  ]
+{
+[; ;clcd.c: 566: col = (mid_col - mid_char);
+"566
+[e = _col -> - -> _mid_col `i -> _mid_char `i `uc ]
+[; ;clcd.c: 567: put_string(row, col, str);
+"567
+[e ( _put_string (3 , , _row _col _str ]
+"568
 }
-[; ;clcd.c: 534: }
-[; ;clcd.c: 535: }
-[e $U 982  ]
-"501
-[e :U 983 ]
-[e [\ _alignment , $ -> -> 0 `i `uc 984
- , $ -> -> 1 `i `uc 985
- , $ -> -> 2 `i `uc 989
- 982 ]
-"535
-[e :U 982 ]
-[; ;clcd.c: 536: }
-"536
-[e :UE 981 ]
+[e :U 994 ]
+"569
+[e :U 993 ]
+[; ;clcd.c: 568: }
+[; ;clcd.c: 569: break;
+[e $U 988  ]
+"570
 }
-"538
+[; ;clcd.c: 570: }
+[; ;clcd.c: 571: case 2:
+"571
+[e :U 995 ]
+[; ;clcd.c: 572: {
+"572
+{
+[; ;clcd.c: 573: row = row_number;
+"573
+[e = _row _row_number ]
+[; ;clcd.c: 574: if (str_len > 20) {
+"574
+[e $ ! > _str_len -> 20 `i 996  ]
+{
+[; ;clcd.c: 575: col = str_len - 20;
+"575
+[e = _col -> - _str_len -> 20 `i `uc ]
+[; ;clcd.c: 576: put_string(row, 0, str + col);
+"576
+[e ( _put_string (3 , , _row -> -> 0 `i `uc + _str * -> _col `ux -> -> # *U _str `ui `ux ]
+"577
+}
+[; ;clcd.c: 577: } else {
+[e $U 997  ]
+[e :U 996 ]
+{
+[; ;clcd.c: 578: col = 20 - str_len;
+"578
+[e = _col -> - -> 20 `i _str_len `uc ]
+[; ;clcd.c: 579: put_string(row, col, str);
+"579
+[e ( _put_string (3 , , _row _col _str ]
+"580
+}
+[e :U 997 ]
+[; ;clcd.c: 580: }
+[; ;clcd.c: 581: break;
+"581
+[e $U 988  ]
+"582
+}
+"583
+}
+[; ;clcd.c: 582: }
+[; ;clcd.c: 583: }
+[e $U 988  ]
+"549
+[e :U 989 ]
+[e [\ _alignment , $ -> -> 0 `i `uc 990
+ , $ -> -> 1 `i `uc 991
+ , $ -> -> 2 `i `uc 995
+ 988 ]
+"583
+[e :U 988 ]
+[; ;clcd.c: 584: }
+"584
+[e :UE 987 ]
+}
+"586
 [v _clear_display_structure `(v ~T0 @X0 1 ef ]
 {
-[; ;clcd.c: 538: void clear_display_structure() {
+[; ;clcd.c: 586: void clear_display_structure() {
 [e :U _clear_display_structure ]
 [f ]
-[; ;clcd.c: 539: memset(clcd_display_string_details, 0, sizeof (clcd_display_string_details));
-"539
+[; ;clcd.c: 587: memset(clcd_display_string_details, 0, sizeof (clcd_display_string_details));
+"587
 [e ( _memset (3 , , -> &U _clcd_display_string_details `*v -> 0 `i -> # _clcd_display_string_details `ui ]
-[; ;clcd.c: 540: }
-"540
-[e :UE 992 ]
+[; ;clcd.c: 588: }
+"588
+[e :UE 998 ]
 }
-"542
+"590
 [v _reset_display_structure_count `(v ~T0 @X0 1 ef ]
 {
-[; ;clcd.c: 542: void reset_display_structure_count() {
+[; ;clcd.c: 590: void reset_display_structure_count() {
 [e :U _reset_display_structure_count ]
 [f ]
-[; ;clcd.c: 543: display_struct_count = 0;
-"543
+[; ;clcd.c: 591: display_struct_count = 0;
+"591
 [e = _display_struct_count -> 0 `i ]
-[; ;clcd.c: 544: clear_display_structure();
-"544
+[; ;clcd.c: 592: clear_display_structure();
+"592
 [e ( _clear_display_structure ..  ]
-[; ;clcd.c: 545: }
-"545
-[e :UE 993 ]
+[; ;clcd.c: 593: }
+"593
+[e :UE 999 ]
 }
-"547
+"595
 [v _clear_display_array `(v ~T0 @X0 1 ef ]
 {
-[; ;clcd.c: 547: void clear_display_array() {
+[; ;clcd.c: 595: void clear_display_array() {
 [e :U _clear_display_array ]
 [f ]
-[; ;clcd.c: 548: memset(lcd_display_array, ' ', sizeof (lcd_display_array));
-"548
+[; ;clcd.c: 596: memset(lcd_display_array, ' ', sizeof (lcd_display_array));
+"596
 [e ( _memset (3 , , -> &U _lcd_display_array `*v -> -> 32 `ui `i -> # _lcd_display_array `ui ]
-[; ;clcd.c: 549: reset_display_structure_count();
-"549
+[; ;clcd.c: 597: reset_display_structure_count();
+"597
 [e ( _reset_display_structure_count ..  ]
-[; ;clcd.c: 550: }
-"550
-[e :UE 994 ]
+[; ;clcd.c: 598: }
+"598
+[e :UE 1000 ]
 }
-"552
+"600
 [v _scroll_left_to_right `(v ~T0 @X0 1 sf1`*S853 ]
 {
-[; ;clcd.c: 552: static void scroll_left_to_right(CLCD_STRING_DISPLAY_DETAILS *clcd_display_string_details) {
+[; ;clcd.c: 600: static void scroll_left_to_right(CLCD_STRING_DISPLAY_DETAILS *clcd_display_string_details) {
 [e :U _scroll_left_to_right ]
 [v _clcd_display_string_details `*S853 ~T0 @X0 1 r1 ]
 [f ]
-"553
+"601
 [v _line `uc ~T0 @X0 1 a ]
-[; ;clcd.c: 553: char line = -1;
+[; ;clcd.c: 601: char line = -1;
 [e = _line -> -U -> 1 `i `uc ]
-[; ;clcd.c: 554: if (clcd_display_string_details->start_row == 0)
-"554
-[e $ ! == -> . *U _clcd_display_string_details 3 `i -> 0 `i 996  ]
-[; ;clcd.c: 555: line = 0;
-"555
+[; ;clcd.c: 602: if (clcd_display_string_details->start_row == 0)
+"602
+[e $ ! == -> . *U _clcd_display_string_details 3 `i -> 0 `i 1002  ]
+[; ;clcd.c: 603: line = 0;
+"603
 [e = _line -> -> 0 `i `uc ]
-[e $U 997  ]
-"556
-[e :U 996 ]
-[; ;clcd.c: 556: else if (clcd_display_string_details->start_row == 1)
-[e $ ! == -> . *U _clcd_display_string_details 3 `i -> 1 `i 998  ]
-[; ;clcd.c: 557: line = 1;
-"557
-[e = _line -> -> 1 `i `uc ]
-[e :U 998 ]
-"558
-[e :U 997 ]
-[; ;clcd.c: 558: if (clcd_display_string_details->start_row == 2)
-[e $ ! == -> . *U _clcd_display_string_details 3 `i -> 2 `i 999  ]
-[; ;clcd.c: 559: line = 2;
-"559
-[e = _line -> -> 2 `i `uc ]
-[e :U 999 ]
-[; ;clcd.c: 560: if (clcd_display_string_details->start_row == 3)
-"560
-[e $ ! == -> . *U _clcd_display_string_details 3 `i -> 3 `i 1000  ]
-[; ;clcd.c: 561: line = 3;
-"561
-[e = _line -> -> 3 `i `uc ]
-[e :U 1000 ]
-[; ;clcd.c: 563: memset(lcd_display_array[line] + clcd_display_string_details->start_col,
-[; ;clcd.c: 564: ' ', clcd_display_string_details->display_char_count);
-"564
-[e ( _memset (3 , , -> + &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux * -> . *U _clcd_display_string_details 4 `ux -> -> # *U &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux `ui `ux `*v -> -> 32 `ui `i -> . *U _clcd_display_string_details 10 `ui ]
-[; ;clcd.c: 566: if (clcd_display_string_details->length_count_for_right_scroll > clcd_display_string_details->display_char_count) {
-"566
-[e $ ! > -> . *U _clcd_display_string_details 11 `i -> . *U _clcd_display_string_details 10 `i 1001  ]
-{
-[; ;clcd.c: 567: if (clcd_display_string_details->string[0] != (0)) {
-"567
-[e $ ! != -> *U + &U . *U _clcd_display_string_details 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _clcd_display_string_details 1 `ui `ux `i -> 0 `i 1002  ]
-{
-[; ;clcd.c: 568: strncpy(lcd_display_array[line] + clcd_display_string_details->start_col,
-[; ;clcd.c: 569: clcd_display_string_details->string +
-[; ;clcd.c: 570: ((clcd_display_string_details->strlen - 1) - clcd_display_string_details->length_decount_for_right_scroll),
-[; ;clcd.c: 571: clcd_display_string_details->display_char_count);
-"571
-[e ( _strncpy (3 , , + &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux * -> . *U _clcd_display_string_details 4 `ux -> -> # *U &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux `ui `ux -> + &U . *U _clcd_display_string_details 1 * -> - - -> . *U _clcd_display_string_details 2 `i -> 1 `i -> . *U _clcd_display_string_details 12 `i `x -> -> # *U &U . *U _clcd_display_string_details 1 `i `x `*Cuc -> . *U _clcd_display_string_details 10 `ui ]
-"572
-}
-[e :U 1002 ]
-"573
-}
-[; ;clcd.c: 572: }
-[; ;clcd.c: 573: } else {
 [e $U 1003  ]
-[e :U 1001 ]
-{
-[; ;clcd.c: 574: if (clcd_display_string_details->string[0] != (0)) {
-"574
-[e $ ! != -> *U + &U . *U _clcd_display_string_details 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _clcd_display_string_details 1 `ui `ux `i -> 0 `i 1004  ]
-{
-[; ;clcd.c: 575: strncpy(lcd_display_array[line] + clcd_display_string_details->start_col +
-[; ;clcd.c: 576: clcd_display_string_details->length_count_for_right_scroll,
-[; ;clcd.c: 577: clcd_display_string_details->string,
-[; ;clcd.c: 578: clcd_display_string_details->display_char_count - clcd_display_string_details->length_count_for_right_scroll);
-"578
-[e ( _strncpy (3 , , + + &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux * -> . *U _clcd_display_string_details 4 `ux -> -> # *U &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux `ui `ux * -> . *U _clcd_display_string_details 11 `ux -> -> # *U + &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux * -> . *U _clcd_display_string_details 4 `ux -> -> # *U &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux `ui `ux `ui `ux -> &U . *U _clcd_display_string_details 1 `*Cuc -> - -> . *U _clcd_display_string_details 10 `i -> . *U _clcd_display_string_details 11 `i `ui ]
-"579
-}
+"604
+[e :U 1002 ]
+[; ;clcd.c: 604: else if (clcd_display_string_details->start_row == 1)
+[e $ ! == -> . *U _clcd_display_string_details 3 `i -> 1 `i 1004  ]
+[; ;clcd.c: 605: line = 1;
+"605
+[e = _line -> -> 1 `i `uc ]
 [e :U 1004 ]
-"580
-}
+"606
 [e :U 1003 ]
-[; ;clcd.c: 579: }
-[; ;clcd.c: 580: }
-[; ;clcd.c: 581: if (clcd_display_string_details->length_count_for_right_scroll <= clcd_display_string_details->display_char_count) {
-"581
-[e $ ! <= -> . *U _clcd_display_string_details 11 `i -> . *U _clcd_display_string_details 10 `i 1005  ]
-{
-[; ;clcd.c: 582: clcd_display_string_details->length_count_for_right_scroll++;
-"582
-[e ++ . *U _clcd_display_string_details 11 -> -> 1 `i `uc ]
-"583
-}
-[; ;clcd.c: 583: } else if (clcd_display_string_details->length_decount_for_right_scroll < clcd_display_string_details->strlen) {
-[e $U 1006  ]
+[; ;clcd.c: 606: if (clcd_display_string_details->start_row == 2)
+[e $ ! == -> . *U _clcd_display_string_details 3 `i -> 2 `i 1005  ]
+[; ;clcd.c: 607: line = 2;
+"607
+[e = _line -> -> 2 `i `uc ]
 [e :U 1005 ]
-[e $ ! < -> . *U _clcd_display_string_details 12 `i -> . *U _clcd_display_string_details 2 `i 1007  ]
+[; ;clcd.c: 608: if (clcd_display_string_details->start_row == 3)
+"608
+[e $ ! == -> . *U _clcd_display_string_details 3 `i -> 3 `i 1006  ]
+[; ;clcd.c: 609: line = 3;
+"609
+[e = _line -> -> 3 `i `uc ]
+[e :U 1006 ]
+[; ;clcd.c: 611: memset(lcd_display_array[line] + clcd_display_string_details->start_col,
+[; ;clcd.c: 612: ' ', clcd_display_string_details->display_char_count);
+"612
+[e ( _memset (3 , , -> + &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux * -> . *U _clcd_display_string_details 4 `ux -> -> # *U &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux `ui `ux `*v -> -> 32 `ui `i -> . *U _clcd_display_string_details 11 `ui ]
+[; ;clcd.c: 614: if (clcd_display_string_details->length_count_for_right_scroll > clcd_display_string_details->display_char_count) {
+"614
+[e $ ! > -> . *U _clcd_display_string_details 12 `i -> . *U _clcd_display_string_details 11 `i 1007  ]
 {
-[; ;clcd.c: 584: clcd_display_string_details->length_decount_for_right_scroll++;
-"584
-[e ++ . *U _clcd_display_string_details 12 -> -> 1 `i `uc ]
-[; ;clcd.c: 585: if (clcd_display_string_details->length_decount_for_right_scroll >= clcd_display_string_details->strlen) {
-"585
-[e $ ! >= -> . *U _clcd_display_string_details 12 `i -> . *U _clcd_display_string_details 2 `i 1008  ]
+[; ;clcd.c: 615: if (clcd_display_string_details->string[0] != (0)) {
+"615
+[e $ ! != -> *U + &U . *U _clcd_display_string_details 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _clcd_display_string_details 1 `ui `ux `i -> 0 `i 1008  ]
 {
-[; ;clcd.c: 586: clcd_display_string_details->length_count_for_right_scroll = 0;
-"586
-[e = . *U _clcd_display_string_details 11 -> -> 0 `i `uc ]
-[; ;clcd.c: 587: clcd_display_string_details->length_decount_for_right_scroll = 0;
-"587
-[e = . *U _clcd_display_string_details 12 -> -> 0 `i `uc ]
-"588
+[; ;clcd.c: 616: strncpy(lcd_display_array[line] + clcd_display_string_details->start_col,
+[; ;clcd.c: 617: clcd_display_string_details->string +
+[; ;clcd.c: 618: ((clcd_display_string_details->strlen - 1) - clcd_display_string_details->length_decount_for_right_scroll),
+[; ;clcd.c: 619: clcd_display_string_details->display_char_count);
+"619
+[e ( _strncpy (3 , , + &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux * -> . *U _clcd_display_string_details 4 `ux -> -> # *U &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux `ui `ux -> + &U . *U _clcd_display_string_details 1 * -> - - -> . *U _clcd_display_string_details 2 `i -> 1 `i -> . *U _clcd_display_string_details 13 `i `x -> -> # *U &U . *U _clcd_display_string_details 1 `i `x `*Cuc -> . *U _clcd_display_string_details 11 `ui ]
+"620
 }
 [e :U 1008 ]
-"589
+"621
 }
+[; ;clcd.c: 620: }
+[; ;clcd.c: 621: } else {
+[e $U 1009  ]
 [e :U 1007 ]
-"590
-[e :U 1006 ]
-[; ;clcd.c: 588: }
-[; ;clcd.c: 589: }
-[; ;clcd.c: 590: }
-[e :UE 995 ]
+{
+[; ;clcd.c: 622: if (clcd_display_string_details->string[0] != (0)) {
+"622
+[e $ ! != -> *U + &U . *U _clcd_display_string_details 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _clcd_display_string_details 1 `ui `ux `i -> 0 `i 1010  ]
+{
+[; ;clcd.c: 623: strncpy(lcd_display_array[line] + clcd_display_string_details->start_col +
+[; ;clcd.c: 624: clcd_display_string_details->length_count_for_right_scroll,
+[; ;clcd.c: 625: clcd_display_string_details->string,
+[; ;clcd.c: 626: clcd_display_string_details->display_char_count - clcd_display_string_details->length_count_for_right_scroll);
+"626
+[e ( _strncpy (3 , , + + &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux * -> . *U _clcd_display_string_details 4 `ux -> -> # *U &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux `ui `ux * -> . *U _clcd_display_string_details 12 `ux -> -> # *U + &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux * -> . *U _clcd_display_string_details 4 `ux -> -> # *U &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux `ui `ux `ui `ux -> &U . *U _clcd_display_string_details 1 `*Cuc -> - -> . *U _clcd_display_string_details 11 `i -> . *U _clcd_display_string_details 12 `i `ui ]
+"627
 }
-"592
+[e :U 1010 ]
+"628
+}
+[e :U 1009 ]
+[; ;clcd.c: 627: }
+[; ;clcd.c: 628: }
+[; ;clcd.c: 629: if (clcd_display_string_details->length_count_for_right_scroll <= clcd_display_string_details->display_char_count) {
+"629
+[e $ ! <= -> . *U _clcd_display_string_details 12 `i -> . *U _clcd_display_string_details 11 `i 1011  ]
+{
+[; ;clcd.c: 630: clcd_display_string_details->length_count_for_right_scroll++;
+"630
+[e ++ . *U _clcd_display_string_details 12 -> -> 1 `i `uc ]
+"631
+}
+[; ;clcd.c: 631: } else if (clcd_display_string_details->length_decount_for_right_scroll < clcd_display_string_details->strlen) {
+[e $U 1012  ]
+[e :U 1011 ]
+[e $ ! < -> . *U _clcd_display_string_details 13 `i -> . *U _clcd_display_string_details 2 `i 1013  ]
+{
+[; ;clcd.c: 632: clcd_display_string_details->length_decount_for_right_scroll++;
+"632
+[e ++ . *U _clcd_display_string_details 13 -> -> 1 `i `uc ]
+[; ;clcd.c: 633: if (clcd_display_string_details->length_decount_for_right_scroll >= clcd_display_string_details->strlen) {
+"633
+[e $ ! >= -> . *U _clcd_display_string_details 13 `i -> . *U _clcd_display_string_details 2 `i 1014  ]
+{
+[; ;clcd.c: 634: clcd_display_string_details->length_count_for_right_scroll = 0;
+"634
+[e = . *U _clcd_display_string_details 12 -> -> 0 `i `uc ]
+[; ;clcd.c: 635: clcd_display_string_details->length_decount_for_right_scroll = 0;
+"635
+[e = . *U _clcd_display_string_details 13 -> -> 0 `i `uc ]
+"636
+}
+[e :U 1014 ]
+"637
+}
+[e :U 1013 ]
+"638
+[e :U 1012 ]
+[; ;clcd.c: 636: }
+[; ;clcd.c: 637: }
+[; ;clcd.c: 638: }
+[e :UE 1001 ]
+}
+"640
 [v _scroll_right_to_left `(v ~T0 @X0 1 sf1`*S853 ]
 {
-[; ;clcd.c: 592: static void scroll_right_to_left(CLCD_STRING_DISPLAY_DETAILS *clcd_display_string_details) {
+[; ;clcd.c: 640: static void scroll_right_to_left(CLCD_STRING_DISPLAY_DETAILS *clcd_display_string_details) {
 [e :U _scroll_right_to_left ]
 [v _clcd_display_string_details `*S853 ~T0 @X0 1 r1 ]
 [f ]
-"594
+"642
 [v _line `uc ~T0 @X0 1 a ]
-[; ;clcd.c: 594: char line = -1;
+[; ;clcd.c: 642: char line = -1;
 [e = _line -> -U -> 1 `i `uc ]
-[; ;clcd.c: 595: if (clcd_display_string_details->start_row == 0)
-"595
-[e $ ! == -> . *U _clcd_display_string_details 3 `i -> 0 `i 1010  ]
-[; ;clcd.c: 596: line = 0;
-"596
+[; ;clcd.c: 643: if (clcd_display_string_details->start_row == 0)
+"643
+[e $ ! == -> . *U _clcd_display_string_details 3 `i -> 0 `i 1016  ]
+[; ;clcd.c: 644: line = 0;
+"644
 [e = _line -> -> 0 `i `uc ]
-[e $U 1011  ]
-"597
-[e :U 1010 ]
-[; ;clcd.c: 597: else if (clcd_display_string_details->start_row == 1)
-[e $ ! == -> . *U _clcd_display_string_details 3 `i -> 1 `i 1012  ]
-[; ;clcd.c: 598: line = 1;
-"598
-[e = _line -> -> 1 `i `uc ]
-[e :U 1012 ]
-"599
-[e :U 1011 ]
-[; ;clcd.c: 599: if (clcd_display_string_details->start_row == 2)
-[e $ ! == -> . *U _clcd_display_string_details 3 `i -> 2 `i 1013  ]
-[; ;clcd.c: 600: line = 2;
-"600
-[e = _line -> -> 2 `i `uc ]
-[e :U 1013 ]
-[; ;clcd.c: 601: if (clcd_display_string_details->start_row == 3)
-"601
-[e $ ! == -> . *U _clcd_display_string_details 3 `i -> 3 `i 1014  ]
-[; ;clcd.c: 602: line = 3;
-"602
-[e = _line -> -> 3 `i `uc ]
-[e :U 1014 ]
-[; ;clcd.c: 604: memset(lcd_display_array[line] + clcd_display_string_details->start_col,
-[; ;clcd.c: 605: ' ', clcd_display_string_details->display_char_count);
-"605
-[e ( _memset (3 , , -> + &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux * -> . *U _clcd_display_string_details 4 `ux -> -> # *U &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux `ui `ux `*v -> -> 32 `ui `i -> . *U _clcd_display_string_details 10 `ui ]
-[; ;clcd.c: 606: if (clcd_display_string_details->length_count_for_left_scroll > clcd_display_string_details->strlen) {
-"606
-[e $ ! > -> . *U _clcd_display_string_details 13 `i -> . *U _clcd_display_string_details 2 `i 1015  ]
-{
-[; ;clcd.c: 608: strncpy(lcd_display_array[line]+(clcd_display_string_details->end_col - clcd_display_string_details->length_decount_for_left_scroll),
-[; ;clcd.c: 609: clcd_display_string_details->string, (clcd_display_string_details->display_char_count -
-[; ;clcd.c: 610: (clcd_display_string_details->display_char_count - (clcd_display_string_details->length_decount_for_left_scroll + 1))));
-"610
-[e ( _strncpy (3 , , + &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux * -> - -> . *U _clcd_display_string_details 7 `i -> . *U _clcd_display_string_details 14 `i `x -> -> # *U &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux `i `x -> &U . *U _clcd_display_string_details 1 `*Cuc -> - -> . *U _clcd_display_string_details 10 `i - -> . *U _clcd_display_string_details 10 `i + -> . *U _clcd_display_string_details 14 `i -> 1 `i `ui ]
-"611
-}
-[; ;clcd.c: 611: } else {
-[e $U 1016  ]
-[e :U 1015 ]
-{
-[; ;clcd.c: 612: if (clcd_display_string_details->string[clcd_display_string_details->length_count_for_left_scroll] != (0)) {
-"612
-[e $ ! != -> *U + &U . *U _clcd_display_string_details 1 * -> . *U _clcd_display_string_details 13 `ux -> -> # *U &U . *U _clcd_display_string_details 1 `ui `ux `i -> 0 `i 1017  ]
-{
-[; ;clcd.c: 613: strncpy(lcd_display_array[line] + clcd_display_string_details->start_col,
-[; ;clcd.c: 614: clcd_display_string_details->string + clcd_display_string_details->length_count_for_left_scroll,
-[; ;clcd.c: 615: clcd_display_string_details->display_char_count);
-"615
-[e ( _strncpy (3 , , + &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux * -> . *U _clcd_display_string_details 4 `ux -> -> # *U &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux `ui `ux -> + &U . *U _clcd_display_string_details 1 * -> . *U _clcd_display_string_details 13 `ux -> -> # *U &U . *U _clcd_display_string_details 1 `ui `ux `*Cuc -> . *U _clcd_display_string_details 10 `ui ]
-"616
-}
-[; ;clcd.c: 616: } else {
-[e $U 1018  ]
-[e :U 1017 ]
-{
-[; ;clcd.c: 617: memset(lcd_display_array[line] + clcd_display_string_details->start_col,
-[; ;clcd.c: 618: ' ', clcd_display_string_details->display_char_count);
-"618
-[e ( _memset (3 , , -> + &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux * -> . *U _clcd_display_string_details 4 `ux -> -> # *U &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux `ui `ux `*v -> -> 32 `ui `i -> . *U _clcd_display_string_details 10 `ui ]
-"619
-}
-[e :U 1018 ]
-"620
-}
+[e $U 1017  ]
+"645
 [e :U 1016 ]
-[; ;clcd.c: 619: }
-[; ;clcd.c: 620: }
-[; ;clcd.c: 622: if (clcd_display_string_details->length_count_for_left_scroll <= clcd_display_string_details->strlen)
-"622
-[e $ ! <= -> . *U _clcd_display_string_details 13 `i -> . *U _clcd_display_string_details 2 `i 1019  ]
-[; ;clcd.c: 623: {
-"623
-{
-[; ;clcd.c: 624: clcd_display_string_details->length_count_for_left_scroll++;
-"624
-[e ++ . *U _clcd_display_string_details 13 -> -> 1 `i `uc ]
-"625
-}
-[; ;clcd.c: 625: } else if (clcd_display_string_details->length_count_for_left_scroll > clcd_display_string_details->strlen)
-[e $U 1020  ]
+[; ;clcd.c: 645: else if (clcd_display_string_details->start_row == 1)
+[e $ ! == -> . *U _clcd_display_string_details 3 `i -> 1 `i 1018  ]
+[; ;clcd.c: 646: line = 1;
+"646
+[e = _line -> -> 1 `i `uc ]
+[e :U 1018 ]
+"647
+[e :U 1017 ]
+[; ;clcd.c: 647: if (clcd_display_string_details->start_row == 2)
+[e $ ! == -> . *U _clcd_display_string_details 3 `i -> 2 `i 1019  ]
+[; ;clcd.c: 648: line = 2;
+"648
+[e = _line -> -> 2 `i `uc ]
 [e :U 1019 ]
-[e $ ! > -> . *U _clcd_display_string_details 13 `i -> . *U _clcd_display_string_details 2 `i 1021  ]
-[; ;clcd.c: 626: {
-"626
+[; ;clcd.c: 649: if (clcd_display_string_details->start_row == 3)
+"649
+[e $ ! == -> . *U _clcd_display_string_details 3 `i -> 3 `i 1020  ]
+[; ;clcd.c: 650: line = 3;
+"650
+[e = _line -> -> 3 `i `uc ]
+[e :U 1020 ]
+[; ;clcd.c: 652: memset(lcd_display_array[line] + clcd_display_string_details->start_col,
+[; ;clcd.c: 653: ' ', clcd_display_string_details->display_char_count);
+"653
+[e ( _memset (3 , , -> + &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux * -> . *U _clcd_display_string_details 4 `ux -> -> # *U &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux `ui `ux `*v -> -> 32 `ui `i -> . *U _clcd_display_string_details 11 `ui ]
+[; ;clcd.c: 654: if (clcd_display_string_details->length_count_for_left_scroll > clcd_display_string_details->strlen) {
+"654
+[e $ ! > -> . *U _clcd_display_string_details 14 `i -> . *U _clcd_display_string_details 2 `i 1021  ]
 {
-[; ;clcd.c: 627: clcd_display_string_details->length_decount_for_left_scroll++;
-"627
-[e ++ . *U _clcd_display_string_details 14 -> -> 1 `i `uc ]
-[; ;clcd.c: 628: if (clcd_display_string_details->length_decount_for_left_scroll == clcd_display_string_details->display_char_count) {
-"628
-[e $ ! == -> . *U _clcd_display_string_details 14 `i -> . *U _clcd_display_string_details 10 `i 1022  ]
+[; ;clcd.c: 656: strncpy(lcd_display_array[line]+(clcd_display_string_details->end_col - clcd_display_string_details->length_decount_for_left_scroll),
+[; ;clcd.c: 657: clcd_display_string_details->string, (clcd_display_string_details->display_char_count -
+[; ;clcd.c: 658: (clcd_display_string_details->display_char_count - (clcd_display_string_details->length_decount_for_left_scroll + 1))));
+"658
+[e ( _strncpy (3 , , + &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux * -> - -> . *U _clcd_display_string_details 7 `i -> . *U _clcd_display_string_details 15 `i `x -> -> # *U &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux `i `x -> &U . *U _clcd_display_string_details 1 `*Cuc -> - -> . *U _clcd_display_string_details 11 `i - -> . *U _clcd_display_string_details 11 `i + -> . *U _clcd_display_string_details 15 `i -> 1 `i `ui ]
+"659
+}
+[; ;clcd.c: 659: } else {
+[e $U 1022  ]
+[e :U 1021 ]
 {
-[; ;clcd.c: 629: clcd_display_string_details->length_decount_for_left_scroll = 0;
-"629
-[e = . *U _clcd_display_string_details 14 -> -> 0 `i `uc ]
-[; ;clcd.c: 630: clcd_display_string_details->length_count_for_left_scroll = 0;
-"630
-[e = . *U _clcd_display_string_details 13 -> -> 0 `i `uc ]
-"632
+[; ;clcd.c: 660: if (clcd_display_string_details->string[clcd_display_string_details->length_count_for_left_scroll] != (0)) {
+"660
+[e $ ! != -> *U + &U . *U _clcd_display_string_details 1 * -> . *U _clcd_display_string_details 14 `ux -> -> # *U &U . *U _clcd_display_string_details 1 `ui `ux `i -> 0 `i 1023  ]
+{
+[; ;clcd.c: 661: strncpy(lcd_display_array[line] + clcd_display_string_details->start_col,
+[; ;clcd.c: 662: clcd_display_string_details->string + clcd_display_string_details->length_count_for_left_scroll,
+[; ;clcd.c: 663: clcd_display_string_details->display_char_count);
+"663
+[e ( _strncpy (3 , , + &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux * -> . *U _clcd_display_string_details 4 `ux -> -> # *U &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux `ui `ux -> + &U . *U _clcd_display_string_details 1 * -> . *U _clcd_display_string_details 14 `ux -> -> # *U &U . *U _clcd_display_string_details 1 `ui `ux `*Cuc -> . *U _clcd_display_string_details 11 `ui ]
+"664
+}
+[; ;clcd.c: 664: } else {
+[e $U 1024  ]
+[e :U 1023 ]
+{
+[; ;clcd.c: 665: memset(lcd_display_array[line] + clcd_display_string_details->start_col,
+[; ;clcd.c: 666: ' ', clcd_display_string_details->display_char_count);
+"666
+[e ( _memset (3 , , -> + &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux * -> . *U _clcd_display_string_details 4 `ux -> -> # *U &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux `ui `ux `*v -> -> 32 `ui `i -> . *U _clcd_display_string_details 11 `ui ]
+"667
+}
+[e :U 1024 ]
+"668
 }
 [e :U 1022 ]
-"634
+[; ;clcd.c: 667: }
+[; ;clcd.c: 668: }
+[; ;clcd.c: 670: if (clcd_display_string_details->length_count_for_left_scroll <= clcd_display_string_details->strlen)
+"670
+[e $ ! <= -> . *U _clcd_display_string_details 14 `i -> . *U _clcd_display_string_details 2 `i 1025  ]
+[; ;clcd.c: 671: {
+"671
+{
+[; ;clcd.c: 672: clcd_display_string_details->length_count_for_left_scroll++;
+"672
+[e ++ . *U _clcd_display_string_details 14 -> -> 1 `i `uc ]
+"673
 }
-[e :U 1021 ]
-"635
-[e :U 1020 ]
-[; ;clcd.c: 632: }
-[; ;clcd.c: 634: }
-[; ;clcd.c: 635: }
-[e :UE 1009 ]
+[; ;clcd.c: 673: } else if (clcd_display_string_details->length_count_for_left_scroll > clcd_display_string_details->strlen)
+[e $U 1026  ]
+[e :U 1025 ]
+[e $ ! > -> . *U _clcd_display_string_details 14 `i -> . *U _clcd_display_string_details 2 `i 1027  ]
+[; ;clcd.c: 674: {
+"674
+{
+[; ;clcd.c: 675: clcd_display_string_details->length_decount_for_left_scroll++;
+"675
+[e ++ . *U _clcd_display_string_details 15 -> -> 1 `i `uc ]
+[; ;clcd.c: 676: if (clcd_display_string_details->length_decount_for_left_scroll == clcd_display_string_details->display_char_count) {
+"676
+[e $ ! == -> . *U _clcd_display_string_details 15 `i -> . *U _clcd_display_string_details 11 `i 1028  ]
+{
+[; ;clcd.c: 677: clcd_display_string_details->length_decount_for_left_scroll = 0;
+"677
+[e = . *U _clcd_display_string_details 15 -> -> 0 `i `uc ]
+[; ;clcd.c: 678: clcd_display_string_details->length_count_for_left_scroll = 0;
+"678
+[e = . *U _clcd_display_string_details 14 -> -> 0 `i `uc ]
+"680
 }
-"637
+[e :U 1028 ]
+"682
+}
+[e :U 1027 ]
+"683
+[e :U 1026 ]
+[; ;clcd.c: 680: }
+[; ;clcd.c: 682: }
+[; ;clcd.c: 683: }
+[e :UE 1015 ]
+}
+"685
 [v _scroll_off `(v ~T0 @X0 1 sf1`*S853 ]
 {
-[; ;clcd.c: 637: static void scroll_off(CLCD_STRING_DISPLAY_DETAILS *clcd_display_string_details) {
+[; ;clcd.c: 685: static void scroll_off(CLCD_STRING_DISPLAY_DETAILS *clcd_display_string_details) {
 [e :U _scroll_off ]
 [v _clcd_display_string_details `*S853 ~T0 @X0 1 r1 ]
 [f ]
-"638
+"686
 [v _line `uc ~T0 @X0 1 a ]
-[; ;clcd.c: 638: char line = -1;
+[; ;clcd.c: 686: char line = -1;
 [e = _line -> -U -> 1 `i `uc ]
-"640
+"688
 [v _i `i ~T0 @X0 1 a ]
-[; ;clcd.c: 640: int i = 0;
+[; ;clcd.c: 688: int i = 0;
 [e = _i -> 0 `i ]
-"641
+"689
 [v _j `i ~T0 @X0 1 a ]
-[; ;clcd.c: 641: int j = 0, k = 0;
+[; ;clcd.c: 689: int j = 0, k = 0;
 [e = _j -> 0 `i ]
 [v _k `i ~T0 @X0 1 a ]
 [e = _k -> 0 `i ]
-"642
+"690
 [v _display_char_count `uc ~T0 @X0 1 a ]
-[; ;clcd.c: 642: char display_char_count = clcd_display_string_details->end_point - clcd_display_string_details->start_point;
-[e = _display_char_count -> - -> . *U _clcd_display_string_details 8 `i -> . *U _clcd_display_string_details 5 `i `uc ]
-"643
+[; ;clcd.c: 690: char display_char_count = clcd_display_string_details->display_char_count;
+[e = _display_char_count . *U _clcd_display_string_details 11 ]
+"691
 [v _str_len `uc ~T0 @X0 1 a ]
-[; ;clcd.c: 643: char str_len = strlen(clcd_display_string_details->string);
+[; ;clcd.c: 691: char str_len = strlen(clcd_display_string_details->string);
 [e = _str_len -> ( _strlen (1 -> &U . *U _clcd_display_string_details 1 `*Cuc `uc ]
-[; ;clcd.c: 644: line = clcd_display_string_details->start_row;
-"644
+[; ;clcd.c: 692: line = clcd_display_string_details->start_row;
+"692
 [e = _line . *U _clcd_display_string_details 3 ]
-[; ;clcd.c: 645: j = clcd_display_string_details->start_col;
-"645
+[; ;clcd.c: 693: j = clcd_display_string_details->start_col;
+"693
 [e = _j -> . *U _clcd_display_string_details 4 `i ]
-[; ;clcd.c: 646: for (i = 0; i < str_len;) {
-"646
+[; ;clcd.c: 694: for (i = 0; i < str_len;) {
+"694
 {
 [e = _i -> 0 `i ]
-[e $U 1027  ]
-[e :U 1024 ]
+[e $U 1033  ]
+[e :U 1030 ]
 {
-[; ;clcd.c: 647: for (j; j < clcd_config_data.clcd_max_col; j++) {
-"647
+[; ;clcd.c: 695: for (j; j < clcd_config_data.clcd_max_col; j++) {
+"695
 {
 [e _j ]
-[e $U 1031  ]
-[e :U 1028 ]
-{
-[; ;clcd.c: 648: lcd_display_array[line][j] = clcd_display_string_details->string[i++];
-"648
-[e = *U + &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux `ui `ux *U + &U . *U _clcd_display_string_details 1 * -> -> ++ _i -> 1 `i `ui `ux -> -> # *U &U . *U _clcd_display_string_details 1 `ui `ux ]
-[; ;clcd.c: 649: if (i >= str_len)break;
-"649
-[e $ ! >= _i -> _str_len `i 1032  ]
-[e $U 1029  ]
-[e :U 1032 ]
-[; ;clcd.c: 650: if (i >= display_char_count)break;
-"650
-[e $ ! >= _i -> _display_char_count `i 1033  ]
-[e $U 1029  ]
-[e :U 1033 ]
-"651
-}
-"647
-[e ++ _j -> 1 `i ]
-[e :U 1031 ]
-[e $ < _j -> . _clcd_config_data 2 `i 1028  ]
-[e :U 1029 ]
-"651
-}
-[; ;clcd.c: 651: }
-[; ;clcd.c: 653: j = 0;
-"653
-[e = _j -> 0 `i ]
-[; ;clcd.c: 654: line++;
-"654
-[e ++ _line -> -> 1 `i `uc ]
-[; ;clcd.c: 655: if (i >= display_char_count)break;
-"655
-[e $ ! >= _i -> _display_char_count `i 1034  ]
-[e $U 1025  ]
+[e $U 1037  ]
 [e :U 1034 ]
-"656
+{
+[; ;clcd.c: 696: lcd_display_array[line][j] = clcd_display_string_details->string[i++];
+"696
+[e = *U + &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _lcd_display_array * -> _line `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux `ui `ux *U + &U . *U _clcd_display_string_details 1 * -> -> ++ _i -> 1 `i `ui `ux -> -> # *U &U . *U _clcd_display_string_details 1 `ui `ux ]
+[; ;clcd.c: 697: if (i >= str_len)break;
+"697
+[e $ ! >= _i -> _str_len `i 1038  ]
+[e $U 1035  ]
+[e :U 1038 ]
+[; ;clcd.c: 698: if (i >= display_char_count)break;
+"698
+[e $ ! >= _i -> _display_char_count `i 1039  ]
+[e $U 1035  ]
+[e :U 1039 ]
+"699
 }
-"646
-[e :U 1027 ]
-[e $ < _i -> _str_len `i 1024  ]
-[e :U 1025 ]
-"656
+"695
+[e ++ _j -> 1 `i ]
+[e :U 1037 ]
+[e $ < _j -> . _clcd_config_data 2 `i 1034  ]
+[e :U 1035 ]
+"699
 }
-[; ;clcd.c: 656: }
-[; ;clcd.c: 657: }
-"657
-[e :UE 1023 ]
+[; ;clcd.c: 699: }
+[; ;clcd.c: 701: j = 0;
+"701
+[e = _j -> 0 `i ]
+[; ;clcd.c: 702: line++;
+"702
+[e ++ _line -> -> 1 `i `uc ]
+[; ;clcd.c: 703: if (i >= display_char_count)break;
+"703
+[e $ ! >= _i -> _display_char_count `i 1040  ]
+[e $U 1031  ]
+[e :U 1040 ]
+"704
 }
-"708
+"694
+[e :U 1033 ]
+[e $ < _i -> _str_len `i 1030  ]
+[e :U 1031 ]
+"704
+}
+[; ;clcd.c: 704: }
+[; ;clcd.c: 705: }
+"705
+[e :UE 1029 ]
+}
+"756
 [v _make_display `(v ~T0 @X0 1 ef ]
 {
-[; ;clcd.c: 708: void make_display() {
+[; ;clcd.c: 756: void make_display() {
 [e :U _make_display ]
 [f ]
-"709
+"757
 [v _count `i ~T0 @X0 1 a ]
-[; ;clcd.c: 709: int count = 0;
+[; ;clcd.c: 757: int count = 0;
 [e = _count -> 0 `i ]
-[; ;clcd.c: 710: for (count = 0; count < clcd_config_data.clcd_max_display_string; count++) {
-"710
+[; ;clcd.c: 758: memset(lcd_display_array, ' ', sizeof (lcd_display_array));
+"758
+[e ( _memset (3 , , -> &U _lcd_display_array `*v -> -> 32 `ui `i -> # _lcd_display_array `ui ]
+[; ;clcd.c: 759: for (count = 0; count < clcd_config_data.clcd_max_display_string; count++) {
+"759
 {
 [e = _count -> 0 `i ]
-[e $U 1039  ]
-[e :U 1036 ]
-{
-[; ;clcd.c: 711: if (strlen(clcd_display_string_details[count].string) != 0 && clcd_display_string_details[count].direction == 2) {
-"711
-[e $ ! && != ( _strlen (1 -> &U . *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 1 `*Cuc -> -> 0 `i `ui == -> . *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 9 `i -> 2 `i 1040  ]
-{
-[; ;clcd.c: 712: scroll_left_to_right(&clcd_display_string_details[count]);
-"712
-[e ( _scroll_left_to_right (1 &U *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux ]
-"713
-}
-[; ;clcd.c: 713: } else if (strlen(clcd_display_string_details[count].string) != 0 && clcd_display_string_details[count].direction == 1) {
-[e $U 1041  ]
-[e :U 1040 ]
-[e $ ! && != ( _strlen (1 -> &U . *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 1 `*Cuc -> -> 0 `i `ui == -> . *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 9 `i -> 1 `i 1042  ]
-{
-[; ;clcd.c: 714: scroll_right_to_left(&clcd_display_string_details[count]);
-"714
-[e ( _scroll_right_to_left (1 &U *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux ]
-"715
-}
-[; ;clcd.c: 715: } else if (strlen(clcd_display_string_details[count].string) != 0 && clcd_display_string_details[count].direction == 0) {
-[e $U 1043  ]
+[e $U 1045  ]
 [e :U 1042 ]
-[e $ ! && != ( _strlen (1 -> &U . *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 1 `*Cuc -> -> 0 `i `ui == -> . *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 9 `i -> 0 `i 1044  ]
 {
-[; ;clcd.c: 716: scroll_off(&clcd_display_string_details[count]);
-"716
+[; ;clcd.c: 760: if (strlen(clcd_display_string_details[count].string) != 0 && clcd_display_string_details[count].direction == 2) {
+"760
+[e $ ! && != ( _strlen (1 -> &U . *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 1 `*Cuc -> -> 0 `i `ui == -> . *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 9 `i -> 2 `i 1046  ]
+{
+[; ;clcd.c: 761: if (clcd_display_string_details[count].display_interval_count == clcd_display_string_details[count].display_interval) {
+"761
+[e $ ! == -> . *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 16 `i -> . *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 10 `i 1047  ]
+{
+[; ;clcd.c: 762: scroll_left_to_right(&clcd_display_string_details[count]);
+"762
+[e ( _scroll_left_to_right (1 &U *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux ]
+[; ;clcd.c: 763: clcd_display_string_details[count].display_interval_count = 0;
+"763
+[e = . *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 16 -> -> 0 `i `uc ]
+"764
+}
+[; ;clcd.c: 764: } else {
+[e $U 1048  ]
+[e :U 1047 ]
+{
+[; ;clcd.c: 765: clcd_display_string_details[count].display_interval_count++;
+"765
+[e ++ . *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 16 -> -> 1 `i `uc ]
+"766
+}
+[e :U 1048 ]
+"767
+}
+[; ;clcd.c: 766: }
+[; ;clcd.c: 767: } else if (strlen(clcd_display_string_details[count].string) != 0 && clcd_display_string_details[count].direction == 1) {
+[e $U 1049  ]
+[e :U 1046 ]
+[e $ ! && != ( _strlen (1 -> &U . *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 1 `*Cuc -> -> 0 `i `ui == -> . *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 9 `i -> 1 `i 1050  ]
+{
+[; ;clcd.c: 768: if (clcd_display_string_details[count].display_interval_count == clcd_display_string_details[count].display_interval) {
+"768
+[e $ ! == -> . *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 16 `i -> . *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 10 `i 1051  ]
+{
+[; ;clcd.c: 769: scroll_right_to_left(&clcd_display_string_details[count]);
+"769
+[e ( _scroll_right_to_left (1 &U *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux ]
+[; ;clcd.c: 770: clcd_display_string_details[count].display_interval_count = 0;
+"770
+[e = . *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 16 -> -> 0 `i `uc ]
+"771
+}
+[; ;clcd.c: 771: } else {
+[e $U 1052  ]
+[e :U 1051 ]
+{
+[; ;clcd.c: 772: clcd_display_string_details[count].display_interval_count++;
+"772
+[e ++ . *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 16 -> -> 1 `i `uc ]
+"773
+}
+[e :U 1052 ]
+"774
+}
+[; ;clcd.c: 773: }
+[; ;clcd.c: 774: } else if (strlen(clcd_display_string_details[count].string) != 0 && clcd_display_string_details[count].direction == 0) {
+[e $U 1053  ]
+[e :U 1050 ]
+[e $ ! && != ( _strlen (1 -> &U . *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 1 `*Cuc -> -> 0 `i `ui == -> . *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 9 `i -> 0 `i 1054  ]
+{
+[; ;clcd.c: 775: if (clcd_display_string_details[count].display_interval_count == clcd_display_string_details[count].display_interval) {
+"775
+[e $ ! == -> . *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 16 `i -> . *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 10 `i 1055  ]
+{
+[; ;clcd.c: 776: scroll_off(&clcd_display_string_details[count]);
+"776
 [e ( _scroll_off (1 &U *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux ]
-"717
+[; ;clcd.c: 777: clcd_display_string_details[count].display_interval_count = 0;
+"777
+[e = . *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 16 -> -> 0 `i `uc ]
+"778
 }
-[e :U 1044 ]
-"718
-[e :U 1043 ]
-[e :U 1041 ]
+[; ;clcd.c: 778: } else {
+[e $U 1056  ]
+[e :U 1055 ]
+{
+[; ;clcd.c: 779: clcd_display_string_details[count].display_interval_count++;
+"779
+[e ++ . *U + &U _clcd_display_string_details * -> -> _count `ui `ux -> -> # *U &U _clcd_display_string_details `ui `ux 16 -> -> 1 `i `uc ]
+"780
 }
-"710
+[e :U 1056 ]
+"781
+}
+[e :U 1054 ]
+"782
+[e :U 1053 ]
+[e :U 1049 ]
+}
+"759
 [e ++ _count -> 1 `i ]
-[e :U 1039 ]
-[e $ < _count -> . _clcd_config_data 4 `i 1036  ]
-[e :U 1037 ]
-"718
+[e :U 1045 ]
+[e $ < _count -> . _clcd_config_data 4 `i 1042  ]
+[e :U 1043 ]
+"782
 }
-[; ;clcd.c: 717: }
-[; ;clcd.c: 718: }
-[; ;clcd.c: 719: print_data_ready = 1;
-"719
+[; ;clcd.c: 780: }
+[; ;clcd.c: 781: }
+[; ;clcd.c: 782: }
+[; ;clcd.c: 783: print_data_ready = 1;
+"783
 [e = _print_data_ready -> 1 `i ]
-[; ;clcd.c: 720: display_text();
-"720
+[; ;clcd.c: 784: display_text();
+"784
 [e ( _display_text ..  ]
-[; ;clcd.c: 721: }
-"721
-[e :UE 1035 ]
+[; ;clcd.c: 785: }
+"785
+[e :UE 1041 ]
 }
-"723
+"787
 [v _display_text `(v ~T0 @X0 1 ef ]
 {
-[; ;clcd.c: 723: void display_text() {
+[; ;clcd.c: 787: void display_text() {
 [e :U _display_text ]
 [f ]
-[; ;clcd.c: 724: if (print_data_ready == 1) {
-"724
-[e $ ! == _print_data_ready -> 1 `i 1046  ]
+[; ;clcd.c: 788: if (print_data_ready == 1) {
+"788
+[e $ ! == _print_data_ready -> 1 `i 1058  ]
 {
-[; ;clcd.c: 725: write_lcd_cmd(0x01);;
-"725
-[e ( _write_lcd_cmd (1 -> -> 1 `i `uc ]
-[; ;clcd.c: 726: char_enter_mode_left_to_right();
-"726
+[; ;clcd.c: 790: char_enter_mode_left_to_right();
+"790
 [e ( _char_enter_mode_left_to_right ..  ]
-[; ;clcd.c: 727: set_cursor(0x80, 0);
-"727
+[; ;clcd.c: 791: set_cursor(0x80, 0);
+"791
 [e ( _set_cursor (2 , -> -> 128 `i `uc -> -> 0 `i `uc ]
-[; ;clcd.c: 728: write_str(lcd_display_array[0]);
-"728
+[; ;clcd.c: 792: write_str(lcd_display_array[0]);
+"792
 [e ( _write_str (1 -> &U *U + &U _lcd_display_array * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux `*Cuc ]
-[; ;clcd.c: 729: set_cursor(0xC0, 0);
-"729
+[; ;clcd.c: 793: set_cursor(0xC0, 0);
+"793
 [e ( _set_cursor (2 , -> -> 192 `i `uc -> -> 0 `i `uc ]
-[; ;clcd.c: 730: write_str(lcd_display_array[1]);
-"730
+[; ;clcd.c: 794: write_str(lcd_display_array[1]);
+"794
 [e ( _write_str (1 -> &U *U + &U _lcd_display_array * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux `*Cuc ]
-[; ;clcd.c: 731: set_cursor(0x94, 0);
-"731
+[; ;clcd.c: 795: set_cursor(0x94, 0);
+"795
 [e ( _set_cursor (2 , -> -> 148 `i `uc -> -> 0 `i `uc ]
-[; ;clcd.c: 732: write_str(lcd_display_array[2]);
-"732
+[; ;clcd.c: 796: write_str(lcd_display_array[2]);
+"796
 [e ( _write_str (1 -> &U *U + &U _lcd_display_array * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux `*Cuc ]
-[; ;clcd.c: 733: set_cursor(0xD4, 0);
-"733
+[; ;clcd.c: 797: set_cursor(0xD4, 0);
+"797
 [e ( _set_cursor (2 , -> -> 212 `i `uc -> -> 0 `i `uc ]
-[; ;clcd.c: 734: write_str(lcd_display_array[3]);
-"734
+[; ;clcd.c: 798: write_str(lcd_display_array[3]);
+"798
 [e ( _write_str (1 -> &U *U + &U _lcd_display_array * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _lcd_display_array `ui -> -> 20 `i `ui `ux `*Cuc ]
-[; ;clcd.c: 735: print_data_ready = 0;
-"735
+[; ;clcd.c: 799: print_data_ready = 0;
+"799
 [e = _print_data_ready -> 0 `i ]
-"736
+"800
 }
-[; ;clcd.c: 736: } else {
-[e $U 1047  ]
-[e :U 1046 ]
+[; ;clcd.c: 800: } else {
+[e $U 1059  ]
+[e :U 1058 ]
 {
-[; ;clcd.c: 737: print_data_ready = 0;
-"737
+[; ;clcd.c: 801: print_data_ready = 0;
+"801
 [e = _print_data_ready -> 0 `i ]
-"738
+"802
 }
-[e :U 1047 ]
-[; ;clcd.c: 738: }
-[; ;clcd.c: 739: }
-"739
-[e :UE 1045 ]
+[e :U 1059 ]
+[; ;clcd.c: 802: }
+[; ;clcd.c: 803: }
+"803
+[e :UE 1057 ]
 }
+[p f _sprintf 8388736 ]
 [p f _printf 9175168 ]
 [a 1C 114 111 119 32 61 32 37 100 0 ]
 [a 3C 115 116 114 105 110 103 95 99 111 117 110 116 32 61 32 37 100 0 ]
 [a 2C 99 111 108 32 61 32 37 100 0 ]
 [a 5C 52 44 50 48 0 ]
-[a 13C 37 100 44 32 0 ]
-[a 19C 37 99 44 32 0 ]
+[a 15C 37 100 44 32 0 ]
+[a 16C 37 100 44 32 0 ]
+[a 22C 37 99 44 32 0 ]
+[a 11C 100 105 115 112 108 97 121 95 100 97 116 97 32 61 32 37 115 13 10 0 ]
 [a 7C 101 120 95 115 112 32 60 61 32 110 101 119 95 115 112 32 60 61 101 120 95 101 112 13 10 0 ]
 [a 9C 101 120 95 115 112 32 60 61 32 110 101 119 95 115 112 32 60 61 101 120 95 101 112 13 10 0 ]
 [a 8C 101 120 95 115 112 32 60 61 32 110 101 119 95 101 112 32 60 61 101 120 95 101 112 13 10 0 ]
 [a 10C 101 120 95 115 112 32 60 61 32 110 101 119 95 101 112 32 60 61 101 120 95 101 112 13 10 0 ]
-[a 18C 99 111 110 102 108 105 99 116 58 32 117 105 100 13 10 0 ]
-[a 22C 37 115 44 32 115 116 114 108 101 110 32 37 100 13 10 0 ]
-[a 14C 85 73 68 32 61 32 37 100 44 32 115 116 97 114 116 95 112 116 32 61 32 37 100 44 32 101 110 100 95 112 116 32 61 32 37 100 13 10 0 ]
-[a 17C 85 73 68 32 61 32 37 99 44 32 115 116 97 114 116 95 112 116 32 61 32 37 100 44 32 101 110 100 95 112 116 32 61 32 37 100 13 10 0 ]
+[a 21C 99 111 110 102 108 105 99 116 58 32 117 105 100 13 10 0 ]
+[a 25C 37 115 44 32 115 116 114 108 101 110 32 37 100 13 10 0 ]
+[a 17C 85 73 68 32 61 32 37 100 44 32 115 116 97 114 116 95 112 116 32 61 32 37 100 44 32 101 110 100 95 112 116 32 61 32 37 100 13 10 0 ]
+[a 20C 85 73 68 32 61 32 37 99 44 32 115 116 97 114 116 95 112 116 32 61 32 37 100 44 32 101 110 100 95 112 116 32 61 32 37 100 13 10 0 ]
 [a 6C 100 105 115 112 108 97 121 95 99 104 97 114 95 99 111 117 110 116 32 61 32 37 100 13 10 0 ]
-[a 11C 100 105 115 112 108 97 121 95 99 104 97 114 95 99 111 117 110 116 32 61 32 37 100 13 10 0 ]
-[a 23C 109 105 100 95 99 104 97 114 32 61 32 37 100 13 10 0 ]
+[a 12C 100 105 115 112 108 97 121 95 99 104 97 114 95 99 111 117 110 116 32 61 32 37 100 13 10 0 ]
+[a 26C 109 105 100 95 99 104 97 114 32 61 32 37 100 13 10 0 ]
 [a 4C 117 105 100 95 114 97 110 103 101 32 61 32 37 100 13 10 0 ]
-[a 21C 115 105 122 101 111 102 40 115 116 114 41 32 61 32 37 100 13 10 0 ]
-[a 12C 37 100 13 10 0 ]
-[a 15C 99 111 110 102 108 105 99 116 46 46 46 50 13 10 0 ]
-[a 16C 37 100 46 46 106 61 37 100 44 99 111 110 102 108 105 99 116 95 99 111 117 110 116 61 37 100 32 13 10 0 ]
-[a 20C 13 10 0 ]
+[a 24C 115 105 122 101 111 102 40 115 116 114 41 32 61 32 37 100 13 10 0 ]
+[a 13C 37 100 13 10 0 ]
+[a 14C 37 100 13 10 0 ]
+[a 18C 99 111 110 102 108 105 99 116 46 46 46 50 13 10 0 ]
+[a 19C 37 100 46 46 106 61 37 100 44 99 111 110 102 108 105 99 116 95 99 111 117 110 116 61 37 100 32 13 10 0 ]
+[a 23C 13 10 0 ]

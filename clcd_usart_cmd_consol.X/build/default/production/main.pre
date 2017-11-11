@@ -8692,10 +8692,10 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 260 "mcc_generated_files/pin_manager.h"
+# 270 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
 
-# 272
+# 282
 void PIN_MANAGER_IOC(void);
 
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.40\include\stdbool.h"
@@ -8706,6 +8706,35 @@ void interrupt INTERRUPT_InterruptManager(void);
 
 # 122
 void INTERRUPT_Initialize (void);
+
+# 76 "mcc_generated_files/eusart1.h"
+extern volatile uint8_t eusart1TxBufferRemaining;
+extern volatile uint8_t eusart1RxCount;
+
+# 105
+void EUSART1_Initialize(void);
+
+# 154
+uint8_t EUSART1_Read(void);
+
+# 179
+void EUSART1_Write(uint8_t txData);
+
+# 200
+void EUSART1_Transmit_ISR(void);
+
+# 221
+void EUSART1_Receive_ISR(void);
+void put_string_usart1(char *str);
+
+# 95 "mcc_generated_files/eusart2.h"
+void EUSART2_Initialize(void);
+
+# 115
+uint8_t EUSART2_Read(void);
+
+# 135
+void EUSART2_Write(uint8_t txData);
 
 # 93 "mcc_generated_files/tmr1.h"
 void TMR1_Initialize(void);
@@ -8733,25 +8762,6 @@ uint8_t TMR1_CheckGateValueStatus(void);
 
 # 366
 bool TMR1_HasOverflowOccured(void);
-
-# 77 "mcc_generated_files/eusart1.h"
-extern volatile uint8_t eusart1TxBufferRemaining;
-extern volatile uint8_t eusart1RxCount;
-
-# 106
-void EUSART1_Initialize(void);
-
-# 155
-uint8_t EUSART1_Read(void);
-
-# 180
-void EUSART1_Write(uint8_t txData);
-
-# 201
-void EUSART1_Transmit_ISR(void);
-
-# 222
-void EUSART1_Receive_ISR(void);
 
 # 105 "mcc_generated_files/tmr0.h"
 void TMR0_Initialize(void);
@@ -8813,10 +8823,10 @@ uint8_t TMR5_CheckGateValueStatus(void);
 # 366
 bool TMR5_HasOverflowOccured(void);
 
-# 72 "mcc_generated_files/mcc.h"
+# 73 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
 
-# 85
+# 86
 void OSCILLATOR_Initialize(void);
 
 # 17 "delay.h"
@@ -8829,7 +8839,8 @@ void delay(int delay);
 # 6 "C:\Program Files (x86)\Microchip\xc8\v1.40\include\stddef.h"
 typedef int ptrdiff_t;
 
-# 84 "cmd_consol.h"
+# 88 "cmd_consol.h"
+char out_str[100];
 char uart_str[150] = {0};
 char str_data[40] = {0};
 char CMD[15] = {0};
@@ -8863,7 +8874,7 @@ char over_write;
 CMD_CONSOL_STATE cmd_consol_state;
 extern CMD_CONSOL_DATA cmd_data;
 void console_init();
-void cmd_consol_task();
+bool cmd_consol_task();
 
 # 28 "clcd.h"
 char LCD_16x2_DISPLAY;
@@ -8883,7 +8894,7 @@ extern CLCD_CONFIG_DATA clcd_config_data;
 void init_CLCD_config(void);
 void init_clcd_cusotom_lcd(char clcd_init_row, char clcd_init_col);
 
-# 153
+# 155
 typedef struct {
 unsigned int uid;
 unsigned char string[40];
@@ -8895,12 +8906,14 @@ unsigned char end_row : 7;
 unsigned char end_col : 7;
 unsigned char end_point : 7;
 unsigned char direction : 3;
+unsigned char display_interval : 7;
 unsigned char display_char_count;
 
 unsigned char length_count_for_right_scroll : 7;
 unsigned char length_decount_for_right_scroll : 7;
 unsigned char length_count_for_left_scroll : 7;
 unsigned char length_decount_for_left_scroll : 7;
+unsigned char display_interval_count : 7;
 
 } CLCD_STRING_DISPLAY_DETAILS;
 
@@ -8962,15 +8975,22 @@ char update_string_data(CMD_CONSOL_DATA *data);
 unsigned char set_string_data(CMD_CONSOL_DATA *data);
 void print_conflict_ids();
 
-# 54 "main.c"
-void heart_beat()
-{
+# 25 "main.h"
+typedef enum {
+CMD_CONSOLE_STATE,
+MAKE_DISPLAY_STATE,
+DISPLAY_STATE,
+} MAIN_STATE;
+MAIN_STATE main_state;
+
+# 47 "main.c"
+void heart_beat() {
 do { LATEbits.LATE2 = ~LATEbits.LATE2; } while(0);
 }
 bool display = 0;
-void make_array()
-{
-static char i=0;
+
+void make_array() {
+static char i = 0;
 heart_beat();
 
 
@@ -8979,14 +8999,12 @@ display = 1;
 
 }
 
-void display_screen()
-{
+void display_screen() {
 display_text();
 }
 
-# 77
-void main(void)
-{
+# 69
+void main(void) {
 
 SYSTEM_Initialize();
 TMR5_StopTimer();
@@ -8995,10 +9013,10 @@ TMR0_StopTimer();
 
 TMR0_SetInterruptHandler(make_array);
 
-# 105
+# 96
 (INTCONbits.GIE = 1);
 
-# 111
+# 102
 (INTCONbits.PEIE = 1);
 
 
@@ -9008,15 +9026,43 @@ _delay_MS(1000);
 
 printf("Init_complete..\r\n");
 
-# 133
+# 124
 TMR0_StartTimer();
 
 
-while (1)
-{
+while (1) {
 
-cmd_consol_task();
-if(display == 1){make_display();display = 0;}
+
+bool res = cmd_consol_task();
+if (res == 1){
+
+main_state = MAKE_DISPLAY_STATE;
+}
+switch (main_state) {
+
+# 143
+case MAKE_DISPLAY_STATE:
+{
+make_display();
+main_state = DISPLAY_STATE;
+break;
+}
+case DISPLAY_STATE:
+{
+if (display == 1) {
+display_text();
+display = 0;
+main_state = MAKE_DISPLAY_STATE;
+}
+break;
+}
+default:
+{
+break;
+}
+}
+
+# 169
 }
 }
 
